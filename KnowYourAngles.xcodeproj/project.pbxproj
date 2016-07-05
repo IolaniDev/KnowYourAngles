@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		840180C51D2C4B4900CB794B /* ATKMathWidget.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 840180C41D2C4B4900CB794B /* ATKMathWidget.bundle */; };
+		840180C71D2C4B6900CB794B /* resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 840180C61D2C4B6900CB794B /* resources.bundle */; };
+		840180C81D2C526F00CB794B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8429E1491D2C494300920987 /* SystemConfiguration.framework */; };
+		840180CC1D2C6CFD00CB794B /* org.iolani.KnowYourAngles.c in Sources */ = {isa = PBXBuildFile; fileRef = 840180CB1D2C6CFD00CB794B /* org.iolani.KnowYourAngles.c */; };
 		8429E1191D2C481500920987 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429E1181D2C481500920987 /* AppDelegate.swift */; };
 		8429E11B1D2C481500920987 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429E11A1D2C481500920987 /* ViewController.swift */; };
 		8429E11E1D2C481500920987 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8429E11C1D2C481500920987 /* Main.storyboard */; };
@@ -14,7 +18,9 @@
 		8429E1231D2C481500920987 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8429E1211D2C481500920987 /* LaunchScreen.storyboard */; };
 		8429E12E1D2C481500920987 /* KnowYourAnglesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429E12D1D2C481500920987 /* KnowYourAnglesTests.swift */; };
 		8429E1391D2C481600920987 /* KnowYourAnglesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429E1381D2C481600920987 /* KnowYourAnglesUITests.swift */; };
-		8429E1481D2C484E00920987 /* KnowYourAngles.c in Sources */ = {isa = PBXBuildFile; fileRef = 8429E1471D2C484E00920987 /* KnowYourAngles.c */; };
+		8429E14C1D2C495E00920987 /* ATKMathWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8429E14B1D2C495E00920987 /* ATKMathWidget.framework */; };
+		8429E14E1D2C497000920987 /* ATKMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8429E14D1D2C497000920987 /* ATKMath.framework */; };
+		8429E1501D2C498100920987 /* ATKCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8429E14F1D2C498100920987 /* ATKCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +41,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		840180C41D2C4B4900CB794B /* ATKMathWidget.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = ATKMathWidget.bundle; path = "../MyScript_ATK-ios-2/Frameworks/ATKMathWidget.bundle"; sourceTree = "<group>"; };
+		840180C61D2C4B6900CB794B /* resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = resources.bundle; path = "../MyScript_ATK-ios-2/Samples/MathWidgetSample/MathWidgetSample/Resources/resources.bundle"; sourceTree = "<group>"; };
+		840180CA1D2C562400CB794B /* MyCertificate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCertificate.h; sourceTree = "<group>"; };
+		840180CB1D2C6CFD00CB794B /* org.iolani.KnowYourAngles.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = org.iolani.KnowYourAngles.c; sourceTree = "<group>"; };
 		8429E1151D2C481500920987 /* KnowYourAngles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnowYourAngles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8429E1181D2C481500920987 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8429E11A1D2C481500920987 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,7 +59,10 @@
 		8429E1381D2C481600920987 /* KnowYourAnglesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnowYourAnglesUITests.swift; sourceTree = "<group>"; };
 		8429E13A1D2C481600920987 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8429E1461D2C484E00920987 /* KnowYourAngles-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KnowYourAngles-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
-		8429E1471D2C484E00920987 /* KnowYourAngles.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KnowYourAngles.c; sourceTree = "<group>"; };
+		8429E1491D2C494300920987 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		8429E14B1D2C495E00920987 /* ATKMathWidget.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ATKMathWidget.framework; path = "../MyScript_ATK-ios-2/Frameworks/ATKMathWidget.framework"; sourceTree = "<group>"; };
+		8429E14D1D2C497000920987 /* ATKMath.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ATKMath.framework; path = "../MyScript_ATK-ios-2/Frameworks/ATKMath.framework"; sourceTree = "<group>"; };
+		8429E14F1D2C498100920987 /* ATKCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ATKCore.framework; path = "../MyScript_ATK-ios-2/Frameworks/ATKCore.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +70,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				840180C81D2C526F00CB794B /* SystemConfiguration.framework in Frameworks */,
+				8429E14C1D2C495E00920987 /* ATKMathWidget.framework in Frameworks */,
+				8429E14E1D2C497000920987 /* ATKMath.framework in Frameworks */,
+				8429E1501D2C498100920987 /* ATKCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +97,12 @@
 		8429E10C1D2C481500920987 = {
 			isa = PBXGroup;
 			children = (
+				840180C61D2C4B6900CB794B /* resources.bundle */,
+				840180C41D2C4B4900CB794B /* ATKMathWidget.bundle */,
+				8429E14F1D2C498100920987 /* ATKCore.framework */,
+				8429E14D1D2C497000920987 /* ATKMath.framework */,
+				8429E14B1D2C495E00920987 /* ATKMathWidget.framework */,
+				8429E1491D2C494300920987 /* SystemConfiguration.framework */,
 				8429E1171D2C481500920987 /* KnowYourAngles */,
 				8429E12C1D2C481500920987 /* KnowYourAnglesTests */,
 				8429E1371D2C481600920987 /* KnowYourAnglesUITests */,
@@ -100,8 +123,9 @@
 		8429E1171D2C481500920987 /* KnowYourAngles */ = {
 			isa = PBXGroup;
 			children = (
+				840180CB1D2C6CFD00CB794B /* org.iolani.KnowYourAngles.c */,
+				840180CA1D2C562400CB794B /* MyCertificate.h */,
 				8429E1461D2C484E00920987 /* KnowYourAngles-Bridging-Header.h */,
-				8429E1471D2C484E00920987 /* KnowYourAngles.c */,
 				8429E1181D2C481500920987 /* AppDelegate.swift */,
 				8429E11A1D2C481500920987 /* ViewController.swift */,
 				8429E11C1D2C481500920987 /* Main.storyboard */,
@@ -198,6 +222,7 @@
 				TargetAttributes = {
 					8429E1141D2C481500920987 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = JP7JGNH77T;
 					};
 					8429E1281D2C481500920987 = {
 						CreatedOnToolsVersion = 7.2;
@@ -234,6 +259,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				840180C71D2C4B6900CB794B /* resources.bundle in Resources */,
+				840180C51D2C4B4900CB794B /* ATKMathWidget.bundle in Resources */,
 				8429E1231D2C481500920987 /* LaunchScreen.storyboard in Resources */,
 				8429E1201D2C481500920987 /* Assets.xcassets in Resources */,
 				8429E11E1D2C481500920987 /* Main.storyboard in Resources */,
@@ -261,9 +288,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				840180CC1D2C6CFD00CB794B /* org.iolani.KnowYourAngles.c in Sources */,
 				8429E11B1D2C481500920987 /* ViewController.swift in Sources */,
 				8429E1191D2C481500920987 /* AppDelegate.swift in Sources */,
-				8429E1481D2C484E00920987 /* KnowYourAngles.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,10 +433,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = "/Users/admin/Documents/MyScript_ATK-ios-2/Frameworks";
 				INFOPLIST_FILE = KnowYourAngles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MACH_O_TYPE = mh_execute;
+				OTHER_LDFLAGS = (
+					"-lstdc++",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.iolani.KnowYourAngles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "KnowYourAngles-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -420,10 +456,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = "/Users/admin/Documents/MyScript_ATK-ios-2/Frameworks";
 				INFOPLIST_FILE = KnowYourAngles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MACH_O_TYPE = mh_execute;
+				OTHER_LDFLAGS = (
+					"-lstdc++",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.iolani.KnowYourAngles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "KnowYourAngles-Bridging-Header.h";
 			};
 			name = Release;
@@ -495,6 +540,7 @@
 				8429E13F1D2C481600920987 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8429E1401D2C481600920987 /* Build configuration list for PBXNativeTarget "KnowYourAnglesTests" */ = {
 			isa = XCConfigurationList;
@@ -503,6 +549,7 @@
 				8429E1421D2C481600920987 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8429E1431D2C481600920987 /* Build configuration list for PBXNativeTarget "KnowYourAnglesUITests" */ = {
 			isa = XCConfigurationList;
@@ -511,6 +558,7 @@
 				8429E1451D2C481600920987 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
