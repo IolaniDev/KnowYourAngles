@@ -14,6 +14,7 @@
 		8429E1231D2C481500920987 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8429E1211D2C481500920987 /* LaunchScreen.storyboard */; };
 		8429E12E1D2C481500920987 /* KnowYourAnglesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429E12D1D2C481500920987 /* KnowYourAnglesTests.swift */; };
 		8429E1391D2C481600920987 /* KnowYourAnglesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429E1381D2C481600920987 /* KnowYourAnglesUITests.swift */; };
+		8429E1481D2C484E00920987 /* KnowYourAngles.c in Sources */ = {isa = PBXBuildFile; fileRef = 8429E1471D2C484E00920987 /* KnowYourAngles.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,8 @@
 		8429E1341D2C481600920987 /* KnowYourAnglesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KnowYourAnglesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8429E1381D2C481600920987 /* KnowYourAnglesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnowYourAnglesUITests.swift; sourceTree = "<group>"; };
 		8429E13A1D2C481600920987 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8429E1461D2C484E00920987 /* KnowYourAngles-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KnowYourAngles-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		8429E1471D2C484E00920987 /* KnowYourAngles.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = KnowYourAngles.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +100,8 @@
 		8429E1171D2C481500920987 /* KnowYourAngles */ = {
 			isa = PBXGroup;
 			children = (
+				8429E1461D2C484E00920987 /* KnowYourAngles-Bridging-Header.h */,
+				8429E1471D2C484E00920987 /* KnowYourAngles.c */,
 				8429E1181D2C481500920987 /* AppDelegate.swift */,
 				8429E11A1D2C481500920987 /* ViewController.swift */,
 				8429E11C1D2C481500920987 /* Main.storyboard */,
@@ -258,6 +263,7 @@
 			files = (
 				8429E11B1D2C481500920987 /* ViewController.swift in Sources */,
 				8429E1191D2C481500920987 /* AppDelegate.swift in Sources */,
+				8429E1481D2C484E00920987 /* KnowYourAngles.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,10 +405,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = KnowYourAngles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.iolani.KnowYourAngles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "KnowYourAngles-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -410,10 +419,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = KnowYourAngles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.iolani.KnowYourAngles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "KnowYourAngles-Bridging-Header.h";
 			};
 			name = Release;
 		};
