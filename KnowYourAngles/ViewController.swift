@@ -11,7 +11,9 @@ import UIKit
 
 class ViewController: UIViewController, MAWMathViewDelegate{
     
+    //totalNumOfProblems is set in Settings by user for the number of problems they want to be quizzed on.
     
+    //mathView holds the view where you can write answers
     @IBOutlet var mathView: MAWMathView!
     var certificateRegistered : Bool!;
     
