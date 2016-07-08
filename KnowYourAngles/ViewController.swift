@@ -20,8 +20,13 @@ class ViewController: UIViewController, MAWMathViewDelegate{
     
     var reciprocalProblems = [String]();
     
+    @IBOutlet weak var numCorrect: UILabel!
+    @IBOutlet weak var numIncorrect: UILabel!
+    
     //image of current problem.
     @IBOutlet weak var problemImage: UIImageView!
+    //name of current problem
+    var currProblem = "";
     
     //mathView holds the view where you can write answers
     @IBOutlet var mathView: MAWMathView!
@@ -56,7 +61,8 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             
             //setup image of first problem
             let randomNum = Int(arc4random_uniform(UInt32(degreeProblems.count)));
-            problemImage.image = UIImage(named: degreeProblems[randomNum]);
+            currProblem = degreeProblems[randomNum]
+            problemImage.image = UIImage(named: currProblem);
         }
     }
     
@@ -86,6 +92,169 @@ class ViewController: UIViewController, MAWMathViewDelegate{
     func mathViewDidEndRecognition(mathView: MAWMathView)
     {
         NSLog("Math Widget recognition: %@", mathView.resultAsText());
+        if(currProblem == "Cos0" || currProblem == "Sin90" || currProblem == "tan45" || currProblem == "tan225")
+        {
+           if(mathView.resultAsText()=="1"){
+                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
+            }
+            else{
+                numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
+            }
+        }
+        else if(currProblem == "Cos90" || currProblem == "Cos270" || currProblem == "Sin0" || currProblem == "Sin180" || currProblem == "tan0" || currProblem == "tan180")
+        {
+            if(mathView.resultAsText() == "0")
+            {
+                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
+            }
+            else
+            {
+                numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
+            }
+        }
+        else if(currProblem == "Cos60" || currProblem == "Cos300" || currProblem == "Sin30" || currProblem == "Sin150")
+        {
+            if(mathView.resultAsText() == "[1/2]=0.5" || mathView.resultAsText() == "0.5")
+            {
+                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
+            }
+            else
+            {
+                numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
+            }
+        }
+        else if(currProblem == "Cos30" || currProblem == "Cos330" || currProblem == "Sin60" || currProblem == "Sin120")
+        {
+            //Answer: [√[3]/2]=0.866…
+            if(mathView.resultAsText() == "[√[3]/2]=0.866…")
+            {
+                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
+            }
+            else
+            {
+                numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
+            }
+        }
+        else if (currProblem == "Cos150" || currProblem == "Cos210" || currProblem == "Sin240" || currProblem == "Sin300")
+        {
+            //Answer: -[√[3]/2]=-0.866… or [-√[3]/2]=-0.866… or [√[3]/-2]=-0.866…
+            if(mathView.resultAsText() == "-[√[3]/2]=-0.866…" || mathView.resultAsText() == "[-√[3]/2]=-0.866…" || mathView.resultAsText() == "[√[3]/-2]=-0.866…")
+            {
+                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
+            }
+            else
+            {
+                numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
+            }
+        }
+        else if (currProblem == "Cos45" || currProblem == "Cos315" || currProblem == "Sin45" || currProblem == "Sin135")
+        {
+            //Answer: [√[2]/2]=0.707…
+            if(mathView.resultAsText() == "[√[2]/2]=0.707…")
+            {
+                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
+            }
+            else
+            {
+                numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
+            }
+        }
+        else if (currProblem == "Cos135" || currProblem == "Cos225" || currProblem == "Sin225" || currProblem == "Sin315")
+        {
+            //Answer: -[√[2]/2]=-0.707… or [[-√[2]]/2]=-0.707… or [√[2]/-2]=-0.707…
+            if(mathView.resultAsText() == "-[√[2]/2]=-0.707…" || mathView.resultAsText() == "[[-√[2]]/2]=-0.707…" || mathView.resultAsText() == "[√[2]/-2]=-0.707…")
+            {
+                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
+            }
+            else
+            {
+                numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
+            }
+        }
+        else if (currProblem == "Cos120" || currProblem == "Cos240" || currProblem == "Sin210" || currProblem == "Sin330")
+        {
+            //Answer: -[1/2]=-0.5 or [-1/2]=-0.5 or [1/-2]=-0.5 or -0.5
+            if(mathView.resultAsText() == "-[1/2]=-0.5" || mathView.resultAsText() == "[-1/2]=-0.5" || mathView.resultAsText() == "[1/-2]=-0.5" || mathView.resultAsText() == "-0.5")
+            {
+                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
+            }
+            else
+            {
+                numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
+            }
+        }
+        else if(currProblem == "Cos180" || currProblem == "Sin270" || currProblem == "tan135" || currProblem == "tan315")
+        {
+            //Answer: -1
+            if(mathView.resultAsText() == "-1")
+            {
+                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
+            }
+            else
+            {
+                numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
+            }
+        }
+        else if(currProblem == "tan30" || currProblem == "tan210")
+        {
+            //Answer: [√[3]/3]=0.577…
+            if(mathView.resultAsText() == "[√[3]/3]=0.577…")
+            {
+                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
+            }
+            else
+            {
+                numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
+            }
+        }
+        else if(currProblem == "tan150" || currProblem == "tan330")
+        {
+            //Answer: -[√[3]/3]=-0.577… or [-√[3]/3]=-0.577… or [√[3]/-3]=-0.577…
+            if(mathView.resultAsText() == "-[√[3]/3]=-0.577…" || mathView.resultAsText() == "[-√[3]/3]=-0.577…" || mathView.resultAsText() == "[√[3]/-3]=-0.577…")
+            {
+                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
+            }
+            else
+            {
+                numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
+            }
+        }
+        else if(currProblem == "tan60" || currProblem == "tan240")
+        {
+            //Answer:  √[3]=1.732…
+            if(mathView.resultAsText() == "√[3]=1.732…")
+            {
+                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
+            }
+            else
+            {
+                numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
+            }
+        }
+        else if(currProblem == "tan120" || currProblem == "tan300")
+        {
+            //Answer:  -√[3]=-1.732…
+            if(mathView.resultAsText() == "-√[3]=-1.732…")
+            {
+                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
+            }
+            else
+            {
+                numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
+            }
+        }
+        else if(currProblem == "tan90" || currProblem == "tan270")
+        {
+            //Answer: undefined
+            if(mathView.resultAsText() == "und" || mathView.resultAsText() == "undefined")
+            {
+                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
+            }
+            else
+            {
+                numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
+            }
+        }
     }
     
     func mathViewDidEndWriting(mathView: MAWMathView ){
@@ -95,6 +264,13 @@ class ViewController: UIViewController, MAWMathViewDelegate{
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func nextButtonPressed(sender: UIButton) {
+        let randomNum = Int(arc4random_uniform(UInt32(degreeProblems.count)));
+        currProblem = degreeProblems[randomNum]
+        problemImage.image = UIImage(named: currProblem);
+        mathView.clear(false);
     }
 }
 
