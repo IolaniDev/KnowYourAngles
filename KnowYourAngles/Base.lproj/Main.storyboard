@@ -210,6 +210,24 @@
             <point key="canvasLocation" x="-475" y="965"/>
         </scene>
         <!--View Controller-->
+        <scene sceneID="OfN-lA-BUU">
+            <objects>
+                <viewController id="wG3-dw-WPk" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="j3A-oB-4zo"/>
+                        <viewControllerLayoutGuide type="bottom" id="qqL-oD-ojQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Mxr-aV-xEe">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0PG-8t-GtH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="253" y="954"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="KnowYourAngles" customModuleProvider="target" sceneMemberID="viewController">
@@ -243,7 +261,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kis-Pb-w0V">
-                                <rect key="frame" x="88" y="541.5" width="77" height="33.5"/>
+                                <rect key="frame" x="88" y="541" width="77" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -298,9 +316,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sZd-L5-smp">
-                                <rect key="frame" x="530" y="534" width="50" height="41"/>
+                                <rect key="frame" x="504" y="534" width="76" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Next"/>
+                                <state key="normal" title="Submit"/>
                                 <connections>
                                     <action selector="nextButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vxr-tG-u59"/>
                                 </connections>
@@ -346,6 +364,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="currentQuestion" destination="Wyx-K0-UN6" id="gfq-ts-khH"/>
                         <outlet property="mathView" destination="fZZ-Ja-u7v" id="3Cf-5C-w7V"/>
                         <outlet property="numCorrect" destination="muU-zW-946" id="8Ex-VR-Gx6"/>
                         <outlet property="numIncorrect" destination="3Tk-nR-i7F" id="Io2-3C-cUF"/>

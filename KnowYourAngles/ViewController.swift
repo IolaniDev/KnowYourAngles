@@ -11,7 +11,8 @@ import UIKit
 
 class ViewController: UIViewController, MAWMathViewDelegate{
     
-    //totalNumOfProblems is set in Settings by user for the number of problems they want to be quizzed on.
+    //totalNumOfProblems is set in Settings by user for the number of problems they want to be quizzed on. (10 by default)
+    var totalNumOfProblems = 10;
     
     //possible problems
     var degreeProblems: [String] = ["Cos0", "Cos30", "Cos45", "Cos60", "Cos90", "Cos120", "Cos135", "Cos150", "Cos180", "Cos210", "Cos225", "Cos240", "Cos270", "Cos300", "Cos315", "Cos330", "Sin0", "Sin30", "Sin45", "Sin60", "Sin90", "Sin120", "Sin135", "Sin150", "Sin180", "Sin210", "Sin225", "Sin240", "Sin270", "Sin300", "Sin315", "Sin330", "tan0", "tan30", "tan45", "tan60", "tan90", "tan120", "tan135", "tan150", "tan180", "tan210", "tan225", "tan240", "tan270", "tan300", "tan315", "tan330"];
@@ -22,11 +23,14 @@ class ViewController: UIViewController, MAWMathViewDelegate{
     
     @IBOutlet weak var numCorrect: UILabel!
     @IBOutlet weak var numIncorrect: UILabel!
+    @IBOutlet weak var currentQuestion: UILabel!
     
     //image of current problem.
     @IBOutlet weak var problemImage: UIImageView!
     //name of current problem
     var currProblem = "";
+    //current problem number
+    var currProblemNumber = 1;
     
     //mathView holds the view where you can write answers
     @IBOutlet var mathView: MAWMathView!
@@ -63,6 +67,8 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             let randomNum = Int(arc4random_uniform(UInt32(degreeProblems.count)));
             currProblem = degreeProblems[randomNum]
             problemImage.image = UIImage(named: currProblem);
+            
+            currentQuestion.text = "Question \(currProblemNumber) of \(totalNumOfProblems)";
         }
     }
     
@@ -92,9 +98,21 @@ class ViewController: UIViewController, MAWMathViewDelegate{
     func mathViewDidEndRecognition(mathView: MAWMathView)
     {
         NSLog("Math Widget recognition: %@", mathView.resultAsText());
+    }
+    
+    func mathViewDidEndWriting(mathView: MAWMathView ){
+        NSLog("Math Widget End Writing: %@", mathView.resultAsText());
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func nextButtonPressed(sender: UIButton) {
         if(currProblem == "Cos0" || currProblem == "Sin90" || currProblem == "tan45" || currProblem == "tan225")
         {
-           if(mathView.resultAsText()=="1"){
+            if(mathView.resultAsText()=="1"){
                 numCorrect.text = "\(Int(numCorrect.text!)!+1)";
             }
             else{
@@ -255,22 +273,27 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                 numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
             }
         }
-    }
-    
-    func mathViewDidEndWriting(mathView: MAWMathView ){
-        NSLog("Math Widget End Writing: %@", mathView.resultAsText());
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func nextButtonPressed(sender: UIButton) {
+        
+        //set up a new problem
         let randomNum = Int(arc4random_uniform(UInt32(degreeProblems.count)));
         currProblem = degreeProblems[randomNum]
         problemImage.image = UIImage(named: currProblem);
+        
+        //clear the field to write your answer
         mathView.clear(false);
+        
+        //increase the problem number
+        currProblemNumber++;
+        
+        if(currProblemNumber>totalNumOfProblems)
+        {
+            //segue to finish screen.
+        }
+        else
+        {
+            //update the displayed problem number.
+            currentQuestion.text = "Question \(currProblemNumber) of \(totalNumOfProblems)";
+        }
     }
 }
 

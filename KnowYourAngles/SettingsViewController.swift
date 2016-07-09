@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 public class SettingsViewController: UIViewController{
     
@@ -44,6 +45,17 @@ public class SettingsViewController: UIViewController{
         {
             let newValue = lroundf(((sender.value - 0.25)/0.5)*0.5)
             timerLabel.text = "Timer: \(newValue) minutes";
+        }
+    }
+    
+    override public func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "YourSegueName") {
+            //get a reference to the destination view controller
+            //let destinationVC:ViewController = segue.destinationViewController as! ViewController
+            
+            //set properties on the destination view controller
+            //destinationVC. = viewName
+            //etc...
         }
     }
 }
