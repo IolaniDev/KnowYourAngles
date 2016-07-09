@@ -209,10 +209,10 @@
             </objects>
             <point key="canvasLocation" x="-475" y="965"/>
         </scene>
-        <!--View Controller-->
+        <!--Finish Screen View Controller-->
         <scene sceneID="OfN-lA-BUU">
             <objects>
-                <viewController id="wG3-dw-WPk" sceneMemberID="viewController">
+                <viewController id="wG3-dw-WPk" customClass="FinishScreenViewController" customModule="KnowYourAngles" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="j3A-oB-4zo"/>
                         <viewControllerLayoutGuide type="bottom" id="qqL-oD-ojQ"/>
@@ -220,12 +220,52 @@
                     <view key="view" contentMode="scaleToFill" id="Mxr-aV-xEe">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratulations!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aIt-mx-Nf2">
+                                <rect key="frame" x="48" y="72" width="504" height="123"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="64"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: 10 out of 10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qFA-n2-CC4">
+                                <rect key="frame" x="123" y="274" width="354" height="51"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time: 00:30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1KZ-JN-yl5">
+                                <rect key="frame" x="181" y="347" width="238" height="51"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2T-kv-HHh">
+                                <rect key="frame" x="5" y="550" width="146" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="Main Menu"/>
+                                <connections>
+                                    <segue destination="nWQ-yf-5Ff" kind="show" id="rFt-nZ-CWS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxN-Uz-eHe">
+                                <rect key="frame" x="504" y="554" width="73" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="Share"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aIt-mx-Nf2" firstAttribute="top" secondItem="j3A-oB-4zo" secondAttribute="bottom" constant="8" symbolic="YES" id="Epc-CU-abG"/>
+                            <constraint firstItem="aIt-mx-Nf2" firstAttribute="leading" secondItem="Mxr-aV-xEe" secondAttribute="leadingMargin" constant="28" id="OvV-Iz-D1W"/>
+                            <constraint firstItem="qqL-oD-ojQ" firstAttribute="top" secondItem="aIt-mx-Nf2" secondAttribute="bottom" constant="405" id="UqA-Wl-Yok"/>
+                            <constraint firstItem="aIt-mx-Nf2" firstAttribute="centerX" secondItem="Mxr-aV-xEe" secondAttribute="centerX" id="saQ-Ke-uCq"/>
+                        </constraints>
                     </view>
+                    <toolbarItems/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0PG-8t-GtH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="253" y="954"/>
+            <point key="canvasLocation" x="277" y="965"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -369,14 +409,18 @@
                         <outlet property="numCorrect" destination="muU-zW-946" id="8Ex-VR-Gx6"/>
                         <outlet property="numIncorrect" destination="3Tk-nR-i7F" id="Io2-3C-cUF"/>
                         <outlet property="problemImage" destination="cq9-Np-18c" id="MCO-b6-qqK"/>
+                        <segue destination="wG3-dw-WPk" kind="show" identifier="toFinishScreen" id="akq-RD-u1L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="253" y="181"/>
+            <point key="canvasLocation" x="277" y="181"/>
         </scene>
     </scenes>
     <resources>
         <image name="Cos0" width="569" height="194"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="rFt-nZ-CWS"/>
+    </inferredMetricsTieBreakers>
 </document>

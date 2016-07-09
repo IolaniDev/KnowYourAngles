@@ -21,6 +21,7 @@
 		8429E14C1D2C495E00920987 /* ATKMathWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8429E14B1D2C495E00920987 /* ATKMathWidget.framework */; };
 		8429E14E1D2C497000920987 /* ATKMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8429E14D1D2C497000920987 /* ATKMath.framework */; };
 		8429E1501D2C498100920987 /* ATKCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8429E14F1D2C498100920987 /* ATKCore.framework */; };
+		84461B4B1D308F1000BA997E /* FinishScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84461B4A1D308F1000BA997E /* FinishScreenViewController.swift */; };
 		84C3E8221D2DC75300750751 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C3E8211D2DC75300750751 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		8429E14B1D2C495E00920987 /* ATKMathWidget.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ATKMathWidget.framework; path = "../MyScript_ATK-ios-2/Frameworks/ATKMathWidget.framework"; sourceTree = "<group>"; };
 		8429E14D1D2C497000920987 /* ATKMath.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ATKMath.framework; path = "../MyScript_ATK-ios-2/Frameworks/ATKMath.framework"; sourceTree = "<group>"; };
 		8429E14F1D2C498100920987 /* ATKCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ATKCore.framework; path = "../MyScript_ATK-ios-2/Frameworks/ATKCore.framework"; sourceTree = "<group>"; };
+		84461B4A1D308F1000BA997E /* FinishScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishScreenViewController.swift; sourceTree = "<group>"; };
 		84C3E8211D2DC75300750751 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,6 +137,7 @@
 				8429E1211D2C481500920987 /* LaunchScreen.storyboard */,
 				8429E1241D2C481500920987 /* Info.plist */,
 				84C3E8211D2DC75300750751 /* SettingsViewController.swift */,
+				84461B4A1D308F1000BA997E /* FinishScreenViewController.swift */,
 			);
 			path = KnowYourAngles;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				840180CC1D2C6CFD00CB794B /* org.iolani.KnowYourAngles.c in Sources */,
 				8429E11B1D2C481500920987 /* ViewController.swift in Sources */,
 				8429E1191D2C481500920987 /* AppDelegate.swift in Sources */,
+				84461B4B1D308F1000BA997E /* FinishScreenViewController.swift in Sources */,
 				84C3E8221D2DC75300750751 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

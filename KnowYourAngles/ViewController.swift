@@ -288,6 +288,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         if(currProblemNumber>totalNumOfProblems)
         {
             //segue to finish screen.
+            performSegueWithIdentifier("toFinishScreen", sender: self);
         }
         else
         {
