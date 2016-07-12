@@ -13,18 +13,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func updateNumOfProblems()
-    {
-        /*let storyboard = UIStoryboard(name: "Main.storyboard", bundle: nil)
-        let controller = storyboard.instantiateViewControllerWithIdentifier("ViewController.swift") as! ViewController
-        
-        controller.totalNumOfProblems = lroundf(sender.value);*/
-        
-        //self.presentViewController(controller, animated: true, completion: nil)
-    }
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        var defaultSettings = Settings(num: 10, isTimer: false, time: 1, isDeg: false, isRad: false, isReciprocal: false);
         return true
     }
 

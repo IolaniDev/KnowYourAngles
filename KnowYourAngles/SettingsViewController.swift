@@ -11,21 +11,25 @@ import UIKit
 
 public class SettingsViewController: UIViewController{
     
+    var NumOfProblems : Int = 10;
+    
+    func getNumProblems() -> Int {
+        return NumOfProblems;
+    }
+    
     @IBOutlet weak var totalNumOfProblems: UILabel!
     @IBOutlet weak var timerSlider: UISlider!
     @IBOutlet weak var timerLabel: UILabel!
     
-    var delegate:totalNumProblemsProtocol?;
-    
     override public func viewDidLoad() {
-        totalNumOfProblems.text = "Number of Problems: 10";
+        totalNumOfProblems.text = "Number of Problems: \(NumOfProblems)";
         timerSlider.hidden = false;
         timerLabel.text = "Timer: 30 seconds";
     }
     
     @IBAction func sliderChanged(sender: UISlider) {
         totalNumOfProblems.text = "Number of Problems: \(lroundf(sender.value))";
-        delegate?.updateTotalNumProblems(lroundf(sender.value));
+        NumOfProblems = lroundf(sender.value);
     }
     
     @IBAction func timerSwitchChanged(sender: UISwitch) {
@@ -50,15 +54,4 @@ public class SettingsViewController: UIViewController{
             timerLabel.text = "Timer: \(newValue) minutes";
         }
     }
-    
-    /*override public func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if (segue.identifier == "settingsToMain") {
-            //get a reference to the destination view controller
-            let destinationVC:ViewController = segue.destinationViewController as! ViewController
-            
-            //set properties on the destination view controller
-            destinationVC.totalNumOfProblems = sender.
-            //etc...
-        }
-    }*/
 }
