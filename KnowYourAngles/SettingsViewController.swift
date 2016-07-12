@@ -48,14 +48,14 @@ public class SettingsViewController: UIViewController{
         }
     }
     
-    override public func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
-        if (segue.identifier == "YourSegueName") {
+    /*override public func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "settingsToMain") {
             //get a reference to the destination view controller
-            //let destinationVC:ViewController = segue.destinationViewController as! ViewController
+            let destinationVC:ViewController = segue.destinationViewController as! ViewController
             
             //set properties on the destination view controller
-            //destinationVC. = viewName
+            destinationVC.totalNumOfProblems = sender.
             //etc...
         }
-    }
+    }*/
 }
