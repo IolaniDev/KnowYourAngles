@@ -15,6 +15,8 @@ public class SettingsViewController: UIViewController{
     @IBOutlet weak var timerSlider: UISlider!
     @IBOutlet weak var timerLabel: UILabel!
     
+    var delegate:totalNumProblemsProtocol?;
+    
     override public func viewDidLoad() {
         totalNumOfProblems.text = "Number of Problems: 10";
         timerSlider.hidden = false;
@@ -23,6 +25,7 @@ public class SettingsViewController: UIViewController{
     
     @IBAction func sliderChanged(sender: UISlider) {
         totalNumOfProblems.text = "Number of Problems: \(lroundf(sender.value))";
+        delegate?.updateTotalNumProblems(lroundf(sender.value));
     }
     
     @IBAction func timerSwitchChanged(sender: UISwitch) {

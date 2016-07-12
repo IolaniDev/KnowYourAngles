@@ -9,11 +9,18 @@
 import UIKit
 //import CoreGraphics
 
-class ViewController: UIViewController, MAWMathViewDelegate{
+protocol totalNumProblemsProtocol{
+    func updateTotalNumProblems(num : Int);
+}
+
+class ViewController: UIViewController, totalNumProblemsProtocol, MAWMathViewDelegate{
     
     //totalNumOfProblems is set in Settings by user for the number of problems they want to be quizzed on. (10 by default)
     var totalNumOfProblems = 10;
-    //var totalNumOfProblems = SettingsViewController.
+    
+    func updateTotalNumProblems(num: Int) {
+        totalNumOfProblems = num;
+    }
     
     //possible problems
     var degreeProblems: [String] = ["Cos0", "Cos30", "Cos45", "Cos60", "Cos90", "Cos120", "Cos135", "Cos150", "Cos180", "Cos210", "Cos225", "Cos240", "Cos270", "Cos300", "Cos315", "Cos330", "Sin0", "Sin30", "Sin45", "Sin60", "Sin90", "Sin120", "Sin135", "Sin150", "Sin180", "Sin210", "Sin225", "Sin240", "Sin270", "Sin300", "Sin315", "Sin330", "tan0", "tan30", "tan45", "tan60", "tan90", "tan120", "tan135", "tan150", "tan180", "tan210", "tan225", "tan240", "tan270", "tan300", "tan315", "tan330"];
