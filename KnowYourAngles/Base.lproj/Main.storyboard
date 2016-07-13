@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--First View Controller-->
         <scene sceneID="iyb-yJ-iUD">
             <objects>
-                <viewController id="nWQ-yf-5Ff" sceneMemberID="viewController">
+                <viewController id="nWQ-yf-5Ff" customClass="FirstViewController" customModule="KnowYourAngles" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Gcj-VA-Ugq"/>
                         <viewControllerLayoutGuide type="bottom" id="zXL-ba-vGP"/>
