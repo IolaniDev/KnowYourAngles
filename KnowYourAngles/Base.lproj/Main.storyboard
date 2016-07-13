@@ -194,6 +194,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="problemSlider" destination="T1p-kF-bcA" id="jWt-Xk-IsT"/>
                         <outlet property="timerLabel" destination="tzZ-k6-3cN" id="DKa-eh-2Fp"/>
                         <outlet property="timerSlider" destination="zQH-Jm-tda" id="DxY-Sk-lrO"/>
                         <outlet property="totalNumOfProblems" destination="xJF-Ma-uKI" id="lYo-ez-ew8"/>
@@ -444,6 +445,6 @@
         <image name="buttonRect" width="184" height="89"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CpN-Md-qpk"/>
+        <segue reference="rFt-nZ-CWS"/>
     </inferredMetricsTieBreakers>
 </document>

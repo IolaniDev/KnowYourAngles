@@ -11,24 +11,32 @@ import UIKit
 
 public class SettingsViewController: UIViewController{
     
-    var NumOfProblems : Int = 10;
-    
-    var settingsData : Settings!;
+    //var settingsData : Settings!;
+    //var defaultSettings = Settings(num: 10, isTimer: false, time: 1, isDeg: false, isRad: false, isReciprocal: false);
     
     @IBOutlet weak var totalNumOfProblems: UILabel!
     @IBOutlet weak var timerSlider: UISlider!
     @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var problemSlider: UISlider!
     
     override public func viewDidLoad() {
-        settingsData = Settings(num: 10, isTimer: false, time: 1, isDeg: false, isRad: false, isReciprocal: false)!;
-        totalNumOfProblems.text = "Number of Problems: \(NumOfProblems)";
+        super.viewDidLoad()
+        
+        let defaultSettings = NSUserDefaults.standardUserDefaults()
+        
+        if (defaultSettings.objectForKey("maxNumOfProblems") != nil) {
+            problemSlider.value = defaultSettings.valueForKey("maxNumOfProblems") as! Float;
+        }
+
+        totalNumOfProblems.text = "Number of Problems: \(lroundf(problemSlider.value))";
         timerSlider.hidden = false;
         timerLabel.text = "Timer: 30 seconds";
     }
     
     @IBAction func sliderChanged(sender: UISlider) {
         totalNumOfProblems.text = "Number of Problems: \(lroundf(sender.value))";
-        NumOfProblems = lroundf(sender.value);
+        let defaultSettings = NSUserDefaults.standardUserDefaults()
+        defaultSettings.setValue(sender.value, forKey: "maxNumOfProblems");
     }
     
     @IBAction func timerSwitchChanged(sender: UISwitch) {
@@ -52,17 +60,5 @@ public class SettingsViewController: UIViewController{
             let newValue = lroundf(((sender.value - 0.25)/0.5)*0.5)
             timerLabel.text = "Timer: \(newValue) minutes";
         }
-    }
-    
-    func saveSettings(){
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(settingsData, toFile: Settings.ArchiveURL.path!)
-        
-        if !isSuccessfulSave {
-            print("Failed to save meals...")
-        }
-    }
-    
-    func loadSettings() -> Settings? {
-        return NSKeyedUnarchiver.unarchiveObjectWithFile(Settings.ArchiveURL.path!) as? Settings;
     }
 }

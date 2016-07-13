@@ -41,6 +41,13 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         //Setup Writing Recognition
         super.viewDidLoad();
         
+        //load settings
+        let savedSettings = NSUserDefaults.standardUserDefaults()
+        if (savedSettings.objectForKey("maxNumOfProblems") != nil) {
+            totalNumOfProblems = lroundf(savedSettings.valueForKey("maxNumOfProblems") as! Float);
+        }
+
+        
         // Register MyScript certificate before anything else
         let certificate = NSData(bytes: myCertificate.bytes, length: myCertificate.length);
         
@@ -68,8 +75,6 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             let randomNum = Int(arc4random_uniform(UInt32(degreeProblems.count)));
             currProblem = degreeProblems[randomNum]
             problemImage.image = UIImage(named: currProblem);
-
-            
             
             currentQuestion.text = "Question \(currProblemNumber) of \(totalNumOfProblems)";
 
@@ -301,5 +306,17 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             currentQuestion.text = "Question \(currProblemNumber) of \(totalNumOfProblems)";
         }
     }
+    
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "toFinishScreen" {
+//            let finishViewController = segue.destinationViewController as! FinishScreenViewController
+//            
+//            // Get the cell that generated this segue.
+//            if let selectedMealCell = sender as? MealTableViewCell {
+//                let indexPath = tableView.indexPathForCell(selectedMealCell)!
+//                let selectedMeal = meals[indexPath.row]
+//                mealDetailViewController.meal = selectedMeal
+//            }
+//    }
 }
 
