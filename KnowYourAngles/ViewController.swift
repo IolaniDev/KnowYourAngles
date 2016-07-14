@@ -22,6 +22,8 @@ class ViewController: UIViewController, MAWMathViewDelegate{
     
     var reciprocalProblems = [String]();
     
+    var libraryOfProblems = [String]();
+    
     @IBOutlet weak var numCorrect: UILabel!
     @IBOutlet weak var numIncorrect: UILabel!
     @IBOutlet weak var currentQuestion: UILabel!
@@ -43,8 +45,17 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         
         //load settings
         let savedSettings = NSUserDefaults.standardUserDefaults()
+        //load the max num of problems the player wants to complete
         if (savedSettings.objectForKey("maxNumOfProblems") != nil) {
             totalNumOfProblems = lroundf(savedSettings.valueForKey("maxNumOfProblems") as! Float);
+        }
+        //load the degree problems (if the user wants them)
+        if(savedSettings.objectForKey("degrees") != nil)
+        {
+            if(savedSettings.valueForKey("degrees") as! Bool)
+            {
+                libraryOfProblems.appendContentsOf(degreeProblems);
+            }
         }
 
         
@@ -72,8 +83,8 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             mathView.configureWithBundle("math", andConfig: "standard");
             
             //setup image of first problem
-            let randomNum = Int(arc4random_uniform(UInt32(degreeProblems.count)));
-            currProblem = degreeProblems[randomNum]
+            let randomNum = Int(arc4random_uniform(UInt32(libraryOfProblems.count)));
+            currProblem = libraryOfProblems[randomNum]
             problemImage.image = UIImage(named: currProblem);
             
             currentQuestion.text = "Question \(currProblemNumber) of \(totalNumOfProblems)";

@@ -18,6 +18,7 @@ public class SettingsViewController: UIViewController{
     @IBOutlet weak var timerSlider: UISlider!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var problemSlider: UISlider!
+    @IBOutlet weak var degreesSwitch: UISwitch!
     
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,9 @@ public class SettingsViewController: UIViewController{
         
         if (defaultSettings.objectForKey("maxNumOfProblems") != nil) {
             problemSlider.value = defaultSettings.valueForKey("maxNumOfProblems") as! Float;
+        }
+        if (defaultSettings.objectForKey("degrees") != nil) {
+            degreesSwitch.on = defaultSettings.valueForKey("degrees") as! Bool;
         }
 
         totalNumOfProblems.text = "Number of Problems: \(lroundf(problemSlider.value))";
@@ -60,5 +64,13 @@ public class SettingsViewController: UIViewController{
             let newValue = lroundf(((sender.value - 0.25)/0.5)*0.5)
             timerLabel.text = "Timer: \(newValue) minutes";
         }
+    }
+    
+    //if the state of the degrees switch changes...
+    @IBAction func degreesSwitchChanged(sender: UISwitch) {
+        //set the saved settings appropriately.
+        let defaultSettings = NSUserDefaults.standardUserDefaults();
+        defaultSettings.setValue(sender.on, forKey: "degrees");
+        
     }
 }
