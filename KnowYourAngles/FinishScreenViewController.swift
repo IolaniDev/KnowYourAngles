@@ -10,4 +10,13 @@ import Foundation
 
 public class FinishScreenViewController: UIViewController{
     
+    var finalScore : Int = 0;
+    var totalNum : Int = 0;
+    
+    @IBOutlet weak var finishScore: UILabel!
+    @IBOutlet weak var finishTime: UILabel!
+    
+    override public func viewDidLoad() {
+        finishScore.text = "Score: \(finalScore) out of \(totalNum)";
+    }
 }

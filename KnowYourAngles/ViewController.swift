@@ -307,16 +307,12 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         }
     }
     
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if segue.identifier == "toFinishScreen" {
-//            let finishViewController = segue.destinationViewController as! FinishScreenViewController
-//            
-//            // Get the cell that generated this segue.
-//            if let selectedMealCell = sender as? MealTableViewCell {
-//                let indexPath = tableView.indexPathForCell(selectedMealCell)!
-//                let selectedMeal = meals[indexPath.row]
-//                mealDetailViewController.meal = selectedMeal
-//            }
-//    }
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toFinishScreen" {
+            let finishViewController = segue.destinationViewController as! FinishScreenViewController
+            finishViewController.finalScore = Int(numCorrect.text!)!;
+            finishViewController.totalNum = totalNumOfProblems;
+        }
+    }
 }
 
