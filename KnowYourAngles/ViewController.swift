@@ -57,6 +57,9 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                 libraryOfProblems.appendContentsOf(degreeProblems);
             }
         }
+        else{
+            libraryOfProblems.appendContentsOf(degreeProblems);
+        }
 
         
         // Register MyScript certificate before anything else

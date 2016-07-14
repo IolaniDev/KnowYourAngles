@@ -19,6 +19,8 @@ public class SettingsViewController: UIViewController{
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var problemSlider: UISlider!
     @IBOutlet weak var degreesSwitch: UISwitch!
+    @IBOutlet weak var radiansSwitch: UISwitch!
+    @IBOutlet weak var reciprocalsSwitch: UISwitch!
     
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +66,9 @@ public class SettingsViewController: UIViewController{
             let newValue = lroundf(((sender.value - 0.25)/0.5)*0.5)
             timerLabel.text = "Timer: \(newValue) minutes";
         }
+    }
+    
+    @IBAction func radiansSwitchChanged(sender: UISwitch) {
     }
     
     //if the state of the degrees switch changes...
