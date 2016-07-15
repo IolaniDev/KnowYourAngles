@@ -9,20 +9,15 @@
 import Foundation
 
 class FirstViewController : UIViewController{
-    var defaultSettings = Settings(num: 10, isTimer: false, time: 1, isDeg: false, isRad: false, isReciprocal: false);
+    //var defaultSettings = Settings(num: 10, isTimer: false, time: 1, isDeg: false, isRad: false, isReciprocal: false);
 
-    /*override func viewDidLoad() {
-        let svc = SettingsViewController();
-        let currSettings = svc.loadSettings();
-        if(currSettings != nil)
-        {
-            svc.settingsData = currSettings;
-            NSLog("New Settings Saved.");
-        }
-        else
-        {
-            svc.settingsData = defaultSettings;
-            NSLog("Default Settings Saved.");
-        }
-    }*/
+    override func viewDidLoad() {
+//        NSUserDefaults.resetStandardUserDefaults();
+//        NSLog("reset settings");
+//        let defaultSettings = NSUserDefaults.standardUserDefaults();
+//        if(defaultSettings.objectForKey("radians") != nil)
+//        {NSLog("not nil");}
+//        else
+//        {NSLog("nil");}
+    }
 }

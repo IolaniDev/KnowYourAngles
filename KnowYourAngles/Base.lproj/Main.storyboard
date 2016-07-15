@@ -103,7 +103,7 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fW7-dl-pU1">
                                 <rect key="frame" x="401" y="440" width="51" height="31"/>
                                 <connections>
-                                    <action selector="radiansSwitchChanged:" destination="GMS-eI-xVZ" eventType="valueChanged" id="Bl4-Kf-SI2"/>
+                                    <action selector="radiansSwitchChanged:" destination="GMS-eI-xVZ" eventType="valueChanged" id="pbr-Vl-KDq"/>
                                 </connections>
                             </switch>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RNJ-hE-tFC">
@@ -203,7 +203,6 @@
                         <outlet property="degreesSwitch" destination="IK0-ZO-Jkb" id="3LY-db-kDi"/>
                         <outlet property="problemSlider" destination="T1p-kF-bcA" id="jWt-Xk-IsT"/>
                         <outlet property="radiansSwitch" destination="fW7-dl-pU1" id="GAR-3g-b8K"/>
-                        <outlet property="radiansSwitchChanged" destination="fW7-dl-pU1" id="SaK-vB-Aul"/>
                         <outlet property="reciprocalsSwitch" destination="RNJ-hE-tFC" id="mrf-FY-haR"/>
                         <outlet property="timerLabel" destination="tzZ-k6-3cN" id="DKa-eh-2Fp"/>
                         <outlet property="timerSlider" destination="zQH-Jm-tda" id="DxY-Sk-lrO"/>

@@ -31,7 +31,22 @@ public class SettingsViewController: UIViewController{
             problemSlider.value = defaultSettings.valueForKey("maxNumOfProblems") as! Float;
         }
         if (defaultSettings.objectForKey("degrees") != nil) {
-            degreesSwitch.on = defaultSettings.valueForKey("degrees") as! Bool;
+            degreesSwitch.setOn(defaultSettings.valueForKey("degrees") as! Bool, animated: true);
+        }
+        else
+        {
+            degreesSwitch.setOn(true, animated: true);
+            defaultSettings.setValue(degreesSwitch.on, forKey: "degrees");
+        }
+        
+        
+        if (defaultSettings.objectForKey("radians") != nil) {
+            radiansSwitch.setOn(defaultSettings.valueForKey("radians") as! Bool, animated: true);
+        }
+        else
+        {
+            radiansSwitch.setOn(false, animated: true);
+            defaultSettings.setValue(radiansSwitch.on, forKey: "radians");
         }
 
         totalNumOfProblems.text = "Number of Problems: \(lroundf(problemSlider.value))";
@@ -69,12 +84,23 @@ public class SettingsViewController: UIViewController{
     }
     
     @IBAction func radiansSwitchChanged(sender: UISwitch) {
+            let defaultSettings = NSUserDefaults.standardUserDefaults();
+            if(!sender.on && !degreesSwitch.on)
+            {
+                degreesSwitch.setOn(true, animated: true);
+                defaultSettings.setValue(degreesSwitch.on, forKey: "degrees");
+            }
+            defaultSettings.setValue(sender.on, forKey: "radians");
     }
-    
     //if the state of the degrees switch changes...
     @IBAction func degreesSwitchChanged(sender: UISwitch) {
         //set the saved settings appropriately.
         let defaultSettings = NSUserDefaults.standardUserDefaults();
+        if(!sender.on && !radiansSwitch.on)
+        {
+            radiansSwitch.setOn(true, animated: true);
+            defaultSettings.setValue(radiansSwitch.on, forKey: "radians");
+        }
         defaultSettings.setValue(sender.on, forKey: "degrees");
         
     }

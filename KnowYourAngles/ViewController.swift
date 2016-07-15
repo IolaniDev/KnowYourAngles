@@ -18,7 +18,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
     //possible problems
     var degreeProblems: [String] = ["Cos0", "Cos30", "Cos45", "Cos60", "Cos90", "Cos120", "Cos135", "Cos150", "Cos180", "Cos210", "Cos225", "Cos240", "Cos270", "Cos300", "Cos315", "Cos330", "Sin0", "Sin30", "Sin45", "Sin60", "Sin90", "Sin120", "Sin135", "Sin150", "Sin180", "Sin210", "Sin225", "Sin240", "Sin270", "Sin300", "Sin315", "Sin330", "tan0", "tan30", "tan45", "tan60", "tan90", "tan120", "tan135", "tan150", "tan180", "tan210", "tan225", "tan240", "tan270", "tan300", "tan315", "tan330"];
     
-    var radianProblems = [String]();
+    var radianProblems: [String] = ["Cos0rads", "CosPiOver6", "CosPiOver4", "CosPiOver3", "CosPiOver2", "Cos2PiOver3", "Cos3PiOver4", "Cos5PiOver6", "CosPi", "Cos7PiOver6", "Cos5PiOver4", "Cos4PiOver3", "Cos3PiOver2", "Cos5PiOver3", "Cos7PiOver4", "Cos11PiOver6", "Sin0rads", "SinPiOver6", "SinPiOver4", "SinPiOver3", "SinPiOver2", "Sin2PiOver3", "Sin3PiOver4", "Sin5PiOver6", "SinPi", "Sin7PiOver6", "Sin5PiOver4", "Sin4PiOver3", "Sin3PiOver2", "Sin5PiOver3", "Sin7PiOver4", "Sin11PiOver6", "Tan0rads", "TanPiOver6", "TanPiOver4", "TanPiOver3", "TanPiOver2", "Tan2PiOver3", "Tan3PiOver4", "Tan5PiOver6", "TanPi", "Tan7PiOver6", "Tan5PiOver4", "Tan4PiOver3", "Tan3PiOver2", "Tan5PiOver3", "Tan7PiOver4", "Tan11PiOver6"];
     
     var reciprocalProblems = [String]();
     
@@ -49,6 +49,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         if (savedSettings.objectForKey("maxNumOfProblems") != nil) {
             totalNumOfProblems = lroundf(savedSettings.valueForKey("maxNumOfProblems") as! Float);
         }
+        
         //load the degree problems (if the user wants them)
         if(savedSettings.objectForKey("degrees") != nil)
         {
@@ -57,10 +58,15 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                 libraryOfProblems.appendContentsOf(degreeProblems);
             }
         }
-        else{
-            libraryOfProblems.appendContentsOf(degreeProblems);
+        
+        //load the radian problems (if the user wants them)
+        if(savedSettings.objectForKey("radians") != nil)
+        {
+            if(savedSettings.valueForKey("radians") as! Bool)
+            {
+                libraryOfProblems.appendContentsOf(radianProblems);
+            }
         }
-
         
         // Register MyScript certificate before anything else
         let certificate = NSData(bytes: myCertificate.bytes, length: myCertificate.length);
@@ -299,8 +305,8 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         }
         
         //set up a new problem
-        let randomNum = Int(arc4random_uniform(UInt32(degreeProblems.count)));
-        currProblem = degreeProblems[randomNum]
+        let randomNum = Int(arc4random_uniform(UInt32(libraryOfProblems.count)));
+        currProblem = libraryOfProblems[randomNum]
         problemImage.image = UIImage(named: currProblem);
         
         //clear the field to write your answer
