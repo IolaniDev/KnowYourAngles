@@ -9,15 +9,8 @@
 import Foundation
 
 class FirstViewController : UIViewController{
-    //var defaultSettings = Settings(num: 10, isTimer: false, time: 1, isDeg: false, isRad: false, isReciprocal: false);
 
     override func viewDidLoad() {
-//        NSUserDefaults.resetStandardUserDefaults();
-//        NSLog("reset settings");
-//        let defaultSettings = NSUserDefaults.standardUserDefaults();
-//        if(defaultSettings.objectForKey("radians") != nil)
-//        {NSLog("not nil");}
-//        else
-//        {NSLog("nil");}
+
     }
 }

@@ -20,9 +20,9 @@ class ViewController: UIViewController, MAWMathViewDelegate{
     
     var radianProblems: [String] = ["Cos0rads", "CosPiOver6", "CosPiOver4", "CosPiOver3", "CosPiOver2", "Cos2PiOver3", "Cos3PiOver4", "Cos5PiOver6", "CosPi", "Cos7PiOver6", "Cos5PiOver4", "Cos4PiOver3", "Cos3PiOver2", "Cos5PiOver3", "Cos7PiOver4", "Cos11PiOver6", "Sin0rads", "SinPiOver6", "SinPiOver4", "SinPiOver3", "SinPiOver2", "Sin2PiOver3", "Sin3PiOver4", "Sin5PiOver6", "SinPi", "Sin7PiOver6", "Sin5PiOver4", "Sin4PiOver3", "Sin3PiOver2", "Sin5PiOver3", "Sin7PiOver4", "Sin11PiOver6", "Tan0rads", "TanPiOver6", "TanPiOver4", "TanPiOver3", "TanPiOver2", "Tan2PiOver3", "Tan3PiOver4", "Tan5PiOver6", "TanPi", "Tan7PiOver6", "Tan5PiOver4", "Tan4PiOver3", "Tan3PiOver2", "Tan5PiOver3", "Tan7PiOver4", "Tan11PiOver6"];
     
-    var reciprocalDegreeProblems: [String] = ["Csc0", "Csc30", "Csc45", "Csc60", "Csc90", "Csc120", "Csc135", "Csc150", "Csc180", "Csc210", "Csc225", "Csc240", "Csc270", "Csc300", "Csc315", "Csc330"];
+    var reciprocalDegreeProblems: [String] = ["Csc0", "Csc30", "Csc45", "Csc60", "Csc90", "Csc120", "Csc135", "Csc150", "Csc180", "Csc210", "Csc225", "Csc240", "Csc270", "Csc300", "Csc315", "Csc330", "Sec0", "Sec30", "Sec45", "Sec60", "Sec90", "Sec120", "Sec135", "Sec150", "Sec180", "Sec210", "Sec225", "Sec240", "Sec270", "Sec300", "Sec315", "Sec330", "Cot0", "Cot30", "Cot45", "Cot60", "Cot90", "Cot120", "Cot135", "Cot150", "Cot180", "Cot210", "Cot225", "Cot240", "Cot270", "Cot300", "Cot315", "Cot330"];
     
-    var reciprocalRadianProblems = [String]();
+    var reciprocalRadianProblems: [String] = ["Csc0rads", "CscPiOver6", "CscPiOver4", "CscPiOver3", "CscPiOver2", "Csc2PiOver3", "Csc3PiOver4", "Csc5PiOver6", "CscPi", "Csc7PiOver6", "Csc5PiOver4", "Csc4PiOver3", "Csc3PiOver2", "Csc5PiOver3", "Csc7PiOver4", "Csc11PiOver6", "Sec0rads", "SecPiOver6", "SecPiOver4", "SecPiOver3", "SecPiOver2", "Sec2PiOver3", "Sec3PiOver4", "Sec5PiOver6", "SecPi", "Sec7PiOver6", "Sec5PiOver4", "Sec4PiOver3", "Sec3PiOver2", "Sec5PiOver3", "Sec7PiOver4", "Sec11PiOver6", "Cot0rads", "CotPiOver6", "CotPiOver4", "CotPiOver3", "CotPiOver2", "Cot2PiOver3", "Cot3PiOver4", "Cot5PiOver6", "CotPi", "Cot7PiOver6", "Cot5PiOver4", "Cot4PiOver3", "Cot3PiOver2", "Cot5PiOver3", "Cot7PiOver4", "Cot11PiOver6"];
     
     var libraryOfProblems = [String]();
     
@@ -67,6 +67,28 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             if(savedSettings.valueForKey("radians") as! Bool)
             {
                 libraryOfProblems.appendContentsOf(radianProblems);
+            }
+        }
+        
+        //load the reciprocal problems (if the user wants them)
+        if(savedSettings.objectForKey("reciprocals") != nil)
+        {
+            if(savedSettings.valueForKey("reciprocals") as! Bool)
+            {
+                if(savedSettings.objectForKey("degrees") != nil)
+                {
+                    if(savedSettings.valueForKey("degrees") as! Bool)
+                    {
+                        libraryOfProblems.appendContentsOf(reciprocalDegreeProblems);
+                    }
+                }
+                if(savedSettings.objectForKey("radians") != nil)
+                {
+                    if(savedSettings.valueForKey("radians") as! Bool)
+                    {
+                        libraryOfProblems.appendContentsOf(reciprocalRadianProblems);
+                    }
+                }
             }
         }
         
@@ -142,7 +164,10 @@ class ViewController: UIViewController, MAWMathViewDelegate{
     }
     
     @IBAction func nextButtonPressed(sender: UIButton) {
-        if(currProblem == "Cos0" || currProblem == "Sin90" || currProblem == "tan45" || currProblem == "tan225")
+        //increase the problem number
+        currProblemNumber++;
+        
+        if(["Cos0", "Sin90", "tan45", "tan225", "Cos0rads", "SinPiOver2", "TanPiOver4", "Tan5PiOver4"].contains(currProblem))
         {
             if(mathView.resultAsText()=="1"){
                 numCorrect.text = "\(Int(numCorrect.text!)!+1)";
@@ -151,7 +176,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                 numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
             }
         }
-        else if(currProblem == "Cos90" || currProblem == "Cos270" || currProblem == "Sin0" || currProblem == "Sin180" || currProblem == "tan0" || currProblem == "tan180")
+        else if(["Cos90", "Cos270", "Sin0", "Sin180", "tan0", "tan180", "CosPiOver2", "Cos3PiOver2", "Sin0rads", "SinPi", "Tan0rads", "TanPi"].contains(currProblem))
         {
             if(mathView.resultAsText() == "0")
             {
@@ -162,7 +187,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                 numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
             }
         }
-        else if(currProblem == "Cos60" || currProblem == "Cos300" || currProblem == "Sin30" || currProblem == "Sin150")
+        else if(["Cos60", "Cos300", "Sin30", "Sin150", "CosPiOver3", "Cos5PiOver3", "SinPiOver6", "Sin5PiOver6"].contains(currProblem))
         {
             if(mathView.resultAsText() == "[1/2]=0.5" || mathView.resultAsText() == "0.5")
             {
@@ -173,7 +198,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                 numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
             }
         }
-        else if(currProblem == "Cos30" || currProblem == "Cos330" || currProblem == "Sin60" || currProblem == "Sin120")
+        else if(["Cos30", "Cos330", "Sin60", "Sin120", "CosPiOver6", "Cos11PiOver6", "SinPiOver3", "Sin2PiOver3"].contains(currProblem))
         {
             //Answer: [√[3]/2]=0.866…
             if(mathView.resultAsText() == "[√[3]/2]=0.866…")
@@ -185,7 +210,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                 numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
             }
         }
-        else if (currProblem == "Cos150" || currProblem == "Cos210" || currProblem == "Sin240" || currProblem == "Sin300")
+        else if (["Cos150", "Cos210", "Sin240", "Sin300", "Cos5PiOver6", "Cos7PiOver6", "Sin4PiOver3", "Sin5PiOver3"].contains(currProblem))
         {
             //Answer: -[√[3]/2]=-0.866… or [-√[3]/2]=-0.866… or [√[3]/-2]=-0.866…
             if(mathView.resultAsText() == "-[√[3]/2]=-0.866…" || mathView.resultAsText() == "[-√[3]/2]=-0.866…" || mathView.resultAsText() == "[√[3]/-2]=-0.866…")
@@ -197,7 +222,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                 numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
             }
         }
-        else if (currProblem == "Cos45" || currProblem == "Cos315" || currProblem == "Sin45" || currProblem == "Sin135")
+        else if (["Cos45", "Cos315", "Sin45", "Sin135", "CosPiOver4", "Cos7PiOver4", "SinPiOver4", "Sin3PiOver4"].contains(currProblem))
         {
             //Answer: [√[2]/2]=0.707…
             if(mathView.resultAsText() == "[√[2]/2]=0.707…")
@@ -209,7 +234,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                 numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
             }
         }
-        else if (currProblem == "Cos135" || currProblem == "Cos225" || currProblem == "Sin225" || currProblem == "Sin315")
+        else if (["Cos135", "Cos225", "Sin225", "Sin315", "Cos3PiOver4", "Cos5PiOver4", "Sin5PiOver4", "Sin7PiOver4"].contains(currProblem))
         {
             //Answer: -[√[2]/2]=-0.707… or [[-√[2]]/2]=-0.707… or [√[2]/-2]=-0.707…
             if(mathView.resultAsText() == "-[√[2]/2]=-0.707…" || mathView.resultAsText() == "[[-√[2]]/2]=-0.707…" || mathView.resultAsText() == "[√[2]/-2]=-0.707…")
@@ -221,7 +246,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                 numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
             }
         }
-        else if (currProblem == "Cos120" || currProblem == "Cos240" || currProblem == "Sin210" || currProblem == "Sin330")
+        else if (["Cos120", "Cos240", "Sin210", "Sin330", "Cos2PiOver3", "Cos4PiOver3", "Sin7PiOver6", "Sin11PiOver6"].contains(currProblem))
         {
             //Answer: -[1/2]=-0.5 or [-1/2]=-0.5 or [1/-2]=-0.5 or -0.5
             if(mathView.resultAsText() == "-[1/2]=-0.5" || mathView.resultAsText() == "[-1/2]=-0.5" || mathView.resultAsText() == "[1/-2]=-0.5" || mathView.resultAsText() == "-0.5")
@@ -233,7 +258,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                 numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
             }
         }
-        else if(currProblem == "Cos180" || currProblem == "Sin270" || currProblem == "tan135" || currProblem == "tan315")
+        else if(["Cos180", "Sin270", "tan135", "tan315", "CosPi", "Sin3PiOver2", "Tan3PiOver4", "Tan7PiOver4"].contains(currProblem))
         {
             //Answer: -1
             if(mathView.resultAsText() == "-1")
@@ -245,7 +270,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                 numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
             }
         }
-        else if(currProblem == "tan30" || currProblem == "tan210")
+        else if(["tan30", "tan210", "TanPiOver6", "Tan7PiOver6"].contains(currProblem))
         {
             //Answer: [√[3]/3]=0.577…
             if(mathView.resultAsText() == "[√[3]/3]=0.577…")
@@ -257,7 +282,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                 numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
             }
         }
-        else if(currProblem == "tan150" || currProblem == "tan330")
+        else if(["tan150", "tan330", "Tan5PiOver6", "Tan11PiOver6"].contains(currProblem))
         {
             //Answer: -[√[3]/3]=-0.577… or [-√[3]/3]=-0.577… or [√[3]/-3]=-0.577…
             if(mathView.resultAsText() == "-[√[3]/3]=-0.577…" || mathView.resultAsText() == "[-√[3]/3]=-0.577…" || mathView.resultAsText() == "[√[3]/-3]=-0.577…")
@@ -269,7 +294,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                 numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
             }
         }
-        else if(currProblem == "tan60" || currProblem == "tan240")
+        else if(["tan60", "tan240", "TanPiOver3", "Tan4PiOver3"].contains(currProblem))
         {
             //Answer:  √[3]=1.732…
             if(mathView.resultAsText() == "√[3]=1.732…")
@@ -281,7 +306,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                 numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
             }
         }
-        else if(currProblem == "tan120" || currProblem == "tan300")
+        else if(["tan120", "tan300", "Tan2PiOver3", "Tan5PiOver3"].contains(currProblem))
         {
             //Answer:  -√[3]=-1.732…
             if(mathView.resultAsText() == "-√[3]=-1.732…")
@@ -293,7 +318,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                 numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
             }
         }
-        else if(currProblem == "tan90" || currProblem == "tan270")
+        else if(["tan90", "tan270", "TanPiOver2", "Tan3PiOver2"].contains(currProblem))
         {
             //Answer: undefined
             if(mathView.resultAsText() == "und" || mathView.resultAsText() == "undefined")
@@ -306,17 +331,6 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             }
         }
         
-        //set up a new problem
-        let randomNum = Int(arc4random_uniform(UInt32(libraryOfProblems.count)));
-        currProblem = libraryOfProblems[randomNum]
-        problemImage.image = UIImage(named: currProblem);
-        
-        //clear the field to write your answer
-        mathView.clear(false);
-        
-        //increase the problem number
-        currProblemNumber++;
-        
         if(currProblemNumber>totalNumOfProblems)
         {
             //segue to finish screen.
@@ -326,6 +340,14 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         {
             //update the displayed problem number.
             currentQuestion.text = "Question \(currProblemNumber) of \(totalNumOfProblems)";
+            
+            //set up a new problem
+            let randomNum = Int(arc4random_uniform(UInt32(libraryOfProblems.count)));
+            currProblem = libraryOfProblems[randomNum]
+            problemImage.image = UIImage(named: currProblem);
+            
+            //clear the field to write your answer
+            mathView.clear(false);
         }
     }
     

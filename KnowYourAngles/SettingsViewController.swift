@@ -49,6 +49,16 @@ public class SettingsViewController: UIViewController{
             defaultSettings.setValue(radiansSwitch.on, forKey: "radians");
         }
 
+        if(defaultSettings.objectForKey("reciprocals") != nil)
+        {
+            reciprocalsSwitch.setOn(defaultSettings.valueForKey("reciprocals") as! Bool, animated: true);
+        }
+        else
+        {
+            reciprocalsSwitch.setOn(false, animated: true);
+            defaultSettings.setValue(reciprocalsSwitch.on, forKey: "reciprocals");
+        }
+        
         totalNumOfProblems.text = "Number of Problems: \(lroundf(problemSlider.value))";
         timerSlider.hidden = false;
         timerLabel.text = "Timer: 30 seconds";
@@ -103,5 +113,10 @@ public class SettingsViewController: UIViewController{
         }
         defaultSettings.setValue(sender.on, forKey: "degrees");
         
+    }
+    
+    @IBAction func reciprocalsSwitchChanged(sender: UISwitch) {
+        let defaultSettings = NSUserDefaults.standardUserDefaults();
+        defaultSettings.setValue(sender.on, forKey: "reciprocals");
     }
 }
