@@ -163,11 +163,13 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         // Dispose of any resources that can be recreated.
     }
     
+    
+    //need to add answers for "Csc225", "Csc240", "Csc270", "Csc300", "Csc315"
     @IBAction func nextButtonPressed(sender: UIButton) {
         //increase the problem number
         currProblemNumber++;
         
-        if(["Cos0", "Sin90", "tan45", "tan225", "Cos0rads", "SinPiOver2", "TanPiOver4", "Tan5PiOver4"].contains(currProblem))
+        if(["Cos0", "Sin90", "tan45", "tan225", "Cos0rads", "SinPiOver2", "TanPiOver4", "Tan5PiOver4", "Cot45", "CotPiOver4", "Cot225", "Cot5Piover4", "Sec0", "Sec0rads", "Csc90", "CscPiOver2"].contains(currProblem))
         {
             if(mathView.resultAsText()=="1"){
                 numCorrect.text = "\(Int(numCorrect.text!)!+1)";
@@ -176,7 +178,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                 numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
             }
         }
-        else if(["Cos90", "Cos270", "Sin0", "Sin180", "tan0", "tan180", "CosPiOver2", "Cos3PiOver2", "Sin0rads", "SinPi", "Tan0rads", "TanPi"].contains(currProblem))
+        else if(["Cos90", "Cos270", "Sin0", "Sin180", "tan0", "tan180", "CosPiOver2", "Cos3PiOver2", "Sin0rads", "SinPi", "Tan0rads", "TanPi", "Cot90", "CotPiOver2", "Cot270", "Cot3PiOver2"].contains(currProblem))
         {
             if(mathView.resultAsText() == "0")
             {
@@ -258,7 +260,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                 numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
             }
         }
-        else if(["Cos180", "Sin270", "tan135", "tan315", "CosPi", "Sin3PiOver2", "Tan3PiOver4", "Tan7PiOver4"].contains(currProblem))
+        else if(["Cos180", "Sin270", "tan135", "tan315", "CosPi", "Sin3PiOver2", "Tan3PiOver4", "Tan7PiOver4", "Cot135", "Cot3PiOver4", "Cot315", "Cot7PiOver4", "Sec180", "SecPi"].contains(currProblem))
         {
             //Answer: -1
             if(mathView.resultAsText() == "-1")
@@ -270,7 +272,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                 numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
             }
         }
-        else if(["tan30", "tan210", "TanPiOver6", "Tan7PiOver6"].contains(currProblem))
+        else if(["tan30", "tan210", "TanPiOver6", "Tan7PiOver6", "Cot60", "CotPiOver3", "Cot240", "Cot4PiOver3"].contains(currProblem))
         {
             //Answer: [√[3]/3]=0.577…
             if(mathView.resultAsText() == "[√[3]/3]=0.577…")
@@ -282,7 +284,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                 numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
             }
         }
-        else if(["tan150", "tan330", "Tan5PiOver6", "Tan11PiOver6"].contains(currProblem))
+        else if(["tan150", "tan330", "Tan5PiOver6", "Tan11PiOver6", "Cot120", "Cot2PiOver3", "Cot300", "Cot5PiOver3"].contains(currProblem))
         {
             //Answer: -[√[3]/3]=-0.577… or [-√[3]/3]=-0.577… or [√[3]/-3]=-0.577…
             if(mathView.resultAsText() == "-[√[3]/3]=-0.577…" || mathView.resultAsText() == "[-√[3]/3]=-0.577…" || mathView.resultAsText() == "[√[3]/-3]=-0.577…")
@@ -294,7 +296,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                 numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
             }
         }
-        else if(["tan60", "tan240", "TanPiOver3", "Tan4PiOver3"].contains(currProblem))
+        else if(["tan60", "tan240", "TanPiOver3", "Tan4PiOver3", "Cot30", "CotPiOver6", "Cot210", "Cot7PiOver6"].contains(currProblem))
         {
             //Answer:  √[3]=1.732…
             if(mathView.resultAsText() == "√[3]=1.732…")
@@ -306,7 +308,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                 numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
             }
         }
-        else if(["tan120", "tan300", "Tan2PiOver3", "Tan5PiOver3"].contains(currProblem))
+        else if(["tan120", "tan300", "Tan2PiOver3", "Tan5PiOver3", "Cot150", "Cot5PiOver6", "Cot330", "Cot11PiOver6"].contains(currProblem))
         {
             //Answer:  -√[3]=-1.732…
             if(mathView.resultAsText() == "-√[3]=-1.732…")
@@ -318,10 +320,82 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                 numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
             }
         }
-        else if(["tan90", "tan270", "TanPiOver2", "Tan3PiOver2"].contains(currProblem))
+        else if(["tan90", "tan270", "TanPiOver2", "Tan3PiOver2", "Cot0", "Cot0rads", "Cot180", "CotPi", "Sec90", "SecPiOver2", "Sec270", "Sec3PiOver2", "Csc0", "Csc0rads", "Csc180", "CscPi"].contains(currProblem))
         {
             //Answer: undefined
             if(mathView.resultAsText() == "und" || mathView.resultAsText() == "undefined")
+            {
+                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
+            }
+            else
+            {
+                numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
+            }
+        }
+        else if(["Sec30", "SecPiOver6", "Sec330", "Sec11PiOver6", "Csc60", "CscPiOver3", "Csc120", "Csc2PiOver3"].contains(currProblem))
+        {
+            //Answer: [[2×√[3]]/3]=1.154…
+            if(mathView.resultAsText() == "[[2×√[3]]/3]=1.154…")
+            {
+                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
+            }
+            else
+            {
+                numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
+            }
+        }
+        else if(["Sec45", "SecPiOver4", "Sec315", "Sec7PiOver4", "Csc45", "CscPiOver4", "Csc135", "Csc3PiOver4"].contains(currProblem))
+        {
+            //Answer: √[2]=1.414…
+            if(mathView.resultAsText() == "√[2]=1.414…")
+            {
+                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
+            }
+            else
+            {
+                numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
+            }
+        }
+        else if(["Sec60", "SecPiOver3", "Sec300", "Sec5PiOver3", "Csc30", "CscPiOver6", "Csc150", "Csc5PiOver6"].contains(currProblem))
+        {
+            //Answer: 2
+            if(mathView.resultAsText() == "2")
+            {
+                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
+            }
+            else
+            {
+                numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
+            }
+        }
+        else if(["Sec120", "Sec2PiOver3", "Sec240", "Sec4PiOver3", "Csc210", "Csc7PiOver6", "Csc330", "Csc11PiOver6"].contains(currProblem))
+        {
+            //Answer: -2
+            if(mathView.resultAsText() == "-2")
+            {
+                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
+            }
+            else
+            {
+                numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
+            }
+        }
+        else if(["Sec135", "Sec3PiOver4", "Sec225", "Sec5PiOver4"].contains(currProblem))
+        {
+            //Answer: -√[2]=-1.414…
+            if(mathView.resultAsText() == "-√[2]=-1.414…")
+            {
+                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
+            }
+            else
+            {
+                numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
+            }
+        }
+        else if(["Sec150", "Sec5PiOver6", "Sec210", "Sec7PiOver6"].contains(currProblem))
+        {
+            //Answer: -[[2×√[3]]/3]=-1.154… or [[-2×√[3]]/3]=-1.154… or [[2×√[3]]/-3]=-1.154… or [[2×(-√[3])]/3]=-1.154…
+            if(["-[[2×√[3]]/3]=-1.154…", "[[-2×√[3]]/3]=-1.154…", "[[2×√[3]]/-3]=-1.154…", "[[2×(-√[3])]/3]=-1.154…"].contains(mathView.resultAsText()))
             {
                 numCorrect.text = "\(Int(numCorrect.text!)!+1)";
             }
@@ -349,6 +423,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             //clear the field to write your answer
             mathView.clear(false);
         }
+        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
