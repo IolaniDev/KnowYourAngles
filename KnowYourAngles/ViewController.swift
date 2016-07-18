@@ -163,8 +163,6 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         // Dispose of any resources that can be recreated.
     }
     
-    
-    //need to add answers for "Csc225", "Csc240", "Csc270", "Csc300", "Csc315"
     @IBAction func nextButtonPressed(sender: UIButton) {
         //increase the problem number
         currProblemNumber++;
@@ -260,7 +258,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                 numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
             }
         }
-        else if(["Cos180", "Sin270", "tan135", "tan315", "CosPi", "Sin3PiOver2", "Tan3PiOver4", "Tan7PiOver4", "Cot135", "Cot3PiOver4", "Cot315", "Cot7PiOver4", "Sec180", "SecPi"].contains(currProblem))
+        else if(["Cos180", "Sin270", "tan135", "tan315", "CosPi", "Sin3PiOver2", "Tan3PiOver4", "Tan7PiOver4", "Cot135", "Cot3PiOver4", "Cot315", "Cot7PiOver4", "Sec180", "SecPi", "Csc270", "Csc3PiOver2"].contains(currProblem))
         {
             //Answer: -1
             if(mathView.resultAsText() == "-1")
@@ -380,7 +378,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                 numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
             }
         }
-        else if(["Sec135", "Sec3PiOver4", "Sec225", "Sec5PiOver4"].contains(currProblem))
+        else if(["Sec135", "Sec3PiOver4", "Sec225", "Sec5PiOver4", "Csc225", "Csc5PiOver4", "Csc315", "Csc7PiOver4"].contains(currProblem))
         {
             //Answer: -√[2]=-1.414…
             if(mathView.resultAsText() == "-√[2]=-1.414…")
@@ -392,7 +390,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                 numIncorrect.text = "\(Int(numIncorrect.text!)!+1)";
             }
         }
-        else if(["Sec150", "Sec5PiOver6", "Sec210", "Sec7PiOver6"].contains(currProblem))
+        else if(["Sec150", "Sec5PiOver6", "Sec210", "Sec7PiOver6", "Csc240", "Csc4PiOver3", "Csc300", "Csc5PiOver3"].contains(currProblem))
         {
             //Answer: -[[2×√[3]]/3]=-1.154… or [[-2×√[3]]/3]=-1.154… or [[2×√[3]]/-3]=-1.154… or [[2×(-√[3])]/3]=-1.154…
             if(["-[[2×√[3]]/3]=-1.154…", "[[-2×√[3]]/3]=-1.154…", "[[2×√[3]]/-3]=-1.154…", "[[2×(-√[3])]/3]=-1.154…"].contains(mathView.resultAsText()))
