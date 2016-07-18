@@ -29,6 +29,11 @@ class ViewController: UIViewController, MAWMathViewDelegate{
     @IBOutlet weak var numCorrect: UILabel!
     @IBOutlet weak var numIncorrect: UILabel!
     @IBOutlet weak var currentQuestion: UILabel!
+    @IBOutlet weak var countDown: UILabel!
+    
+    var timer = NSTimer();
+    var numSec = 30;
+    var numMin = 0;
     
     //image of current problem.
     @IBOutlet weak var problemImage: UIImageView!
@@ -123,6 +128,9 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             currentQuestion.text = "Question \(currProblemNumber) of \(totalNumOfProblems)";
 
             NSLog("View Loaded with \(totalNumOfProblems)");
+            
+            countDown.text = String(format:"%02d:%02d", numMin, numSec);
+            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("updateCountDown"), userInfo: nil, repeats: true);
         }
     }
     
@@ -429,6 +437,22 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             let finishViewController = segue.destinationViewController as! FinishScreenViewController
             finishViewController.finalScore = Int(numCorrect.text!)!;
             finishViewController.totalNum = totalNumOfProblems;
+        }
+    }
+    
+    func updateCountDown()
+    {
+        numSec--;
+        if(numSec == -1 && numMin > 0)
+        {
+            numMin--;
+            numSec = 59;
+        }
+        countDown.text = String(format:"%02d:%02d", numMin, numSec);
+        if(numMin == 0 && numSec == 0)
+        {
+            //segue to finish screen.
+            performSegueWithIdentifier("toFinishScreen", sender: self);
         }
     }
 }
