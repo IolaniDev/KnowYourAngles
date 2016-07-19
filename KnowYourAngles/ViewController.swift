@@ -34,6 +34,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
     var timer = NSTimer();
     var numSec = 30;
     var numMin = 0;
+    var isOutOfTime = false;
     
     //image of current problem.
     @IBOutlet weak var problemImage: UIImageView!
@@ -55,6 +56,21 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         //load the max num of problems the player wants to complete
         if (savedSettings.objectForKey("maxNumOfProblems") != nil) {
             totalNumOfProblems = lroundf(savedSettings.valueForKey("maxNumOfProblems") as! Float);
+        }
+        
+        if (savedSettings.objectForKey("amtTime") != nil)
+        {
+            let temp = savedSettings.objectForKey("amtTime") as! Float;
+            if(temp < 1)
+            {
+                numSec = 30;
+                numMin = 0;
+            }
+            else
+            {
+                numSec = 0;
+                numMin = lroundf(((temp - 0.25)/0.5)*0.5);
+            }
         }
         
         //load the degree problems (if the user wants them)
@@ -437,6 +453,22 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             let finishViewController = segue.destinationViewController as! FinishScreenViewController
             finishViewController.finalScore = Int(numCorrect.text!)!;
             finishViewController.totalNum = totalNumOfProblems;
+            if(isOutOfTime)
+            {
+                let savedSettings = NSUserDefaults.standardUserDefaults()
+                let temp = savedSettings.objectForKey("amtTime") as! Float;
+                if(temp < 1)
+                {
+                    numSec = 30;
+                    numMin = 0;
+                }
+                else
+                {
+                    numSec = 0;
+                    numMin = lroundf(((temp - 0.25)/0.5)*0.5);
+                }
+            }
+            finishViewController.finalTime = (numMin,numSec);
         }
     }
     
@@ -452,6 +484,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         if(numMin == 0 && numSec == 0)
         {
             //segue to finish screen.
+            isOutOfTime = true;
             performSegueWithIdentifier("toFinishScreen", sender: self);
         }
     }

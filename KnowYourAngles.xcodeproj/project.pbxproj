@@ -11,7 +11,6 @@
 		840180C71D2C4B6900CB794B /* resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 840180C61D2C4B6900CB794B /* resources.bundle */; };
 		840180C81D2C526F00CB794B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8429E1491D2C494300920987 /* SystemConfiguration.framework */; };
 		840180CC1D2C6CFD00CB794B /* org.iolani.KnowYourAngles.c in Sources */ = {isa = PBXBuildFile; fileRef = 840180CB1D2C6CFD00CB794B /* org.iolani.KnowYourAngles.c */; };
-		8422E9C01D3598F900F33978 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422E9BF1D3598F900F33978 /* Settings.swift */; };
 		8422E9C21D35BF9500F33978 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422E9C11D35BF9500F33978 /* FirstViewController.swift */; };
 		8429E1191D2C481500920987 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429E1181D2C481500920987 /* AppDelegate.swift */; };
 		8429E11B1D2C481500920987 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429E11A1D2C481500920987 /* ViewController.swift */; };
@@ -49,7 +48,6 @@
 		840180C61D2C4B6900CB794B /* resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = resources.bundle; path = "../MyScript_ATK-ios-2/Samples/MathWidgetSample/MathWidgetSample/Resources/resources.bundle"; sourceTree = "<group>"; };
 		840180CA1D2C562400CB794B /* MyCertificate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCertificate.h; sourceTree = "<group>"; };
 		840180CB1D2C6CFD00CB794B /* org.iolani.KnowYourAngles.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = org.iolani.KnowYourAngles.c; sourceTree = "<group>"; };
-		8422E9BF1D3598F900F33978 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		8422E9C11D35BF9500F33978 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		8429E1151D2C481500920987 /* KnowYourAngles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnowYourAngles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8429E1181D2C481500920987 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -142,7 +140,6 @@
 				8429E1241D2C481500920987 /* Info.plist */,
 				84C3E8211D2DC75300750751 /* SettingsViewController.swift */,
 				84461B4A1D308F1000BA997E /* FinishScreenViewController.swift */,
-				8422E9BF1D3598F900F33978 /* Settings.swift */,
 				8422E9C11D35BF9500F33978 /* FirstViewController.swift */,
 			);
 			path = KnowYourAngles;
@@ -300,7 +297,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8422E9C01D3598F900F33978 /* Settings.swift in Sources */,
 				840180CC1D2C6CFD00CB794B /* org.iolani.KnowYourAngles.c in Sources */,
 				8429E11B1D2C481500920987 /* ViewController.swift in Sources */,
 				8429E1191D2C481500920987 /* AppDelegate.swift in Sources */,
