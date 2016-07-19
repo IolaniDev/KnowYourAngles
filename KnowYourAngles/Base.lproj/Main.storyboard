@@ -209,6 +209,7 @@
                         <outlet property="reciprocalsSwitch" destination="RNJ-hE-tFC" id="mrf-FY-haR"/>
                         <outlet property="timerLabel" destination="tzZ-k6-3cN" id="DKa-eh-2Fp"/>
                         <outlet property="timerSlider" destination="zQH-Jm-tda" id="DxY-Sk-lrO"/>
+                        <outlet property="timerSwitch" destination="L0o-Ld-8eb" id="pD8-wf-EIy"/>
                         <outlet property="totalNumOfProblems" destination="xJF-Ma-uKI" id="lYo-ez-ew8"/>
                     </connections>
                 </viewController>
@@ -452,6 +453,7 @@
                         <outlet property="numCorrect" destination="muU-zW-946" id="8Ex-VR-Gx6"/>
                         <outlet property="numIncorrect" destination="3Tk-nR-i7F" id="Io2-3C-cUF"/>
                         <outlet property="problemImage" destination="cq9-Np-18c" id="MCO-b6-qqK"/>
+                        <outlet property="timerLabel" destination="4GY-9S-vff" id="pIi-o3-VEV"/>
                         <segue destination="wG3-dw-WPk" kind="show" identifier="toFinishScreen" id="akq-RD-u1L"/>
                     </connections>
                 </viewController>
@@ -465,6 +467,6 @@
         <image name="buttonRect" width="184" height="89"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rFt-nZ-CWS"/>
+        <segue reference="HrZ-rm-kQT"/>
     </inferredMetricsTieBreakers>
 </document>

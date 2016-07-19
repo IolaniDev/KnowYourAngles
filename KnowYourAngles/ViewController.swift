@@ -30,6 +30,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
     @IBOutlet weak var numIncorrect: UILabel!
     @IBOutlet weak var currentQuestion: UILabel!
     @IBOutlet weak var countDown: UILabel!
+    @IBOutlet weak var timerLabel: UILabel!
     
     var timer = NSTimer();
     var numSec = 30;
@@ -146,7 +147,18 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             NSLog("View Loaded with \(totalNumOfProblems)");
             
             countDown.text = String(format:"%02d:%02d", numMin, numSec);
-            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("updateCountDown"), userInfo: nil, repeats: true);
+            
+            if(savedSettings.objectForKey("isTimerOn") as! Bool)
+            {
+                timerLabel.hidden = false;
+                countDown.hidden = false;
+                timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("updateCountDown"), userInfo: nil, repeats: true);
+            }
+            else
+            {
+                timerLabel.hidden = true;
+                countDown.hidden = true;
+            }
         }
     }
     

@@ -18,6 +18,7 @@ public class SettingsViewController: UIViewController{
     @IBOutlet weak var degreesSwitch: UISwitch!
     @IBOutlet weak var radiansSwitch: UISwitch!
     @IBOutlet weak var reciprocalsSwitch: UISwitch!
+    @IBOutlet weak var timerSwitch: UISwitch!
     
     override public func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,18 @@ public class SettingsViewController: UIViewController{
         totalNumOfProblems.text = "Number of Problems: \(lroundf(problemSlider.value))";
         
         //timer settings
+        if(defaultSettings.objectForKey("isTimerOn") != nil)
+        {
+            timerSwitch.setOn(defaultSettings.objectForKey("isTimerOn") as! Bool, animated: true);
+            timerSlider.hidden = !timerSwitch.on;
+        }
+        else
+        {
+            timerSwitch.setOn(false, animated: true);
+            timerSlider.hidden = true;
+            defaultSettings.setValue(timerSwitch.on, forKey: "isTimerOn");
+        }
+        
         //if there are already settings for the amount of time allowed, then use them
         if(defaultSettings.objectForKey("amtTime") != nil)
         {
@@ -90,7 +103,7 @@ public class SettingsViewController: UIViewController{
             defaultSettings.setValue(reciprocalsSwitch.on, forKey: "reciprocals");
         }
         
-        timerSlider.hidden = false;
+        //timerSlider.hidden = false;
     }
     
     @IBAction func sliderChanged(sender: UISlider) {
@@ -107,6 +120,8 @@ public class SettingsViewController: UIViewController{
         {
             timerSlider.hidden = true;
         }
+        let defaultSettings = NSUserDefaults.standardUserDefaults();
+        defaultSettings.setValue(sender.on, forKey: "isTimerOn");
     }
     
     @IBAction func timerSliderChanged(sender: UISlider) {
