@@ -449,6 +449,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "/Users/admin/Documents/MyScript_ATK-ios-2/Frameworks";
 				INFOPLIST_FILE = KnowYourAngles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACH_O_TYPE = mh_execute;
 				OTHER_LDFLAGS = (
@@ -472,6 +473,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = "/Users/admin/Documents/MyScript_ATK-ios-2/Frameworks";
 				INFOPLIST_FILE = KnowYourAngles/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACH_O_TYPE = mh_execute;
 				OTHER_LDFLAGS = (
