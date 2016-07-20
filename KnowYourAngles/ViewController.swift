@@ -15,26 +15,34 @@ class ViewController: UIViewController, MAWMathViewDelegate{
     //totalNumOfProblems is set in Settings by user for the number of problems they want to be quizzed on. (10 by default)
     var totalNumOfProblems : Int = 10;
     
-    //possible problems
+    //possible problems using degrees
     var degreeProblems: [String] = ["Cos0", "Cos30", "Cos45", "Cos60", "Cos90", "Cos120", "Cos135", "Cos150", "Cos180", "Cos210", "Cos225", "Cos240", "Cos270", "Cos300", "Cos315", "Cos330", "Sin0", "Sin30", "Sin45", "Sin60", "Sin90", "Sin120", "Sin135", "Sin150", "Sin180", "Sin210", "Sin225", "Sin240", "Sin270", "Sin300", "Sin315", "Sin330", "tan0", "tan30", "tan45", "tan60", "tan90", "tan120", "tan135", "tan150", "tan180", "tan210", "tan225", "tan240", "tan270", "tan300", "tan315", "tan330"];
     
+    //possible problems using radians
     var radianProblems: [String] = ["Cos0rads", "CosPiOver6", "CosPiOver4", "CosPiOver3", "CosPiOver2", "Cos2PiOver3", "Cos3PiOver4", "Cos5PiOver6", "CosPi", "Cos7PiOver6", "Cos5PiOver4", "Cos4PiOver3", "Cos3PiOver2", "Cos5PiOver3", "Cos7PiOver4", "Cos11PiOver6", "Sin0rads", "SinPiOver6", "SinPiOver4", "SinPiOver3", "SinPiOver2", "Sin2PiOver3", "Sin3PiOver4", "Sin5PiOver6", "SinPi", "Sin7PiOver6", "Sin5PiOver4", "Sin4PiOver3", "Sin3PiOver2", "Sin5PiOver3", "Sin7PiOver4", "Sin11PiOver6", "Tan0rads", "TanPiOver6", "TanPiOver4", "TanPiOver3", "TanPiOver2", "Tan2PiOver3", "Tan3PiOver4", "Tan5PiOver6", "TanPi", "Tan7PiOver6", "Tan5PiOver4", "Tan4PiOver3", "Tan3PiOver2", "Tan5PiOver3", "Tan7PiOver4", "Tan11PiOver6"];
     
+    //possible reciprocal problems using degrees
     var reciprocalDegreeProblems: [String] = ["Csc0", "Csc30", "Csc45", "Csc60", "Csc90", "Csc120", "Csc135", "Csc150", "Csc180", "Csc210", "Csc225", "Csc240", "Csc270", "Csc300", "Csc315", "Csc330", "Sec0", "Sec30", "Sec45", "Sec60", "Sec90", "Sec120", "Sec135", "Sec150", "Sec180", "Sec210", "Sec225", "Sec240", "Sec270", "Sec300", "Sec315", "Sec330", "Cot0", "Cot30", "Cot45", "Cot60", "Cot90", "Cot120", "Cot135", "Cot150", "Cot180", "Cot210", "Cot225", "Cot240", "Cot270", "Cot300", "Cot315", "Cot330"];
     
+    //possible reciprocal problems using radians
     var reciprocalRadianProblems: [String] = ["Csc0rads", "CscPiOver6", "CscPiOver4", "CscPiOver3", "CscPiOver2", "Csc2PiOver3", "Csc3PiOver4", "Csc5PiOver6", "CscPi", "Csc7PiOver6", "Csc5PiOver4", "Csc4PiOver3", "Csc3PiOver2", "Csc5PiOver3", "Csc7PiOver4", "Csc11PiOver6", "Sec0rads", "SecPiOver6", "SecPiOver4", "SecPiOver3", "SecPiOver2", "Sec2PiOver3", "Sec3PiOver4", "Sec5PiOver6", "SecPi", "Sec7PiOver6", "Sec5PiOver4", "Sec4PiOver3", "Sec3PiOver2", "Sec5PiOver3", "Sec7PiOver4", "Sec11PiOver6", "Cot0rads", "CotPiOver6", "CotPiOver4", "CotPiOver3", "CotPiOver2", "Cot2PiOver3", "Cot3PiOver4", "Cot5PiOver6", "CotPi", "Cot7PiOver6", "Cot5PiOver4", "Cot4PiOver3", "Cot3PiOver2", "Cot5PiOver3", "Cot7PiOver4", "Cot11PiOver6"];
     
+    //empty array to hold the problems to choose from depending on the user's settings.
     var libraryOfProblems = [String]();
     
+    //references to connect to UI components on the storyboard
     @IBOutlet weak var numCorrect: UILabel!
     @IBOutlet weak var numIncorrect: UILabel!
     @IBOutlet weak var currentQuestion: UILabel!
     @IBOutlet weak var countDown: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     
+    //creates a timer
     var timer = NSTimer();
+    //time limit variables for the timer
     var numSec = 30;
     var numMin = 0;
+    //boolean representing whether the user finished the desired amount of questions or ran out of time before moving to end screen.
     var isOutOfTime = false;
     
     //image of current problem.
@@ -48,21 +56,24 @@ class ViewController: UIViewController, MAWMathViewDelegate{
     @IBOutlet var mathView: MAWMathView!
     var certificateRegistered : Bool!;
     
+    //loading the view
     override func viewDidLoad() {
         //Setup Writing Recognition
         super.viewDidLoad();
         
         //load settings
         let savedSettings = NSUserDefaults.standardUserDefaults()
-        //load the max num of problems the player wants to complete
+        
+        /**********LOAD NUMBER OF PROBLEMS**********/
+        //if the user has previously saved settings, load the max num of problems the player wants to complete
         if (savedSettings.objectForKey("maxNumOfProblems") != nil) {
             totalNumOfProblems = savedSettings.valueForKey("maxNumOfProblems") as! Int;
         }
-        
-        if (savedSettings.objectForKey("amtTimeMin") != nil && savedSettings.objectForKey("amtTimeSec") != nil)
-        {
-            numMin = savedSettings.valueForKey("amtTimeMin") as! Int;
-            numSec = savedSettings.valueForKey("amtTimeSec") as! Int;
+        //otherwise use the default values of 10 problems
+        else{
+            //set the default number of problems to 10
+            totalNumOfProblems = 10;
+            savedSettings.setValue(totalNumOfProblems, forKey: "maxNumOfProblems");
         }
         
         //load the degree problems (if the user wants them)
@@ -141,6 +152,21 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             
             if(savedSettings.objectForKey("isTimerOn") as! Bool)
             {
+                //check if there are previously saved time limit settings
+                if (savedSettings.objectForKey("amtTimeMin") != nil && savedSettings.objectForKey("amtTimeSec") != nil)
+                {
+                    numMin = savedSettings.valueForKey("amtTimeMin") as! Int;
+                    numSec = savedSettings.valueForKey("amtTimeSec") as! Int;
+                }
+                    //otherwise use the default value of 30 seconds and save to settings.
+                else
+                {
+                    numMin = 0;
+                    numSec = 30;
+                    savedSettings.setValue(numMin, forKey: "amtTimeMin");
+                    savedSettings.setValue(numSec, forKey: "amtTimeSec");
+                }
+                
                 timerLabel.hidden = false;
                 countDown.hidden = false;
                 timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("updateCountDown"), userInfo: nil, repeats: true);

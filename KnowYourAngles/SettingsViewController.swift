@@ -57,13 +57,13 @@ public class SettingsViewController: UIViewController{
         totalNumOfProblems.text = "Number of Problems: \(lroundf(problemSlider.value))";
         
         /**********SETTINGS FOR TIMER**********/
-        //if there are previously saved timer settings, then use them
+        //if there are previously saved settings for whether the timer is on or off, then use them
         if(defaultSettings.objectForKey("isTimerOn") != nil)
         {
             timerSwitch.setOn(defaultSettings.objectForKey("isTimerOn") as! Bool, animated: true);
             timerSlider.hidden = !timerSwitch.on;
         }
-        //if there are no pre-existing settings, then set default values.
+        //if there are no pre-existing settings, then set default value of off.
         else
         {
             timerSwitch.setOn(false, animated: true);
@@ -81,11 +81,11 @@ public class SettingsViewController: UIViewController{
             
             if(minutes == 0)
             {
-                timerLabel.text = "Timer: \(seconds) seconds";
+                timerLabel.text = "Timer: \(Int(seconds)) seconds";
             }
             else
             {
-                timerLabel.text = "Timer: \(minutes) minutes \(seconds) seconds";
+                timerLabel.text = "Timer: \(Int(minutes)) minutes \(Int(seconds)) seconds";
             }
         }
         //if there are no pre-existing settings for amount of time allowed, then set default values
@@ -99,53 +99,74 @@ public class SettingsViewController: UIViewController{
         
         
         /**********SETTINGS FOR PROBLEMS USING DEGREES**********/
+        //check if there are previously saved settings for including the problems with degrees.
         if (defaultSettings.objectForKey("degrees") != nil) {
             degreesSwitch.setOn(defaultSettings.valueForKey("degrees") as! Bool, animated: true);
         }
+        //if there are no previously saved settings, then by default use the problems with degrees
         else
         {
             degreesSwitch.setOn(true, animated: true);
             defaultSettings.setValue(degreesSwitch.on, forKey: "degrees");
         }
         
-        
+        /**********SETTINGS FOR PROBLEMS USING RADIANS**********/
+        //check if there are previously saved settings for including problems with radians
         if (defaultSettings.objectForKey("radians") != nil) {
             radiansSwitch.setOn(defaultSettings.valueForKey("radians") as! Bool, animated: true);
         }
+        //if there are no previously saved settings, then, by default, do not include problems with radians.
         else
         {
             radiansSwitch.setOn(false, animated: true);
             defaultSettings.setValue(radiansSwitch.on, forKey: "radians");
         }
 
+        /**********SETTINGS FOR PROBLEMS USING RECIPROCALS**********/
+        //if there are previously saved settings for including reciprocal trig facts, then use them
         if(defaultSettings.objectForKey("reciprocals") != nil)
         {
             reciprocalsSwitch.setOn(defaultSettings.valueForKey("reciprocals") as! Bool, animated: true);
         }
+        //otherwise, by default, don't include problems with reciprocals.
         else
         {
             reciprocalsSwitch.setOn(false, animated: true);
             defaultSettings.setValue(reciprocalsSwitch.on, forKey: "reciprocals");
         }
-        
-        //timerSlider.hidden = false;
     }
     
+    //sliderChanged is called when the slider is moved to change the number of problems
     @IBAction func sliderChanged(sender: UISlider) {
         totalNumOfProblems.text = "Number of Problems: \(lroundf(sender.value))";
         let defaultSettings = NSUserDefaults.standardUserDefaults()
-        defaultSettings.setValue(sender.value, forKey: "maxNumOfProblems");
+        //save the number of problems in settings
+        defaultSettings.setValue(lroundf(sender.value), forKey: "maxNumOfProblems");
     }
     
+    //timerSwitchChanged is called when the user turns on or off the timer.
     @IBAction func timerSwitchChanged(sender: UISwitch) {
+       let defaultSettings = NSUserDefaults.standardUserDefaults();
+        let minutes = defaultSettings.objectForKey("amtTimeMin") as! Int;
+        let seconds = defaultSettings.objectForKey("amtTimeSec") as! Int;
         if(sender.on){
             timerSlider.hidden = false;
+            if(minutes == 0)
+            {
+                timerLabel.text = "Timer: \(seconds) seconds";
+            }
+            else
+            {
+                timerLabel.text = "Timer: \(minutes) minutes \(seconds) seconds";
+            }
         }
         else
         {
             timerSlider.hidden = true;
+            timerLabel.text = "Timer: Off";
         }
-        let defaultSettings = NSUserDefaults.standardUserDefaults();
+        
+        //save the state of the timer switch in settings
         defaultSettings.setValue(sender.on, forKey: "isTimerOn");
     }
     
@@ -161,11 +182,11 @@ public class SettingsViewController: UIViewController{
         
         if(minutes == 0)
         {
-            timerLabel.text = "Timer: \(seconds) seconds";
+            timerLabel.text = "Timer: \(Int(seconds)) seconds";
         }
         else
         {
-            timerLabel.text = "Timer: \(minutes) minutes \(seconds) seconds";
+            timerLabel.text = "Timer: \(Int(minutes)) minutes \(Int(seconds)) seconds";
         }
         
         //create a reference to the current settings
@@ -175,8 +196,10 @@ public class SettingsViewController: UIViewController{
         defaultSettings.setValue(seconds, forKey: "amtTimeSec");
     }
     
+    //function is called when the user changes whether to include radian problems or not
     @IBAction func radiansSwitchChanged(sender: UISwitch) {
             let defaultSettings = NSUserDefaults.standardUserDefaults();
+            //make sure the degree switch is turned on if turning off radians.
             if(!sender.on && !degreesSwitch.on)
             {
                 degreesSwitch.setOn(true, animated: true);
@@ -184,10 +207,12 @@ public class SettingsViewController: UIViewController{
             }
             defaultSettings.setValue(sender.on, forKey: "radians");
     }
+    
     //if the state of the degrees switch changes...
     @IBAction func degreesSwitchChanged(sender: UISwitch) {
         //set the saved settings appropriately.
         let defaultSettings = NSUserDefaults.standardUserDefaults();
+        //make sure the radians switch is on if turning off degrees.
         if(!sender.on && !radiansSwitch.on)
         {
             radiansSwitch.setOn(true, animated: true);
@@ -197,6 +222,7 @@ public class SettingsViewController: UIViewController{
         
     }
     
+    //update settings if the state of the reciprocals switch is changed.
     @IBAction func reciprocalsSwitchChanged(sender: UISwitch) {
         let defaultSettings = NSUserDefaults.standardUserDefaults();
         defaultSettings.setValue(sender.on, forKey: "reciprocals");
