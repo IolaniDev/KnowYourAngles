@@ -56,22 +56,13 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         let savedSettings = NSUserDefaults.standardUserDefaults()
         //load the max num of problems the player wants to complete
         if (savedSettings.objectForKey("maxNumOfProblems") != nil) {
-            totalNumOfProblems = lroundf(savedSettings.valueForKey("maxNumOfProblems") as! Float);
+            totalNumOfProblems = savedSettings.valueForKey("maxNumOfProblems") as! Int;
         }
         
-        if (savedSettings.objectForKey("amtTime") != nil)
+        if (savedSettings.objectForKey("amtTimeMin") != nil && savedSettings.objectForKey("amtTimeSec") != nil)
         {
-            let temp = savedSettings.objectForKey("amtTime") as! Float;
-            if(temp < 1)
-            {
-                numSec = 30;
-                numMin = 0;
-            }
-            else
-            {
-                numSec = 0;
-                numMin = lroundf(((temp - 0.25)/0.5)*0.5);
-            }
+            numMin = savedSettings.valueForKey("amtTimeMin") as! Int;
+            numSec = savedSettings.valueForKey("amtTimeSec") as! Int;
         }
         
         //load the degree problems (if the user wants them)
@@ -467,18 +458,9 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             finishViewController.totalNum = totalNumOfProblems;
             if(isOutOfTime)
             {
-                let savedSettings = NSUserDefaults.standardUserDefaults()
-                let temp = savedSettings.objectForKey("amtTime") as! Float;
-                if(temp < 1)
-                {
-                    numSec = 30;
-                    numMin = 0;
-                }
-                else
-                {
-                    numSec = 0;
-                    numMin = lroundf(((temp - 0.25)/0.5)*0.5);
-                }
+                let savedSettings = NSUserDefaults.standardUserDefaults();
+                numMin = savedSettings.valueForKey("amtTimeMin") as! Int;
+                numSec = savedSettings.valueForKey("amtTimeSec") as! Int;
             }
             finishViewController.finalTime = (numMin,numSec);
         }

@@ -11,21 +11,37 @@ import UIKit
 
 public class SettingsViewController: UIViewController{
     
+    //label for the problemSlider to display how many problems the user wants to complete
     @IBOutlet weak var totalNumOfProblems: UILabel!
-    @IBOutlet weak var timerSlider: UISlider!
-    @IBOutlet weak var timerLabel: UILabel!
+    //reference to a slider used to choose the number of problems the user wants to complete
     @IBOutlet weak var problemSlider: UISlider!
-    @IBOutlet weak var degreesSwitch: UISwitch!
-    @IBOutlet weak var radiansSwitch: UISwitch!
-    @IBOutlet weak var reciprocalsSwitch: UISwitch!
-    @IBOutlet weak var timerSwitch: UISwitch!
     
+    //timerSwitch controls whether a time limit is set on how long the user has to complete the desired number of problems
+    @IBOutlet weak var timerSwitch: UISwitch!
+    //timerLabel displays the time limit currently set (can be 30 seconds, 1 min, 2 min, 3 min, or 4 min)
+    @IBOutlet weak var timerLabel: UILabel!
+    //timerSlider lets the user change the time limit
+    @IBOutlet weak var timerSlider: UISlider!
+    
+    //degreesSwitch controls whether the problems displayed are in degrees
+    //NOTE: Either degrees or radians must be selected. It is not possible to display problems without degrees and without radians.
+    @IBOutlet weak var degreesSwitch: UISwitch!
+    //radiansSwitch controls whether the problems displayed are in radians
+    @IBOutlet weak var radiansSwitch: UISwitch!
+    
+    //reciprocalsSwitch controls whether to include the reciprocal functions (sec, csc, cot) in the problem set.
+    @IBOutlet weak var reciprocalsSwitch: UISwitch!
+    
+    //when the view loads...
     override public func viewDidLoad() {
+        //call on the super class viewDidLoad method
         super.viewDidLoad()
         
+        //grab the previously saved settings (if any)
         let defaultSettings = NSUserDefaults.standardUserDefaults()
         
-        //if there are previously saved settings, use them
+        /**********SETTINGS FOR MAX NUM OF PROBLEMS**********/
+        //if there are previously saved settings for the number of problems, use them
         if (defaultSettings.objectForKey("maxNumOfProblems") != nil) {
             problemSlider.value = defaultSettings.valueForKey("maxNumOfProblems") as! Float;
         }
@@ -36,15 +52,18 @@ public class SettingsViewController: UIViewController{
             problemSlider.value = 10;
             defaultSettings.setValue(problemSlider.value, forKey: "maxNumOfProblems");
         }
+        
         //set the text on the settings page
         totalNumOfProblems.text = "Number of Problems: \(lroundf(problemSlider.value))";
         
-        //timer settings
+        /**********SETTINGS FOR TIMER**********/
+        //if there are previously saved timer settings, then use them
         if(defaultSettings.objectForKey("isTimerOn") != nil)
         {
             timerSwitch.setOn(defaultSettings.objectForKey("isTimerOn") as! Bool, animated: true);
             timerSlider.hidden = !timerSwitch.on;
         }
+        //if there are no pre-existing settings, then set default values.
         else
         {
             timerSwitch.setOn(false, animated: true);
@@ -53,27 +72,33 @@ public class SettingsViewController: UIViewController{
         }
         
         //if there are already settings for the amount of time allowed, then use them
-        if(defaultSettings.objectForKey("amtTime") != nil)
+        if(defaultSettings.objectForKey("amtTimeMin") != nil && defaultSettings.objectForKey("amtTimeSec") != nil)
         {
-            timerSlider.value = defaultSettings.objectForKey("amtTime") as! Float;
-            if(timerSlider.value<1)
+            //get the minutes & seconds stored in settings and convert to a slider value
+            let minutes = defaultSettings.objectForKey("amtTimeMin") as! Float;
+            let seconds = defaultSettings.objectForKey("amtTimeSec") as! Float;
+            timerSlider.value = (minutes) + (seconds/60);
+            
+            if(minutes == 0)
             {
-                timerLabel.text = "Timer: 30 seconds";
+                timerLabel.text = "Timer: \(seconds) seconds";
             }
             else
             {
-                let newValue = lroundf(((timerSlider.value - 0.25)/0.5)*0.5)
-                timerLabel.text = "Timer: \(newValue) minutes";
+                timerLabel.text = "Timer: \(minutes) minutes \(seconds) seconds";
             }
-
         }
+        //if there are no pre-existing settings for amount of time allowed, then set default values
         else
         {
             timerLabel.text = "Timer: 30 seconds";
             timerSlider.value = 0.5;
-            defaultSettings.setValue(timerSlider.value, forKey: "amtTime");
+            defaultSettings.setValue(0, forKey: "amtTimeMin");
+            defaultSettings.setValue(0.5, forKey: "amtTimeSec");
         }
         
+        
+        /**********SETTINGS FOR PROBLEMS USING DEGREES**********/
         if (defaultSettings.objectForKey("degrees") != nil) {
             degreesSwitch.setOn(defaultSettings.valueForKey("degrees") as! Bool, animated: true);
         }
@@ -124,18 +149,30 @@ public class SettingsViewController: UIViewController{
         defaultSettings.setValue(sender.on, forKey: "isTimerOn");
     }
     
+    //function is called when the timerSlider is changed
     @IBAction func timerSliderChanged(sender: UISlider) {
-        let defaultSettings = NSUserDefaults.standardUserDefaults();
-        if(sender.value<1)
+        
+        //get the value from the slider and round it to the nearest half
+        let newValue = Double(lroundf(((sender.value - 0.25)/0.5)))*0.5;
+        
+        //from the newValue, extract the number of minutes and number of seconds for the time limit.
+        let minutes = newValue - (newValue % 1);
+        let seconds = 60 * (newValue % 1);
+        
+        if(minutes == 0)
         {
-            timerLabel.text = "Timer: 30 seconds";
+            timerLabel.text = "Timer: \(seconds) seconds";
         }
         else
         {
-            let newValue = lroundf(((sender.value - 0.25)/0.5)*0.5)
-            timerLabel.text = "Timer: \(newValue) minutes";
+            timerLabel.text = "Timer: \(minutes) minutes \(seconds) seconds";
         }
-        defaultSettings.setValue(sender.value, forKey: "amtTime");
+        
+        //create a reference to the current settings
+        let defaultSettings = NSUserDefaults.standardUserDefaults();
+        //set new values for the time limit in the settings
+        defaultSettings.setValue(minutes, forKey: "amtTimeMin");
+        defaultSettings.setValue(seconds, forKey: "amtTimeSec");
     }
     
     @IBAction func radiansSwitchChanged(sender: UISwitch) {
