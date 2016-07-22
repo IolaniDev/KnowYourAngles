@@ -61,61 +61,6 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         //Setup Writing Recognition
         super.viewDidLoad();
         
-        //load settings
-        let savedSettings = NSUserDefaults.standardUserDefaults()
-        
-        /**********LOAD NUMBER OF PROBLEMS**********/
-        //if the user has previously saved settings, load the max num of problems the player wants to complete
-        if (savedSettings.objectForKey("maxNumOfProblems") != nil) {
-            totalNumOfProblems = savedSettings.valueForKey("maxNumOfProblems") as! Int;
-        }
-        //otherwise use the default values of 10 problems
-        else{
-            //set the default number of problems to 10
-            totalNumOfProblems = 10;
-            savedSettings.setValue(totalNumOfProblems, forKey: "maxNumOfProblems");
-        }
-        
-        //load the degree problems (if the user wants them)
-        if(savedSettings.objectForKey("degrees") != nil)
-        {
-            if(savedSettings.valueForKey("degrees") as! Bool)
-            {
-                libraryOfProblems.appendContentsOf(degreeProblems);
-            }
-        }
-        
-        //load the radian problems (if the user wants them)
-        if(savedSettings.objectForKey("radians") != nil)
-        {
-            if(savedSettings.valueForKey("radians") as! Bool)
-            {
-                libraryOfProblems.appendContentsOf(radianProblems);
-            }
-        }
-        
-        //load the reciprocal problems (if the user wants them)
-        if(savedSettings.objectForKey("reciprocals") != nil)
-        {
-            if(savedSettings.valueForKey("reciprocals") as! Bool)
-            {
-                if(savedSettings.objectForKey("degrees") != nil)
-                {
-                    if(savedSettings.valueForKey("degrees") as! Bool)
-                    {
-                        libraryOfProblems.appendContentsOf(reciprocalDegreeProblems);
-                    }
-                }
-                if(savedSettings.objectForKey("radians") != nil)
-                {
-                    if(savedSettings.valueForKey("radians") as! Bool)
-                    {
-                        libraryOfProblems.appendContentsOf(reciprocalRadianProblems);
-                    }
-                }
-            }
-        }
-        
         // Register MyScript certificate before anything else
         let certificate = NSData(bytes: myCertificate.bytes, length: myCertificate.length);
         
@@ -139,43 +84,122 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             
             mathView.configureWithBundle("math", andConfig: "standard");
             
+            //load previously saved settings (if there are any)
+            let savedSettings = NSUserDefaults.standardUserDefaults()
+            
+            /**********LOAD NUMBER OF PROBLEMS**********/
+            //if the user has previously saved settings, load the max num of problems the player wants to complete
+            if (savedSettings.objectForKey("maxNumOfProblems") != nil)
+            {
+                totalNumOfProblems = savedSettings.valueForKey("maxNumOfProblems") as! Int;
+            }
+            //otherwise use the default values of 10 problems
+            else
+            {
+                //set the default number of problems to 10
+                totalNumOfProblems = 10;
+                savedSettings.setValue(totalNumOfProblems, forKey: "maxNumOfProblems");
+            }
+            
+            /**********LOAD PROBLEMS THAT ARE IN DEGREES**********/
+            //if there are previously saved settings...
+            if(savedSettings.objectForKey("degrees") != nil)
+            {
+                //load the degree problems (if the user wants them)
+                if(savedSettings.valueForKey("degrees") as! Bool)
+                {
+                    libraryOfProblems.appendContentsOf(degreeProblems);
+                }
+            }
+            //if there are no previously saved settings, by default include the problems in degrees.
+            else
+            {
+                libraryOfProblems.appendContentsOf(degreeProblems);
+            }
+            
+            /**********LOAD PROBLEMS THAT ARE IN RADIANS**********/
+            //if there are previously saved settings...
+            if(savedSettings.objectForKey("radians") != nil)
+            {
+                //load the radian problems (if the user wants them)
+                if(savedSettings.valueForKey("radians") as! Bool)
+                {
+                    libraryOfProblems.appendContentsOf(radianProblems);
+                }
+            }
+            //otherwise do not load radian problems (by default)
+            
+             /**********LOAD RECIPROCAL PROBLEMS**********/
+            //load the reciprocal problems (if the user wants them)
+            if(savedSettings.objectForKey("reciprocals") != nil)
+            {
+                if(savedSettings.valueForKey("reciprocals") as! Bool)
+                {
+                    if(savedSettings.objectForKey("degrees") != nil)
+                    {
+                        if(savedSettings.valueForKey("degrees") as! Bool)
+                        {
+                            libraryOfProblems.appendContentsOf(reciprocalDegreeProblems);
+                        }
+                    }
+                    if(savedSettings.objectForKey("radians") != nil)
+                    {
+                        if(savedSettings.valueForKey("radians") as! Bool)
+                        {
+                            libraryOfProblems.appendContentsOf(reciprocalRadianProblems);
+                        }
+                    }
+                }
+            }
+            
             //setup image of first problem
             let randomNum = Int(arc4random_uniform(UInt32(libraryOfProblems.count)));
             currProblem = libraryOfProblems[randomNum]
             problemImage.image = UIImage(named: currProblem);
             
             currentQuestion.text = "Question \(currProblemNumber) of \(totalNumOfProblems)";
-
-            NSLog("View Loaded with \(totalNumOfProblems)");
             
             countDown.text = String(format:"%02d:%02d", numMin, numSec);
             
-            if(savedSettings.objectForKey("isTimerOn") as! Bool)
+            /**********SETTING UP THE TIME LIMIT**********/
+            //if there are previously saved settings for the timer ...
+            if(savedSettings.objectForKey("isTimerOn") != nil)
             {
-                //check if there are previously saved time limit settings
-                if (savedSettings.objectForKey("amtTimeMin") != nil && savedSettings.objectForKey("amtTimeSec") != nil)
+                //if the timer should be on...
+                if(savedSettings.objectForKey("isTimerOn") as! Bool)
                 {
-                    numMin = savedSettings.valueForKey("amtTimeMin") as! Int;
-                    numSec = savedSettings.valueForKey("amtTimeSec") as! Int;
-                }
+                    //check if there are previously saved time limit settings
+                    if (savedSettings.objectForKey("amtTimeMin") != nil && savedSettings.objectForKey("amtTimeSec") != nil)
+                    {
+                        numMin = savedSettings.valueForKey("amtTimeMin") as! Int;
+                        numSec = savedSettings.valueForKey("amtTimeSec") as! Int;
+                    }
                     //otherwise use the default value of 30 seconds and save to settings.
+                    else
+                    {
+                        numMin = 0;
+                        numSec = 30;
+                        savedSettings.setValue(numMin, forKey: "amtTimeMin");
+                        savedSettings.setValue(numSec, forKey: "amtTimeSec");
+                    }
+                    
+                    timerLabel.hidden = false;
+                    countDown.hidden = false;
+                    timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.updateCountDown), userInfo: nil, repeats: true);
+                }
+                //if the timer should be off...
                 else
                 {
-                    numMin = 0;
-                    numSec = 30;
-                    savedSettings.setValue(numMin, forKey: "amtTimeMin");
-                    savedSettings.setValue(numSec, forKey: "amtTimeSec");
+                    timerLabel.hidden = true;
+                    countDown.hidden = true;
                 }
-                
-                timerLabel.hidden = false;
-                countDown.hidden = false;
-                timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.updateCountDown), userInfo: nil, repeats: true);
             }
             else
             {
                 timerLabel.hidden = true;
                 countDown.hidden = true;
             }
+            NSLog("View Loaded with \(totalNumOfProblems)");
         }
     }
     
