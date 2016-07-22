@@ -169,7 +169,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                 
                 timerLabel.hidden = false;
                 countDown.hidden = false;
-                timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: Selector("updateCountDown"), userInfo: nil, repeats: true);
+                timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.updateCountDown), userInfo: nil, repeats: true);
             }
             else
             {
@@ -218,7 +218,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
     
     @IBAction func nextButtonPressed(sender: UIButton) {
         //increase the problem number
-        currProblemNumber++;
+        currProblemNumber += 1;
         
         if(["Cos0", "Sin90", "tan45", "tan225", "Cos0rads", "SinPiOver2", "TanPiOver4", "Tan5PiOver4", "Cot45", "CotPiOver4", "Cot225", "Cot5Piover4", "Sec0", "Sec0rads", "Csc90", "CscPiOver2"].contains(currProblem))
         {
@@ -494,10 +494,10 @@ class ViewController: UIViewController, MAWMathViewDelegate{
     
     func updateCountDown()
     {
-        numSec--;
+        numSec -= 1;
         if(numSec == -1 && numMin > 0)
         {
-            numMin--;
+            numMin -= 1;
             numSec = 59;
         }
         countDown.text = String(format:"%02d:%02d", numMin, numSec);
