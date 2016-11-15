@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nWQ-yf-5Ff">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="nWQ-yf-5Ff">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -62,34 +62,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Know Your Angles!" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2vm-mD-ZLr">
-                                <rect key="frame" x="71" y="82" width="458" height="67"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="2vm-mD-ZLr" secondAttribute="height" multiplier="457:67" id="GJs-F0-4mz"/>
-                                    <constraint firstAttribute="width" constant="360" id="N1R-CU-Jti"/>
-                                    <constraint firstAttribute="height" constant="139" id="jyx-o1-hrF"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="56"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="GJs-F0-4mz"/>
-                                        <exclude reference="N1R-CU-Jti"/>
-                                        <exclude reference="jyx-o1-hrF"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="N1R-CU-Jti"/>
-                                        <include reference="jyx-o1-hrF"/>
-                                    </mask>
-                                </variation>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcg-Fv-qXf">
-                                <rect key="frame" x="20" y="539" width="88" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <state key="normal" title="Settings"/>
+                                <rect key="frame" x="175.5" y="823" width="249" height="96"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                <state key="normal" title="Settings">
+                                    <color key="titleColor" red="0.15686274510000001" green="0.80000000000000004" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="GMS-eI-xVZ" kind="show" id="1j4-68-Y0j"/>
                                 </connections>
@@ -103,32 +81,110 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sHY-sg-EPY">
-                                <rect key="frame" x="208" y="255" width="184" height="89"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
-                                <state key="normal" title="START" backgroundImage="buttonRect"/>
+                                <rect key="frame" x="236" y="415" width="128" height="96"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                <state key="normal" title="Play">
+                                    <color key="titleColor" red="0.15686274509803921" green="0.80000000000000004" blue="0.77647058823529413" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="selected">
+                                    <color key="titleColor" red="0.49803921569999998" green="1" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" red="0.49803921569999998" green="1" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="BYZ-38-t0r" kind="show" identifier="toProblems" id="Cin-oa-IN6"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Know Your Angles!" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="1" translatesAutoresizingMaskIntoConstraints="NO" id="2vm-mD-ZLr">
+                                <rect key="frame" x="-64.5" y="270" width="729" height="105"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="2vm-mD-ZLr" secondAttribute="height" multiplier="457:67" id="GJs-F0-4mz"/>
+                                    <constraint firstAttribute="width" constant="760" id="VO1-Bd-iPo"/>
+                                    <constraint firstAttribute="height" constant="105" id="ysi-ex-8cd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="DamascusSemiBold" family="Damascus" pointSize="80"/>
+                                <color key="textColor" red="0.49803921568627452" green="1" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="GJs-F0-4mz"/>
+                                        <exclude reference="VO1-Bd-iPo"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="VO1-Bd-iPo"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iw2-gu-zf5">
+                                <rect key="frame" x="189" y="551" width="222" height="96"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                <state key="normal" title="Tutorial">
+                                    <color key="titleColor" red="0.15686274510000001" green="0.80000000000000004" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="selected">
+                                    <color key="titleColor" red="0.49803921569999998" green="1" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" red="0.49803921569999998" green="1" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3m4-Yf-9Uj">
+                                <rect key="frame" x="107.5" y="687" width="385" height="96"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                <state key="normal" title="Leaderboard">
+                                    <color key="titleColor" red="0.15686274510000001" green="0.80000000000000004" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="selected">
+                                    <color key="titleColor" red="0.49803921569999998" green="1" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" red="0.49803921569999998" green="1" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="tintColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.098039215690000001" green="0.49803921569999998" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.098039215686274508" green="0.49803921568627452" blue="0.48627450980392156" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="2vm-mD-ZLr" firstAttribute="top" secondItem="Gcj-VA-Ugq" secondAttribute="bottom" constant="62" id="6XQ-9y-O1O"/>
+                            <constraint firstItem="2vm-mD-ZLr" firstAttribute="top" secondItem="Gcj-VA-Ugq" secondAttribute="bottom" constant="250" id="6XQ-9y-O1O"/>
                             <constraint firstItem="zXL-ba-vGP" firstAttribute="top" secondItem="ug6-zk-0aF" secondAttribute="bottom" constant="20" id="BWL-PR-5fb"/>
+                            <constraint firstItem="sHY-sg-EPY" firstAttribute="top" secondItem="2vm-mD-ZLr" secondAttribute="bottom" constant="40" id="CAa-GQ-Mcb"/>
+                            <constraint firstItem="3m4-Yf-9Uj" firstAttribute="top" secondItem="vcg-Fv-qXf" secondAttribute="bottom" constant="40" id="CGM-5F-4Dr"/>
                             <constraint firstItem="2vm-mD-ZLr" firstAttribute="centerX" secondItem="P1s-EJ-g8E" secondAttribute="centerX" id="GGS-rY-Fwe"/>
                             <constraint firstItem="vcg-Fv-qXf" firstAttribute="leading" secondItem="P1s-EJ-g8E" secondAttribute="leadingMargin" id="Kf0-do-aed"/>
+                            <constraint firstItem="3m4-Yf-9Uj" firstAttribute="top" secondItem="vcg-Fv-qXf" secondAttribute="bottom" constant="40" id="LOG-RN-Yu7"/>
+                            <constraint firstItem="vcg-Fv-qXf" firstAttribute="top" secondItem="3m4-Yf-9Uj" secondAttribute="top" id="QZL-gc-huE"/>
+                            <constraint firstItem="3m4-Yf-9Uj" firstAttribute="top" secondItem="Iw2-gu-zf5" secondAttribute="bottom" constant="40" id="Qhh-Gl-MaY"/>
                             <constraint firstItem="sHY-sg-EPY" firstAttribute="centerX" secondItem="P1s-EJ-g8E" secondAttribute="centerX" id="TK5-oT-00W"/>
+                            <constraint firstItem="vcg-Fv-qXf" firstAttribute="centerX" secondItem="P1s-EJ-g8E" secondAttribute="centerX" id="WRb-cK-CIa"/>
+                            <constraint firstItem="Iw2-gu-zf5" firstAttribute="centerX" secondItem="P1s-EJ-g8E" secondAttribute="centerX" id="XUX-Oe-rVt"/>
                             <constraint firstItem="sHY-sg-EPY" firstAttribute="centerY" secondItem="P1s-EJ-g8E" secondAttribute="centerY" id="aUS-bD-lvk"/>
+                            <constraint firstItem="2vm-mD-ZLr" firstAttribute="centerX" secondItem="P1s-EJ-g8E" secondAttribute="centerX" id="bSq-gL-33Z"/>
                             <constraint firstItem="ug6-zk-0aF" firstAttribute="trailing" secondItem="P1s-EJ-g8E" secondAttribute="trailingMargin" id="dnG-3m-1Nr"/>
+                            <constraint firstItem="Iw2-gu-zf5" firstAttribute="top" secondItem="sHY-sg-EPY" secondAttribute="bottom" constant="40" id="dnd-ch-SuP"/>
                             <constraint firstItem="zXL-ba-vGP" firstAttribute="top" secondItem="vcg-Fv-qXf" secondAttribute="bottom" constant="20" id="iN0-RK-3Sb"/>
+                            <constraint firstItem="3m4-Yf-9Uj" firstAttribute="centerX" secondItem="P1s-EJ-g8E" secondAttribute="centerX" id="jEX-bZ-6ZG"/>
+                            <constraint firstItem="vcg-Fv-qXf" firstAttribute="top" secondItem="3m4-Yf-9Uj" secondAttribute="bottom" constant="40" id="rnt-u1-g09"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="bSq-gL-33Z"/>
+                                <exclude reference="aUS-bD-lvk"/>
+                                <exclude reference="CGM-5F-4Dr"/>
+                                <exclude reference="LOG-RN-Yu7"/>
+                                <exclude reference="iN0-RK-3Sb"/>
+                                <exclude reference="Kf0-do-aed"/>
+                                <exclude reference="QZL-gc-huE"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="s5T-XZ-D8t"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wew-6R-hiy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-475.5" y="180.75"/>
+            <point key="canvasLocation" x="-477" y="180"/>
         </scene>
         <!--SettingsViewController.swift-->
         <scene sceneID="q3n-H4-19K">
@@ -550,9 +606,8 @@
     </scenes>
     <resources>
         <image name="Cos0" width="569" height="194"/>
-        <image name="buttonRect" width="184" height="89"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="CpN-Md-qpk"/>
+        <segue reference="rFt-nZ-CWS"/>
     </inferredMetricsTieBreakers>
 </document>

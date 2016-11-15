@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		840180C81D2C526F00CB794B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8429E1491D2C494300920987 /* SystemConfiguration.framework */; };
+		36C69ECF1D80A5DE0072CFFA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8429E1491D2C494300920987 /* SystemConfiguration.framework */; };
+		36C69ED11D80A5FF0072CFFA /* ATKMathWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36C69ED01D80A5FF0072CFFA /* ATKMathWidget.framework */; };
+		36C69ED31D80A6130072CFFA /* ATKMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36C69ED21D80A6130072CFFA /* ATKMath.framework */; };
+		36C69ED51D80A6260072CFFA /* ATKCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36C69ED41D80A6260072CFFA /* ATKCore.framework */; };
+		36C69ED71D80A6610072CFFA /* ATKMathWidget.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 36C69ED61D80A6610072CFFA /* ATKMathWidget.bundle */; };
+		36C69ED91D80A6850072CFFA /* resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 36C69ED81D80A6850072CFFA /* resources.bundle */; };
 		840180CC1D2C6CFD00CB794B /* org.iolani.KnowYourAngles.c in Sources */ = {isa = PBXBuildFile; fileRef = 840180CB1D2C6CFD00CB794B /* org.iolani.KnowYourAngles.c */; };
 		8422E9C21D35BF9500F33978 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422E9C11D35BF9500F33978 /* FirstViewController.swift */; };
 		8429E1191D2C481500920987 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429E1181D2C481500920987 /* AppDelegate.swift */; };
@@ -19,11 +24,6 @@
 		8429E1391D2C481600920987 /* KnowYourAnglesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429E1381D2C481600920987 /* KnowYourAnglesUITests.swift */; };
 		84461B4B1D308F1000BA997E /* FinishScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84461B4A1D308F1000BA997E /* FinishScreenViewController.swift */; };
 		84C3E8221D2DC75300750751 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C3E8211D2DC75300750751 /* SettingsViewController.swift */; };
-		E349D0581D40A4BC00ADA8E1 /* ATKMathWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E349D0571D40A4BC00ADA8E1 /* ATKMathWidget.framework */; };
-		E349D05A1D40A4D400ADA8E1 /* ATKMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E349D0591D40A4D400ADA8E1 /* ATKMath.framework */; };
-		E349D05C1D40A4E800ADA8E1 /* ATKCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E349D05B1D40A4E800ADA8E1 /* ATKCore.framework */; };
-		E349D05E1D40A70900ADA8E1 /* ATKMathWidget.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E349D05D1D40A70900ADA8E1 /* ATKMathWidget.bundle */; };
-		E349D0601D40A72200ADA8E1 /* resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E349D05F1D40A72200ADA8E1 /* resources.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,8 +44,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		36C69ED01D80A5FF0072CFFA /* ATKMathWidget.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ATKMathWidget.framework; path = "../MyScript_ATK-ios-2/Frameworks/ATKMathWidget.framework"; sourceTree = "<group>"; };
+		36C69ED21D80A6130072CFFA /* ATKMath.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ATKMath.framework; path = "../MyScript_ATK-ios-2/Frameworks/ATKMath.framework"; sourceTree = "<group>"; };
+		36C69ED41D80A6260072CFFA /* ATKCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ATKCore.framework; path = "../MyScript_ATK-ios-2/Frameworks/ATKCore.framework"; sourceTree = "<group>"; };
+		36C69ED61D80A6610072CFFA /* ATKMathWidget.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ATKMathWidget.bundle; sourceTree = "<group>"; };
+		36C69ED81D80A6850072CFFA /* resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = resources.bundle; sourceTree = "<group>"; };
 		840180CA1D2C562400CB794B /* MyCertificate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCertificate.h; sourceTree = "<group>"; };
-		840180CB1D2C6CFD00CB794B /* org.iolani.KnowYourAngles.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = org.iolani.KnowYourAngles.c; sourceTree = "<group>"; };
+		840180CB1D2C6CFD00CB794B /* org.iolani.KnowYourAngles.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = org.iolani.KnowYourAngles.c; path = ../org.iolani.KnowYourAngles.c; sourceTree = "<group>"; };
 		8422E9C11D35BF9500F33978 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		8429E1151D2C481500920987 /* KnowYourAngles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnowYourAngles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8429E1181D2C481500920987 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,11 +69,6 @@
 		8429E1491D2C494300920987 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		84461B4A1D308F1000BA997E /* FinishScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishScreenViewController.swift; sourceTree = "<group>"; };
 		84C3E8211D2DC75300750751 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		E349D0571D40A4BC00ADA8E1 /* ATKMathWidget.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ATKMathWidget.framework; path = "../MyScript_ATK-ios-2.1/Frameworks/ATKMathWidget.framework"; sourceTree = "<group>"; };
-		E349D0591D40A4D400ADA8E1 /* ATKMath.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ATKMath.framework; path = "../MyScript_ATK-ios-2.1/Frameworks/ATKMath.framework"; sourceTree = "<group>"; };
-		E349D05B1D40A4E800ADA8E1 /* ATKCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ATKCore.framework; path = "../MyScript_ATK-ios-2.1/Frameworks/ATKCore.framework"; sourceTree = "<group>"; };
-		E349D05D1D40A70900ADA8E1 /* ATKMathWidget.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ATKMathWidget.bundle; sourceTree = "<group>"; };
-		E349D05F1D40A72200ADA8E1 /* resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = resources.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,10 +76,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				840180C81D2C526F00CB794B /* SystemConfiguration.framework in Frameworks */,
-				E349D0581D40A4BC00ADA8E1 /* ATKMathWidget.framework in Frameworks */,
-				E349D05A1D40A4D400ADA8E1 /* ATKMath.framework in Frameworks */,
-				E349D05C1D40A4E800ADA8E1 /* ATKCore.framework in Frameworks */,
+				36C69ECF1D80A5DE0072CFFA /* SystemConfiguration.framework in Frameworks */,
+				36C69ED11D80A5FF0072CFFA /* ATKMathWidget.framework in Frameworks */,
+				36C69ED31D80A6130072CFFA /* ATKMath.framework in Frameworks */,
+				36C69ED51D80A6260072CFFA /* ATKCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,11 +103,11 @@
 		8429E10C1D2C481500920987 = {
 			isa = PBXGroup;
 			children = (
-				E349D05F1D40A72200ADA8E1 /* resources.bundle */,
-				E349D05D1D40A70900ADA8E1 /* ATKMathWidget.bundle */,
-				E349D05B1D40A4E800ADA8E1 /* ATKCore.framework */,
-				E349D0591D40A4D400ADA8E1 /* ATKMath.framework */,
-				E349D0571D40A4BC00ADA8E1 /* ATKMathWidget.framework */,
+				36C69ED81D80A6850072CFFA /* resources.bundle */,
+				36C69ED61D80A6610072CFFA /* ATKMathWidget.bundle */,
+				36C69ED41D80A6260072CFFA /* ATKCore.framework */,
+				36C69ED21D80A6130072CFFA /* ATKMath.framework */,
+				36C69ED01D80A5FF0072CFFA /* ATKMathWidget.framework */,
 				8429E1491D2C494300920987 /* SystemConfiguration.framework */,
 				8429E1171D2C481500920987 /* KnowYourAngles */,
 				8429E12C1D2C481500920987 /* KnowYourAnglesTests */,
@@ -268,8 +268,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E349D0601D40A72200ADA8E1 /* resources.bundle in Resources */,
-				E349D05E1D40A70900ADA8E1 /* ATKMathWidget.bundle in Resources */,
+				36C69ED91D80A6850072CFFA /* resources.bundle in Resources */,
+				36C69ED71D80A6610072CFFA /* ATKMathWidget.bundle in Resources */,
 				8429E1231D2C481500920987 /* LaunchScreen.storyboard in Resources */,
 				8429E1201D2C481500920987 /* Assets.xcassets in Resources */,
 				8429E11E1D2C481500920987 /* Main.storyboard in Resources */,
@@ -448,7 +448,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				FRAMEWORK_SEARCH_PATHS = "/Users/enagoshi/Documents/iOSworkspace/MyScript_ATK-ios-2.1/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../MyScript_ATK-ios-2/Frameworks\"";
 				INFOPLIST_FILE = KnowYourAngles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -473,7 +473,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				FRAMEWORK_SEARCH_PATHS = "/Users/enagoshi/Documents/iOSworkspace/MyScript_ATK-ios-2.1/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../MyScript_ATK-ios-2/Frameworks\"";
 				INFOPLIST_FILE = KnowYourAngles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
