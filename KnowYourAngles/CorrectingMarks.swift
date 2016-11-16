@@ -12,12 +12,11 @@ class CorrectingMarks: UIView {
 
     /*
     // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
+    // An empty implementation adversely affects performance during animation.*/
     
     override func drawRect(rect: CGRect) {
-        let context = UIGraphicsGetCurrentContext();
-        CGContextMoveToPoint(context, 0, 0);
-        CGContextAddLineToPoint(context,500,500);
-        CGContextStrokePath(context);
-    }*/
+        let image = UIImage(named: "Wrong")!;
+        let drawPoint = CGPointMake(100, 100)
+        image.drawAtPoint(drawPoint)
+    }
 }
