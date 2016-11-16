@@ -427,8 +427,8 @@
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="OvV-Iz-D1W"/>
-                                <exclude reference="XFs-87-EFv"/>
                                 <exclude reference="pp0-oX-agl"/>
+                                <exclude reference="XFs-87-EFv"/>
                             </mask>
                         </variation>
                     </view>
@@ -450,7 +450,7 @@
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="CorrectingMarks" customModule="KnowYourAngles" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -606,6 +606,6 @@
         <image name="Cos0" width="569" height="194"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="rFt-nZ-CWS"/>
+        <segue reference="HrZ-rm-kQT"/>
     </inferredMetricsTieBreakers>
 </document>
