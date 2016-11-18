@@ -586,8 +586,12 @@
                                 <exclude reference="zv1-fv-f7f"/>
                             </mask>
                         </variation>
+                        <connections>
+                            <outlet property="workArea" destination="fZZ-Ja-u7v" id="xmG-vm-0fz"/>
+                        </connections>
                     </view>
                     <connections>
+                        <outlet property="correctingMarksView" destination="8bC-Xf-vdC" id="4kd-mA-6pO"/>
                         <outlet property="countDown" destination="Kis-Pb-w0V" id="5Ph-Ki-GFb"/>
                         <outlet property="mathView" destination="fZZ-Ja-u7v" id="3Cf-5C-w7V"/>
                         <outlet property="numCorrect" destination="muU-zW-946" id="8Ex-VR-Gx6"/>
