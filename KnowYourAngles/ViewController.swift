@@ -34,16 +34,14 @@ class ViewController: UIViewController, MAWMathViewDelegate{
     @IBOutlet weak var numCorrect: UILabel!
     @IBOutlet weak var numRemaining: UILabel!
     @IBOutlet weak var currentQuestion: UILabel!
-    @IBOutlet weak var countDown: UILabel!
-    @IBOutlet weak var timerLabel: UILabel!
     
     //creates a timer
-    var timer = NSTimer();
+    /*var timer = NSTimer();
     //time limit variables for the timer
     var numSec = 30;
     var numMin = 0;
     //boolean representing whether the user finished the desired amount of questions or ran out of time before moving to end screen.
-    var isOutOfTime = false;
+    var isOutOfTime = false;*/
     
     //image of current problem.
     @IBOutlet weak var problemImage: UIImageView!
@@ -162,11 +160,11 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             
             //currentQuestion.text = "Question \(currProblemNumber) of \(totalNumOfProblems)";
             
-            countDown.text = String(format:"%02d:%02d", numMin, numSec);
+            //countDown.text = String(format:"%02d:%02d", numMin, numSec);
             
             /**********SETTING UP THE TIME LIMIT**********/
             //if there are previously saved settings for the timer ...
-            if(savedSettings.objectForKey("isTimerOn") != nil)
+            /*if(savedSettings.objectForKey("isTimerOn") != nil)
             {
                 //if the timer should be on...
                 if(savedSettings.objectForKey("isTimerOn") as! Bool)
@@ -201,8 +199,9 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             {
                 timerLabel.hidden = true;
                 countDown.hidden = true;
-            }
+            }*/
             NSLog("View Loaded with \(totalNumOfProblems)");
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateCountDown), name: "segueNow", object: nil);
         }
     }
     
@@ -509,30 +508,21 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             let finishViewController = segue.destinationViewController as! FinishScreenViewController
             finishViewController.finalScore = Int(numCorrect.text!)!;
             finishViewController.totalNum = totalNumOfProblems;
-            if(isOutOfTime)
+            if(self.correctingMarksView.isOutOfTime)
             {
                 let savedSettings = NSUserDefaults.standardUserDefaults();
-                numMin = savedSettings.valueForKey("amtTimeMin") as! Int;
-                numSec = savedSettings.valueForKey("amtTimeSec") as! Int;
+                self.correctingMarksView.numMin = savedSettings.valueForKey("amtTimeMin") as! Int;
+                self.correctingMarksView.numSec = savedSettings.valueForKey("amtTimeSec") as! Int;
                 finishViewController.isTimerOn = savedSettings.valueForKey("isTimerOn") as! Bool;
             }
-            finishViewController.finalTime = (numMin,numSec);
+            finishViewController.finalTime = (self.correctingMarksView.numMin,self.correctingMarksView.numSec);
         }
     }
     
     func updateCountDown()
     {
-        numSec -= 1;
-        if(numSec == -1 && numMin > 0)
+        if(self.correctingMarksView.isOutOfTime)
         {
-            numMin -= 1;
-            numSec = 59;
-        }
-        countDown.text = String(format:"%02d:%02d", numMin, numSec);
-        if(numMin == 0 && numSec == 0)
-        {
-            //segue to finish screen.
-            isOutOfTime = true;
             performSegueWithIdentifier("toFinishScreen", sender: self);
         }
     }
