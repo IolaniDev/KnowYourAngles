@@ -91,7 +91,7 @@ public class SettingsViewController: UIViewController{
         //if there are no pre-existing settings for amount of time allowed, then set default values
         else
         {
-            timerLabel.text = "Timer: 30 seconds";
+            timerLabel.text = "30 seconds";
             timerSlider.value = 0.5;
             defaultSettings.setValue(0, forKey: "amtTimeMin");
             defaultSettings.setValue(0.5, forKey: "amtTimeSec");
@@ -153,11 +153,11 @@ public class SettingsViewController: UIViewController{
             timerSlider.hidden = false;
             if(minutes == 0)
             {
-                timerLabel.text = "Timer: \(seconds) seconds";
+                timerLabel.text = "\(seconds) seconds";
             }
             else
             {
-                timerLabel.text = "Timer: \(minutes) minutes \(seconds) seconds";
+                timerLabel.text = "\(minutes) minutes \(seconds) seconds";
             }
         }
         else
@@ -182,11 +182,11 @@ public class SettingsViewController: UIViewController{
         
         if(minutes == 0)
         {
-            timerLabel.text = "Timer: \(Int(seconds)) seconds";
+            timerLabel.text = "\(Int(seconds)) seconds";
         }
         else
         {
-            timerLabel.text = "Timer: \(Int(minutes)) minutes \(Int(seconds)) seconds";
+            timerLabel.text = "\(Int(minutes)) minutes \(Int(seconds)) seconds";
         }
         
         //create a reference to the current settings
