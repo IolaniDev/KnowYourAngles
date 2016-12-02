@@ -62,12 +62,14 @@ public class SettingsViewController: UIViewController{
         {
             timerSwitch.setOn(defaultSettings.objectForKey("isTimerOn") as! Bool, animated: true);
             timerSlider.hidden = !timerSwitch.on;
+            timerLabel.hidden = !timerSwitch.on;
         }
         //if there are no pre-existing settings, then set default value of off.
         else
         {
             timerSwitch.setOn(false, animated: true);
             timerSlider.hidden = true;
+            timerLabel.hidden = true;
             defaultSettings.setValue(timerSwitch.on, forKey: "isTimerOn");
         }
         
@@ -81,11 +83,15 @@ public class SettingsViewController: UIViewController{
             
             if(minutes == 0)
             {
-                timerLabel.text = "Timer: \(Int(seconds)) seconds";
+                timerLabel.text = "\(Int(seconds)) seconds";
+            }
+            else if(seconds == 0)
+            {
+                timerLabel.text = "\(Int(minutes)) minutes";
             }
             else
             {
-                timerLabel.text = "Timer: \(Int(minutes)) minutes \(Int(seconds)) seconds";
+                timerLabel.text = "\(Int(minutes)) minutes \(Int(seconds)) seconds";
             }
         }
         //if there are no pre-existing settings for amount of time allowed, then set default values
@@ -149,11 +155,17 @@ public class SettingsViewController: UIViewController{
        let defaultSettings = NSUserDefaults.standardUserDefaults();
         let minutes = defaultSettings.objectForKey("amtTimeMin") as! Int;
         let seconds = defaultSettings.objectForKey("amtTimeSec") as! Int;
-        if(sender.on){
+        if(sender.on)
+        {
             timerSlider.hidden = false;
+            timerLabel.hidden = false;
             if(minutes == 0)
             {
                 timerLabel.text = "\(seconds) seconds";
+            }
+            else if(seconds == 0)
+            {
+                timerLabel.text = "\(minutes) minutes";
             }
             else
             {
@@ -163,6 +175,7 @@ public class SettingsViewController: UIViewController{
         else
         {
             timerSlider.hidden = true;
+            timerLabel.hidden = true;
             timerLabel.text = "Timer: Off";
         }
         
@@ -183,6 +196,10 @@ public class SettingsViewController: UIViewController{
         if(minutes == 0)
         {
             timerLabel.text = "\(Int(seconds)) seconds";
+        }
+        else if(seconds == 0)
+        {
+            timerLabel.text = "\(Int(minutes)) minutes";
         }
         else
         {

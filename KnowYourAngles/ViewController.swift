@@ -508,14 +508,19 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             let finishViewController = segue.destinationViewController as! FinishScreenViewController
             finishViewController.finalScore = Int(numCorrect.text!)!;
             finishViewController.totalNum = totalNumOfProblems;
-            if(self.correctingMarksView.isOutOfTime)
+            let savedSettings = NSUserDefaults.standardUserDefaults();
+            let totalSec = 60*self.correctingMarksView.numMin+self.correctingMarksView.numSec;
+            let maxTotal = (savedSettings.valueForKey("amtTimeMin") as! Int) * 60 + (savedSettings.valueForKey("amtTimeSec") as! Int);
+            let diff = maxTotal - totalSec;
+            finishViewController.isTimerOn = savedSettings.valueForKey("isTimerOn") as! Bool;
+            /*if(self.correctingMarksView.isOutOfTime)
             {
                 let savedSettings = NSUserDefaults.standardUserDefaults();
                 self.correctingMarksView.numMin = savedSettings.valueForKey("amtTimeMin") as! Int;
                 self.correctingMarksView.numSec = savedSettings.valueForKey("amtTimeSec") as! Int;
-                finishViewController.isTimerOn = savedSettings.valueForKey("isTimerOn") as! Bool;
-            }
-            finishViewController.finalTime = (self.correctingMarksView.numMin,self.correctingMarksView.numSec);
+                
+            }*/
+            finishViewController.finalTime = (diff / 60 , diff % 60);
         }
     }
     

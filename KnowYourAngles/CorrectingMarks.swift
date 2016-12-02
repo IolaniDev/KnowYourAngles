@@ -10,6 +10,7 @@ import UIKit
 
 class CorrectingMarks: UIView {
 
+    //label that displays digital countdown
     @IBOutlet weak var countdownTimer: UILabel!
     
     let segueNow = "segueNow";
@@ -17,15 +18,21 @@ class CorrectingMarks: UIView {
     //creates a timer
     var timer = NSTimer();
     //time limit variables for the timer
+    var maxSec : Float = 30.0;
+    var maxMin : Float = 0.0;
     var numSec = 30;
     var numMin = 0;
+    //boolean representing whether the countdown clock should be visible or not
+    var isClockVisibile = false;
     //boolean representing whether the user finished the desired amount of questions or ran out of time before moving to end screen.
     var isOutOfTime = false;
     
+    //initialize
     override init(frame: CGRect) {
         super.init(frame: frame);
     }
 
+    //another initialize
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder);
         
@@ -53,8 +60,14 @@ class CorrectingMarks: UIView {
                     savedSettings.setValue(numMin, forKey: "amtTimeMin");
                     savedSettings.setValue(numSec, forKey: "amtTimeSec");
                 }
+                maxMin = Float(numMin);
+                maxSec = Float(numSec);
                 timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(self.updateCountDown), userInfo: nil, repeats: true);
-                
+                isClockVisibile = true;
+            }
+            else
+            {
+                isClockVisibile = false;
             }
         }
         
@@ -82,53 +95,34 @@ class CorrectingMarks: UIView {
     /*
      // Only override drawRect: if you perform custom drawing.
      // An empty implementation adversely affects performance during animation.*/
-    override func drawRect(rect: CGRect) {
-        //load previously saved settings (if there are any)
-        let savedSettings = NSUserDefaults.standardUserDefaults()
-        
-        //draw the /**********SETTING UP THE TIME LIMIT**********/
-        //if there are previously saved settings for the timer ...
-        if(savedSettings.objectForKey("isTimerOn") != nil)
+    override func drawRect(rect: CGRect)
+    {
+        //if the timer should be on...
+        if(isClockVisibile)
         {
-            //if the timer should be on...
-            if(savedSettings.objectForKey("isTimerOn") as! Bool)
-            {
-                countdownTimer.hidden = false;
-            }    //if the timer should be off...
-            else
-            {
-                countdownTimer.hidden = true;
-            }
+            countdownTimer.hidden = false;
+            //let timerRect = CGRectMake(workArea.frame.origin.x+workArea.frame.width/2-100,workArea.frame.origin.y-600,200,200);
+            let timerRect = CGRectMake(self.superview!.frame.width / 2, 308, 200, 200);
+            
+            countdownTimer.textColor = UIColor.blackColor();
+            countdownTimer.text = String(format:"%02d:%02d", numMin, numSec);
+                
+            //draw the background of the timer
+            var path = UIBezierPath(arcCenter: CGPoint(x:timerRect.origin.x, y:timerRect.origin.y), radius: 50, startAngle: 0, endAngle: 2*CGFloat(M_PI), clockwise: true)
+            path.lineWidth = 100;
+            UIColor.init(red: 40/255, green: 204/255, blue: 198/255, alpha: 1).setStroke();
+            path.stroke();
+                
+            let totalSec = Float(60*numMin+numSec);
+            let maxTotal = maxMin * 60 + maxSec;
+            let fraction : CGFloat = CGFloat.init((maxTotal - totalSec) / maxTotal);
+                
+            path = UIBezierPath(arcCenter: CGPoint(x:timerRect.origin.x, y:timerRect.origin.y), radius: 50, startAngle: -1*CGFloat(M_PI)/2, endAngle: -1*CGFloat(M_PI)/2+fraction*2*CGFloat(M_PI),clockwise: true)
+            path.lineWidth = 100;
+            UIColor.grayColor().setStroke();
+                
+            path.stroke();
         }
-        else
-        {
-            countdownTimer.hidden = true;
-        }
-        
-        let timerRect = CGRectMake(workArea.frame.origin.x+workArea.frame.width/2-100,workArea.frame.origin.y-600,200,200);
-        
-        countdownTimer.textColor = UIColor.blackColor();
-        countdownTimer.text = String(format:"%02d:%02d", numMin, numSec);
-        
-        //draw the background of the timer
-        var path = UIBezierPath(arcCenter: CGPoint(x:timerRect.origin.x+100, y:timerRect.origin.y+100), radius: 50, startAngle: 0, endAngle: 2*CGFloat(M_PI), clockwise: true)
-        path.lineWidth = 100;
-        UIColor.init(red: 40/255, green: 204/255, blue: 198/255, alpha: 1).setStroke();
-        path.stroke();
-        
-        let totalSec = Float(60*numMin+numSec);
-        let maxMin = savedSettings.valueForKey("amtTimeMin") as! Float;
-        let maxSec = savedSettings.valueForKey("amtTimeSec") as! Float;
-        let maxTotal = maxMin * 60 + maxSec;
-        
-        let fraction : CGFloat = CGFloat.init((maxTotal - totalSec) / maxTotal);
-        NSLog("\(fraction)");
-        
-        path = UIBezierPath(arcCenter: CGPoint(x:timerRect.origin.x+100, y:timerRect.origin.y+100), radius: 50, startAngle: -1*CGFloat(M_PI)/2, endAngle: -1*CGFloat(M_PI)/2+fraction*2*CGFloat(M_PI),clockwise: true)
-        path.lineWidth = 100;
-        UIColor.grayColor().setStroke();
-        
-        path.stroke();
     }
     
     // reference the mathview for positioning of the correct and incorrect marks

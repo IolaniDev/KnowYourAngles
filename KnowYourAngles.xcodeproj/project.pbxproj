@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3674D4AA1DF0F6AC00359EC1 /* PopoverSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674D4A91DF0F6AC00359EC1 /* PopoverSettingsTableViewController.swift */; };
 		36C69ECF1D80A5DE0072CFFA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8429E1491D2C494300920987 /* SystemConfiguration.framework */; };
 		36C69ED11D80A5FF0072CFFA /* ATKMathWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36C69ED01D80A5FF0072CFFA /* ATKMathWidget.framework */; };
 		36C69ED31D80A6130072CFFA /* ATKMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36C69ED21D80A6130072CFFA /* ATKMath.framework */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3674D4A91DF0F6AC00359EC1 /* PopoverSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverSettingsTableViewController.swift; sourceTree = "<group>"; };
 		36C69ED01D80A5FF0072CFFA /* ATKMathWidget.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ATKMathWidget.framework; path = "../MyScript_ATK-ios-2/Frameworks/ATKMathWidget.framework"; sourceTree = "<group>"; };
 		36C69ED21D80A6130072CFFA /* ATKMath.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ATKMath.framework; path = "../MyScript_ATK-ios-2/Frameworks/ATKMath.framework"; sourceTree = "<group>"; };
 		36C69ED41D80A6260072CFFA /* ATKCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ATKCore.framework; path = "../MyScript_ATK-ios-2/Frameworks/ATKCore.framework"; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				84461B4A1D308F1000BA997E /* FinishScreenViewController.swift */,
 				8422E9C11D35BF9500F33978 /* FirstViewController.swift */,
 				36DFEBE91DDCDDD200DF333D /* CorrectingMarks.swift */,
+				3674D4A91DF0F6AC00359EC1 /* PopoverSettingsTableViewController.swift */,
 			);
 			path = KnowYourAngles;
 			sourceTree = "<group>";
@@ -306,6 +309,7 @@
 				8429E1191D2C481500920987 /* AppDelegate.swift in Sources */,
 				84461B4B1D308F1000BA997E /* FinishScreenViewController.swift in Sources */,
 				84C3E8221D2DC75300750751 /* SettingsViewController.swift in Sources */,
+				3674D4AA1DF0F6AC00359EC1 /* PopoverSettingsTableViewController.swift in Sources */,
 				8422E9C21D35BF9500F33978 /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

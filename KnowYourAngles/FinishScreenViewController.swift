@@ -22,7 +22,8 @@ public class FinishScreenViewController: UIViewController{
         finishScore.text = "Score: \(finalScore) out of \(totalNum)";
         if (isTimerOn)
         {
-            finishTime.text = String(format: "Time Remaining: %02d:%02d", finalTime.0, finalTime.1);
+            //output the time used to answer the questions
+            finishTime.text = String(format: "Time: %02d:%02d", finalTime.0, finalTime.1);
         }
         else
         {
