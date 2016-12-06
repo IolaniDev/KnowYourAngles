@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		36660B041DF732A300EF0FE6 /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36660B031DF732A300EF0FE6 /* HighScoreViewController.swift */; };
 		3674D4AA1DF0F6AC00359EC1 /* PopoverSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674D4A91DF0F6AC00359EC1 /* PopoverSettingsTableViewController.swift */; };
 		36C69ECF1D80A5DE0072CFFA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8429E1491D2C494300920987 /* SystemConfiguration.framework */; };
 		36C69ED11D80A5FF0072CFFA /* ATKMathWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36C69ED01D80A5FF0072CFFA /* ATKMathWidget.framework */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		36660B031DF732A300EF0FE6 /* HighScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
 		3674D4A91DF0F6AC00359EC1 /* PopoverSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverSettingsTableViewController.swift; sourceTree = "<group>"; };
 		36C69ED01D80A5FF0072CFFA /* ATKMathWidget.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ATKMathWidget.framework; path = "../MyScript_ATK-ios-2/Frameworks/ATKMathWidget.framework"; sourceTree = "<group>"; };
 		36C69ED21D80A6130072CFFA /* ATKMath.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ATKMath.framework; path = "../MyScript_ATK-ios-2/Frameworks/ATKMath.framework"; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				8422E9C11D35BF9500F33978 /* FirstViewController.swift */,
 				36DFEBE91DDCDDD200DF333D /* CorrectingMarks.swift */,
 				3674D4A91DF0F6AC00359EC1 /* PopoverSettingsTableViewController.swift */,
+				36660B031DF732A300EF0FE6 /* HighScoreViewController.swift */,
 			);
 			path = KnowYourAngles;
 			sourceTree = "<group>";
@@ -311,6 +314,7 @@
 				84C3E8221D2DC75300750751 /* SettingsViewController.swift in Sources */,
 				3674D4AA1DF0F6AC00359EC1 /* PopoverSettingsTableViewController.swift in Sources */,
 				8422E9C21D35BF9500F33978 /* FirstViewController.swift in Sources */,
+				36660B041DF732A300EF0FE6 /* HighScoreViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -30,4 +30,11 @@ public class FinishScreenViewController: UIViewController{
             finishTime.text = "";
         }
     }
+    @IBAction func saveScreenshot(sender: UIButton) {
+        UIGraphicsBeginImageContext(view.frame.size);
+        view.layer.renderInContext(UIGraphicsGetCurrentContext()!);
+        let image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+    }
 }

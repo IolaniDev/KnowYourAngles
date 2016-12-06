@@ -83,6 +83,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             // "standard" references the configuration name in math.conf
             
             mathView.configureWithBundle("math", andConfig: "standard");
+            mathView.beautificationOption = MAWBeautifyOption.Fontify;
             
             //load previously saved settings (if there are any)
             let savedSettings = NSUserDefaults.standardUserDefaults()
@@ -158,48 +159,6 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             currProblem = libraryOfProblems[randomNum]
             problemImage.image = UIImage(named: currProblem);
             
-            //currentQuestion.text = "Question \(currProblemNumber) of \(totalNumOfProblems)";
-            
-            //countDown.text = String(format:"%02d:%02d", numMin, numSec);
-            
-            /**********SETTING UP THE TIME LIMIT**********/
-            //if there are previously saved settings for the timer ...
-            /*if(savedSettings.objectForKey("isTimerOn") != nil)
-            {
-                //if the timer should be on...
-                if(savedSettings.objectForKey("isTimerOn") as! Bool)
-                {
-                    //check if there are previously saved time limit settings
-                    if (savedSettings.objectForKey("amtTimeMin") != nil && savedSettings.objectForKey("amtTimeSec") != nil)
-                    {
-                        numMin = savedSettings.valueForKey("amtTimeMin") as! Int;
-                        numSec = savedSettings.valueForKey("amtTimeSec") as! Int;
-                    }
-                    //otherwise use the default value of 30 seconds and save to settings.
-                    else
-                    {
-                        numMin = 0;
-                        numSec = 30;
-                        savedSettings.setValue(numMin, forKey: "amtTimeMin");
-                        savedSettings.setValue(numSec, forKey: "amtTimeSec");
-                    }
-                    
-                    timerLabel.hidden = false;
-                    countDown.hidden = false;
-                    timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(ViewController.updateCountDown), userInfo: nil, repeats: true);
-                }
-                //if the timer should be off...
-                else
-                {
-                    timerLabel.hidden = true;
-                    countDown.hidden = true;
-                }
-            }
-            else
-            {
-                timerLabel.hidden = true;
-                countDown.hidden = true;
-            }*/
             NSLog("View Loaded with \(totalNumOfProblems)");
             NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateCountDown), name: "segueNow", object: nil);
         }
@@ -269,7 +228,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         }
         else if(["Cos60", "Cos300", "Sin30", "Sin150", "CosPiOver3", "Cos5PiOver3", "SinPiOver6", "Sin5PiOver6"].contains(currProblem))
         {
-            if(mathView.resultAsText() == "[1/2]=0.5" || mathView.resultAsText() == "0.5")
+            if(mathView.resultAsText() == "[1/2]" || mathView.resultAsText() == "0.5")
             {
                 numCorrect.text = "\(Int(numCorrect.text!)!+1)";
                 correctingMarksView.drawRight();
@@ -281,7 +240,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         else if(["Cos30", "Cos330", "Sin60", "Sin120", "CosPiOver6", "Cos11PiOver6", "SinPiOver3", "Sin2PiOver3"].contains(currProblem))
         {
             //Answer: [√[3]/2]=0.866…
-            if(mathView.resultAsText() == "[√[3]/2]=0.866…")
+            if(mathView.resultAsText() == "[√[3]/2]")
             {
                 numCorrect.text = "\(Int(numCorrect.text!)!+1)";
                 correctingMarksView.drawRight();
@@ -293,7 +252,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         else if (["Cos150", "Cos210", "Sin240", "Sin300", "Cos5PiOver6", "Cos7PiOver6", "Sin4PiOver3", "Sin5PiOver3"].contains(currProblem))
         {
             //Answer: -[√[3]/2]=-0.866… or [-√[3]/2]=-0.866… or [√[3]/-2]=-0.866…
-            if(mathView.resultAsText() == "-[√[3]/2]=-0.866…" || mathView.resultAsText() == "[-√[3]/2]=-0.866…" || mathView.resultAsText() == "[√[3]/-2]=-0.866…")
+            if(mathView.resultAsText() == "-[√[3]/2]" || mathView.resultAsText() == "[-√[3]/2]" || mathView.resultAsText() == "[√[3]/-2]=")
             {
                 numCorrect.text = "\(Int(numCorrect.text!)!+1)";
                 correctingMarksView.drawRight();
@@ -305,7 +264,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         else if (["Cos45", "Cos315", "Sin45", "Sin135", "CosPiOver4", "Cos7PiOver4", "SinPiOver4", "Sin3PiOver4"].contains(currProblem))
         {
             //Answer: [√[2]/2]=0.707…
-            if(mathView.resultAsText() == "[√[2]/2]=0.707…")
+            if(mathView.resultAsText() == "[√[2]/2]")
             {
                 numCorrect.text = "\(Int(numCorrect.text!)!+1)";
                 correctingMarksView.drawRight();
@@ -317,7 +276,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         else if (["Cos135", "Cos225", "Sin225", "Sin315", "Cos3PiOver4", "Cos5PiOver4", "Sin5PiOver4", "Sin7PiOver4"].contains(currProblem))
         {
             //Answer: -[√[2]/2]=-0.707… or [[-√[2]]/2]=-0.707… or [√[2]/-2]=-0.707…
-            if(mathView.resultAsText() == "-[√[2]/2]=-0.707…" || mathView.resultAsText() == "[[-√[2]]/2]=-0.707…" || mathView.resultAsText() == "[√[2]/-2]=-0.707…")
+            if(mathView.resultAsText() == "-[√[2]/2]" || mathView.resultAsText() == "[[-√[2]]/2]" || mathView.resultAsText() == "[√[2]/-2]")
             {
                 numCorrect.text = "\(Int(numCorrect.text!)!+1)";
                 correctingMarksView.drawRight();
@@ -329,7 +288,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         else if (["Cos120", "Cos240", "Sin210", "Sin330", "Cos2PiOver3", "Cos4PiOver3", "Sin7PiOver6", "Sin11PiOver6"].contains(currProblem))
         {
             //Answer: -[1/2]=-0.5 or [-1/2]=-0.5 or [1/-2]=-0.5 or -0.5
-            if(mathView.resultAsText() == "-[1/2]=-0.5" || mathView.resultAsText() == "[-1/2]=-0.5" || mathView.resultAsText() == "[1/-2]=-0.5" || mathView.resultAsText() == "-0.5")
+            if(mathView.resultAsText() == "-[1/2]" || mathView.resultAsText() == "[-1/2]" || mathView.resultAsText() == "[1/-2]" || mathView.resultAsText() == "-0.5")
             {
                 numCorrect.text = "\(Int(numCorrect.text!)!+1)";
                 correctingMarksView.drawRight();
@@ -353,7 +312,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         else if(["tan30", "tan210", "TanPiOver6", "Tan7PiOver6", "Cot60", "CotPiOver3", "Cot240", "Cot4PiOver3"].contains(currProblem))
         {
             //Answer: [√[3]/3]=0.577…
-            if(mathView.resultAsText() == "[√[3]/3]=0.577…")
+            if(mathView.resultAsText() == "[√[3]/3]")
             {
                 numCorrect.text = "\(Int(numCorrect.text!)!+1)";
                 correctingMarksView.drawRight();
@@ -365,7 +324,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         else if(["tan150", "tan330", "Tan5PiOver6", "Tan11PiOver6", "Cot120", "Cot2PiOver3", "Cot300", "Cot5PiOver3"].contains(currProblem))
         {
             //Answer: -[√[3]/3]=-0.577… or [-√[3]/3]=-0.577… or [√[3]/-3]=-0.577…
-            if(mathView.resultAsText() == "-[√[3]/3]=-0.577…" || mathView.resultAsText() == "[-√[3]/3]=-0.577…" || mathView.resultAsText() == "[√[3]/-3]=-0.577…")
+            if(mathView.resultAsText() == "-[√[3]/3]" || mathView.resultAsText() == "[-√[3]/3]" || mathView.resultAsText() == "[√[3]/-3]")
             {
                 numCorrect.text = "\(Int(numCorrect.text!)!+1)";
                 correctingMarksView.drawRight();
@@ -377,7 +336,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         else if(["tan60", "tan240", "TanPiOver3", "Tan4PiOver3", "Cot30", "CotPiOver6", "Cot210", "Cot7PiOver6"].contains(currProblem))
         {
             //Answer:  √[3]=1.732…
-            if(mathView.resultAsText() == "√[3]=1.732…")
+            if(mathView.resultAsText() == "√[3]")
             {
                 numCorrect.text = "\(Int(numCorrect.text!)!+1)";
                 correctingMarksView.drawRight();
@@ -389,7 +348,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         else if(["tan120", "tan300", "Tan2PiOver3", "Tan5PiOver3", "Cot150", "Cot5PiOver6", "Cot330", "Cot11PiOver6"].contains(currProblem))
         {
             //Answer:  -√[3]=-1.732…
-            if(mathView.resultAsText() == "-√[3]=-1.732…")
+            if(mathView.resultAsText() == "-√[3]")
             {
                 numCorrect.text = "\(Int(numCorrect.text!)!+1)";
                 correctingMarksView.drawRight();
@@ -413,7 +372,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         else if(["Sec30", "SecPiOver6", "Sec330", "Sec11PiOver6", "Csc60", "CscPiOver3", "Csc120", "Csc2PiOver3"].contains(currProblem))
         {
             //Answer: [[2×√[3]]/3]=1.154…
-            if(mathView.resultAsText() == "[[2×√[3]]/3]=1.154…")
+            if(mathView.resultAsText() == "[[2×√[3]]/3]")
             {
                 numCorrect.text = "\(Int(numCorrect.text!)!+1)";
                 correctingMarksView.drawRight();
@@ -425,7 +384,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         else if(["Sec45", "SecPiOver4", "Sec315", "Sec7PiOver4", "Csc45", "CscPiOver4", "Csc135", "Csc3PiOver4"].contains(currProblem))
         {
             //Answer: √[2]=1.414…
-            if(mathView.resultAsText() == "√[2]=1.414…")
+            if(mathView.resultAsText() == "√[2]")
             {
                 numCorrect.text = "\(Int(numCorrect.text!)!+1)";
                 correctingMarksView.drawRight();
@@ -461,7 +420,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         else if(["Sec135", "Sec3PiOver4", "Sec225", "Sec5PiOver4", "Csc225", "Csc5PiOver4", "Csc315", "Csc7PiOver4"].contains(currProblem))
         {
             //Answer: -√[2]=-1.414…
-            if(mathView.resultAsText() == "-√[2]=-1.414…")
+            if(mathView.resultAsText() == "-√[2]")
             {
                 numCorrect.text = "\(Int(numCorrect.text!)!+1)";
                 correctingMarksView.drawRight();
@@ -473,7 +432,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         else if(["Sec150", "Sec5PiOver6", "Sec210", "Sec7PiOver6", "Csc240", "Csc4PiOver3", "Csc300", "Csc5PiOver3"].contains(currProblem))
         {
             //Answer: -[[2×√[3]]/3]=-1.154… or [[-2×√[3]]/3]=-1.154… or [[2×√[3]]/-3]=-1.154… or [[2×(-√[3])]/3]=-1.154…
-            if(["-[[2×√[3]]/3]=-1.154…", "[[-2×√[3]]/3]=-1.154…", "[[2×√[3]]/-3]=-1.154…", "[[2×(-√[3])]/3]=-1.154…"].contains(mathView.resultAsText()))
+            if(["-[[2×√[3]]/3]", "[[-2×√[3]]/3]", "[[2×√[3]]/-3]", "[[2×(-√[3])]/3]"].contains(mathView.resultAsText()))
             {
                 numCorrect.text = "\(Int(numCorrect.text!)!+1)";
                 correctingMarksView.drawRight();
@@ -513,13 +472,6 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             let maxTotal = (savedSettings.valueForKey("amtTimeMin") as! Int) * 60 + (savedSettings.valueForKey("amtTimeSec") as! Int);
             let diff = maxTotal - totalSec;
             finishViewController.isTimerOn = savedSettings.valueForKey("isTimerOn") as! Bool;
-            /*if(self.correctingMarksView.isOutOfTime)
-            {
-                let savedSettings = NSUserDefaults.standardUserDefaults();
-                self.correctingMarksView.numMin = savedSettings.valueForKey("amtTimeMin") as! Int;
-                self.correctingMarksView.numSec = savedSettings.valueForKey("amtTimeSec") as! Int;
-                
-            }*/
             finishViewController.finalTime = (diff / 60 , diff % 60);
         }
     }
