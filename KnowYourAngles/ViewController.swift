@@ -7,56 +7,25 @@
 //
 
 import UIKit
-//import CoreGraphics
+// import CoreGraphics
 
 
 class ViewController: UIViewController, MAWMathViewDelegate{
     
-    //totalNumOfProblems is set in Settings by user for the number of problems they want to be quizzed on. (10 by default)
-    var totalNumOfProblems : Int = 10;
+    //reference to data related to the problems displayed
+    var problemSource = MainViewDataSource.init();
     
-    //possible problems using degrees
-    var degreeProblems: [String] = ["Cos0", "Cos30", "Cos45", "Cos60", "Cos90", "Cos120", "Cos135", "Cos150", "Cos180", "Cos210", "Cos225", "Cos240", "Cos270", "Cos300", "Cos315", "Cos330", "Sin0", "Sin30", "Sin45", "Sin60", "Sin90", "Sin120", "Sin135", "Sin150", "Sin180", "Sin210", "Sin225", "Sin240", "Sin270", "Sin300", "Sin315", "Sin330", "tan0", "tan30", "tan45", "tan60", "tan90", "tan120", "tan135", "tan150", "tan180", "tan210", "tan225", "tan240", "tan270", "tan300", "tan315", "tan330"];
-    
-    //possible problems using radians
-    var radianProblems: [String] = ["Cos0rads", "CosPiOver6", "CosPiOver4", "CosPiOver3", "CosPiOver2", "Cos2PiOver3", "Cos3PiOver4", "Cos5PiOver6", "CosPi", "Cos7PiOver6", "Cos5PiOver4", "Cos4PiOver3", "Cos3PiOver2", "Cos5PiOver3", "Cos7PiOver4", "Cos11PiOver6", "Sin0rads", "SinPiOver6", "SinPiOver4", "SinPiOver3", "SinPiOver2", "Sin2PiOver3", "Sin3PiOver4", "Sin5PiOver6", "SinPi", "Sin7PiOver6", "Sin5PiOver4", "Sin4PiOver3", "Sin3PiOver2", "Sin5PiOver3", "Sin7PiOver4", "Sin11PiOver6", "Tan0rads", "TanPiOver6", "TanPiOver4", "TanPiOver3", "TanPiOver2", "Tan2PiOver3", "Tan3PiOver4", "Tan5PiOver6", "TanPi", "Tan7PiOver6", "Tan5PiOver4", "Tan4PiOver3", "Tan3PiOver2", "Tan5PiOver3", "Tan7PiOver4", "Tan11PiOver6"];
-    
-    //possible reciprocal problems using degrees
-    var reciprocalDegreeProblems: [String] = ["Csc0", "Csc30", "Csc45", "Csc60", "Csc90", "Csc120", "Csc135", "Csc150", "Csc180", "Csc210", "Csc225", "Csc240", "Csc270", "Csc300", "Csc315", "Csc330", "Sec0", "Sec30", "Sec45", "Sec60", "Sec90", "Sec120", "Sec135", "Sec150", "Sec180", "Sec210", "Sec225", "Sec240", "Sec270", "Sec300", "Sec315", "Sec330", "Cot0", "Cot30", "Cot45", "Cot60", "Cot90", "Cot120", "Cot135", "Cot150", "Cot180", "Cot210", "Cot225", "Cot240", "Cot270", "Cot300", "Cot315", "Cot330"];
-    
-    //possible reciprocal problems using radians
-    var reciprocalRadianProblems: [String] = ["Csc0rads", "CscPiOver6", "CscPiOver4", "CscPiOver3", "CscPiOver2", "Csc2PiOver3", "Csc3PiOver4", "Csc5PiOver6", "CscPi", "Csc7PiOver6", "Csc5PiOver4", "Csc4PiOver3", "Csc3PiOver2", "Csc5PiOver3", "Csc7PiOver4", "Csc11PiOver6", "Sec0rads", "SecPiOver6", "SecPiOver4", "SecPiOver3", "SecPiOver2", "Sec2PiOver3", "Sec3PiOver4", "Sec5PiOver6", "SecPi", "Sec7PiOver6", "Sec5PiOver4", "Sec4PiOver3", "Sec3PiOver2", "Sec5PiOver3", "Sec7PiOver4", "Sec11PiOver6", "Cot0rads", "CotPiOver6", "CotPiOver4", "CotPiOver3", "CotPiOver2", "Cot2PiOver3", "Cot3PiOver4", "Cot5PiOver6", "CotPi", "Cot7PiOver6", "Cot5PiOver4", "Cot4PiOver3", "Cot3PiOver2", "Cot5PiOver3", "Cot7PiOver4", "Cot11PiOver6"];
-    
-    //empty array to hold the problems to choose from depending on the user's settings.
-    var libraryOfProblems = [String]();
-    
-    //references to connect to UI components on the storyboard
-    @IBOutlet weak var numCorrect: UILabel!
-    @IBOutlet weak var numRemaining: UILabel!
-    @IBOutlet weak var currentQuestion: UILabel!
-    
-    //creates a timer
-    /*var timer = NSTimer();
-    //time limit variables for the timer
-    var numSec = 30;
-    var numMin = 0;
-    //boolean representing whether the user finished the desired amount of questions or ran out of time before moving to end screen.
-    var isOutOfTime = false;*/
-    
-    //image of current problem.
-    @IBOutlet weak var problemImage: UIImageView!
-    //name of current problem
-    var currProblem = "";
-    //current problem number
-    var currProblemNumber = 1;
-    
-    //mathView holds the view where you can write answers
+    // mathView holds the view where you can write answers
     @IBOutlet var mathView: MAWMathView!
     var certificateRegistered : Bool!;
     
-    @IBOutlet var correctingMarksView: CorrectingMarks!
+    //reference to the View that controls displaying the problems, number correct, number remaining, etc.
+    @IBOutlet var correctingMarksView: MainView!
     
-    //loading the view
+    // load previously saved settings (if there are any)
+    let savedSettings = NSUserDefaults.standardUserDefaults()
+    
+    // loading the view
     override func viewDidLoad() {
         //Setup Writing Recognition
         super.viewDidLoad();
@@ -85,54 +54,60 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             mathView.configureWithBundle("math", andConfig: "standard");
             mathView.beautificationOption = MAWBeautifyOption.Fontify;
             
-            //load previously saved settings (if there are any)
-            let savedSettings = NSUserDefaults.standardUserDefaults()
-            
             /**********LOAD NUMBER OF PROBLEMS**********/
-            //if the user has previously saved settings, load the max num of problems the player wants to complete
+            
+            // totalNumOfProblems is set in Settings by user for the number of problems they want to be quizzed on. (10 by default)
+            var totalNumOfProblems : Int;
+            
+            // if the user has previously saved settings, load the max num of problems the player wants to complete
             if (savedSettings.objectForKey("maxNumOfProblems") != nil)
             {
                 totalNumOfProblems = savedSettings.valueForKey("maxNumOfProblems") as! Int;
             }
-            //otherwise use the default values of 10 problems
+            // otherwise use the default values of 10 problems
             else
             {
-                //set the default number of problems to 10
+                // set the default number of problems to 10
                 totalNumOfProblems = 10;
                 savedSettings.setValue(totalNumOfProblems, forKey: "maxNumOfProblems");
             }
-            numRemaining.text = String(totalNumOfProblems);
+            // setup the number of remaining problems label
+            correctingMarksView.numRemaining.text = String(totalNumOfProblems);
+            
+            // setup the number of correctly answered questions label
+            correctingMarksView.numCorrect.text = "0";
             
             /**********LOAD PROBLEMS THAT ARE IN DEGREES**********/
-            //if there are previously saved settings...
+            // if there are previously saved settings...
             if(savedSettings.objectForKey("degrees") != nil)
             {
-                //load the degree problems (if the user wants them)
+                // load the degree problems (if the user wants them)
                 if(savedSettings.valueForKey("degrees") as! Bool)
                 {
-                    libraryOfProblems.appendContentsOf(degreeProblems);
+                    problemSource.loadDegreeProblems();
                 }
+                // otherwise don't load them
             }
-            //if there are no previously saved settings, by default include the problems in degrees.
+            // if there are no previously saved settings, by default include the problems in degrees.
             else
             {
-                libraryOfProblems.appendContentsOf(degreeProblems);
+                problemSource.loadDegreeProblems();
             }
             
             /**********LOAD PROBLEMS THAT ARE IN RADIANS**********/
-            //if there are previously saved settings...
+            // if there are previously saved settings...
             if(savedSettings.objectForKey("radians") != nil)
             {
-                //load the radian problems (if the user wants them)
+                // load the radian problems (if the user wants them)
                 if(savedSettings.valueForKey("radians") as! Bool)
                 {
-                    libraryOfProblems.appendContentsOf(radianProblems);
+                    problemSource.loadRadianProblems();
                 }
             }
-            //otherwise do not load radian problems (by default)
+            // otherwise do not load radian problems (by default)
             
              /**********LOAD RECIPROCAL PROBLEMS**********/
-            //load the reciprocal problems (if the user wants them)
+            // load the reciprocal problems (if the user wants them)
             if(savedSettings.objectForKey("reciprocals") != nil)
             {
                 if(savedSettings.valueForKey("reciprocals") as! Bool)
@@ -141,25 +116,23 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                     {
                         if(savedSettings.valueForKey("degrees") as! Bool)
                         {
-                            libraryOfProblems.appendContentsOf(reciprocalDegreeProblems);
+                            problemSource.loadReciprocalDegreeProblems()
                         }
                     }
                     if(savedSettings.objectForKey("radians") != nil)
                     {
                         if(savedSettings.valueForKey("radians") as! Bool)
                         {
-                            libraryOfProblems.appendContentsOf(reciprocalRadianProblems);
+                            problemSource.loadReciprocalRadianProblems()
                         }
                     }
                 }
             }
             
-            //setup image of first problem
-            let randomNum = Int(arc4random_uniform(UInt32(libraryOfProblems.count)));
-            currProblem = libraryOfProblems[randomNum]
-            problemImage.image = UIImage(named: currProblem);
+            // setup image of first problem
+            correctingMarksView.problemImage.image = UIImage(named: problemSource.getRandomProblem());
             
-            NSLog("View Loaded with \(totalNumOfProblems)");
+            // add an observer for when the timer runs out.
             NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateCountDown), name: "segueNow", object: nil);
         }
     }
@@ -202,272 +175,43 @@ class ViewController: UIViewController, MAWMathViewDelegate{
     }
     
     @IBAction func nextButtonPressed(sender: UIButton) {
-        //increase the problem number
-        currProblemNumber += 1;
+        correctingMarksView.numRemaining.text = "\(Int(correctingMarksView.numRemaining.text!)!-1)";
         
-        if(["Cos0", "Sin90", "tan45", "tan225", "Cos0rads", "SinPiOver2", "TanPiOver4", "Tan5PiOver4", "Cot45", "CotPiOver4", "Cot225", "Cot5Piover4", "Sec0", "Sec0rads", "Csc90", "CscPiOver2"].contains(currProblem))
+        // check if answer written is correct
+        if(problemSource.isCorrect(mathView.resultAsText()))
         {
-            if(mathView.resultAsText()=="1"){
-                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
-                correctingMarksView.drawRight();
-            }
-            else{
-                correctingMarksView.drawWrong();
-            }
+            correctingMarksView.numCorrect.text = "\(Int(correctingMarksView.numCorrect.text!)!+1)";
+            correctingMarksView.drawRight();
         }
-        else if(["Cos90", "Cos270", "Sin0", "Sin180", "tan0", "tan180", "CosPiOver2", "Cos3PiOver2", "Sin0rads", "SinPi", "Tan0rads", "TanPi", "Cot90", "CotPiOver2", "Cot270", "Cot3PiOver2"].contains(currProblem))
+        else
         {
-            if(mathView.resultAsText() == "0")
-            {
-                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
-                correctingMarksView.drawRight();
-            }
-            else{
-                correctingMarksView.drawWrong();
-            }
-        }
-        else if(["Cos60", "Cos300", "Sin30", "Sin150", "CosPiOver3", "Cos5PiOver3", "SinPiOver6", "Sin5PiOver6"].contains(currProblem))
-        {
-            if(mathView.resultAsText() == "[1/2]" || mathView.resultAsText() == "0.5")
-            {
-                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
-                correctingMarksView.drawRight();
-            }
-            else{
-                correctingMarksView.drawWrong();
-            }
-        }
-        else if(["Cos30", "Cos330", "Sin60", "Sin120", "CosPiOver6", "Cos11PiOver6", "SinPiOver3", "Sin2PiOver3"].contains(currProblem))
-        {
-            //Answer: [√[3]/2]=0.866…
-            if(mathView.resultAsText() == "[√[3]/2]")
-            {
-                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
-                correctingMarksView.drawRight();
-            }
-            else{
-                correctingMarksView.drawWrong();
-            }
-        }
-        else if (["Cos150", "Cos210", "Sin240", "Sin300", "Cos5PiOver6", "Cos7PiOver6", "Sin4PiOver3", "Sin5PiOver3"].contains(currProblem))
-        {
-            //Answer: -[√[3]/2]=-0.866… or [-√[3]/2]=-0.866… or [√[3]/-2]=-0.866…
-            if(mathView.resultAsText() == "-[√[3]/2]" || mathView.resultAsText() == "[-√[3]/2]" || mathView.resultAsText() == "[√[3]/-2]=")
-            {
-                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
-                correctingMarksView.drawRight();
-            }
-            else{
-                correctingMarksView.drawWrong();
-            }
-        }
-        else if (["Cos45", "Cos315", "Sin45", "Sin135", "CosPiOver4", "Cos7PiOver4", "SinPiOver4", "Sin3PiOver4"].contains(currProblem))
-        {
-            //Answer: [√[2]/2]=0.707…
-            if(mathView.resultAsText() == "[√[2]/2]")
-            {
-                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
-                correctingMarksView.drawRight();
-            }
-            else{
-                correctingMarksView.drawWrong();
-            }
-        }
-        else if (["Cos135", "Cos225", "Sin225", "Sin315", "Cos3PiOver4", "Cos5PiOver4", "Sin5PiOver4", "Sin7PiOver4"].contains(currProblem))
-        {
-            //Answer: -[√[2]/2]=-0.707… or [[-√[2]]/2]=-0.707… or [√[2]/-2]=-0.707…
-            if(mathView.resultAsText() == "-[√[2]/2]" || mathView.resultAsText() == "[[-√[2]]/2]" || mathView.resultAsText() == "[√[2]/-2]")
-            {
-                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
-                correctingMarksView.drawRight();
-            }
-            else{
-                correctingMarksView.drawWrong();
-            }
-        }
-        else if (["Cos120", "Cos240", "Sin210", "Sin330", "Cos2PiOver3", "Cos4PiOver3", "Sin7PiOver6", "Sin11PiOver6"].contains(currProblem))
-        {
-            //Answer: -[1/2]=-0.5 or [-1/2]=-0.5 or [1/-2]=-0.5 or -0.5
-            if(mathView.resultAsText() == "-[1/2]" || mathView.resultAsText() == "[-1/2]" || mathView.resultAsText() == "[1/-2]" || mathView.resultAsText() == "-0.5")
-            {
-                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
-                correctingMarksView.drawRight();
-            }
-            else{
-                correctingMarksView.drawWrong();
-            }
-        }
-        else if(["Cos180", "Sin270", "tan135", "tan315", "CosPi", "Sin3PiOver2", "Tan3PiOver4", "Tan7PiOver4", "Cot135", "Cot3PiOver4", "Cot315", "Cot7PiOver4", "Sec180", "SecPi", "Csc270", "Csc3PiOver2"].contains(currProblem))
-        {
-            //Answer: -1
-            if(mathView.resultAsText() == "-1")
-            {
-                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
-                correctingMarksView.drawRight();
-            }
-            else{
-                correctingMarksView.drawWrong();
-            }
-        }
-        else if(["tan30", "tan210", "TanPiOver6", "Tan7PiOver6", "Cot60", "CotPiOver3", "Cot240", "Cot4PiOver3"].contains(currProblem))
-        {
-            //Answer: [√[3]/3]=0.577…
-            if(mathView.resultAsText() == "[√[3]/3]")
-            {
-                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
-                correctingMarksView.drawRight();
-            }
-            else{
-                correctingMarksView.drawWrong();
-            }
-        }
-        else if(["tan150", "tan330", "Tan5PiOver6", "Tan11PiOver6", "Cot120", "Cot2PiOver3", "Cot300", "Cot5PiOver3"].contains(currProblem))
-        {
-            //Answer: -[√[3]/3]=-0.577… or [-√[3]/3]=-0.577… or [√[3]/-3]=-0.577…
-            if(mathView.resultAsText() == "-[√[3]/3]" || mathView.resultAsText() == "[-√[3]/3]" || mathView.resultAsText() == "[√[3]/-3]")
-            {
-                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
-                correctingMarksView.drawRight();
-            }
-            else{
-                correctingMarksView.drawWrong();
-            }
-        }
-        else if(["tan60", "tan240", "TanPiOver3", "Tan4PiOver3", "Cot30", "CotPiOver6", "Cot210", "Cot7PiOver6"].contains(currProblem))
-        {
-            //Answer:  √[3]=1.732…
-            if(mathView.resultAsText() == "√[3]")
-            {
-                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
-                correctingMarksView.drawRight();
-            }
-            else{
-                correctingMarksView.drawWrong();
-            }
-        }
-        else if(["tan120", "tan300", "Tan2PiOver3", "Tan5PiOver3", "Cot150", "Cot5PiOver6", "Cot330", "Cot11PiOver6"].contains(currProblem))
-        {
-            //Answer:  -√[3]=-1.732…
-            if(mathView.resultAsText() == "-√[3]")
-            {
-                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
-                correctingMarksView.drawRight();
-            }
-            else{
-                correctingMarksView.drawWrong();
-            }
-        }
-        else if(["tan90", "tan270", "TanPiOver2", "Tan3PiOver2", "Cot0", "Cot0rads", "Cot180", "CotPi", "Sec90", "SecPiOver2", "Sec270", "Sec3PiOver2", "Csc0", "Csc0rads", "Csc180", "CscPi"].contains(currProblem))
-        {
-            //Answer: undefined
-            if(mathView.resultAsText() == "und" || mathView.resultAsText() == "undefined")
-            {
-                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
-                correctingMarksView.drawRight();
-            }
-            else{
-                correctingMarksView.drawWrong();
-            }
-        }
-        else if(["Sec30", "SecPiOver6", "Sec330", "Sec11PiOver6", "Csc60", "CscPiOver3", "Csc120", "Csc2PiOver3"].contains(currProblem))
-        {
-            //Answer: [[2×√[3]]/3]=1.154…
-            if(mathView.resultAsText() == "[[2×√[3]]/3]")
-            {
-                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
-                correctingMarksView.drawRight();
-            }
-            else{
-                correctingMarksView.drawWrong();
-            }
-        }
-        else if(["Sec45", "SecPiOver4", "Sec315", "Sec7PiOver4", "Csc45", "CscPiOver4", "Csc135", "Csc3PiOver4"].contains(currProblem))
-        {
-            //Answer: √[2]=1.414…
-            if(mathView.resultAsText() == "√[2]")
-            {
-                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
-                correctingMarksView.drawRight();
-            }
-            else{
-                correctingMarksView.drawWrong();
-            }
-        }
-        else if(["Sec60", "SecPiOver3", "Sec300", "Sec5PiOver3", "Csc30", "CscPiOver6", "Csc150", "Csc5PiOver6"].contains(currProblem))
-        {
-            //Answer: 2
-            if(mathView.resultAsText() == "2")
-            {
-                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
-                correctingMarksView.drawRight();
-            }
-            else{
-                correctingMarksView.drawWrong();
-            }
-        }
-        else if(["Sec120", "Sec2PiOver3", "Sec240", "Sec4PiOver3", "Csc210", "Csc7PiOver6", "Csc330", "Csc11PiOver6"].contains(currProblem))
-        {
-            //Answer: -2
-            if(mathView.resultAsText() == "-2")
-            {
-                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
-                correctingMarksView.drawRight();
-            }
-            else{
-                correctingMarksView.drawWrong();
-            }
-        }
-        else if(["Sec135", "Sec3PiOver4", "Sec225", "Sec5PiOver4", "Csc225", "Csc5PiOver4", "Csc315", "Csc7PiOver4"].contains(currProblem))
-        {
-            //Answer: -√[2]=-1.414…
-            if(mathView.resultAsText() == "-√[2]")
-            {
-                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
-                correctingMarksView.drawRight();
-            }
-            else{
-                correctingMarksView.drawWrong();
-            }
-        }
-        else if(["Sec150", "Sec5PiOver6", "Sec210", "Sec7PiOver6", "Csc240", "Csc4PiOver3", "Csc300", "Csc5PiOver3"].contains(currProblem))
-        {
-            //Answer: -[[2×√[3]]/3]=-1.154… or [[-2×√[3]]/3]=-1.154… or [[2×√[3]]/-3]=-1.154… or [[2×(-√[3])]/3]=-1.154…
-            if(["-[[2×√[3]]/3]", "[[-2×√[3]]/3]", "[[2×√[3]]/-3]", "[[2×(-√[3])]/3]"].contains(mathView.resultAsText()))
-            {
-                numCorrect.text = "\(Int(numCorrect.text!)!+1)";
-                correctingMarksView.drawRight();
-            }
-            else{
-                correctingMarksView.drawWrong();
-            }
+            correctingMarksView.drawWrong();
         }
         
-        if(currProblemNumber>totalNumOfProblems)
+        // if we ran through the requested number of problems...
+        if(Int(correctingMarksView.numRemaining.text!) <= 0)
         {
-            //segue to finish screen.
+            // segue to finish screen.
             performSegueWithIdentifier("toFinishScreen", sender: self);
         }
         else
         {
-            numRemaining.text = "\(Int(numRemaining.text!)!-1)";
             
-            //set up a new problem
-            let randomNum = Int(arc4random_uniform(UInt32(libraryOfProblems.count)));
-            currProblem = libraryOfProblems[randomNum]
-            problemImage.image = UIImage(named: currProblem);
+            // set up a new problem
+            correctingMarksView.problemImage.image = UIImage(named: problemSource.getRandomProblem());
             
-            //clear the field to write your answer
+            // clear the field to write your answer
             mathView.clear(false);
         }
-        
+    
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "toFinishScreen" {
             let finishViewController = segue.destinationViewController as! FinishScreenViewController
-            finishViewController.finalScore = Int(numCorrect.text!)!;
-            finishViewController.totalNum = totalNumOfProblems;
-            let savedSettings = NSUserDefaults.standardUserDefaults();
+            finishViewController.finalScore = Int(correctingMarksView.numCorrect.text!)!;
+            finishViewController.totalNum = savedSettings.valueForKey("maxNumOfProblems") as! Int;
+            
             let totalSec = 60*self.correctingMarksView.numMin+self.correctingMarksView.numSec;
             let maxTotal = (savedSettings.valueForKey("amtTimeMin") as! Int) * 60 + (savedSettings.valueForKey("amtTimeSec") as! Int);
             let diff = maxTotal - totalSec;

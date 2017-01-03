@@ -7,15 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		36660B041DF732A300EF0FE6 /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36660B031DF732A300EF0FE6 /* HighScoreViewController.swift */; };
+		3661E5B91E0E1BD900601402 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3661E5B81E0E1BD900601402 /* CoreData.framework */; };
+		3661E5BB1E0E1CB500601402 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661E5BA1E0E1CB500601402 /* DataController.swift */; };
+		3661E5BE1E0E298600601402 /* Table+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661E5BC1E0E298600601402 /* Table+CoreDataProperties.swift */; };
+		3661E5BF1E0E298600601402 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661E5BD1E0E298600601402 /* Table.swift */; };
+		3661E5C21E0E318500601402 /* HighScore+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661E5C01E0E318500601402 /* HighScore+CoreDataProperties.swift */; };
+		3661E5C31E0E318500601402 /* HighScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661E5C11E0E318500601402 /* HighScore.swift */; };
+		366A42251E0D0CBC006F0B1D /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 366A42231E0D0CBC006F0B1D /* DataModel.xcdatamodeld */; };
+		366BAEDF1E0B069000C223EA /* HighScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366BAEDE1E0B069000C223EA /* HighScoreTableViewCell.swift */; };
 		3674D4AA1DF0F6AC00359EC1 /* PopoverSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674D4A91DF0F6AC00359EC1 /* PopoverSettingsTableViewController.swift */; };
+		368C58C31E0B28AD0008C8B0 /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368C58C21E0B28AD0008C8B0 /* HighScoreViewController.swift */; };
+		36969D6A1DFD290F00F95635 /* MainViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36969D691DFD290F00F95635 /* MainViewDataSource.swift */; };
+		36BC32EC1E0BB6560055735E /* HighScoreCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BC32EB1E0BB6560055735E /* HighScoreCustom.swift */; };
 		36C69ECF1D80A5DE0072CFFA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8429E1491D2C494300920987 /* SystemConfiguration.framework */; };
 		36C69ED11D80A5FF0072CFFA /* ATKMathWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36C69ED01D80A5FF0072CFFA /* ATKMathWidget.framework */; };
 		36C69ED31D80A6130072CFFA /* ATKMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36C69ED21D80A6130072CFFA /* ATKMath.framework */; };
 		36C69ED51D80A6260072CFFA /* ATKCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36C69ED41D80A6260072CFFA /* ATKCore.framework */; };
 		36C69ED71D80A6610072CFFA /* ATKMathWidget.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 36C69ED61D80A6610072CFFA /* ATKMathWidget.bundle */; };
 		36C69ED91D80A6850072CFFA /* resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 36C69ED81D80A6850072CFFA /* resources.bundle */; };
-		36DFEBEA1DDCDDD200DF333D /* CorrectingMarks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DFEBE91DDCDDD200DF333D /* CorrectingMarks.swift */; };
+		36DFEBEA1DDCDDD200DF333D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DFEBE91DDCDDD200DF333D /* MainView.swift */; };
 		840180CC1D2C6CFD00CB794B /* org.iolani.KnowYourAngles.c in Sources */ = {isa = PBXBuildFile; fileRef = 840180CB1D2C6CFD00CB794B /* org.iolani.KnowYourAngles.c */; };
 		8422E9C21D35BF9500F33978 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422E9C11D35BF9500F33978 /* FirstViewController.swift */; };
 		8429E1191D2C481500920987 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429E1181D2C481500920987 /* AppDelegate.swift */; };
@@ -47,14 +57,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		36660B031DF732A300EF0FE6 /* HighScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
+		3661E5B81E0E1BD900601402 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		3661E5BA1E0E1CB500601402 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		3661E5BC1E0E298600601402 /* Table+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Table+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3661E5BD1E0E298600601402 /* Table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
+		3661E5C01E0E318500601402 /* HighScore+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HighScore+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		3661E5C11E0E318500601402 /* HighScore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScore.swift; sourceTree = "<group>"; };
+		3661E5C41E0E484200601402 /* DataModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DataModel 2.xcdatamodel"; sourceTree = "<group>"; };
+		366A42241E0D0CBC006F0B1D /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		366BAEDE1E0B069000C223EA /* HighScoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreTableViewCell.swift; sourceTree = "<group>"; };
 		3674D4A91DF0F6AC00359EC1 /* PopoverSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverSettingsTableViewController.swift; sourceTree = "<group>"; };
+		3681B3F01E0F513D00B5920B /* DataModel 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DataModel 3.xcdatamodel"; sourceTree = "<group>"; };
+		3681B3F11E0F51DF00B5920B /* DataModel 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DataModel 4.xcdatamodel"; sourceTree = "<group>"; };
+		3681B3F21E0F56BE00B5920B /* DataModel 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DataModel 5.xcdatamodel"; sourceTree = "<group>"; };
+		368C58C21E0B28AD0008C8B0 /* HighScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
+		36969D691DFD290F00F95635 /* MainViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewDataSource.swift; sourceTree = "<group>"; };
+		36BC32EB1E0BB6560055735E /* HighScoreCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreCustom.swift; sourceTree = "<group>"; };
 		36C69ED01D80A5FF0072CFFA /* ATKMathWidget.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ATKMathWidget.framework; path = "../MyScript_ATK-ios-2/Frameworks/ATKMathWidget.framework"; sourceTree = "<group>"; };
 		36C69ED21D80A6130072CFFA /* ATKMath.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ATKMath.framework; path = "../MyScript_ATK-ios-2/Frameworks/ATKMath.framework"; sourceTree = "<group>"; };
 		36C69ED41D80A6260072CFFA /* ATKCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ATKCore.framework; path = "../MyScript_ATK-ios-2/Frameworks/ATKCore.framework"; sourceTree = "<group>"; };
 		36C69ED61D80A6610072CFFA /* ATKMathWidget.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ATKMathWidget.bundle; sourceTree = "<group>"; };
 		36C69ED81D80A6850072CFFA /* resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = resources.bundle; sourceTree = "<group>"; };
-		36DFEBE91DDCDDD200DF333D /* CorrectingMarks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CorrectingMarks.swift; sourceTree = "<group>"; };
+		36DFEBE91DDCDDD200DF333D /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		840180CA1D2C562400CB794B /* MyCertificate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCertificate.h; sourceTree = "<group>"; };
 		840180CB1D2C6CFD00CB794B /* org.iolani.KnowYourAngles.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = org.iolani.KnowYourAngles.c; path = ../org.iolani.KnowYourAngles.c; sourceTree = "<group>"; };
 		8422E9C11D35BF9500F33978 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -82,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3661E5B91E0E1BD900601402 /* CoreData.framework in Frameworks */,
 				36C69ECF1D80A5DE0072CFFA /* SystemConfiguration.framework in Frameworks */,
 				36C69ED11D80A5FF0072CFFA /* ATKMathWidget.framework in Frameworks */,
 				36C69ED31D80A6130072CFFA /* ATKMath.framework in Frameworks */,
@@ -109,6 +134,11 @@
 		8429E10C1D2C481500920987 = {
 			isa = PBXGroup;
 			children = (
+				3661E5C01E0E318500601402 /* HighScore+CoreDataProperties.swift */,
+				3661E5C11E0E318500601402 /* HighScore.swift */,
+				3661E5BC1E0E298600601402 /* Table+CoreDataProperties.swift */,
+				3661E5BD1E0E298600601402 /* Table.swift */,
+				3661E5B81E0E1BD900601402 /* CoreData.framework */,
 				36C69ED81D80A6850072CFFA /* resources.bundle */,
 				36C69ED61D80A6610072CFFA /* ATKMathWidget.bundle */,
 				36C69ED41D80A6260072CFFA /* ATKCore.framework */,
@@ -147,9 +177,14 @@
 				84C3E8211D2DC75300750751 /* SettingsViewController.swift */,
 				84461B4A1D308F1000BA997E /* FinishScreenViewController.swift */,
 				8422E9C11D35BF9500F33978 /* FirstViewController.swift */,
-				36DFEBE91DDCDDD200DF333D /* CorrectingMarks.swift */,
+				36DFEBE91DDCDDD200DF333D /* MainView.swift */,
 				3674D4A91DF0F6AC00359EC1 /* PopoverSettingsTableViewController.swift */,
-				36660B031DF732A300EF0FE6 /* HighScoreViewController.swift */,
+				36969D691DFD290F00F95635 /* MainViewDataSource.swift */,
+				366BAEDE1E0B069000C223EA /* HighScoreTableViewCell.swift */,
+				368C58C21E0B28AD0008C8B0 /* HighScoreViewController.swift */,
+				36BC32EB1E0BB6560055735E /* HighScoreCustom.swift */,
+				366A42231E0D0CBC006F0B1D /* DataModel.xcdatamodeld */,
+				3661E5BA1E0E1CB500601402 /* DataController.swift */,
 			);
 			path = KnowYourAngles;
 			sourceTree = "<group>";
@@ -308,13 +343,22 @@
 			files = (
 				840180CC1D2C6CFD00CB794B /* org.iolani.KnowYourAngles.c in Sources */,
 				8429E11B1D2C481500920987 /* ViewController.swift in Sources */,
-				36DFEBEA1DDCDDD200DF333D /* CorrectingMarks.swift in Sources */,
+				3661E5C21E0E318500601402 /* HighScore+CoreDataProperties.swift in Sources */,
+				368C58C31E0B28AD0008C8B0 /* HighScoreViewController.swift in Sources */,
+				3661E5C31E0E318500601402 /* HighScore.swift in Sources */,
+				36DFEBEA1DDCDDD200DF333D /* MainView.swift in Sources */,
 				8429E1191D2C481500920987 /* AppDelegate.swift in Sources */,
+				366BAEDF1E0B069000C223EA /* HighScoreTableViewCell.swift in Sources */,
+				3661E5BE1E0E298600601402 /* Table+CoreDataProperties.swift in Sources */,
 				84461B4B1D308F1000BA997E /* FinishScreenViewController.swift in Sources */,
+				3661E5BB1E0E1CB500601402 /* DataController.swift in Sources */,
 				84C3E8221D2DC75300750751 /* SettingsViewController.swift in Sources */,
+				36969D6A1DFD290F00F95635 /* MainViewDataSource.swift in Sources */,
 				3674D4AA1DF0F6AC00359EC1 /* PopoverSettingsTableViewController.swift in Sources */,
+				366A42251E0D0CBC006F0B1D /* DataModel.xcdatamodeld in Sources */,
+				36BC32EC1E0BB6560055735E /* HighScoreCustom.swift in Sources */,
+				3661E5BF1E0E298600601402 /* Table.swift in Sources */,
 				8422E9C21D35BF9500F33978 /* FirstViewController.swift in Sources */,
-				36660B041DF732A300EF0FE6 /* HighScoreViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,6 +633,23 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		366A42231E0D0CBC006F0B1D /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3681B3F21E0F56BE00B5920B /* DataModel 5.xcdatamodel */,
+				3681B3F11E0F51DF00B5920B /* DataModel 4.xcdatamodel */,
+				3681B3F01E0F513D00B5920B /* DataModel 3.xcdatamodel */,
+				3661E5C41E0E484200601402 /* DataModel 2.xcdatamodel */,
+				366A42241E0D0CBC006F0B1D /* DataModel.xcdatamodel */,
+			);
+			currentVersion = 366A42241E0D0CBC006F0B1D /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8429E10D1D2C481500920987 /* Project object */;
 }

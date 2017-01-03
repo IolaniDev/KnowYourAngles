@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15G1004" minimumToolsVersion="Xcode 7.0">
+    <entity name="HighScore" representedClassName=".HighScore" syncable="YES">
+        <attribute name="numCorrect" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="timeLimitMin" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="timeLimitSec" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="timeTakenMin" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="timeTakenSec" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="totalProblems" optional="YES" attributeType="Integer 16" minValueString="0" defaultValueString="0" syncable="YES"/>
+        <relationship name="table" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Table" inverseName="highScores" inverseEntity="Table" syncable="YES"/>
+    </entity>
+    <entity name="Table" representedClassName=".Table" syncable="YES">
+        <attribute name="category" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="highScores" toMany="YES" minCount="1" maxCount="6" deletionRule="Nullify" ordered="YES" destinationEntity="HighScore" inverseName="table" inverseEntity="HighScore" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="table" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="User" syncable="YES">
+        <relationship name="table" optional="YES" toMany="YES" minCount="1" maxCount="7" deletionRule="Nullify" destinationEntity="Table" inverseName="user" inverseEntity="Table" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="HighScore" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="Table" positionX="-45" positionY="45" width="128" height="90"/>
+        <element name="User" positionX="-54" positionY="45" width="128" height="60"/>
+    </elements>
+</model>

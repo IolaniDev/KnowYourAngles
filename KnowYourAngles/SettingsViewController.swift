@@ -18,7 +18,7 @@ public class SettingsViewController: UIViewController{
     
     //timerSwitch controls whether a time limit is set on how long the user has to complete the desired number of problems
     @IBOutlet weak var timerSwitch: UISwitch!
-    //timerLabel displays the time limit currently set (can be 30 seconds, 1 min, 2 min, 3 min, or 4 min)
+    //timerLabel displays the time limit currently set (can be 30 seconds, 1 min, 1 min 30 sec, 2 min, 2 min 30 seconds, or 3 min)
     @IBOutlet weak var timerLabel: UILabel!
     //timerSlider lets the user change the time limit
     @IBOutlet weak var timerSlider: UISlider!
@@ -32,13 +32,13 @@ public class SettingsViewController: UIViewController{
     //reciprocalsSwitch controls whether to include the reciprocal functions (sec, csc, cot) in the problem set.
     @IBOutlet weak var reciprocalsSwitch: UISwitch!
     
+    //grab the previously saved settings (if any)
+    let defaultSettings = NSUserDefaults.standardUserDefaults()
+    
     //when the view loads...
     override public func viewDidLoad() {
         //call on the super class viewDidLoad method
         super.viewDidLoad()
-        
-        //grab the previously saved settings (if any)
-        let defaultSettings = NSUserDefaults.standardUserDefaults()
         
         /**********SETTINGS FOR MAX NUM OF PROBLEMS**********/
         //if there are previously saved settings for the number of problems, use them
@@ -64,7 +64,7 @@ public class SettingsViewController: UIViewController{
             timerSlider.hidden = !timerSwitch.on;
             timerLabel.hidden = !timerSwitch.on;
         }
-        //if there are no pre-existing settings, then set default value of off.
+        //if there are no pre-existing settings, then set default value to off.
         else
         {
             timerSwitch.setOn(false, animated: true);
@@ -97,10 +97,17 @@ public class SettingsViewController: UIViewController{
         //if there are no pre-existing settings for amount of time allowed, then set default values
         else
         {
+            if(defaultSettings.objectForKey("isTimerOn") as! Bool)
+            {
             timerLabel.text = "30 seconds";
             timerSlider.value = 0.5;
             defaultSettings.setValue(0, forKey: "amtTimeMin");
             defaultSettings.setValue(0.5, forKey: "amtTimeSec");
+            }
+            else{
+                defaultSettings.setValue(0, forKey: "amtTimeMin");
+                defaultSettings.setValue(0, forKey: "amtTimeSec");
+            }
         }
         
         
@@ -145,14 +152,14 @@ public class SettingsViewController: UIViewController{
     //sliderChanged is called when the slider is moved to change the number of problems
     @IBAction func sliderChanged(sender: UISlider) {
         totalNumOfProblems.text = "Number of Problems: \(lroundf(sender.value))";
-        let defaultSettings = NSUserDefaults.standardUserDefaults()
+        //let defaultSettings = NSUserDefaults.standardUserDefaults()
         //save the number of problems in settings
         defaultSettings.setValue(lroundf(sender.value), forKey: "maxNumOfProblems");
     }
     
     //timerSwitchChanged is called when the user turns on or off the timer.
     @IBAction func timerSwitchChanged(sender: UISwitch) {
-       let defaultSettings = NSUserDefaults.standardUserDefaults();
+       //let defaultSettings = NSUserDefaults.standardUserDefaults();
         let minutes = defaultSettings.objectForKey("amtTimeMin") as! Int;
         let seconds = defaultSettings.objectForKey("amtTimeSec") as! Int;
         if(sender.on)
@@ -207,7 +214,7 @@ public class SettingsViewController: UIViewController{
         }
         
         //create a reference to the current settings
-        let defaultSettings = NSUserDefaults.standardUserDefaults();
+        //let defaultSettings = NSUserDefaults.standardUserDefaults();
         //set new values for the time limit in the settings
         defaultSettings.setValue(minutes, forKey: "amtTimeMin");
         defaultSettings.setValue(seconds, forKey: "amtTimeSec");
@@ -215,7 +222,7 @@ public class SettingsViewController: UIViewController{
     
     //function is called when the user changes whether to include radian problems or not
     @IBAction func radiansSwitchChanged(sender: UISwitch) {
-            let defaultSettings = NSUserDefaults.standardUserDefaults();
+            //let defaultSettings = NSUserDefaults.standardUserDefaults();
             //make sure the degree switch is turned on if turning off radians.
             if(!sender.on && !degreesSwitch.on)
             {
@@ -228,7 +235,7 @@ public class SettingsViewController: UIViewController{
     //if the state of the degrees switch changes...
     @IBAction func degreesSwitchChanged(sender: UISwitch) {
         //set the saved settings appropriately.
-        let defaultSettings = NSUserDefaults.standardUserDefaults();
+        //let defaultSettings = NSUserDefaults.standardUserDefaults();
         //make sure the radians switch is on if turning off degrees.
         if(!sender.on && !radiansSwitch.on)
         {
@@ -241,7 +248,7 @@ public class SettingsViewController: UIViewController{
     
     //update settings if the state of the reciprocals switch is changed.
     @IBAction func reciprocalsSwitchChanged(sender: UISwitch) {
-        let defaultSettings = NSUserDefaults.standardUserDefaults();
+        //let defaultSettings = NSUserDefaults.standardUserDefaults();
         defaultSettings.setValue(sender.on, forKey: "reciprocals");
     }
 }

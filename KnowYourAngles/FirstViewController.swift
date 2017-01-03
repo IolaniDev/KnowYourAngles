@@ -7,10 +7,10 @@
 //
 
 import Foundation
+import CoreData
 
 class FirstViewController : UIViewController{
 
     override func viewDidLoad() {
-    
     }
 }

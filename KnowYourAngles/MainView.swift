@@ -8,38 +8,49 @@
 
 import UIKit
 
-class CorrectingMarks: UIView {
-
-    //label that displays digital countdown
-    @IBOutlet weak var countdownTimer: UILabel!
+class MainView: UIView {
     
-    let segueNow = "segueNow";
+    // label for number of remaining problems to be asked
+    @IBOutlet weak var numRemaining: UILabel!
+    // label for number of correctly answered questions
+    @IBOutlet weak var numCorrect: UILabel!
+    // image of current problem.
+    @IBOutlet weak var problemImage: UIImageView!
+    
+    // label that displays digital countdown
+    @IBOutlet weak var countdownTimer: UILabel!
     
     //creates a timer
     var timer = NSTimer();
+    
     //time limit variables for the timer
     var maxSec : Float = 30.0;
     var maxMin : Float = 0.0;
     var numSec = 30;
     var numMin = 0;
+    
     //boolean representing whether the countdown clock should be visible or not
     var isClockVisibile = false;
+    
     //boolean representing whether the user finished the desired amount of questions or ran out of time before moving to end screen.
     var isOutOfTime = false;
     
-    //initialize
-    override init(frame: CGRect) {
-        super.init(frame: frame);
-    }
+    // reference the mathview for positioning of the correct and incorrect marks
+    @IBOutlet weak var workArea: MAWMathView!
+    // imageview to hold the red x (meaning incorrect)
+    let wrongImageView = UIImageView(image: UIImage(named: "Wrong")!);
+    // imageview to hold the green check (meaning correct)
+    let correctImageView = UIImageView(image: UIImage(named: "Correct")!);
 
     //another initialize
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder)
+    {
         super.init(coder: aDecoder);
         
         //load previously saved settings (if there are any)
         let savedSettings = NSUserDefaults.standardUserDefaults()
         
-        //draw the /**********SETTING UP THE TIME LIMIT**********/
+        /**********SETTING UP THE TIME LIMIT**********/
         //if there are previously saved settings for the timer ...
         if(savedSettings.objectForKey("isTimerOn") != nil)
         {
@@ -67,8 +78,17 @@ class CorrectingMarks: UIView {
             }
             else
             {
+                savedSettings.setValue(0, forKey: "amtTimeMin");
+                savedSettings.setValue(0, forKey: "amtTimeSec");
                 isClockVisibile = false;
             }
+        }
+        else
+        {
+            savedSettings.setValue(false, forKey: "isTimerOn");
+            savedSettings.setValue(0, forKey: "amtTimeMin");
+            savedSettings.setValue(0, forKey: "amtTimeSec");
+            isClockVisibile = false;
         }
         
     }
@@ -86,6 +106,7 @@ class CorrectingMarks: UIView {
         {
             //segue to finish screen.
             isOutOfTime = true;
+            let segueNow = "segueNow";
             NSNotificationCenter.defaultCenter().addObserver(self, selector: nil, name: "segueNow", object: nil);
             NSNotificationCenter.defaultCenter().postNotificationName(segueNow, object: self);
         }
@@ -101,7 +122,6 @@ class CorrectingMarks: UIView {
         if(isClockVisibile)
         {
             countdownTimer.hidden = false;
-            //let timerRect = CGRectMake(workArea.frame.origin.x+workArea.frame.width/2-100,workArea.frame.origin.y-600,200,200);
             let timerRect = CGRectMake(self.superview!.frame.width / 2, 308, 200, 200);
             
             countdownTimer.textColor = UIColor.blackColor();
@@ -123,18 +143,14 @@ class CorrectingMarks: UIView {
                 
             path.stroke();
         }
+        else{
+            countdownTimer.hidden = true;
+        }
     }
-    
-    // reference the mathview for positioning of the correct and incorrect marks
-    @IBOutlet weak var workArea: MAWMathView!
-    //imageview to hold the red x (meaning incorrect)
-    let wrongImageView = UIImageView(image: UIImage(named: "Wrong")!);
-    // imageview to hold the green check (meaning correct)
-    let correctImageView = UIImageView(image: UIImage(named: "Correct")!);
     
     // function called when user answers incorrectly
     func drawWrong(){
-        //sets the position of the red x
+        // sets the position of the red x
         wrongImageView.frame.origin.x = workArea.frame.origin.x + (workArea.frame.width/2) - wrongImageView.frame.width/2;
         wrongImageView.frame.origin.y = workArea.frame.origin.y + (workArea.frame.height/2) - wrongImageView.frame.height/2;
         // add red x to the screen
@@ -142,7 +158,7 @@ class CorrectingMarks: UIView {
         // make sure the red x is in front
         self.bringSubviewToFront(wrongImageView);
     
-        //animate the red x fading away
+        // animate the red x fading away
         self.wrongImageView.alpha = 255;
         UIView.animateWithDuration(0.5, animations: {
             self.wrongImageView.alpha = 0
