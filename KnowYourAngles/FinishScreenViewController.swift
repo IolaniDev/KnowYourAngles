@@ -11,7 +11,7 @@ import CoreData
 
 public class FinishScreenViewController: UIViewController{
     
-    //variables to hold info to display on Finish Screen
+    // variables to hold info to display on Finish Screen
     var finalScore : Int = 0;
     var totalNum : Int = 0;
     var finalTime = (0,0);
@@ -20,6 +20,9 @@ public class FinishScreenViewController: UIViewController{
     //references to UI components on storyboard
     @IBOutlet weak var finishScore: UILabel!
     @IBOutlet weak var finishTime: UILabel!
+    
+    // load previously saved settings (if there are any)
+    let savedSettings = NSUserDefaults.standardUserDefaults()
     
     //view did load
     override public func viewDidLoad() {
@@ -66,11 +69,28 @@ public class FinishScreenViewController: UIViewController{
         score.setValue(0, forKey: "timeTakenSec")
         score.setValue(totalNum, forKey: "totalProblems")
         
+        //set the category for the new score entry
+        var categories = "";
+        if(savedSettings.valueForKey("degrees") as! Bool)
+        {
+            categories += "deg"
+        }
+        if(savedSettings.valueForKey("radians") as! Bool)
+        {
+            categories += "rad"
+        }
+        if(savedSettings.valueForKey("reciprocals") as! Bool)
+        {
+            categories += "rec"
+        }
+        
+        score.setValue(categories, forKey: "category");
+        
         //if there was no time limit
         if(!isTimerOn)
         {
             //modify the fetch request to only include the Table with category highScores0
-            fetchRequest.predicate = NSPredicate(format: "category = %@", "highScores0")
+            fetchRequest.predicate = NSPredicate(format: "category = %@", "highScores0"+categories)
             
             do{
                 //run the fetch request and store the resulting Table in results
@@ -81,7 +101,7 @@ public class FinishScreenViewController: UIViewController{
                 {
                     //create a table
                     let newTable = NSEntityDescription.insertNewObjectForEntityForName("Table", inManagedObjectContext: managedContext);
-                    newTable.setValue("highScores0", forKey: "category");
+                    newTable.setValue("highScores0"+categories, forKey: "category");
                     (score as! HighScore).table = (newTable as! Table)
                 }
                 //if the table already exists...
@@ -117,7 +137,7 @@ public class FinishScreenViewController: UIViewController{
         else
         {
             //get the time allotted from saved settings
-            let savedSettings = NSUserDefaults.standardUserDefaults();
+            //let savedSettings = NSUserDefaults.standardUserDefaults();
             let timeAllowed = (savedSettings.integerForKey("amtTimeMin"), savedSettings.integerForKey("amtTimeSec"));
             
             //if the time allowed was 30 seconds...

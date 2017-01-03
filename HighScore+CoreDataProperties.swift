@@ -2,8 +2,8 @@
 //  HighScore+CoreDataProperties.swift
 //  KnowYourAngles
 //
-//  Created by iPad App Dev on 12/23/16.
-//  Copyright © 2016 Iolani School. All rights reserved.
+//  Created by iPad App Dev on 1/3/17.
+//  Copyright © 2017 Iolani School. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
 //  to delete and recreate this implementation file for your updated model.
@@ -20,6 +20,7 @@ extension HighScore {
     @NSManaged var timeTakenMin: NSNumber?
     @NSManaged var timeTakenSec: NSNumber?
     @NSManaged var totalProblems: NSNumber?
+    @NSManaged var category: String?
     @NSManaged var table: Table?
 
 }

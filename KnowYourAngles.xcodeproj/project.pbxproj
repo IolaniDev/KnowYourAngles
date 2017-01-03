@@ -72,6 +72,7 @@
 		3681B3F21E0F56BE00B5920B /* DataModel 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DataModel 5.xcdatamodel"; sourceTree = "<group>"; };
 		368C58C21E0B28AD0008C8B0 /* HighScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
 		36969D691DFD290F00F95635 /* MainViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewDataSource.swift; sourceTree = "<group>"; };
+		369BED621E1C55B500A9D0C7 /* DataModel 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DataModel 6.xcdatamodel"; sourceTree = "<group>"; };
 		36BC32EB1E0BB6560055735E /* HighScoreCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreCustom.swift; sourceTree = "<group>"; };
 		36C69ED01D80A5FF0072CFFA /* ATKMathWidget.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ATKMathWidget.framework; path = "../MyScript_ATK-ios-2/Frameworks/ATKMathWidget.framework"; sourceTree = "<group>"; };
 		36C69ED21D80A6130072CFFA /* ATKMath.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ATKMath.framework; path = "../MyScript_ATK-ios-2/Frameworks/ATKMath.framework"; sourceTree = "<group>"; };
@@ -638,6 +639,7 @@
 		366A42231E0D0CBC006F0B1D /* DataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				369BED621E1C55B500A9D0C7 /* DataModel 6.xcdatamodel */,
 				3681B3F21E0F56BE00B5920B /* DataModel 5.xcdatamodel */,
 				3681B3F11E0F51DF00B5920B /* DataModel 4.xcdatamodel */,
 				3681B3F01E0F513D00B5920B /* DataModel 3.xcdatamodel */,

@@ -14,6 +14,8 @@ class HighScoreViewController : UIViewController, UIPickerViewDataSource, UIPick
     // possible categories user can select to see "best scores" for those times
     var timeCategories = ["No Time Limit", "30 seconds", "1 minute", "1 minute 30 seconds", "2 minutes", "2 minutes 30 seconds", "3 minutes"];
     
+    var problemCategories = ["degrees", "radians", "degrees & radians", "reciprocals (deg)", "reciprocals (rad)", "reciprocals (deg & rad)"];
+    
     // current category displayed (set to "No Time Limit" by default)
     var currCategory = "No Time Limit";
     
@@ -23,17 +25,31 @@ class HighScoreViewController : UIViewController, UIPickerViewDataSource, UIPick
     
     // 1 component in the picker
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
-        return 1;
+        return 2;
     }
     
     // should have one row per category in the picker
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return timeCategories.count;
+        if(component == 0)
+        {
+            return timeCategories.count;
+        }
+        else
+        {
+            return problemCategories.count;
+        }
     }
     
     // get labels for picker from the timeCategories array
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return timeCategories[row];
+        if(component == 0)
+        {
+            return timeCategories[row];
+        }
+        else
+        {
+            return problemCategories[row];
+        }
     }
     
     // format each row of the picker
@@ -46,7 +62,14 @@ class HighScoreViewController : UIViewController, UIPickerViewDataSource, UIPick
             pickerLabel?.textColor = UIColor(red: 40/255, green: 204/255, blue: 198/255, alpha: 1);
             pickerLabel?.textAlignment = NSTextAlignment.Center;
         }
-        pickerLabel?.text = timeCategories[row];
+        if(component == 0)
+        {
+            pickerLabel?.text = timeCategories[row];
+        }
+        else
+        {
+            pickerLabel?.text = problemCategories[row];
+        }
         return pickerLabel!;
     }
     

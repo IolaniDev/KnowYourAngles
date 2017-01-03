@@ -433,18 +433,8 @@
                                     <segue destination="nWQ-yf-5Ff" kind="show" id="yJJ-cV-MRz"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dib-vs-hkc">
-                                <rect key="frame" x="297" y="92" width="398.5" height="70"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="gqq-Zc-vG2"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="dataSource" destination="Gla-WF-T3C" id="n8b-Tb-UDA"/>
-                                    <outlet property="delegate" destination="Gla-WF-T3C" id="pco-Sm-AlX"/>
-                                </connections>
-                            </pickerView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="8uc-JF-ub8">
-                                <rect key="frame" x="0.0" y="162" width="600" height="502"/>
+                                <rect key="frame" x="0.0" y="247" width="600" height="502"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="502" id="DKl-HZ-2fz"/>
@@ -479,25 +469,40 @@
                                 </prototypes>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View Best Scores For: " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Zg-dj-9g2">
-                                <rect key="frame" x="-19" y="60" width="276.5" height="134"/>
+                                <rect key="frame" x="28" y="60" width="543.5" height="67"/>
                                 <fontDescription key="fontDescription" type="italicSystem" pointSize="56"/>
                                 <color key="textColor" red="0.15686274510000001" green="0.80000000000000004" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pickerView contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dib-vs-hkc">
+                                <rect key="frame" x="-100" y="147" width="800" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="800" id="U2o-OG-hox"/>
+                                    <constraint firstAttribute="height" constant="100" id="gqq-Zc-vG2"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="Gla-WF-T3C" id="n8b-Tb-UDA"/>
+                                    <outlet property="delegate" destination="Gla-WF-T3C" id="pco-Sm-AlX"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" red="0.098039215690000001" green="0.49803921569999998" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Dib-vs-hkc" firstAttribute="top" secondItem="i6q-6D-lw0" secondAttribute="bottom" constant="40" id="2we-rq-1NF"/>
                             <constraint firstItem="8uc-JF-ub8" firstAttribute="centerX" secondItem="Gla-WF-T3C" secondAttribute="centerX" id="3tp-Ma-bdp"/>
-                            <constraint firstItem="Dib-vs-hkc" firstAttribute="leading" secondItem="0Zg-dj-9g2" secondAttribute="trailing" constant="40" id="5b6-Ne-j5M"/>
+                            <constraint firstItem="Dib-vs-hkc" firstAttribute="leading" secondItem="0Zg-dj-9g2" secondAttribute="trailing" constant="20" id="5b6-Ne-j5M"/>
                             <constraint firstItem="Dib-vs-hkc" firstAttribute="centerX" secondItem="Gla-WF-T3C" secondAttribute="centerX" constant="196.5" id="DqR-dg-W8c"/>
+                            <constraint firstItem="Dib-vs-hkc" firstAttribute="top" secondItem="0Zg-dj-9g2" secondAttribute="bottom" constant="20" id="EZi-aq-aZa"/>
+                            <constraint firstItem="0Zg-dj-9g2" firstAttribute="centerX" secondItem="Gla-WF-T3C" secondAttribute="centerX" id="FjX-sP-Scl"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Dib-vs-hkc" secondAttribute="trailing" constant="81.5" id="Izc-Fq-t6o"/>
                             <constraint firstItem="0Zg-dj-9g2" firstAttribute="centerX" secondItem="Gla-WF-T3C" secondAttribute="centerX" constant="-180.75" id="R5k-db-9SV"/>
                             <constraint firstItem="0Zg-dj-9g2" firstAttribute="top" secondItem="Gla-WF-T3C" secondAttribute="topMargin" constant="60" id="TVE-eu-6py"/>
                             <constraint firstItem="8uc-JF-ub8" firstAttribute="top" secondItem="Dib-vs-hkc" secondAttribute="bottom" id="Tmy-Cw-vBl"/>
+                            <constraint firstItem="Dib-vs-hkc" firstAttribute="centerX" secondItem="Gla-WF-T3C" secondAttribute="centerX" id="WRq-pX-h4g"/>
                             <constraint firstItem="Dib-vs-hkc" firstAttribute="centerY" secondItem="0Zg-dj-9g2" secondAttribute="centerY" id="czy-Qf-4gc"/>
                             <constraint firstItem="0Zg-dj-9g2" firstAttribute="leading" secondItem="iq5-M9-jfw" secondAttribute="leading" id="ewO-pT-gO5"/>
                             <constraint firstItem="8uc-JF-ub8" firstAttribute="top" secondItem="Dib-vs-hkc" secondAttribute="bottom" id="gGO-ur-rOf"/>
+                            <constraint firstItem="0Zg-dj-9g2" firstAttribute="leading" secondItem="Gla-WF-T3C" secondAttribute="leadingMargin" id="nrE-Kp-FJH"/>
                             <constraint firstItem="Dib-vs-hkc" firstAttribute="centerY" secondItem="0Zg-dj-9g2" secondAttribute="centerY" id="pun-sv-jDh"/>
                             <constraint firstItem="iq5-M9-jfw" firstAttribute="top" secondItem="Gla-WF-T3C" secondAttribute="topMargin" constant="14.5" id="rM6-I3-BAe"/>
                             <constraint firstItem="iq5-M9-jfw" firstAttribute="leading" secondItem="Gla-WF-T3C" secondAttribute="leadingMargin" constant="1.5" id="rkO-2w-kHt"/>
@@ -506,10 +511,15 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="R5k-db-9SV"/>
                                 <exclude reference="ewO-pT-gO5"/>
+                                <exclude reference="nrE-Kp-FJH"/>
                                 <exclude reference="gGO-ur-rOf"/>
                                 <exclude reference="2we-rq-1NF"/>
+                                <exclude reference="5b6-Ne-j5M"/>
+                                <exclude reference="DqR-dg-W8c"/>
                                 <exclude reference="Izc-Fq-t6o"/>
+                                <exclude reference="czy-Qf-4gc"/>
                                 <exclude reference="pun-sv-jDh"/>
                                 <exclude reference="uAZ-2m-Vyw"/>
                                 <exclude reference="wF5-av-RB9"/>
