@@ -11,19 +11,29 @@ import CoreData
 
 class HighScoreViewController : UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITableViewDelegate, UITableViewDataSource {
     
-    // possible categories user can select to see "best scores" for those times
+    // possible readable categories user can select to see "best scores" for those times
     var timeCategories = ["No Time Limit", "30 seconds", "1 minute", "1 minute 30 seconds", "2 minutes", "2 minutes 30 seconds", "3 minutes"];
     
+    // possible categories used to request entries from the Data Model
+    var times = ["highScores0", "highScores30", "highScores1", "highScores130", "highScores2", "highScores230", "highScores3"];
+    
+    // possible sets of problems user can select to see "best scores for those types of problems
     var problemCategories = ["degrees", "radians", "degrees & radians", "reciprocals (deg)", "reciprocals (rad)", "reciprocals (deg & rad)"];
     
+    // possible types of problems to request entries from the Data Model
+    var problems = ["deg", "rad", "degrad", "degrec", "radrec", "degradrec"];
+    
     // current category displayed (set to "No Time Limit" by default)
-    var currCategory = "No Time Limit";
+    var currCategory = "highScores0deg";
+    
+    var tempTimeCategory = "highScores0";
+    var tempProbCategory = "deg";
     
     // references to the picker view and table view UI components on the storyboard
     @IBOutlet weak var pickerView: UIPickerView!
     @IBOutlet weak var tableView: UITableView!
     
-    // 1 component in the picker
+    // 2 components in the picker (one for time limit and one for type of problems)
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
         return 2;
     }
@@ -55,6 +65,7 @@ class HighScoreViewController : UIViewController, UIPickerViewDataSource, UIPick
     // format each row of the picker
     func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
         var pickerLabel = view as? UILabel;
+        //if the picker label hasn't been created yet, set the font of the labels
         if(pickerLabel == nil)
         {
             pickerLabel = UILabel();
@@ -62,10 +73,12 @@ class HighScoreViewController : UIViewController, UIPickerViewDataSource, UIPick
             pickerLabel?.textColor = UIColor(red: 40/255, green: 204/255, blue: 198/255, alpha: 1);
             pickerLabel?.textAlignment = NSTextAlignment.Center;
         }
+        // if we're setting up the view for the first component (the time limit)
         if(component == 0)
         {
             pickerLabel?.text = timeCategories[row];
         }
+        // if we're setting up the view for the second component (type of problems)
         else
         {
             pickerLabel?.text = problemCategories[row];
@@ -78,58 +91,21 @@ class HighScoreViewController : UIViewController, UIPickerViewDataSource, UIPick
         return 40;
     }
     
+    // use the picker to select which table of high scores to display
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        // if we're looking at the first component (time limit)
+        if(component == 0)
+        {
+            tempTimeCategory = times[row];
+        }
+        else
+        {
+            tempProbCategory = problems[row];
+        }
         
-        if(row == 0)
-        {
-            let managedContext = DataController().managedObjectContext;
-            let fetchRequest = NSFetchRequest(entityName: "Table");
-            fetchRequest.predicate = NSPredicate(format: "category = %@", "highScores0");
-            do{
-                let results = try managedContext.executeFetchRequest(fetchRequest)
-                let scores = results as! [NSManagedObject]
-            }catch let error as NSError{
-                print("Could not fetch \(error), \(error.userInfo)")
-            }
-        }
-        else if(row == 1)
-        {
-            //highScores = savedSettings.objectForKey("highScores30") as! [HighScore];
-            //highScores = [HighScore(limit: (0,30),time: (0,30),total: 10,correct: 1), HighScore(limit: (0,30),time: (0,28),total: 10,correct: 2), HighScore(limit: (0,30),time: (0,15),total: 10, correct: 10), HighScore(limit: (0,30),time: (0,10),total: 10,correct: 6), HighScore(limit: (0,30),time: (0,25),total: 20,correct: 10)];
-        }
-        else if(row == 2)
-        {
-            //highScores = savedSettings.objectForKey("highScores1") as! [HighScore];
-            //highScores = [HighScore(limit: (1,0),time: (0,30),total: 10,correct: 1), HighScore(limit: (1,0),time: (0,28),total: 10,correct: 2), HighScore(limit: (1,0),time: (1,13),total: 10, correct: 10), HighScore(limit: (1,0),time: (0,10),total: 10,correct: 6), HighScore(limit: (1,0),time: (0,25),total: 20,correct: 10)];
-        }
-        else if(row == 3)
-        {
-            //highScores = savedSettings.objectForKey("highScores130") as! [HighScore];
-            //highScores = [HighScore(limit: (1,30),time: (0,30),total: 10,correct: 1), HighScore(limit: (1,30),time: (0,28),total: 10,correct: 2), HighScore(limit: (1,30),time: (0,15),total: 10, correct: 10), HighScore(limit: (1,30),time: (0,10),total: 10,correct: 6), HighScore(limit: (1,30),time: (0,25),total: 20,correct: 10)];
-        }
-        else if(row == 4)
-        {
-            //highScores = savedSettings.objectForKey("highScores2") as! [HighScore];
-            //highScores = [HighScore(limit: (2,0),time: (0,30),total: 10,correct: 1), HighScore(limit: (2,0),time: (0,28),total: 10,correct: 2), HighScore(limit: (2,0),time: (1,13),total: 10, correct: 10), HighScore(limit: (2,0),time: (0,10),total: 10,correct: 6), HighScore(limit: (2,0),time: (0,25),total: 20,correct: 10)];
-        }
-        else if(row == 5)
-        {
-            //highScores = savedSettings.objectForKey("highScores230") as! [HighScore];
-            //highScores = [HighScore(limit: (2,30),time: (0,30),total: 10,correct: 1), HighScore(limit: (2,30),time: (0,28),total: 10,correct: 2), HighScore(limit: (2,30),time: (0,15),total: 10, correct: 10), HighScore(limit: (2,30),time: (0,10),total: 10,correct: 6), HighScore(limit: (2,30),time: (0,25),total: 20,correct: 10)];
-        }
-        else if(row == 6)
-        {
-            //highScores = savedSettings.objectForKey("highScores3") as! [HighScore];
-            //highScores = [HighScore(limit: (3,0),time: (0,30),total: 10,correct: 1), HighScore(limit: (3,0),time: (0,28),total: 10,correct: 2), HighScore(limit: (3,0),time: (1,13),total: 10, correct: 10), HighScore(limit: (3,0),time: (0,10),total: 10,correct: 6), HighScore(limit: (3,0),time: (0,25),total: 20,correct: 10)];
-        }
-        currCategory = timeCategories[row];
+        currCategory = tempTimeCategory + tempProbCategory;
         tableView.reloadData();
     }
-    
-    /*private func loadHighScores(){
-     let savedSettings = NSUserDefaults.standardUserDefaults();
-     highScores = savedSettings.objectForKey("highScores0") as! [HighScore];
-     }*/
     
     //a functioning table view requires the following three table view data source methods
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -139,7 +115,7 @@ class HighScoreViewController : UIViewController, UIPickerViewDataSource, UIPick
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let managedContext = DataController().managedObjectContext;
         let fetchRequest = NSFetchRequest(entityName: "Table");
-        fetchRequest.predicate = NSPredicate(format: "category = %@", "highScores0");
+        fetchRequest.predicate = NSPredicate(format: "category = %@", currCategory);
         
         do{
             let results = try managedContext.executeFetchRequest(fetchRequest)
@@ -175,39 +151,8 @@ class HighScoreViewController : UIViewController, UIPickerViewDataSource, UIPick
         let managedContext = DataController().managedObjectContext;
         let fetchRequest = NSFetchRequest(entityName: "Table");
         //"No Time Limit", "30 seconds", "1 minute", "1 minute 30 seconds", "2 minutes", "2 minutes 30 seconds", "3 minutes"
-        if(currCategory == "No Time Limit")
-        {
-            fetchRequest.predicate = NSPredicate(format: "category = %@", "highScores0");
-        }
-        else if(currCategory == "30 seconds")
-        {
-            fetchRequest.predicate = NSPredicate(format: "category = %@", "highScores30");
-        }
-        else if(currCategory == "1 minute")
-        {
-            fetchRequest.predicate = NSPredicate(format: "category = %@", "highScores1");
-
-        }
-        else if(currCategory == "1 minute 30 seconds")
-        {
-            fetchRequest.predicate = NSPredicate(format: "category = %@", "highScores130");
-
-        }
-        else if(currCategory == "2 minutes")
-        {
-            fetchRequest.predicate = NSPredicate(format: "category = %@", "highScores2");
-
-        }
-        else if(currCategory == "2 minutes 30 seconds")
-        {
-            fetchRequest.predicate = NSPredicate(format: "category = %@", "highScores230");
-
-        }
-        else if(currCategory == "3 minutes")
-        {
-            fetchRequest.predicate = NSPredicate(format: "category = %@", "highScores3");
-
-        }
+        //"degrees", "radians", "degrees & radians", "reciprocals (deg)", "reciprocals (rad)", "reciprocals (deg & rad)"
+        fetchRequest.predicate = NSPredicate(format: "category = %@", currCategory);
         do{
             let results = try managedContext.executeFetchRequest(fetchRequest)
             var scores = results as! [NSManagedObject]
@@ -215,14 +160,27 @@ class HighScoreViewController : UIViewController, UIPickerViewDataSource, UIPick
             let temp = (scores[0] as! Table).highScores?.reversedOrderedSet.objectAtIndex(indexPath.row) as! HighScore;
             let correct : Int = temp.valueForKey("numCorrect") as! Int;
             let total : Int = temp.valueForKey("totalProblems") as! Int;
-            if(currCategory == "No Time Limit")
+            let minutes : Int = temp.valueForKey("timeTakenMin") as! Int;
+            let seconds : Int = temp.valueForKey("timeTakenSec") as! Int;
+            if(currCategory.containsString("highScores0"))
             {
                 cell.highScoreEntry.text = "\(correct) correct out of \(total) problems";
                 //cell.highScoreEntry.text = String(temp);
             }
             else
             {
-                cell.highScoreEntry.text = "\(correct) correct out of \(total) problems in \(currCategory)"
+                if(minutes == 0)
+                {
+                    cell.highScoreEntry.text = "\(correct) correct out of \(total) problems in \(seconds) seconds"
+                }
+                else if (seconds == 0)
+                {
+                    cell.highScoreEntry.text = "\(correct) correct out of \(total) problems in \(minutes) minutes"
+                }
+                else
+                {
+                    cell.highScoreEntry.text = "\(correct) correct out of \(total) problems in \(minutes) minutes \(seconds) seconds";
+                }
             }
         }catch let error as NSError{
             print("Could not fetch \(error), \(error.userInfo)")
@@ -244,5 +202,7 @@ class HighScoreViewController : UIViewController, UIPickerViewDataSource, UIPick
         
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
+        
+        tableView.reloadData();
     }
 }

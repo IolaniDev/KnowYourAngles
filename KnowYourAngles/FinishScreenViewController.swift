@@ -65,8 +65,8 @@ public class FinishScreenViewController: UIViewController{
         score.setValue(finalScore, forKey: "numCorrect")
         score.setValue(0, forKey: "timeLimitMin")
         score.setValue(0, forKey: "timeLimitSec")
-        score.setValue(0, forKey: "timeTakenMin")
-        score.setValue(0, forKey: "timeTakenSec")
+        score.setValue(finalTime.0, forKey: "timeTakenMin")
+        score.setValue(finalTime.1, forKey: "timeTakenSec")
         score.setValue(totalNum, forKey: "totalProblems")
         
         //set the category for the new score entry
@@ -89,8 +89,9 @@ public class FinishScreenViewController: UIViewController{
         //if there was no time limit
         if(!isTimerOn)
         {
+            categories = "highScores0"+categories;
             //modify the fetch request to only include the Table with category highScores0
-            fetchRequest.predicate = NSPredicate(format: "category = %@", "highScores0"+categories)
+            /*fetchRequest.predicate = NSPredicate(format: "category = %@", "highScores0"+categories)
             
             do{
                 //run the fetch request and store the resulting Table in results
@@ -131,7 +132,7 @@ public class FinishScreenViewController: UIViewController{
                 
             }catch let error as NSError{
                 print("Could not save \(error), \(error.userInfo)")
-            }
+            }*/
         }
         //if the timer was on, then figure out how much time was allotted.
         else
@@ -143,67 +144,85 @@ public class FinishScreenViewController: UIViewController{
             //if the time allowed was 30 seconds...
             if(timeAllowed.0 == 0 && timeAllowed.1 == 30)
             {
-                //modify the fetch request to only include the Table with category highScores30
-                fetchRequest.predicate = NSPredicate(format: "category = %@", "highScores30")
-                
-                do{
-                    //run the fetch request and store the resulting Table in results
-                    let results = try managedContext.executeFetchRequest(fetchRequest);
-                    
-                    //if the table does not exist...
-                    if(results.count == 0)
-                    {
-                        //create a table
-                        let newTable = NSEntityDescription.insertNewObjectForEntityForName("Table", inManagedObjectContext: managedContext);
-                        newTable.setValue("highScores30", forKey: "category");
-                        (score as! HighScore).table = (newTable as! Table)
-                    }
-                    // if the table already exists...
-                    else{
-                        // get the table
-                        let tempTable = results[0] as! Table
-                        // add the new High Score into the records
-                        (score as! HighScore).table = tempTable
-                        if(tempTable.highScores?.count>5)
-                        {
-                            managedContext.deleteObject(tempTable.highScores?.reversedOrderedSet.lastObject as! HighScore);
-                        }
-                    }
-                }catch let error as NSError{
-                    print("Could not fetch \(error), \(error.userInfo)")
-                }
-                catch let e as NSException{
-                    print("\(e.userInfo)");
-                }
-                catch{
-                    print("You done goofed.")
-                }
-                
-                do{
-                    try managedContext.save();
-                    
-                }catch let error as NSError{
-                    print("Could not save \(error), \(error.userInfo)")
-                }
+                categories = "highScores30" + categories;
+
             }
             //else if the time allowed was 1 minute
-            
+            else if(timeAllowed.0 == 1 && timeAllowed.1 == 0)
+            {
+                categories = "highScores1" + categories;
+            }
             //else if the time allowed was 1 minute 30 seconds
-            
+            else if(timeAllowed.0 == 1 && timeAllowed.1 == 30)
+            {
+                categories = "highScores130" + categories;
+            }
             //else if the time allowed was 2 minutes
-            
+            else if(timeAllowed.0 == 2 && timeAllowed.1 == 0)
+            {
+                categories = "highScores2" + categories;
+            }
             //else if the time allowed was 2 minutes 30 seconds
-            
+            else if(timeAllowed.0 == 2 && timeAllowed.1 == 30)
+            {
+                categories = "highScores230" + categories;
+            }
             //else if the time allowed was 3 minutes
+            else
+            {
+                categories = "highScores3" + categories;
+            }
+        }
+        //modify the fetch request to only include the Table with category highScores30
+        fetchRequest.predicate = NSPredicate(format: "category = %@", categories)
+        
+        do{
+            //run the fetch request and store the resulting Table in results
+            let results = try managedContext.executeFetchRequest(fetchRequest);
+            
+            //if the table does not exist...
+            if(results.count == 0)
+            {
+                //create a table
+                let newTable = NSEntityDescription.insertNewObjectForEntityForName("Table", inManagedObjectContext: managedContext);
+                newTable.setValue(categories, forKey: "category");
+                (score as! HighScore).table = (newTable as! Table)
+            }
+                // if the table already exists...
+            else{
+                // get the table
+                let tempTable = results[0] as! Table
+                // add the new High Score into the records
+                (score as! HighScore).table = tempTable
+                if(tempTable.highScores?.count>5)
+                {
+                    managedContext.deleteObject(tempTable.highScores?.reversedOrderedSet.lastObject as! HighScore);
+                }
+            }
+        }catch let error as NSError{
+            print("Could not fetch \(error), \(error.userInfo)")
+        }
+        catch let e as NSException{
+            print("\(e.userInfo)");
+        }
+        catch{
+            print("You done goofed.")
+        }
+        
+        do{
+            try managedContext.save();
+            
+        }catch let error as NSError{
+            print("Could not save \(error), \(error.userInfo)")
         }
     }
     
     /*func saveHighScores(forKey: String, scores: [NSManagedObject])
     {
         //let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate;
-        
+     
         let managedContext = DataController().managedObjectContext;
-        
+     
         let entity = NSEntityDescription.entityForName("Table", inManagedObjectContext: managedContext)
         
         let temp = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext)
