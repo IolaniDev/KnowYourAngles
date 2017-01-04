@@ -73,6 +73,11 @@ class HighScoreViewController : UIViewController, UIPickerViewDataSource, UIPick
         return pickerLabel!;
     }
     
+    // set each row in the picker to have a height of 40
+    func pickerView(pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+        return 40;
+    }
+    
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         if(row == 0)
