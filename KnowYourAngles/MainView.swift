@@ -121,18 +121,19 @@ class MainView: UIView {
         //if the timer should be on...
         if(isClockVisibile)
         {
-            countdownTimer.hidden = false;
-            let timerRect = CGRectMake(self.superview!.frame.width / 2, 308, 200, 200);
-            
-            countdownTimer.textColor = UIColor.blackColor();
-            countdownTimer.text = String(format:"%02d:%02d", numMin, numSec);
+            let timerRect = CGRectMake(self.superview!.frame.width / 2, 100, 200, 200);
                 
             //draw the background of the timer
             var path = UIBezierPath(arcCenter: CGPoint(x:timerRect.origin.x, y:timerRect.origin.y), radius: 50, startAngle: 0, endAngle: 2*CGFloat(M_PI), clockwise: true)
             path.lineWidth = 100;
             UIColor.init(red: 40/255, green: 204/255, blue: 198/255, alpha: 1).setStroke();
             path.stroke();
-                
+            
+            countdownTimer.center = CGPoint(x: self.superview!.frame.width / 2, y: timerRect.origin.y);
+            countdownTimer.hidden = false;
+            countdownTimer.textColor = UIColor.blackColor();
+            countdownTimer.text = String(format:"%02d:%02d", numMin, numSec);
+            
             let totalSec = Float(60*numMin+numSec);
             let maxTotal = maxMin * 60 + maxSec;
             let fraction : CGFloat = CGFloat.init((maxTotal - totalSec) / maxTotal);
