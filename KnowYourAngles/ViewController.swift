@@ -196,14 +196,12 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         }
         else
         {
-            
             // set up a new problem
             correctingMarksView.problemImage.image = UIImage(named: problemSource.getRandomProblem());
             
             // clear the field to write your answer
             mathView.clear(false);
         }
-    
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

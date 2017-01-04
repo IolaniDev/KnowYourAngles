@@ -226,9 +226,7 @@ public class SettingsViewController: UIViewController{
         {
             timerLabel.text = "\(Int(minutes)) minutes \(Int(seconds)) seconds";
         }
-        
-        //create a reference to the current settings
-        //let defaultSettings = NSUserDefaults.standardUserDefaults();
+
         //set new values for the time limit in the settings
         defaultSettings.setValue(minutes, forKey: "amtTimeMin");
         defaultSettings.setValue(seconds, forKey: "amtTimeSec");
@@ -236,7 +234,6 @@ public class SettingsViewController: UIViewController{
     
     //function is called when the user changes whether to include radian problems or not
     @IBAction func radiansSwitchChanged(sender: UISwitch) {
-        //let defaultSettings = NSUserDefaults.standardUserDefaults();
         //make sure the degree switch is turned on if turning off radians.
         if(!sender.on && !degreesSwitch.on)
         {
@@ -248,8 +245,6 @@ public class SettingsViewController: UIViewController{
     
     //if the state of the degrees switch changes...
     @IBAction func degreesSwitchChanged(sender: UISwitch) {
-        //set the saved settings appropriately.
-        //let defaultSettings = NSUserDefaults.standardUserDefaults();
         //make sure the radians switch is on if turning off degrees.
         if(!sender.on && !radiansSwitch.on)
         {
@@ -262,7 +257,6 @@ public class SettingsViewController: UIViewController{
     
     //update settings if the state of the reciprocals switch is changed.
     @IBAction func reciprocalsSwitchChanged(sender: UISwitch) {
-        //let defaultSettings = NSUserDefaults.standardUserDefaults();
         defaultSettings.setValue(sender.on, forKey: "reciprocals");
     }
 }
