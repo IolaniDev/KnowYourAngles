@@ -124,7 +124,6 @@ class HighScoreViewController : UIViewController, UIPickerViewDataSource, UIPick
                 return 0;
             }
             var scores = results as! [NSManagedObject]
-            print(scores[0] as! Table);
             if(scores.count == 0)
             {
                 return 0;
@@ -156,7 +155,6 @@ class HighScoreViewController : UIViewController, UIPickerViewDataSource, UIPick
         do{
             let results = try managedContext.executeFetchRequest(fetchRequest)
             var scores = results as! [NSManagedObject]
-            //print(scores[0] as! Table);
             let temp = (scores[0] as! Table).highScores?.reversedOrderedSet.objectAtIndex(indexPath.row) as! HighScore;
             let correct : Int = temp.valueForKey("numCorrect") as! Int;
             let total : Int = temp.valueForKey("totalProblems") as! Int;
@@ -165,7 +163,6 @@ class HighScoreViewController : UIViewController, UIPickerViewDataSource, UIPick
             if(currCategory.containsString("highScores0"))
             {
                 cell.highScoreEntry.text = "\(correct) correct out of \(total) problems";
-                //cell.highScoreEntry.text = String(temp);
             }
             else
             {
