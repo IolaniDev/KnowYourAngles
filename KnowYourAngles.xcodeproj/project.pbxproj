@@ -18,7 +18,6 @@
 		3674D4AA1DF0F6AC00359EC1 /* PopoverSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674D4A91DF0F6AC00359EC1 /* PopoverSettingsTableViewController.swift */; };
 		368C58C31E0B28AD0008C8B0 /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368C58C21E0B28AD0008C8B0 /* HighScoreViewController.swift */; };
 		36969D6A1DFD290F00F95635 /* MainViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36969D691DFD290F00F95635 /* MainViewDataSource.swift */; };
-		36BC32EC1E0BB6560055735E /* HighScoreCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36BC32EB1E0BB6560055735E /* HighScoreCustom.swift */; };
 		36C69ECF1D80A5DE0072CFFA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8429E1491D2C494300920987 /* SystemConfiguration.framework */; };
 		36C69ED11D80A5FF0072CFFA /* ATKMathWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36C69ED01D80A5FF0072CFFA /* ATKMathWidget.framework */; };
 		36C69ED31D80A6130072CFFA /* ATKMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36C69ED21D80A6130072CFFA /* ATKMath.framework */; };
@@ -73,7 +72,6 @@
 		368C58C21E0B28AD0008C8B0 /* HighScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
 		36969D691DFD290F00F95635 /* MainViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewDataSource.swift; sourceTree = "<group>"; };
 		369BED621E1C55B500A9D0C7 /* DataModel 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DataModel 6.xcdatamodel"; sourceTree = "<group>"; };
-		36BC32EB1E0BB6560055735E /* HighScoreCustom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreCustom.swift; sourceTree = "<group>"; };
 		36C69ED01D80A5FF0072CFFA /* ATKMathWidget.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ATKMathWidget.framework; path = "../MyScript_ATK-ios-2/Frameworks/ATKMathWidget.framework"; sourceTree = "<group>"; };
 		36C69ED21D80A6130072CFFA /* ATKMath.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ATKMath.framework; path = "../MyScript_ATK-ios-2/Frameworks/ATKMath.framework"; sourceTree = "<group>"; };
 		36C69ED41D80A6260072CFFA /* ATKCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ATKCore.framework; path = "../MyScript_ATK-ios-2/Frameworks/ATKCore.framework"; sourceTree = "<group>"; };
@@ -183,7 +181,6 @@
 				36969D691DFD290F00F95635 /* MainViewDataSource.swift */,
 				366BAEDE1E0B069000C223EA /* HighScoreTableViewCell.swift */,
 				368C58C21E0B28AD0008C8B0 /* HighScoreViewController.swift */,
-				36BC32EB1E0BB6560055735E /* HighScoreCustom.swift */,
 				366A42231E0D0CBC006F0B1D /* DataModel.xcdatamodeld */,
 				3661E5BA1E0E1CB500601402 /* DataController.swift */,
 			);
@@ -357,7 +354,6 @@
 				36969D6A1DFD290F00F95635 /* MainViewDataSource.swift in Sources */,
 				3674D4AA1DF0F6AC00359EC1 /* PopoverSettingsTableViewController.swift in Sources */,
 				366A42251E0D0CBC006F0B1D /* DataModel.xcdatamodeld in Sources */,
-				36BC32EC1E0BB6560055735E /* HighScoreCustom.swift in Sources */,
 				3661E5BF1E0E298600601402 /* Table.swift in Sources */,
 				8422E9C21D35BF9500F33978 /* FirstViewController.swift in Sources */,
 			);

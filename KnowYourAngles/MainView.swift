@@ -129,7 +129,8 @@ class MainView: UIView {
             UIColor.init(red: 40/255, green: 204/255, blue: 198/255, alpha: 1).setStroke();
             path.stroke();
             
-            countdownTimer.center = CGPoint(x: self.superview!.frame.width / 2, y: timerRect.origin.y);
+            // position the countdown timer label on top of the timer
+            countdownTimer.center = CGPoint(x: timerRect.origin.x, y: timerRect.origin.y);
             countdownTimer.hidden = false;
             countdownTimer.textColor = UIColor.blackColor();
             countdownTimer.text = String(format:"%02d:%02d", numMin, numSec);
