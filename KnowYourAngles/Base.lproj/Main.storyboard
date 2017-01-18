@@ -70,6 +70,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" red="0.49803921569999998" green="1" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="MtE-n5-Uzc" kind="show" id="cT0-aj-kFB"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3m4-Yf-9Uj">
                                 <rect key="frame" x="133" y="687" width="334" height="96"/>
@@ -536,6 +539,53 @@
             <point key="canvasLocation" x="-324" y="-521"/>
         </scene>
         <!--View Controller-->
+        <scene sceneID="f1x-xh-RKM">
+            <objects>
+                <viewController id="MtE-n5-Uzc" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Y8G-xn-7UF"/>
+                        <viewControllerLayoutGuide type="bottom" id="FLE-X3-AmK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vUr-U3-nxh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tutorial" translatesAutoresizingMaskIntoConstraints="NO" id="qN6-FY-20a">
+                                <rect key="frame" x="0.0" y="60" width="600" height="540"/>
+                                <color key="backgroundColor" red="0.098039215690000001" green="0.49803921569999998" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QjA-jH-xua">
+                                <rect key="frame" x="10" y="10" width="177" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="177" id="Ub7-86-gMC"/>
+                                    <constraint firstAttribute="height" constant="55" id="boL-cd-fN6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <state key="normal" title="Main Menu">
+                                    <color key="titleColor" red="0.49803921569999998" green="1" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="nWQ-yf-5Ff" kind="show" id="Rbr-sg-pBJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.098039215690000001" green="0.49803921569999998" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="QjA-jH-xua" firstAttribute="leading" secondItem="vUr-U3-nxh" secondAttribute="leadingMargin" constant="-10" id="7OW-TO-QBP"/>
+                            <constraint firstItem="qN6-FY-20a" firstAttribute="bottom" secondItem="FLE-X3-AmK" secondAttribute="top" id="BW7-M2-4ky"/>
+                            <constraint firstAttribute="trailing" secondItem="qN6-FY-20a" secondAttribute="trailing" id="Gcb-Za-zVr"/>
+                            <constraint firstItem="qN6-FY-20a" firstAttribute="leading" secondItem="vUr-U3-nxh" secondAttribute="leading" id="Oi1-d1-WX3"/>
+                            <constraint firstItem="qN6-FY-20a" firstAttribute="top" secondItem="vUr-U3-nxh" secondAttribute="top" constant="60" id="kMk-za-wDx"/>
+                            <constraint firstItem="QjA-jH-xua" firstAttribute="top" secondItem="vUr-U3-nxh" secondAttribute="topMargin" constant="10" id="nYG-f5-b7F"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="25P-Rr-B3w"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o1D-1O-HNH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="357" y="-521"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="KnowYourAngles" customModuleProvider="target" sceneMemberID="viewController">
@@ -688,8 +738,9 @@
     </scenes>
     <resources>
         <image name="Cos0" width="569" height="194"/>
+        <image name="tutorial" width="602" height="833"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="HrZ-rm-kQT"/>
+        <segue reference="yJJ-cV-MRz"/>
     </inferredMetricsTieBreakers>
 </document>

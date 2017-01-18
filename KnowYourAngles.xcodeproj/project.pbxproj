@@ -15,6 +15,8 @@
 		3661E5C31E0E318500601402 /* HighScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661E5C11E0E318500601402 /* HighScore.swift */; };
 		366A42251E0D0CBC006F0B1D /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 366A42231E0D0CBC006F0B1D /* DataModel.xcdatamodeld */; };
 		366BAEDF1E0B069000C223EA /* HighScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366BAEDE1E0B069000C223EA /* HighScoreTableViewCell.swift */; };
+		367470591E2EAD0E007228EC /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 367470571E2EAD0E007228EC /* Fabric.framework */; };
+		3674705A1E2EAD0E007228EC /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 367470581E2EAD0E007228EC /* Crashlytics.framework */; };
 		3674D4AA1DF0F6AC00359EC1 /* PopoverSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674D4A91DF0F6AC00359EC1 /* PopoverSettingsTableViewController.swift */; };
 		368C58C31E0B28AD0008C8B0 /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368C58C21E0B28AD0008C8B0 /* HighScoreViewController.swift */; };
 		36969D6A1DFD290F00F95635 /* MainViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36969D691DFD290F00F95635 /* MainViewDataSource.swift */; };
@@ -65,6 +67,8 @@
 		3661E5C41E0E484200601402 /* DataModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DataModel 2.xcdatamodel"; sourceTree = "<group>"; };
 		366A42241E0D0CBC006F0B1D /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		366BAEDE1E0B069000C223EA /* HighScoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreTableViewCell.swift; sourceTree = "<group>"; };
+		367470571E2EAD0E007228EC /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		367470581E2EAD0E007228EC /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		3674D4A91DF0F6AC00359EC1 /* PopoverSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverSettingsTableViewController.swift; sourceTree = "<group>"; };
 		3681B3F01E0F513D00B5920B /* DataModel 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DataModel 3.xcdatamodel"; sourceTree = "<group>"; };
 		3681B3F11E0F51DF00B5920B /* DataModel 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DataModel 4.xcdatamodel"; sourceTree = "<group>"; };
@@ -110,6 +114,8 @@
 				36C69ED11D80A5FF0072CFFA /* ATKMathWidget.framework in Frameworks */,
 				36C69ED31D80A6130072CFFA /* ATKMath.framework in Frameworks */,
 				36C69ED51D80A6260072CFFA /* ATKCore.framework in Frameworks */,
+				367470591E2EAD0E007228EC /* Fabric.framework in Frameworks */,
+				3674705A1E2EAD0E007228EC /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +139,8 @@
 		8429E10C1D2C481500920987 = {
 			isa = PBXGroup;
 			children = (
+				367470571E2EAD0E007228EC /* Fabric.framework */,
+				367470581E2EAD0E007228EC /* Crashlytics.framework */,
 				3661E5C01E0E318500601402 /* HighScore+CoreDataProperties.swift */,
 				3661E5C11E0E318500601402 /* HighScore.swift */,
 				3661E5BC1E0E298600601402 /* Table+CoreDataProperties.swift */,
@@ -215,6 +223,7 @@
 				8429E1111D2C481500920987 /* Sources */,
 				8429E1121D2C481500920987 /* Frameworks */,
 				8429E1131D2C481500920987 /* Resources */,
+				36D8981A1E2EAF450079FADE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -333,6 +342,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		36D8981A1E2EAF450079FADE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./Fabric.framework/run 47d7101d489472c35e317e555b6f5723128756a8 9e7e01d4ef77c8fe881bbd5b7a9e382fd3bba44686f71353b7b9d73abc18720b";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8429E1111D2C481500920987 /* Sources */ = {
@@ -500,8 +525,12 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../MyScript_ATK-ios-2/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../MyScript_ATK-ios-2/Frameworks\"",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = KnowYourAngles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -526,7 +555,10 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				FRAMEWORK_SEARCH_PATHS = "\"$(SRCROOT)/../MyScript_ATK-ios-2/Frameworks\"";
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SRCROOT)/../MyScript_ATK-ios-2/Frameworks\"",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = KnowYourAngles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
