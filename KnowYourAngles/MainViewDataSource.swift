@@ -103,7 +103,7 @@ class MainViewDataSource : NSObject{
         else if(["tan90", "tan270", "TanPiOver2", "Tan3PiOver2", "Cot0", "Cot0rads", "Cot180", "CotPi", "Sec90", "SecPiOver2", "Sec270", "Sec3PiOver2", "Csc0", "Csc0rads", "Csc180", "CscPi"].contains(currProblem))
         {
             //Answer: undefined
-            if(answer == "und" || answer == "undefined")
+            if(answer == "u" || answer == "undefined")
             {
                 return true;
             }
@@ -309,7 +309,7 @@ class MainViewDataSource : NSObject{
             }
         }
             //8 possibilities
-        else //if(["Sec150", "Sec5PiOver6", "Sec210", "Sec7PiOver6", "Csc240", "Csc4PiOver3", "Csc300", "Csc5PiOver3"].contains(currProblem))
+        else if(["Sec150", "Sec5PiOver6", "Sec210", "Sec7PiOver6", "Csc240", "Csc4PiOver3", "Csc300", "Csc5PiOver3"].contains(currProblem))
         {
             //Answer: -[[2×√[3]]/3]=-1.154… or [[-2×√[3]]/3]=-1.154… or [[2×√[3]]/-3]=-1.154… or [[2×(-√[3])]/3]=-1.154…
             if(["-[[2×√[3]]/3]", "[[-2×√[3]]/3]", "[[2×√[3]]/-3]", "[[2×(-√[3])]/3]"].contains(answer))
@@ -320,6 +320,10 @@ class MainViewDataSource : NSObject{
             {
                 return false;
             }
+        }
+            //if the program goes in here...that means some problem was displayed that's not in the library...i.e. trouble!
+        else{
+            return false;
         }
     }
 }
