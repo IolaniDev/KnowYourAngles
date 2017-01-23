@@ -175,32 +175,43 @@ class ViewController: UIViewController, MAWMathViewDelegate{
     }
     
     @IBAction func nextButtonPressed(sender: UIButton) {
-        correctingMarksView.numRemaining.text = "\(Int(correctingMarksView.numRemaining.text!)!-1)";
-        
         // check if answer written is correct
-        if(problemSource.isCorrect(mathView.resultAsText()))
-        {
-            correctingMarksView.numCorrect.text = "\(Int(correctingMarksView.numCorrect.text!)!+1)";
-            correctingMarksView.drawRight();
-        }
-        else
-        {
-            correctingMarksView.drawWrong();
-        }
+        mathView.solve();
+        var result = mathView.resultAsText();
         
-        // if we ran through the requested number of problems...
-        if(Int(correctingMarksView.numRemaining.text!) <= 0)
+        if(!result.isEmpty)
         {
-            // segue to finish screen.
-            performSegueWithIdentifier("toFinishScreen", sender: self);
-        }
-        else
-        {
-            // set up a new problem
-            correctingMarksView.problemImage.image = UIImage(named: problemSource.getRandomProblem());
+            correctingMarksView.numRemaining.text = "\(Int(correctingMarksView.numRemaining.text!)!-1)";
+        
+            if(result.characters.contains("=") && result.characters.contains("…"))
+            {
+                result = result.substringWithRange(result.characters.indexOf("=")!.successor()..<result.characters.indexOf("…")!)
+            }
+            NSLog("Math Result: %@", result);
+            if(problemSource.isCorrect(result))
+            {
+                correctingMarksView.numCorrect.text = "\(Int(correctingMarksView.numCorrect.text!)!+1)";
+                correctingMarksView.drawRight();
+            }
+            else
+            {
+                correctingMarksView.drawWrong();
+            }
+        
+            // if we ran through the requested number of problems...
+            if(Int(correctingMarksView.numRemaining.text!) <= 0)
+            {
+                // segue to finish screen.
+                performSegueWithIdentifier("toFinishScreen", sender: self);
+            }
+            else
+            {
+                // set up a new problem
+                correctingMarksView.problemImage.image = UIImage(named: problemSource.getRandomProblem());
             
-            // clear the field to write your answer
-            mathView.clear(false);
+                // clear the field to write your answer
+                mathView.clear(false);
+            }
         }
     }
     

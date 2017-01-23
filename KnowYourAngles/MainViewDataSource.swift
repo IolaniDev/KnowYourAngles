@@ -103,7 +103,7 @@ class MainViewDataSource : NSObject{
         else if(["tan90", "tan270", "TanPiOver2", "Tan3PiOver2", "Cot0", "Cot0rads", "Cot180", "CotPi", "Sec90", "SecPiOver2", "Sec270", "Sec3PiOver2", "Csc0", "Csc0rads", "Csc180", "CscPi"].contains(currProblem))
         {
             //Answer: undefined
-            if(answer == "u" || answer == "undefined")
+            if(answer == "u" || answer == "undefined" || answer == "U")
             {
                 return true;
             }
@@ -115,7 +115,7 @@ class MainViewDataSource : NSObject{
             //8 possibilities
         else if(["Cos60", "Cos300", "Sin30", "Sin150", "CosPiOver3", "Cos5PiOver3", "SinPiOver6", "Sin5PiOver6"].contains(currProblem))
         {
-            if(answer == "[1/2]" || answer == "0.5")
+            if(answer == "0.5")
             {
                 return true;
             }
@@ -128,7 +128,7 @@ class MainViewDataSource : NSObject{
         else if(["Cos30", "Cos330", "Sin60", "Sin120", "CosPiOver6", "Cos11PiOver6", "SinPiOver3", "Sin2PiOver3"].contains(currProblem))
         {
             //Answer: [√[3]/2]=0.866…
-            if(answer == "[√[3]/2]")
+            if(answer == "0.866")
             {
                 return true;
             }
@@ -141,7 +141,7 @@ class MainViewDataSource : NSObject{
         else if (["Cos150", "Cos210", "Sin240", "Sin300", "Cos5PiOver6", "Cos7PiOver6", "Sin4PiOver3", "Sin5PiOver3"].contains(currProblem))
         {
             //Answer: -[√[3]/2]=-0.866… or [-√[3]/2]=-0.866… or [√[3]/-2]=-0.866…
-            if(answer == "-[√[3]/2]" || answer == "[-√[3]/2]" || answer == "[√[3]/-2]=")
+            if(answer == "-0.866")
             {
                 return true;
             }
@@ -154,7 +154,7 @@ class MainViewDataSource : NSObject{
         else if (["Cos45", "Cos315", "Sin45", "Sin135", "CosPiOver4", "Cos7PiOver4", "SinPiOver4", "Sin3PiOver4"].contains(currProblem))
         {
             //Answer: [√[2]/2]=0.707…
-            if(answer == "[√[2]/2]")
+            if(answer == "0.707")
             {
                 return true;
             }
@@ -167,7 +167,7 @@ class MainViewDataSource : NSObject{
         else if (["Cos135", "Cos225", "Sin225", "Sin315", "Cos3PiOver4", "Cos5PiOver4", "Sin5PiOver4", "Sin7PiOver4"].contains(currProblem))
         {
             //Answer: -[√[2]/2]=-0.707… or [[-√[2]]/2]=-0.707… or [√[2]/-2]=-0.707…
-            if(answer == "-[√[2]/2]" || answer == "[[-√[2]]/2]" || answer == "[√[2]/-2]")
+            if(answer == "-0.707")
             {
                 return true;
             }
@@ -180,7 +180,7 @@ class MainViewDataSource : NSObject{
         else if (["Cos120", "Cos240", "Sin210", "Sin330", "Cos2PiOver3", "Cos4PiOver3", "Sin7PiOver6", "Sin11PiOver6"].contains(currProblem))
         {
             //Answer: -[1/2]=-0.5 or [-1/2]=-0.5 or [1/-2]=-0.5 or -0.5
-            if(answer == "-[1/2]" || answer == "[-1/2]" || answer == "[1/-2]" || answer == "-0.5")
+            if(answer == "-0.5")
             {
                 return true;
             }
@@ -194,7 +194,7 @@ class MainViewDataSource : NSObject{
         else if(["tan30", "tan210", "TanPiOver6", "Tan7PiOver6", "Cot60", "CotPiOver3", "Cot240", "Cot4PiOver3"].contains(currProblem))
         {
             //Answer: [√[3]/3]=0.577…
-            if(answer == "[√[3]/3]")
+            if(answer == "0.577")
             {
                 return true;
             }
@@ -207,7 +207,7 @@ class MainViewDataSource : NSObject{
         else if(["tan150", "tan330", "Tan5PiOver6", "Tan11PiOver6", "Cot120", "Cot2PiOver3", "Cot300", "Cot5PiOver3"].contains(currProblem))
         {
             //Answer: -[√[3]/3]=-0.577… or [-√[3]/3]=-0.577… or [√[3]/-3]=-0.577…
-            if(answer == "-[√[3]/3]" || answer == "[-√[3]/3]" || answer == "[√[3]/-3]")
+            if(answer == "-0.577")
             {
                 return true;
             }
@@ -220,7 +220,7 @@ class MainViewDataSource : NSObject{
         else if(["tan60", "tan240", "TanPiOver3", "Tan4PiOver3", "Cot30", "CotPiOver6", "Cot210", "Cot7PiOver6"].contains(currProblem))
         {
             //Answer:  √[3]=1.732…
-            if(answer == "√[3]")
+            if(answer == "1.732")
             {
                 return true;
             }
@@ -233,7 +233,7 @@ class MainViewDataSource : NSObject{
         else if(["tan120", "tan300", "Tan2PiOver3", "Tan5PiOver3", "Cot150", "Cot5PiOver6", "Cot330", "Cot11PiOver6"].contains(currProblem))
         {
             //Answer:  -√[3]=-1.732…
-            if(answer == "-√[3]")
+            if(answer == "-1.732")
             {
                 return true;
             }
@@ -247,7 +247,7 @@ class MainViewDataSource : NSObject{
         else if(["Sec30", "SecPiOver6", "Sec330", "Sec11PiOver6", "Csc60", "CscPiOver3", "Csc120", "Csc2PiOver3"].contains(currProblem))
         {
             //Answer: [[2×√[3]]/3]=1.154…
-            if(answer == "[[2×√[3]]/3]")
+            if(answer == "1.154")
             {
                 return true;
             }
@@ -260,7 +260,7 @@ class MainViewDataSource : NSObject{
         else if(["Sec45", "SecPiOver4", "Sec315", "Sec7PiOver4", "Csc45", "CscPiOver4", "Csc135", "Csc3PiOver4"].contains(currProblem))
         {
             //Answer: √[2]=1.414…
-            if(answer == "√[2]")
+            if(answer == "1.414")
             {
                 return true;
             }
@@ -299,7 +299,7 @@ class MainViewDataSource : NSObject{
         else if(["Sec135", "Sec3PiOver4", "Sec225", "Sec5PiOver4", "Csc225", "Csc5PiOver4", "Csc315", "Csc7PiOver4"].contains(currProblem))
         {
             //Answer: -√[2]=-1.414…
-            if(answer == "-√[2]")
+            if(answer == "-1.414")
             {
                 return true;
             }
@@ -312,7 +312,7 @@ class MainViewDataSource : NSObject{
         else if(["Sec150", "Sec5PiOver6", "Sec210", "Sec7PiOver6", "Csc240", "Csc4PiOver3", "Csc300", "Csc5PiOver3"].contains(currProblem))
         {
             //Answer: -[[2×√[3]]/3]=-1.154… or [[-2×√[3]]/3]=-1.154… or [[2×√[3]]/-3]=-1.154… or [[2×(-√[3])]/3]=-1.154…
-            if(["-[[2×√[3]]/3]", "[[-2×√[3]]/3]", "[[2×√[3]]/-3]", "[[2×(-√[3])]/3]"].contains(answer))
+            if(answer == "-1.154")
             {
                 return true;
             }
@@ -323,6 +323,7 @@ class MainViewDataSource : NSObject{
         }
             //if the program goes in here...that means some problem was displayed that's not in the library...i.e. trouble!
         else{
+            NSLog("the current problem is not in the current list");
             return false;
         }
     }
