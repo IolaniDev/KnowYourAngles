@@ -9,7 +9,7 @@
 import Foundation
 import CoreData
 
-public class FinishScreenViewController: UIViewController{
+public class FinishScreenViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     // variables to hold info to display on Finish Screen
     var finalScore : Int = 0;
@@ -23,6 +23,8 @@ public class FinishScreenViewController: UIViewController{
     
     // load previously saved settings (if there are any)
     private let savedSettings = NSUserDefaults.standardUserDefaults()
+    
+    @IBOutlet weak var tableView: UITableView!
     
     // view did load
     override public func viewDidLoad() {
@@ -43,6 +45,15 @@ public class FinishScreenViewController: UIViewController{
         
         // log results in high scores
         logResultsInHighScores();
+        
+        self.tableView.backgroundColor = UIColor(red: 25/255, green: 127/255, blue: 124/255, alpha: 1);
+        
+        self.tableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0);
+        
+        self.tableView.dataSource = self;
+        self.tableView.delegate = self;
+        
+        tableView.reloadData();
     }
     
     // added functionality to a button component so the results after answering questions can be saved as a picture for sharing
@@ -181,5 +192,29 @@ public class FinishScreenViewController: UIViewController{
         }catch let error as NSError{
             print("Could not save \(error), \(error.userInfo)")
         }
+    }
+    
+    public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1;
+    }
+    
+    public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return totalNum;
+    }
+    
+    public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cellIdentifier = "SummaryCell";
+        guard let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as? SummaryCell else{
+                fatalError("The dequeued cell is not an instance of SummaryCell");
+            }
+        
+        //configure the cell
+        cell.backgroundColor = UIColor(red: 25/255, green: 127/255, blue: 124/255, alpha: 1);
+        
+        cell.summaryEntry.text = "summary entry 1";
+        
+        cell.summaryEntry.backgroundColor = UIColor(red: 25/255, green: 127/255, blue: 124/255, alpha: 1);
+        
+        return cell;
     }
 }
