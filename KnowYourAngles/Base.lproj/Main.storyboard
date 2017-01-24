@@ -379,6 +379,24 @@
                                 <color key="textColor" red="0.15686274510000001" green="0.80000000000000004" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7Vk-3E-eKL">
+                                <rect key="frame" x="0.0" y="460" width="600" height="520"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="BU9-1s-pNa"/>
+                                    <constraint firstAttribute="height" constant="520" id="yle-vi-D3w"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SummaryCell" id="TqK-y8-RwK">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="TqK-y8-RwK" id="lA8-ni-VR6">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.098039215690000001" green="0.49803921569999998" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -387,8 +405,10 @@
                             <constraint firstItem="f2T-kv-HHh" firstAttribute="leading" secondItem="Mxr-aV-xEe" secondAttribute="leadingMargin" constant="15" id="JDc-vf-e0a"/>
                             <constraint firstItem="qFA-n2-CC4" firstAttribute="centerY" secondItem="Mxr-aV-xEe" secondAttribute="centerY" id="Q3x-9v-usd"/>
                             <constraint firstItem="qFA-n2-CC4" firstAttribute="centerX" secondItem="Mxr-aV-xEe" secondAttribute="centerX" id="U95-8f-VSH"/>
+                            <constraint firstItem="7Vk-3E-eKL" firstAttribute="centerX" secondItem="Mxr-aV-xEe" secondAttribute="centerX" id="Wt5-wq-8t5"/>
                             <constraint firstItem="qqL-oD-ojQ" firstAttribute="top" secondItem="f2T-kv-HHh" secondAttribute="bottom" constant="20" id="XFs-87-EFv"/>
                             <constraint firstItem="f2T-kv-HHh" firstAttribute="top" secondItem="j3A-oB-4zo" secondAttribute="bottom" constant="20" id="f4c-mX-rCg"/>
+                            <constraint firstItem="7Vk-3E-eKL" firstAttribute="top" secondItem="1KZ-JN-yl5" secondAttribute="bottom" constant="12" id="iPK-t7-oCo"/>
                             <constraint firstItem="bxN-Uz-eHe" firstAttribute="centerX" secondItem="f2T-kv-HHh" secondAttribute="centerX" id="pp0-oX-agl"/>
                             <constraint firstItem="bxN-Uz-eHe" firstAttribute="trailing" secondItem="Mxr-aV-xEe" secondAttribute="trailingMargin" id="u1r-Zk-2Vd"/>
                             <constraint firstItem="1KZ-JN-yl5" firstAttribute="centerX" secondItem="Mxr-aV-xEe" secondAttribute="centerX" id="x1T-eU-LrK"/>
@@ -741,6 +761,6 @@
         <image name="tutorial" width="602" height="860"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yJJ-cV-MRz"/>
+        <segue reference="rFt-nZ-CWS"/>
     </inferredMetricsTieBreakers>
 </document>
