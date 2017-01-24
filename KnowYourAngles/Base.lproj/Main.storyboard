@@ -738,7 +738,7 @@
     </scenes>
     <resources>
         <image name="Cos0" width="569" height="194"/>
-        <image name="tutorial" width="602" height="833"/>
+        <image name="tutorial" width="602" height="860"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="yJJ-cV-MRz"/>

@@ -275,7 +275,7 @@ class MainViewDataSource : NSObject{
             //Answer: 2
             if(answer == "2")
             {
-                return false;
+                return true;
             }
             else
             {

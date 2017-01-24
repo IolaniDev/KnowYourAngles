@@ -183,9 +183,16 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         {
             correctingMarksView.numRemaining.text = "\(Int(correctingMarksView.numRemaining.text!)!-1)";
         
-            if(result.characters.contains("=") && result.characters.contains("…"))
+            if(result.characters.contains("="))
             {
-                result = result.substringWithRange(result.characters.indexOf("=")!.successor()..<result.characters.indexOf("…")!)
+                if(result.characters.contains("…"))
+                {
+                    result = result.substringWithRange(result.characters.indexOf("=")!.successor()..<result.characters.indexOf("…")!)
+                }
+                else
+                {
+                    result = result.substringFromIndex(result.characters.indexOf("=")!.successor());
+                }
             }
             NSLog("Math Result: %@", result);
             if(problemSource.isCorrect(result))
