@@ -15,6 +15,14 @@ class ViewController: UIViewController, MAWMathViewDelegate{
     //reference to data related to the problems displayed
     var problemSource = MainViewDataSource.init();
     
+    //reference to array of summary data to send to Finish Screen
+    //var summariesToSend : [(UIImage, UIImage, UIImage, UIImage)] = []
+    var summariesToSend : [UIImage] = [];
+    var problemImg : UIImage = UIImage();
+    var correctAnswerImg : UIImage = UIImage();
+    var answerImg : UIImage = UIImage();
+    var markImg : UIImage = UIImage();
+    
     // mathView holds the view where you can write answers
     @IBOutlet var mathView: MAWMathView!
     var certificateRegistered : Bool!;
@@ -131,6 +139,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             
             // setup image of first problem
             correctingMarksView.problemImage.image = UIImage(named: problemSource.getRandomProblem());
+            problemImg = correctingMarksView.problemImage.image!;
             
             // add an observer for when the timer runs out.
             NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateCountDown), name: "segueNow", object: nil);
@@ -183,6 +192,8 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         {
             correctingMarksView.numRemaining.text = "\(Int(correctingMarksView.numRemaining.text!)!-1)";
         
+            correctAnswerImg = UIImage(named: problemSource.getCurrProblemAnswerName())!;
+            answerImg = mathView.resultAsImage();
             if(result.characters.contains("="))
             {
                 if(result.characters.contains("…"))
@@ -199,12 +210,19 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             {
                 correctingMarksView.numCorrect.text = "\(Int(correctingMarksView.numCorrect.text!)!+1)";
                 correctingMarksView.drawRight();
+                markImg = UIImage(named: "Correct")!;
             }
             else
             {
                 correctingMarksView.drawWrong();
+                markImg = UIImage(named: "Wrong")!;
             }
         
+            summariesToSend.append(problemImg);
+            summariesToSend.append(correctAnswerImg);
+            summariesToSend.append(answerImg);
+            summariesToSend.append(markImg);
+            
             // if we ran through the requested number of problems...
             if(Int(correctingMarksView.numRemaining.text!) <= 0)
             {
@@ -233,6 +251,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             let diff = maxTotal - totalSec;
             finishViewController.isTimerOn = savedSettings.valueForKey("isTimerOn") as! Bool;
             finishViewController.finalTime = (diff / 60 , diff % 60);
+            finishViewController.summaryData = summariesToSend;
         }
     }
     

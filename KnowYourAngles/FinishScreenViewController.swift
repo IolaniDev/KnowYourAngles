@@ -9,25 +9,39 @@
 import Foundation
 import CoreData
 
-public class FinishScreenViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+public class FinishScreenViewController: UIViewController{
     
     // variables to hold info to display on Finish Screen
     var finalScore : Int = 0;
     var totalNum : Int = 0;
     var finalTime = (0,0);
     var isTimerOn = false;
+    //original problem, correct answer, what user answered, correct or wrong
+    //var summaryData : [(UIImage,UIImage,UIImage,UIImage)]=[];
+    var summaryData : [UIImage] = [];
+    
+    //let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0);
+    //let itemsPerRow: CGFloat = 3;
     
     // references to UI components on storyboard
     @IBOutlet weak var finishScore: UILabel!
     @IBOutlet weak var finishTime: UILabel!
+    //@IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var summaryView: UICollectionView!
+    
     
     // load previously saved settings (if there are any)
     private let savedSettings = NSUserDefaults.standardUserDefaults()
     
-    @IBOutlet weak var tableView: UITableView!
-    
     // view did load
     override public func viewDidLoad() {
+        super.viewDidLoad();
+        let mainController = SummaryCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        //let navigationController = UINavigationController(rootViewController: mainController)
+        self.addChildViewController(mainController);
+        
+        //viewControllers = [navigationController]
+        mainController.summaryData = self.summaryData;
         // set the score results
         finishScore.text = "Score: \(finalScore) out of \(totalNum)";
         
@@ -46,14 +60,17 @@ public class FinishScreenViewController: UIViewController, UITableViewDelegate, 
         // log results in high scores
         logResultsInHighScores();
         
-        self.tableView.backgroundColor = UIColor(red: 25/255, green: 127/255, blue: 124/255, alpha: 1);
+        /*self.tableView.backgroundColor = UIColor(red: 25/255, green: 127/255, blue: 124/255, alpha: 1);
         
         self.tableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0);
         
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
         
-        tableView.reloadData();
+        tableView.reloadData();*/
+        
+        summaryView.dataSource = mainController;
+        summaryView.delegate = mainController;
     }
     
     // added functionality to a button component so the results after answering questions can be saved as a picture for sharing
@@ -194,7 +211,7 @@ public class FinishScreenViewController: UIViewController, UITableViewDelegate, 
         }
     }
     
-    public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    /*public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1;
     }
     
@@ -212,9 +229,31 @@ public class FinishScreenViewController: UIViewController, UITableViewDelegate, 
         cell.backgroundColor = UIColor(red: 25/255, green: 127/255, blue: 124/255, alpha: 1);
         
         cell.summaryEntry.text = "summary entry 1";
-        
+        //cell.imageView?.image = UIImage(named: "Cos0.png")
+        cell.problemImg = UIImageView(image: summaryData[indexPath.row].0);
+        cell.correctAnswerImg = UIImageView(image: summaryData[indexPath.row].1);
+        cell.answerImg = UIImageView(image:summaryData[indexPath.row].2);
         cell.summaryEntry.backgroundColor = UIColor(red: 25/255, green: 127/255, blue: 124/255, alpha: 1);
         
         return cell;
-    }
+    }*/
 }
+
+/*extension FinishScreenViewController : UICollectionViewDelegateFlowLayout{
+    
+    public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+        let paddingSpace = sectionInsets.left * (itemsPerRow+1)
+        let availableWidth = view.frame.width - paddingSpace
+        let widthPerItem = availableWidth / itemsPerRow
+        
+        return CGSize(width: widthPerItem, height: widthPerItem);
+    }
+   
+    public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+        return sectionInsets;
+    }
+    
+    public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+        return sectionInsets.left;
+    }
+}*/

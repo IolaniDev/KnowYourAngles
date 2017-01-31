@@ -1,5 +1,5 @@
 //
-//  SummaryCell.swift
+//  SummaryCollectionView.swift
 //  KnowYourAngles
 //
 //  Created by iPad App Dev on 1/30/17.
@@ -8,7 +8,6 @@
 
 import Foundation
 
-class SummaryCell : UICollectionViewCell{
+class SummaryCollectionView : UICollectionView{
     
-    @IBOutlet weak var imageView: UIImageView!
 }
