@@ -139,6 +139,12 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             
             // setup image of first problem
             correctingMarksView.problemImage.image = UIImage(named: problemSource.getRandomProblem());
+            
+            summariesToSend.append(UIImage(named: "problem")!)
+            summariesToSend.append(UIImage(named: "correctAnswer")!)
+            summariesToSend.append(UIImage(named: "yourAnswer")!)
+            summariesToSend.append(UIImage(named: "rightOrWrong")!)
+            
             problemImg = correctingMarksView.problemImage.image!;
             
             // add an observer for when the timer runs out.
@@ -233,7 +239,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             {
                 // set up a new problem
                 correctingMarksView.problemImage.image = UIImage(named: problemSource.getRandomProblem());
-            
+                problemImg = correctingMarksView.problemImage.image!;
                 // clear the field to write your answer
                 mathView.clear(false);
             }
