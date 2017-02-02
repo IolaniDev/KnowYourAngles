@@ -54,7 +54,8 @@ extension SummaryCollectionViewController : UICollectionViewDelegateFlowLayout{
         let widthPerItem = availableWidth / itemsPerRow
         NSLog("widthPerItem: %f", widthPerItem);*/
         //return CGSize(width: widthPerItem, height: widthPerItem);
-        return CGSize(width: 121.75, height: 121.75);
+        //return CGSize(width: 121.75, height: 121.75);
+        return CGSize(width: 150, height: 150);
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
