@@ -22,6 +22,20 @@ class SummaryCollectionViewController : UICollectionViewController{
         return summaryData.count;
     }
     
+    /*override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        switch kind{
+        case UICollectionElementKindSectionHeader:
+            let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "summaryHeader", forIndexPath: indexPath) as! SummaryHeaderView;
+            headerView.problemImg = UIImageView(image: UIImage(named: "problem"));
+            headerView.correctAnswerImg = UIImageView(image: UIImage(named: "correctAnswer"));
+            headerView.yourAnswerImg = UIImageView(image: UIImage(named: "yourAnswer"));
+            headerView.rightOrWrongImg = UIImageView(image: UIImage(named: "rightOrWrong"));
+            return headerView;
+        default:
+            assert(false, "Unexpected element kind")
+        }
+    }*/
+    
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! SummaryCell;
         cell.backgroundColor = UIColor.whiteColor();
@@ -49,5 +63,20 @@ extension SummaryCollectionViewController : UICollectionViewDelegateFlowLayout{
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
         return sectionInsets.left;
+    }
+    
+    override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        switch kind{
+        case UICollectionElementKindSectionHeader:
+            let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "summaryHeader", forIndexPath: indexPath) as! SummaryHeaderView;
+            headerView.backgroundColor = UIColor.whiteColor();
+            headerView.problemImg = UIImageView(image: UIImage(named: "problem"));
+            headerView.correctAnswerImg = UIImageView(image: UIImage(named: "correctAnswer"));
+            headerView.yourAnswerImg = UIImageView(image: UIImage(named: "yourAnswer"));
+            headerView.rightOrWrongImg = UIImageView(image: UIImage(named: "rightOrWrong"));
+            return headerView;
+        default:
+            assert(false, "Unexpected element kind")
+        }
     }
 }

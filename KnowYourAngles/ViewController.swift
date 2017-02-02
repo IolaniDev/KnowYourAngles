@@ -140,10 +140,10 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             // setup image of first problem
             correctingMarksView.problemImage.image = UIImage(named: problemSource.getRandomProblem());
             
-            summariesToSend.append(UIImage(named: "problem")!)
+            /*summariesToSend.append(UIImage(named: "problem")!)
             summariesToSend.append(UIImage(named: "correctAnswer")!)
             summariesToSend.append(UIImage(named: "yourAnswer")!)
-            summariesToSend.append(UIImage(named: "rightOrWrong")!)
+            summariesToSend.append(UIImage(named: "rightOrWrong")!)*/
             
             problemImg = correctingMarksView.problemImage.image!;
             

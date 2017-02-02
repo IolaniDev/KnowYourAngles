@@ -387,13 +387,13 @@
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="0.0" id="HFk-j1-2M8">
                                     <size key="itemSize" width="121.75" height="121.75"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="headerReferenceSize" width="121.75" height="121.75"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="trigPic" id="AOE-9F-q2l" customClass="SummaryCell" customModule="KnowYourAngles" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="121.75" height="121.75"/>
+                                        <rect key="frame" x="0.0" y="122" width="121.75" height="121.75"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="121.75" height="121.75"/>
@@ -410,6 +410,42 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="summaryHeader" id="jEN-W7-rsO" customClass="SummaryHeaderView" customModule="KnowYourAngles" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="121.75"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="daK-d5-f8a">
+                                            <rect key="frame" x="5" y="0.0" width="590" height="122"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="problem" translatesAutoresizingMaskIntoConstraints="NO" id="5ZL-GE-ahb">
+                                                    <rect key="frame" x="0.0" y="0.0" width="122" height="122"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="correctAnswer" translatesAutoresizingMaskIntoConstraints="NO" id="IQt-Dy-gyL">
+                                                    <rect key="frame" x="156" y="0.0" width="122" height="122"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yourAnswer" translatesAutoresizingMaskIntoConstraints="NO" id="Gt9-O7-99Y">
+                                                    <rect key="frame" x="312" y="0.0" width="122" height="122"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightOrWrong" translatesAutoresizingMaskIntoConstraints="NO" id="GuN-S8-6kJ">
+                                                    <rect key="frame" x="468" y="0.0" width="122" height="122"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="5ZL-GE-ahb" firstAttribute="centerY" secondItem="daK-d5-f8a" secondAttribute="centerY" id="dpX-S9-YM8"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="daK-d5-f8a" firstAttribute="centerX" secondItem="jEN-W7-rsO" secondAttribute="centerX" id="Eky-dY-HfQ"/>
+                                        <constraint firstItem="daK-d5-f8a" firstAttribute="centerY" secondItem="jEN-W7-rsO" secondAttribute="centerY" id="X4T-pg-6Lq"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="correctAnswerImg" destination="IQt-Dy-gyL" id="sQH-Mm-l1E"/>
+                                        <outlet property="problemImg" destination="5ZL-GE-ahb" id="2Xb-Xg-nt4"/>
+                                        <outlet property="rightOrWrongImg" destination="GuN-S8-6kJ" id="lQg-jM-Gc8"/>
+                                        <outlet property="yourAnswerImg" destination="Gt9-O7-99Y" id="Bcg-Yt-M1b"/>
+                                    </connections>
+                                </collectionReusableView>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.098039215690000001" green="0.49803921569999998" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -776,7 +812,11 @@
     <resources>
         <image name="Correct" width="163" height="132"/>
         <image name="Cos0" width="569" height="194"/>
+        <image name="correctAnswer" width="122" height="122"/>
+        <image name="problem" width="122" height="122"/>
+        <image name="rightOrWrong" width="122" height="122"/>
         <image name="tutorial" width="602" height="860"/>
+        <image name="yourAnswer" width="122" height="122"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="rFt-nZ-CWS"/>
