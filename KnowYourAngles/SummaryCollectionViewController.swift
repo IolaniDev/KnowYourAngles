@@ -10,7 +10,7 @@ import Foundation
 
 class SummaryCollectionViewController : UICollectionViewController{
     let reuseIdentifier = "trigPic";
-    let sectionInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0);
+    let sectionInsets = UIEdgeInsets(top: 10.0, left: 0.0, bottom: 0.0, right: 0.0);
     let itemsPerRow: CGFloat = 4;
     var summaryData : [UIImage] = [];
     
@@ -71,6 +71,7 @@ extension SummaryCollectionViewController : UICollectionViewDelegateFlowLayout{
         case UICollectionElementKindSectionHeader:
             let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "summaryHeader", forIndexPath: indexPath) as! SummaryHeaderView;
             headerView.backgroundColor = UIColor.whiteColor();
+            //headerView.frame = CGRect(origin: CGPointMake(0, collectionView.contentOffset.y), size: headerView.frame.size)
             headerView.problemImg = UIImageView(image: UIImage(named: "problem"));
             headerView.correctAnswerImg = UIImageView(image: UIImage(named: "correctAnswer"));
             headerView.yourAnswerImg = UIImageView(image: UIImage(named: "yourAnswer"));
