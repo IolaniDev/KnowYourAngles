@@ -79,6 +79,7 @@ extension SummaryCollectionViewController : UICollectionViewDelegateFlowLayout{
             return headerView;
         default:
             assert(false, "Unexpected element kind")
+            return UICollectionReusableView();
         }
     }
 }
