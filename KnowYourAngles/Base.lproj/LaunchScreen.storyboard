@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,7 +17,35 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Know Your Angles!" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" minimumScaleFactor="1" translatesAutoresizingMaskIntoConstraints="NO" id="fqP-h0-HzJ">
+                                <rect key="frame" x="-65" y="270" width="729" height="105"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="760" id="aXz-Da-daa"/>
+                                    <constraint firstAttribute="height" constant="105" id="gYU-fq-Mcc"/>
+                                    <constraint firstAttribute="width" secondItem="fqP-h0-HzJ" secondAttribute="height" multiplier="457:67" id="uhq-g1-u77"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="DamascusSemiBold" family="Damascus" pointSize="80"/>
+                                <color key="textColor" red="0.49803921569999998" green="1" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="uhq-g1-u77"/>
+                                        <exclude reference="aXz-Da-daa"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=regular">
+                                    <mask key="constraints">
+                                        <include reference="aXz-Da-daa"/>
+                                    </mask>
+                                </variation>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.098039215690000001" green="0.49803921569999998" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="fqP-h0-HzJ" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="250" id="i0W-sX-Yh2"/>
+                            <constraint firstItem="fqP-h0-HzJ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="lW6-0H-Njr"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>

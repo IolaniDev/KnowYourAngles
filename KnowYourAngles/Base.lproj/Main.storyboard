@@ -670,6 +670,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fq-CU-ZLT" userLabel="Clear">
+                                <rect key="frame" x="-52" y="496.5" width="84" height="55"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <state key="normal" title="Clear">
+                                    <color key="titleColor" red="0.49803921569999998" green="1" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="clearMathView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lf7-FI-Rc5"/>
+                                </connections>
+                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="128" image="Cos0" translatesAutoresizingMaskIntoConstraints="NO" id="cq9-Np-18c">
                                 <rect key="frame" x="180" y="146.5" width="240" height="128"/>
                                 <constraints>
@@ -745,8 +755,10 @@
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fZZ-Ja-u7v" secondAttribute="bottom" constant="200" id="2ID-vl-9mi"/>
                             <constraint firstItem="V5b-D9-upw" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="1.5" id="4Hg-2S-chO"/>
+                            <constraint firstItem="3fq-CU-ZLT" firstAttribute="centerX" secondItem="sZd-L5-smp" secondAttribute="centerX" id="5Ev-y4-eeW"/>
                             <constraint firstAttribute="trailingMargin" secondItem="muU-zW-946" secondAttribute="trailing" constant="100" id="93a-x4-PuZ"/>
                             <constraint firstItem="muU-zW-946" firstAttribute="centerY" secondItem="3Tk-nR-i7F" secondAttribute="centerY" id="9ei-er-fUf"/>
+                            <constraint firstItem="3fq-CU-ZLT" firstAttribute="top" secondItem="fZZ-Ja-u7v" secondAttribute="top" id="AoE-Vg-Ft4"/>
                             <constraint firstItem="J2q-rA-Xex" firstAttribute="top" secondItem="V5b-D9-upw" secondAttribute="bottom" constant="10" id="AoH-v9-5yE"/>
                             <constraint firstAttribute="bottomMargin" secondItem="Kis-Pb-w0V" secondAttribute="bottom" constant="25" id="DCv-Sg-vxd"/>
                             <constraint firstItem="oYW-mq-M5Q" firstAttribute="top" secondItem="Kis-Pb-w0V" secondAttribute="top" constant="-50" id="E4b-P7-iXU"/>
@@ -760,13 +772,16 @@
                             <constraint firstItem="muU-zW-946" firstAttribute="top" secondItem="oYW-mq-M5Q" secondAttribute="bottom" constant="8.5" id="WJt-zi-jea"/>
                             <constraint firstItem="V5b-D9-upw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-251.5" id="Wxc-A3-I6j"/>
                             <constraint firstItem="3Tk-nR-i7F" firstAttribute="top" secondItem="J2q-rA-Xex" secondAttribute="bottom" constant="8.5" id="Xp3-C9-ZbD"/>
+                            <constraint firstItem="3fq-CU-ZLT" firstAttribute="bottom" secondItem="fZZ-Ja-u7v" secondAttribute="bottom" id="Xvg-O9-DJJ"/>
                             <constraint firstItem="fZZ-Ja-u7v" firstAttribute="top" secondItem="Kis-Pb-w0V" secondAttribute="bottom" constant="400" id="YOu-oJ-FLE"/>
                             <constraint firstItem="fZZ-Ja-u7v" firstAttribute="top" secondItem="cq9-Np-18c" secondAttribute="bottom" constant="20" id="ZUC-wB-FQF"/>
                             <constraint firstItem="sZd-L5-smp" firstAttribute="leading" secondItem="fZZ-Ja-u7v" secondAttribute="leading" id="ahb-1R-7VE"/>
                             <constraint firstItem="V5b-D9-upw" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-265" id="ebA-hm-z8g"/>
                             <constraint firstItem="sZd-L5-smp" firstAttribute="top" secondItem="fZZ-Ja-u7v" secondAttribute="bottom" constant="18" id="hNr-lJ-tNv"/>
+                            <constraint firstItem="3fq-CU-ZLT" firstAttribute="top" secondItem="sZd-L5-smp" secondAttribute="bottom" constant="2" id="hxt-aW-qrd"/>
                             <constraint firstItem="oYW-mq-M5Q" firstAttribute="centerY" secondItem="J2q-rA-Xex" secondAttribute="centerY" id="j7m-VG-pma"/>
                             <constraint firstItem="V5b-D9-upw" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="14.5" id="ljA-SI-kkn"/>
+                            <constraint firstItem="fZZ-Ja-u7v" firstAttribute="leading" secondItem="3fq-CU-ZLT" secondAttribute="trailing" constant="18" id="m1P-iY-sLV"/>
                             <constraint firstItem="fZZ-Ja-u7v" firstAttribute="top" secondItem="cq9-Np-18c" secondAttribute="bottom" constant="36" id="nuo-JN-XhT"/>
                             <constraint firstItem="fZZ-Ja-u7v" firstAttribute="top" relation="greaterThanOrEqual" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="600" id="pj6-eM-q8z"/>
                             <constraint firstItem="Kis-Pb-w0V" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="q9d-Kg-t6v"/>
@@ -788,6 +803,9 @@
                                 <exclude reference="nuo-JN-XhT"/>
                                 <exclude reference="pj6-eM-q8z"/>
                                 <exclude reference="2ID-vl-9mi"/>
+                                <exclude reference="5Ev-y4-eeW"/>
+                                <exclude reference="Xvg-O9-DJJ"/>
+                                <exclude reference="hxt-aW-qrd"/>
                             </mask>
                         </variation>
                         <connections>

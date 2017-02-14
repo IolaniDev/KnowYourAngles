@@ -268,5 +268,9 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             performSegueWithIdentifier("toFinishScreen", sender: self);
         }
     }
+    
+    @IBAction func clearMathView(sender: UIButton) {
+        mathView.clear(false);
+    }
 }
 
