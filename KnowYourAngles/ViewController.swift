@@ -5,6 +5,9 @@
 //  Created by Cart 115 Administrator on 7/5/16.
 //  Copyright © 2016 Iolani School. All rights reserved.
 //
+//  Scratch Paper Components are based on the tutorial
+//  How To Make A Simple Drawing App with UIKit and Swift by Jean-Pierre Distler
+//  https://www.raywenderlich.com/87899/make-simple-drawing-app-uikit-swift
 
 import UIKit
 // import CoreGraphics
@@ -32,6 +35,13 @@ class ViewController: UIViewController, MAWMathViewDelegate{
     
     // load previously saved settings (if there are any)
     let savedSettings = NSUserDefaults.standardUserDefaults()
+    
+    // for scratch paper component
+    @IBOutlet weak var scratchPaperImageView: UIImageView!
+    var lastPoint = CGPoint.zero;
+    var brushWidth: CGFloat = 5.0
+    var opacity: CGFloat = 1.0
+    var swiped = false
     
     // loading the view
     override func viewDidLoad() {
@@ -271,6 +281,59 @@ class ViewController: UIViewController, MAWMathViewDelegate{
     
     @IBAction func clearMathView(sender: UIButton) {
         mathView.clear(false);
+    }
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        swiped = false
+        if let touch = touches.first {
+            lastPoint = touch.locationInView(self.view)
+        }
+    }
+    
+    func drawLineFrom(fromPoint: CGPoint, toPoint: CGPoint) {
+        
+        // 1
+        UIGraphicsBeginImageContext(view.frame.size)
+        let context = UIGraphicsGetCurrentContext()
+        scratchPaperImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
+        
+        // 2
+        CGContextMoveToPoint(context, fromPoint.x, fromPoint.y)
+        CGContextAddLineToPoint(context, toPoint.x, toPoint.y)
+        
+        // 3
+        CGContextSetLineCap(context, CGLineCap.Round);
+        CGContextSetLineWidth(context, brushWidth);
+        CGContextSetRGBStrokeColor(context, 0, 0, 0, 1.0);
+        CGContextSetBlendMode(context, CGBlendMode.Normal);
+        
+        // 4
+        CGContextStrokePath(context)
+        
+        // 5
+        scratchPaperImageView.image = UIGraphicsGetImageFromCurrentImageContext()
+        scratchPaperImageView.alpha = opacity
+        UIGraphicsEndImageContext()
+        
+    }
+    
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        // 6
+        swiped = true
+        if let touch = touches.first {
+            let currentPoint = touch.locationInView(view)
+            drawLineFrom(lastPoint, toPoint: currentPoint)
+            
+            // 7
+            lastPoint = currentPoint
+        }
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if !swiped {
+            // draw a single point
+            drawLineFrom(lastPoint, toPoint: lastPoint)
+        }
     }
 }
 

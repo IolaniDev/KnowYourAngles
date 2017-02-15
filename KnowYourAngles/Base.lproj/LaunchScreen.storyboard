@@ -30,8 +30,8 @@
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="uhq-g1-u77"/>
                                         <exclude reference="aXz-Da-daa"/>
+                                        <exclude reference="uhq-g1-u77"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=regular">
