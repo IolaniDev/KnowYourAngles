@@ -43,6 +43,9 @@ class ViewController: UIViewController, MAWMathViewDelegate{
     var opacity: CGFloat = 1.0
     var swiped = false
     
+    @IBAction func clearScratchPaper(sender: UIButton) {
+        scratchPaperImageView.image = nil;
+    }
     // loading the view
     override func viewDidLoad() {
         //Setup Writing Recognition
@@ -252,6 +255,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                 problemImg = correctingMarksView.problemImage.image!;
                 // clear the field to write your answer
                 mathView.clear(false);
+                scratchPaperImageView.image = nil;
             }
         }
     }
