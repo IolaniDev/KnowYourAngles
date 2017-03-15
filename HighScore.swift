@@ -8,6 +8,19 @@
 
 import Foundation
 import CoreData
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
 
 
 class HighScore: NSManagedObject {
@@ -38,14 +51,14 @@ func == (left: HighScore, right: HighScore) -> Bool
 func < (left: HighScore, right: HighScore) -> Bool
 {
     //first compare time limits (minutes)
-    if(left.timeLimitMin?.intValue < right.timeLimitMin?.intValue)
+    if(left.timeLimitMin?.int32Value < right.timeLimitMin?.int32Value)
     {
         return true;
     }
     else if (left.timeLimitMin == right.timeLimitMin)
     {
         //then compare time limits (seconds)
-        if(left.timeLimitSec?.intValue < right.timeLimitSec?.intValue)
+        if(left.timeLimitSec?.int32Value < right.timeLimitSec?.int32Value)
         {
             return true;
         }
@@ -59,14 +72,14 @@ func < (left: HighScore, right: HighScore) -> Bool
             else if(Double(left.numCorrect!) / Double(left.totalProblems!) == Double(right.numCorrect!) / Double(right.totalProblems!))
             {
                 //then compare time taken (minutes)
-                if(left.timeTakenMin?.intValue < right.timeTakenMin?.intValue)
+                if(left.timeTakenMin?.int32Value < right.timeTakenMin?.int32Value)
                 {
                     return true;
                 }
                 else if (left.timeTakenMin == right.timeTakenMin)
                 {
                     //then compare time taken (seconds)
-                    if(left.timeTakenSec?.intValue < right.timeTakenSec?.intValue)
+                    if(left.timeTakenSec?.int32Value < right.timeTakenSec?.int32Value)
                     {
                         return true;
                     }
@@ -81,14 +94,14 @@ func < (left: HighScore, right: HighScore) -> Bool
 func <= (left: HighScore, right: HighScore) -> Bool
 {
     //first compare time limits (minutes)
-    if(left.timeLimitMin?.intValue < right.timeLimitMin?.intValue)
+    if(left.timeLimitMin?.int32Value < right.timeLimitMin?.int32Value)
     {
         return true;
     }
     else if (left.timeLimitMin == right.timeLimitMin)
     {
         //then compare time limits (seconds)
-        if(left.timeLimitSec?.intValue < right.timeLimitSec?.intValue)
+        if(left.timeLimitSec?.int32Value < right.timeLimitSec?.int32Value)
         {
             return true;
         }
@@ -102,14 +115,14 @@ func <= (left: HighScore, right: HighScore) -> Bool
             else if(Double(left.numCorrect!) / Double(left.totalProblems!) == Double(right.numCorrect!) / Double(right.totalProblems!))
             {
                 //then compare time taken (minutes)
-                if(left.timeTakenMin?.intValue < right.timeTakenMin?.intValue)
+                if(left.timeTakenMin?.int32Value < right.timeTakenMin?.int32Value)
                 {
                     return true;
                 }
                 else if (left.timeTakenMin == right.timeTakenMin)
                 {
                     //then compare time taken (seconds)
-                    if(left.timeTakenSec?.intValue < right.timeTakenSec?.intValue || left.timeTakenSec?.intValue == right.timeTakenSec?.intValue)
+                    if(left.timeTakenSec?.int32Value < right.timeTakenSec?.int32Value || left.timeTakenSec?.int32Value == right.timeTakenSec?.int32Value)
                     {
                         return true;
                     }

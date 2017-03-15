@@ -12,7 +12,7 @@ import CoreData
 class FirstViewController : UIViewController{
 
     //grab the previously saved settings (if any)
-    let defaultSettings = NSUserDefaults.standardUserDefaults()
+    let defaultSettings = UserDefaults.standard
     
     //when the view loads...
     override func viewDidLoad() {
@@ -22,7 +22,7 @@ class FirstViewController : UIViewController{
         //Since this is the first screen that loads in the app, set up initial settings (or use previously saved ones)
         /**********SETTINGS FOR MAX NUM OF PROBLEMS**********/
         //if there are no previously saved settings for the number of problems...then set defaults
-        if (defaultSettings.objectForKey("maxNumOfProblems") == nil)
+        if (defaultSettings.object(forKey: "maxNumOfProblems") == nil)
         {
             //set the default number of problems to 10
             defaultSettings.setValue(10, forKey: "maxNumOfProblems");
@@ -30,16 +30,16 @@ class FirstViewController : UIViewController{
         
         /**********SETTINGS FOR TIMER**********/
         //if there are no previously saved settings for whether the timer is on or off...then set defaults
-        if(defaultSettings.objectForKey("isTimerOn") == nil)
+        if(defaultSettings.object(forKey: "isTimerOn") == nil)
         {
             defaultSettings.setValue(false, forKey: "isTimerOn");
         }
         
         //if there are no pre-existing settings for the amount of time allowed, then set defaults
-        if(defaultSettings.objectForKey("amtTimeMin") == nil || defaultSettings.objectForKey("amtTimeSec") == nil)
+        if(defaultSettings.object(forKey: "amtTimeMin") == nil || defaultSettings.object(forKey: "amtTimeSec") == nil)
         {
             // if the timer is on, then set the timer to 30 seconds
-            if(defaultSettings.objectForKey("isTimerOn") as! Bool)
+            if(defaultSettings.object(forKey: "isTimerOn") as! Bool)
             {
                 defaultSettings.setValue(0, forKey: "amtTimeMin");
                 defaultSettings.setValue(30, forKey: "amtTimeSec");
@@ -53,21 +53,21 @@ class FirstViewController : UIViewController{
         
         /**********SETTINGS FOR PROBLEMS USING DEGREES**********/
         //check if there are no previously saved settings for including the problems with degrees.
-        if (defaultSettings.objectForKey("degrees") == nil)
+        if (defaultSettings.object(forKey: "degrees") == nil)
         {
             defaultSettings.setValue(true, forKey: "degrees");
         }
         
         /**********SETTINGS FOR PROBLEMS USING RADIANS**********/
         //check if there are no previously saved settings for including problems with radians
-        if (defaultSettings.objectForKey("radians") == nil)
+        if (defaultSettings.object(forKey: "radians") == nil)
         {
             defaultSettings.setValue(false, forKey: "radians");
         }
         
         /**********SETTINGS FOR PROBLEMS USING RECIPROCALS**********/
         //if there are no previously saved settings for including reciprocal trig facts, then don't include them
-        if(defaultSettings.objectForKey("reciprocals") == nil)
+        if(defaultSettings.object(forKey: "reciprocals") == nil)
         {
             defaultSettings.setValue(false, forKey: "reciprocals");
         }

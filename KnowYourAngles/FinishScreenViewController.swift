@@ -8,8 +8,32 @@
 
 import Foundation
 import CoreData
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
 
-public class FinishScreenViewController: UIViewController{
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
+
+open class FinishScreenViewController: UIViewController{
     
     // variables to hold info to display on Finish Screen
     var finalScore : Int = 0;
@@ -31,10 +55,10 @@ public class FinishScreenViewController: UIViewController{
     
     
     // load previously saved settings (if there are any)
-    private let savedSettings = NSUserDefaults.standardUserDefaults()
+    fileprivate let savedSettings = UserDefaults.standard
     
     // view did load
-    override public func viewDidLoad() {
+    override open func viewDidLoad() {
         super.viewDidLoad();
         let mainController = SummaryCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
         //let navigationController = UINavigationController(rootViewController: mainController)
@@ -74,12 +98,12 @@ public class FinishScreenViewController: UIViewController{
     }
     
     // added functionality to a button component so the results after answering questions can be saved as a picture for sharing
-    @IBAction func saveScreenshot(sender: UIButton) {
+    @IBAction func saveScreenshot(_ sender: UIButton) {
         UIGraphicsBeginImageContext(view.frame.size);
-        view.layer.renderInContext(UIGraphicsGetCurrentContext()!);
+        view.layer.render(in: UIGraphicsGetCurrentContext()!);
         let image = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
-        UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil);
+        UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil);
     }
     
     // function to save the results in the High Score tables
@@ -89,10 +113,10 @@ public class FinishScreenViewController: UIViewController{
         let managedContext = DataController().managedObjectContext;
         
         // create a fetch request for all Table entities
-        let fetchRequest = NSFetchRequest(entityName: "Table");
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Table");
         
         //create the new High Score entry
-        let score = NSEntityDescription.insertNewObjectForEntityForName("HighScore", inManagedObjectContext: managedContext)
+        let score = NSEntityDescription.insertNewObject(forEntityName: "HighScore", into: managedContext)
         score.setValue(finalScore, forKey: "numCorrect")
         score.setValue(0, forKey: "timeLimitMin")
         score.setValue(0, forKey: "timeLimitSec")
@@ -103,17 +127,17 @@ public class FinishScreenViewController: UIViewController{
         // set the category for the new score entry
         var categories = "";
         // include deg if the set of problems had degrees in them
-        if(savedSettings.valueForKey("degrees") as! Bool)
+        if(savedSettings.value(forKey: "degrees") as! Bool)
         {
             categories += "deg"
         }
         // include rad if the set of problems had radians
-        if(savedSettings.valueForKey("radians") as! Bool)
+        if(savedSettings.value(forKey: "radians") as! Bool)
         {
             categories += "rad"
         }
         // include rec if the set of problems included reciprocals
-        if(savedSettings.valueForKey("reciprocals") as! Bool)
+        if(savedSettings.value(forKey: "reciprocals") as! Bool)
         {
             categories += "rec"
         }
@@ -130,7 +154,7 @@ public class FinishScreenViewController: UIViewController{
         else
         {
             //get the time allowed from saved settings
-            let timeAllowed = (savedSettings.integerForKey("amtTimeMin"), savedSettings.integerForKey("amtTimeSec"));
+            let timeAllowed = (savedSettings.integer(forKey: "amtTimeMin"), savedSettings.integer(forKey: "amtTimeSec"));
             
             //if the time allowed was 30 seconds...
             if(timeAllowed.0 == 0 && timeAllowed.1 == 30)
@@ -172,13 +196,13 @@ public class FinishScreenViewController: UIViewController{
         
         do{
             //run the fetch request and store the resulting Table in results
-            let results = try managedContext.executeFetchRequest(fetchRequest);
+            let results = try managedContext.fetch(fetchRequest);
             
             //if the table does not exist...
             if(results.count == 0)
             {
                 //create a table
-                let newTable = NSEntityDescription.insertNewObjectForEntityForName("Table", inManagedObjectContext: managedContext);
+                let newTable = NSEntityDescription.insertNewObject(forEntityName: "Table", into: managedContext);
                 newTable.setValue(categories, forKey: "category");
                 (score as! HighScore).table = (newTable as! Table)
             }
@@ -190,7 +214,7 @@ public class FinishScreenViewController: UIViewController{
                 (score as! HighScore).table = tempTable
                 if(tempTable.highScores?.count>5)
                 {
-                    managedContext.deleteObject(tempTable.highScores?.reversedOrderedSet.lastObject as! HighScore);
+                    managedContext.delete(tempTable.highScores?.reversed.lastObject as! HighScore);
                 }
             }
         }catch let error as NSError{
