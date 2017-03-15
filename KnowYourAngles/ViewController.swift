@@ -241,15 +241,15 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             {
                 if(result?.characters.contains("…"))!
                 {
-                    result = result?.substring(with: <#T##String.CharacterView corresponding to your index##String.CharacterView#>.index(after: (result?.characters.index(of: "=")!)!)..<(result?.characters.index(of: "…")!)!)
+                    result = result?.substring(with: result!.characters.index(after: (result?.characters.index(of: "=")!)!)..<(result?.characters.index(of: "…")!)!)
                 }
                 else
                 {
-                    result = result?.substring(from: <#T##String.CharacterView corresponding to your index##String.CharacterView#>.index(after: (result?.characters.index(of: "=")!)!));
+                    result = result?.substring(from: result!.characters.index(after: (result?.characters.index(of: "=")!)!));
                 }
             }
             NSLog("Math Result: %@", result);
-            if(problemSource.isCorrect(result))
+            if(problemSource.isCorrect((result?)!))
             {
                 correctingMarksView.numCorrect.text = "\(Int(correctingMarksView.numCorrect.text!)!+1)";
                 correctingMarksView.drawRight();
