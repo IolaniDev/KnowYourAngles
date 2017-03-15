@@ -34,12 +34,12 @@ class HighScoreViewController : UIViewController, UIPickerViewDataSource, UIPick
     @IBOutlet weak var tableView: UITableView!
     
     // 2 components in the picker (one for time limit and one for type of problems)
-    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 2;
     }
     
     // should have one row per category in the picker
-    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if(component == 0)
         {
             return timeCategories.count;
@@ -51,7 +51,7 @@ class HighScoreViewController : UIViewController, UIPickerViewDataSource, UIPick
     }
     
     // get labels for picker from the timeCategories array
-    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if(component == 0)
         {
             return timeCategories[row];
@@ -63,7 +63,7 @@ class HighScoreViewController : UIViewController, UIPickerViewDataSource, UIPick
     }
     
     // format each row of the picker
-    func pickerView(pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusingView view: UIView?) -> UIView {
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
         var pickerLabel = view as? UILabel;
         //if the picker label hasn't been created yet, set the font of the labels
         if(pickerLabel == nil)
@@ -71,7 +71,7 @@ class HighScoreViewController : UIViewController, UIPickerViewDataSource, UIPick
             pickerLabel = UILabel();
             pickerLabel?.font = UIFont(name: "Times New Roman", size: 36);
             pickerLabel?.textColor = UIColor(red: 40/255, green: 204/255, blue: 198/255, alpha: 1);
-            pickerLabel?.textAlignment = NSTextAlignment.Center;
+            pickerLabel?.textAlignment = NSTextAlignment.center;
         }
         // if we're setting up the view for the first component (the time limit)
         if(component == 0)
@@ -87,12 +87,12 @@ class HighScoreViewController : UIViewController, UIPickerViewDataSource, UIPick
     }
     
     // set each row in the picker to have a height of 40
-    func pickerView(pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
         return 40;
     }
     
     // use the picker to select which table of high scores to display
-    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         // if we're looking at the first component (time limit)
         if(component == 0)
         {
@@ -108,17 +108,17 @@ class HighScoreViewController : UIViewController, UIPickerViewDataSource, UIPick
     }
     
     //a functioning table view requires the following three table view data source methods
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 1;
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         let managedContext = DataController().managedObjectContext;
-        let fetchRequest = NSFetchRequest(entityName: "Table");
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Table");
         fetchRequest.predicate = NSPredicate(format: "category = %@", currCategory);
         
         do{
-            let results = try managedContext.executeFetchRequest(fetchRequest)
+            let results = try managedContext.fetch(fetchRequest)
             if(results.count == 0)
             {
                 return 0;
@@ -138,9 +138,9 @@ class HighScoreViewController : UIViewController, UIPickerViewDataSource, UIPick
         return 5;
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellIdentifier = "HighScoreCell";
-        guard let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as? HighScoreTableViewCell else{
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? HighScoreTableViewCell else{
             fatalError("The dequeued cell is not an instance of HighScoreTableViewCell");
         }
         
@@ -148,19 +148,19 @@ class HighScoreViewController : UIViewController, UIPickerViewDataSource, UIPick
         cell.backgroundColor = UIColor(red: 25/255, green: 127/255, blue: 124/255, alpha: 1);
         
         let managedContext = DataController().managedObjectContext;
-        let fetchRequest = NSFetchRequest(entityName: "Table");
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Table");
         //"No Time Limit", "30 seconds", "1 minute", "1 minute 30 seconds", "2 minutes", "2 minutes 30 seconds", "3 minutes"
         //"degrees", "radians", "degrees & radians", "reciprocals (deg)", "reciprocals (rad)", "reciprocals (deg & rad)"
         fetchRequest.predicate = NSPredicate(format: "category = %@", currCategory);
         do{
-            let results = try managedContext.executeFetchRequest(fetchRequest)
+            let results = try managedContext.fetch(fetchRequest)
             var scores = results as! [NSManagedObject]
-            let temp = (scores[0] as! Table).highScores?.reversedOrderedSet.objectAtIndex(indexPath.row) as! HighScore;
-            let correct : Int = temp.valueForKey("numCorrect") as! Int;
-            let total : Int = temp.valueForKey("totalProblems") as! Int;
-            let minutes : Int = temp.valueForKey("timeTakenMin") as! Int;
-            let seconds : Int = temp.valueForKey("timeTakenSec") as! Int;
-            if(currCategory.containsString("highScores0"))
+            let temp = (scores[0] as! Table).highScores?.reversed.object(at: indexPath.row) as! HighScore;
+            let correct : Int = temp.value(forKey: "numCorrect") as! Int;
+            let total : Int = temp.value(forKey: "totalProblems") as! Int;
+            let minutes : Int = temp.value(forKey: "timeTakenMin") as! Int;
+            let seconds : Int = temp.value(forKey: "timeTakenSec") as! Int;
+            if(currCategory.contains("highScores0"))
             {
                 cell.highScoreEntry.text = "\(correct) correct out of \(total) problems";
             }

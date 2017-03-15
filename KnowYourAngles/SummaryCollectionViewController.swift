@@ -18,7 +18,7 @@ class SummaryCollectionViewController : UICollectionViewController{
         super.viewDidLoad();
     }
     
-    override func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return summaryData.count;
     }
     
@@ -36,9 +36,9 @@ class SummaryCollectionViewController : UICollectionViewController{
         }
     }*/
     
-    override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! SummaryCell;
-        cell.backgroundColor = UIColor.whiteColor();
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! SummaryCell;
+        cell.backgroundColor = UIColor.white;
         cell.imageView.image = summaryData[indexPath.item];
         return cell;
     }
@@ -46,7 +46,7 @@ class SummaryCollectionViewController : UICollectionViewController{
 
 extension SummaryCollectionViewController : UICollectionViewDelegateFlowLayout{
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         /*let paddingSpace = sectionInsets.left * (itemsPerRow+1)
         NSLog("paddingSpace: %f", paddingSpace);
         let availableWidth = view.frame.width - paddingSpace
@@ -58,19 +58,19 @@ extension SummaryCollectionViewController : UICollectionViewDelegateFlowLayout{
         return CGSize(width: 150, height: 150);
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return sectionInsets;
     }
     
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left;
     }
     
-    override func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind{
         case UICollectionElementKindSectionHeader:
-            let headerView = collectionView.dequeueReusableSupplementaryViewOfKind(kind, withReuseIdentifier: "summaryHeader", forIndexPath: indexPath) as! SummaryHeaderView;
-            headerView.backgroundColor = UIColor.whiteColor();
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "summaryHeader", for: indexPath) as! SummaryHeaderView;
+            headerView.backgroundColor = UIColor.white;
             //headerView.frame = CGRect(origin: CGPointMake(0, collectionView.contentOffset.y), size: headerView.frame.size)
             headerView.problemImg = UIImageView(image: UIImage(named: "problem"));
             headerView.correctAnswerImg = UIImageView(image: UIImage(named: "correctAnswer"));

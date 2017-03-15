@@ -10,6 +10,30 @@
 //  https://www.raywenderlich.com/87899/make-simple-drawing-app-uikit-swift
 
 import UIKit
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func <= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l <= r
+  default:
+    return !(rhs < lhs)
+  }
+}
+
 // import CoreGraphics
 
 
@@ -34,7 +58,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
     @IBOutlet var correctingMarksView: MainView!
     
     // load previously saved settings (if there are any)
-    let savedSettings = NSUserDefaults.standardUserDefaults()
+    let savedSettings = UserDefaults.standard
     
     // for scratch paper component
     @IBOutlet weak var scratchPaperImageView: UIImageView!
@@ -43,7 +67,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
     var opacity: CGFloat = 1.0
     var swiped = false
     
-    @IBAction func clearScratchPaper(sender: UIButton) {
+    @IBAction func clearScratchPaper(_ sender: UIButton) {
         scratchPaperImageView.image = nil;
     }
     // loading the view
@@ -52,7 +76,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         super.viewDidLoad();
         
         // Register MyScript certificate before anything else
-        let certificate = NSData(bytes: myCertificate.bytes, length: myCertificate.length);
+        let certificate = Data(bytes: UnsafePointer<UInt8>(myCertificate.bytes), count: myCertificate.length);
         
         certificateRegistered = mathView.registerCertificate(certificate);
         
@@ -60,11 +84,11 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         if((certificateRegistered) != nil)
         {
             mathView.delegate = self;
-            _ = NSBundle.mainBundle()
+            _ = Bundle.main
             
-            var bundlePath : NSString = NSBundle.mainBundle().pathForResource("resources", ofType: "bundle")!
+            var bundlePath : NSString = Bundle.main.path(forResource: "resources", ofType: "bundle")! as NSString
             
-            bundlePath = bundlePath.stringByAppendingPathComponent("conf"); mathView.addSearchDir(bundlePath as String)
+            bundlePath = bundlePath.appendingPathComponent("conf") as NSString; mathView.addSearchDir(bundlePath as String)
             
             // The configuration is an asynchronous operation. Callbacks are provided to
             // monitor the beginning and end of the configuration process.
@@ -72,8 +96,8 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             // "math" references the math bundle name in conf/math.conf file in your resources.
             // "standard" references the configuration name in math.conf
             
-            mathView.configureWithBundle("math", andConfig: "standard");
-            mathView.beautificationOption = MAWBeautifyOption.Fontify;
+            mathView.configure(withBundle: "math", andConfig: "standard");
+            mathView.beautificationOption = MAWBeautifyOption.fontify;
             
             /**********LOAD NUMBER OF PROBLEMS**********/
             
@@ -81,9 +105,9 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             var totalNumOfProblems : Int;
             
             // if the user has previously saved settings, load the max num of problems the player wants to complete
-            if (savedSettings.objectForKey("maxNumOfProblems") != nil)
+            if (savedSettings.object(forKey: "maxNumOfProblems") != nil)
             {
-                totalNumOfProblems = savedSettings.valueForKey("maxNumOfProblems") as! Int;
+                totalNumOfProblems = savedSettings.value(forKey: "maxNumOfProblems") as! Int;
             }
             // otherwise use the default values of 10 problems
             else
@@ -100,10 +124,10 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             
             /**********LOAD PROBLEMS THAT ARE IN DEGREES**********/
             // if there are previously saved settings...
-            if(savedSettings.objectForKey("degrees") != nil)
+            if(savedSettings.object(forKey: "degrees") != nil)
             {
                 // load the degree problems (if the user wants them)
-                if(savedSettings.valueForKey("degrees") as! Bool)
+                if(savedSettings.value(forKey: "degrees") as! Bool)
                 {
                     problemSource.loadDegreeProblems();
                 }
@@ -117,10 +141,10 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             
             /**********LOAD PROBLEMS THAT ARE IN RADIANS**********/
             // if there are previously saved settings...
-            if(savedSettings.objectForKey("radians") != nil)
+            if(savedSettings.object(forKey: "radians") != nil)
             {
                 // load the radian problems (if the user wants them)
-                if(savedSettings.valueForKey("radians") as! Bool)
+                if(savedSettings.value(forKey: "radians") as! Bool)
                 {
                     problemSource.loadRadianProblems();
                 }
@@ -129,20 +153,20 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             
              /**********LOAD RECIPROCAL PROBLEMS**********/
             // load the reciprocal problems (if the user wants them)
-            if(savedSettings.objectForKey("reciprocals") != nil)
+            if(savedSettings.object(forKey: "reciprocals") != nil)
             {
-                if(savedSettings.valueForKey("reciprocals") as! Bool)
+                if(savedSettings.value(forKey: "reciprocals") as! Bool)
                 {
-                    if(savedSettings.objectForKey("degrees") != nil)
+                    if(savedSettings.object(forKey: "degrees") != nil)
                     {
-                        if(savedSettings.valueForKey("degrees") as! Bool)
+                        if(savedSettings.value(forKey: "degrees") as! Bool)
                         {
                             problemSource.loadReciprocalDegreeProblems()
                         }
                     }
-                    if(savedSettings.objectForKey("radians") != nil)
+                    if(savedSettings.object(forKey: "radians") != nil)
                     {
-                        if(savedSettings.valueForKey("radians") as! Bool)
+                        if(savedSettings.value(forKey: "radians") as! Bool)
                         {
                             problemSource.loadReciprocalRadianProblems()
                         }
@@ -161,39 +185,39 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             problemImg = correctingMarksView.problemImage.image!;
             
             // add an observer for when the timer runs out.
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(updateCountDown), name: "segueNow", object: nil);
+            NotificationCenter.default.addObserver(self, selector: #selector(updateCountDown), name: NSNotification.Name(rawValue: "segueNow"), object: nil);
         }
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
         if(!(certificateRegistered))
         {
-            let alertController = UIAlertController(title: "Invalid certificate", message: "Please use a valid certificate", preferredStyle: UIAlertControllerStyle.Alert)
+            let alertController = UIAlertController(title: "Invalid certificate", message: "Please use a valid certificate", preferredStyle: UIAlertControllerStyle.alert)
             
-            let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default, handler: nil);
+            let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil);
             
             alertController.addAction(okAction)
-            presentViewController(alertController, animated: true, completion: nil)
+            present(alertController, animated: true, completion: nil)
         }
     }
     
-    func mathViewDidEndCongfiguration(mathView: MAWMathView)
+    func mathViewDidEndCongfiguration(_ mathView: MAWMathView)
     {
         NSLog("Math Widget configured");
     }
     
-    func didFailConfigurationWithError(error: NSError, mathView: MAWMathView)
+    func didFailConfigurationWithError(_ error: NSError, mathView: MAWMathView)
     {
         NSLog("Unable to configure the Math Widget: %@", error);
     }
     
-    func mathViewDidEndRecognition(mathView: MAWMathView)
+    func mathViewDidEndRecognition(_ mathView: MAWMathView)
     {
         NSLog("Math Widget recognition: %@", mathView.resultAsText());
     }
     
-    func mathViewDidEndWriting(mathView: MAWMathView ){
+    func mathViewDidEndWriting(_ mathView: MAWMathView ){
         NSLog("Math Widget End Writing: %@", mathView.resultAsText());
     }
     
@@ -202,26 +226,26 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func nextButtonPressed(sender: UIButton) {
+    @IBAction func nextButtonPressed(_ sender: UIButton) {
         // check if answer written is correct
         mathView.solve();
         var result = mathView.resultAsText();
         
-        if(!result.isEmpty)
+        if(!(result?.isEmpty)!)
         {
             correctingMarksView.numRemaining.text = "\(Int(correctingMarksView.numRemaining.text!)!-1)";
         
             correctAnswerImg = UIImage(named: problemSource.getCurrProblemAnswerName())!;
             answerImg = mathView.resultAsImage();
-            if(result.characters.contains("="))
+            if(result?.characters.contains("="))!
             {
-                if(result.characters.contains("…"))
+                if(result?.characters.contains("…"))!
                 {
-                    result = result.substringWithRange(result.characters.indexOf("=")!.successor()..<result.characters.indexOf("…")!)
+                    result = result?.substring(with: <#T##String.CharacterView corresponding to your index##String.CharacterView#>.index(after: (result?.characters.index(of: "=")!)!)..<(result?.characters.index(of: "…")!)!)
                 }
                 else
                 {
-                    result = result.substringFromIndex(result.characters.indexOf("=")!.successor());
+                    result = result?.substring(from: <#T##String.CharacterView corresponding to your index##String.CharacterView#>.index(after: (result?.characters.index(of: "=")!)!));
                 }
             }
             NSLog("Math Result: %@", result);
@@ -246,7 +270,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             if(Int(correctingMarksView.numRemaining.text!) <= 0)
             {
                 // segue to finish screen.
-                performSegueWithIdentifier("toFinishScreen", sender: self);
+                performSegue(withIdentifier: "toFinishScreen", sender: self);
             }
             else
             {
@@ -260,16 +284,16 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toFinishScreen" {
-            let finishViewController = segue.destinationViewController as! FinishScreenViewController
+            let finishViewController = segue.destination as! FinishScreenViewController
             finishViewController.finalScore = Int(correctingMarksView.numCorrect.text!)!;
-            finishViewController.totalNum = savedSettings.valueForKey("maxNumOfProblems") as! Int;
+            finishViewController.totalNum = savedSettings.value(forKey: "maxNumOfProblems") as! Int;
             
             let totalSec = 60*self.correctingMarksView.numMin+self.correctingMarksView.numSec;
-            let maxTotal = (savedSettings.valueForKey("amtTimeMin") as! Int) * 60 + (savedSettings.valueForKey("amtTimeSec") as! Int);
+            let maxTotal = (savedSettings.value(forKey: "amtTimeMin") as! Int) * 60 + (savedSettings.value(forKey: "amtTimeSec") as! Int);
             let diff = maxTotal - totalSec;
-            finishViewController.isTimerOn = savedSettings.valueForKey("isTimerOn") as! Bool;
+            finishViewController.isTimerOn = savedSettings.value(forKey: "isTimerOn") as! Bool;
             finishViewController.finalTime = (diff / 60 , diff % 60);
             finishViewController.summaryData = summariesToSend;
         }
@@ -279,40 +303,40 @@ class ViewController: UIViewController, MAWMathViewDelegate{
     {
         if(self.correctingMarksView.isOutOfTime)
         {
-            performSegueWithIdentifier("toFinishScreen", sender: self);
+            performSegue(withIdentifier: "toFinishScreen", sender: self);
         }
     }
     
-    @IBAction func clearMathView(sender: UIButton) {
+    @IBAction func clearMathView(_ sender: UIButton) {
         mathView.clear(false);
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         swiped = false
         if let touch = touches.first {
-            lastPoint = touch.locationInView(self.view)
+            lastPoint = touch.location(in: self.view)
         }
     }
     
-    func drawLineFrom(fromPoint: CGPoint, toPoint: CGPoint) {
+    func drawLineFrom(_ fromPoint: CGPoint, toPoint: CGPoint) {
         
         // 1
         UIGraphicsBeginImageContext(view.frame.size)
         let context = UIGraphicsGetCurrentContext()
-        scratchPaperImageView.image?.drawInRect(CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
+        scratchPaperImageView.image?.draw(in: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
         
         // 2
-        CGContextMoveToPoint(context, fromPoint.x, fromPoint.y)
-        CGContextAddLineToPoint(context, toPoint.x, toPoint.y)
+        context?.move(to: CGPoint(x: fromPoint.x, y: fromPoint.y))
+        context?.addLine(to: CGPoint(x: toPoint.x, y: toPoint.y))
         
         // 3
-        CGContextSetLineCap(context, CGLineCap.Round);
-        CGContextSetLineWidth(context, brushWidth);
-        CGContextSetRGBStrokeColor(context, 0, 0, 0, 1.0);
-        CGContextSetBlendMode(context, CGBlendMode.Normal);
+        context?.setLineCap(CGLineCap.round);
+        context?.setLineWidth(brushWidth);
+        context?.setStrokeColor(red: 0, green: 0, blue: 0, alpha: 1.0);
+        context?.setBlendMode(CGBlendMode.normal);
         
         // 4
-        CGContextStrokePath(context)
+        context?.strokePath()
         
         // 5
         scratchPaperImageView.image = UIGraphicsGetImageFromCurrentImageContext()
@@ -321,11 +345,11 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         
     }
     
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         // 6
         swiped = true
         if let touch = touches.first {
-            let currentPoint = touch.locationInView(view)
+            let currentPoint = touch.location(in: view)
             drawLineFrom(lastPoint, toPoint: currentPoint)
             
             // 7
@@ -333,7 +357,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         }
     }
     
-    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if !swiped {
             // draw a single point
             drawLineFrom(lastPoint, toPoint: lastPoint)

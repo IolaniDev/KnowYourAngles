@@ -21,7 +21,7 @@ class MainView: UIView {
     @IBOutlet weak var countdownTimer: UILabel!
     
     //creates a timer
-    var timer = NSTimer();
+    var timer = Timer();
     
     //time limit variables for the timer
     var maxSec : Float = 30.0;
@@ -42,7 +42,7 @@ class MainView: UIView {
     // imageview to hold the green check (meaning correct)
     let correctImageView = UIImageView(image: UIImage(named: "Correct")!);
 
-    @IBAction func clearMathView(sender: UIButton) {
+    @IBAction func clearMathView(_ sender: UIButton) {
         workArea.clear(false);
     }
     //another initialize
@@ -51,20 +51,20 @@ class MainView: UIView {
         super.init(coder: aDecoder);
         
         //load previously saved settings (if there are any)
-        let savedSettings = NSUserDefaults.standardUserDefaults()
+        let savedSettings = UserDefaults.standard
         
         /**********SETTING UP THE TIME LIMIT**********/
         //if there are previously saved settings for the timer ...
-        if(savedSettings.objectForKey("isTimerOn") != nil)
+        if(savedSettings.object(forKey: "isTimerOn") != nil)
         {
             //if the timer should be on...
-            if(savedSettings.objectForKey("isTimerOn") as! Bool)
+            if(savedSettings.object(forKey: "isTimerOn") as! Bool)
             {
                 //check if there are previously saved time limit settings
-                if (savedSettings.objectForKey("amtTimeMin") != nil && savedSettings.objectForKey("amtTimeSec") != nil)
+                if (savedSettings.object(forKey: "amtTimeMin") != nil && savedSettings.object(forKey: "amtTimeSec") != nil)
                 {
-                    numMin = savedSettings.valueForKey("amtTimeMin") as! Int;
-                    numSec = savedSettings.valueForKey("amtTimeSec") as! Int;
+                    numMin = savedSettings.value(forKey: "amtTimeMin") as! Int;
+                    numSec = savedSettings.value(forKey: "amtTimeSec") as! Int;
                 }
                     //otherwise use the default value of 30 seconds and save to settings.
                 else
@@ -76,7 +76,7 @@ class MainView: UIView {
                 }
                 maxMin = Float(numMin);
                 maxSec = Float(numSec);
-                timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: #selector(self.updateCountDown), userInfo: nil, repeats: true);
+                timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.updateCountDown), userInfo: nil, repeats: true);
                 isClockVisibile = true;
             }
             else
@@ -110,8 +110,8 @@ class MainView: UIView {
             //segue to finish screen.
             isOutOfTime = true;
             let segueNow = "segueNow";
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: nil, name: "segueNow", object: nil);
-            NSNotificationCenter.defaultCenter().postNotificationName(segueNow, object: self);
+            NotificationCenter.default.addObserver(self, selector: nil, name: "segueNow", object: nil);
+            NotificationCenter.default.post(name: Notification.Name(rawValue: segueNow), object: self);
         }
         setNeedsDisplay();
     }
@@ -119,12 +119,12 @@ class MainView: UIView {
     /*
      // Only override drawRect: if you perform custom drawing.
      // An empty implementation adversely affects performance during animation.*/
-    override func drawRect(rect: CGRect)
+    override func draw(_ rect: CGRect)
     {
         //if the timer should be on...
         if(isClockVisibile)
         {
-            let timerRect = CGRectMake(self.superview!.frame.width / 2, 100, 200, 200);
+            let timerRect = CGRect(x: self.superview!.frame.width / 2, y: 100, width: 200, height: 200);
                 
             //draw the background of the timer
             var path = UIBezierPath(arcCenter: CGPoint(x:timerRect.origin.x, y:timerRect.origin.y), radius: 50, startAngle: 0, endAngle: 2*CGFloat(M_PI), clockwise: true)
@@ -134,8 +134,8 @@ class MainView: UIView {
             
             // position the countdown timer label on top of the timer
             countdownTimer.center = CGPoint(x: timerRect.origin.x, y: timerRect.origin.y);
-            countdownTimer.hidden = false;
-            countdownTimer.textColor = UIColor.blackColor();
+            countdownTimer.isHidden = false;
+            countdownTimer.textColor = UIColor.black;
             countdownTimer.text = String(format:"%02d:%02d", numMin, numSec);
             
             let totalSec = Float(60*numMin+numSec);
@@ -144,12 +144,12 @@ class MainView: UIView {
                 
             path = UIBezierPath(arcCenter: CGPoint(x:timerRect.origin.x, y:timerRect.origin.y), radius: 50, startAngle: -1*CGFloat(M_PI)/2, endAngle: -1*CGFloat(M_PI)/2+fraction*2*CGFloat(M_PI),clockwise: true)
             path.lineWidth = 100;
-            UIColor.grayColor().setStroke();
+            UIColor.gray.setStroke();
                 
             path.stroke();
         }
         else{
-            countdownTimer.hidden = true;
+            countdownTimer.isHidden = true;
         }
     }
     
@@ -161,11 +161,11 @@ class MainView: UIView {
         // add red x to the screen
         self.addSubview(wrongImageView);
         // make sure the red x is in front
-        self.bringSubviewToFront(wrongImageView);
+        self.bringSubview(toFront: wrongImageView);
     
         // animate the red x fading away
         self.wrongImageView.alpha = 255;
-        UIView.animateWithDuration(0.5, animations: {
+        UIView.animate(withDuration: 0.5, animations: {
             self.wrongImageView.alpha = 0
         })
     }
@@ -177,11 +177,11 @@ class MainView: UIView {
         correctImageView.frame.origin.y = workArea.frame.origin.y + (workArea.frame.height/2) - correctImageView.frame.height/2;
         // add the green check to the screen
         self.addSubview(correctImageView);
-        self.bringSubviewToFront(correctImageView);
+        self.bringSubview(toFront: correctImageView);
         
         // animate the green check fading away
         self.correctImageView.alpha = 255;
-        UIView.animateWithDuration(0.5, animations: {
+        UIView.animate(withDuration: 0.5, animations: {
             self.correctImageView.alpha = 0
         })
     }
