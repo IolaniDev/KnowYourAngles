@@ -76,7 +76,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         super.viewDidLoad();
         
         // Register MyScript certificate before anything else
-        let certificate = Data(bytes: UnsafePointer<UInt8>(myCertificate.bytes), count: myCertificate.length);
+        let certificate = Data(bytes: myCertificate.bytes, count: myCertificate.length);
         
         certificateRegistered = mathView.registerCertificate(certificate);
         
@@ -202,7 +202,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         }
     }
     
-    func mathViewDidEndCongfiguration(_ mathView: MAWMathView)
+    @objc(mathViewDidEndConfiguration:) func mathViewDidEndConfiguration(_ mathView: MAWMathView)
     {
         NSLog("Math Widget configured");
     }
@@ -248,8 +248,8 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                     result = result?.substring(from: result!.characters.index(after: (result?.characters.index(of: "=")!)!));
                 }
             }
-            NSLog("Math Result: %@", result);
-            if(problemSource.isCorrect((result?)!))
+            NSLog("Math Result: %@", result!);
+            if(problemSource.isCorrect(result!))
             {
                 correctingMarksView.numCorrect.text = "\(Int(correctingMarksView.numCorrect.text!)!+1)";
                 correctingMarksView.drawRight();
