@@ -110,7 +110,8 @@ class MainView: UIView {
             //segue to finish screen.
             isOutOfTime = true;
             let segueNow = "segueNow";
-            NotificationCenter.default.addObserver(self, selector: nil, name: "segueNow", object: nil);
+            
+            NotificationCenter.default.addObserver(self, selector: #selector(ViewController.prepare(for:sender:)), name: NSNotification.Name(rawValue: "segueNow"), object: nil);
             NotificationCenter.default.post(name: Notification.Name(rawValue: segueNow), object: self);
         }
         setNeedsDisplay();
