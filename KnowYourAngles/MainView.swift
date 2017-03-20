@@ -111,7 +111,6 @@ class MainView: UIView {
             isOutOfTime = true;
             let segueNow = "segueNow";
             
-            NotificationCenter.default.addObserver(self, selector: #selector(ViewController.prepare(for:sender:)), name: NSNotification.Name(rawValue: "segueNow"), object: nil);
             NotificationCenter.default.post(name: Notification.Name(rawValue: segueNow), object: self);
         }
         setNeedsDisplay();
