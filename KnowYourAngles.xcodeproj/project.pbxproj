@@ -370,7 +370,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run 47d7101d489472c35e317e555b6f5723128756a8 9e7e01d4ef77c8fe881bbd5b7a9e382fd3bba44686f71353b7b9d73abc18720b";
+			shellScript = "GIT_RELEASE_VERSION=$(git describe --tags --always --dirty)\nCOMMITS=$(git rev-list HEAD | wc -l)\nCOMMITS=$(($COMMITS))\ndefaults write \"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH%.*}\" \"CFBundleShortVersionString\" \"${GIT_RELEASE_VERSION#*v}\"\ndefaults write \"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH%.*}\" \"CFBundleVersion\" \"${COMMITS}\"\n\n./Fabric.framework/run 47d7101d489472c35e317e555b6f5723128756a8 9e7e01d4ef77c8fe881bbd5b7a9e382fd3bba44686f71353b7b9d73abc18720b";
 		};
 /* End PBXShellScriptBuildPhase section */
 
