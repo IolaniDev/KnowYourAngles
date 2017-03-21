@@ -558,7 +558,7 @@
 					"-lstdc++",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.iolani.KnowYourAngles;
+				PRODUCT_BUNDLE_IDENTIFIER = org.iolani.inhouse.KnowYourAngles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "KnowYourAngles-Bridging-Header.h";
@@ -587,7 +587,7 @@
 					"-lstdc++",
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = org.iolani.KnowYourAngles;
+				PRODUCT_BUNDLE_IDENTIFIER = org.iolani.inhouse.KnowYourAngles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "KnowYourAngles-Bridging-Header.h";
