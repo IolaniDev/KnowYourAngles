@@ -74,4 +74,4 @@ fastlane/screenshots
 fastlane/test_output
 
 # Ignore certificate file for MyScript ATK authentication
-org.iolani.KnowYourAngles.c
+org.iolani.inhouse.KnowYourAngles.c
