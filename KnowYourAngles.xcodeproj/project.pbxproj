@@ -24,13 +24,13 @@
 		36919FBF1E406E6E000A7647 /* SummaryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36919FBE1E406E6E000A7647 /* SummaryCollectionView.swift */; };
 		36969D6A1DFD290F00F95635 /* MainViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36969D691DFD290F00F95635 /* MainViewDataSource.swift */; };
 		36C69ECF1D80A5DE0072CFFA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8429E1491D2C494300920987 /* SystemConfiguration.framework */; };
-		36C69ED11D80A5FF0072CFFA /* ATKMathWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36C69ED01D80A5FF0072CFFA /* ATKMathWidget.framework */; };
-		36C69ED31D80A6130072CFFA /* ATKMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36C69ED21D80A6130072CFFA /* ATKMath.framework */; };
-		36C69ED51D80A6260072CFFA /* ATKCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36C69ED41D80A6260072CFFA /* ATKCore.framework */; };
 		36C69ED71D80A6610072CFFA /* ATKMathWidget.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 36C69ED61D80A6610072CFFA /* ATKMathWidget.bundle */; };
 		36C69ED91D80A6850072CFFA /* resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 36C69ED81D80A6850072CFFA /* resources.bundle */; };
 		36DFEBEA1DDCDDD200DF333D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DFEBE91DDCDDD200DF333D /* MainView.swift */; };
 		36FE163B1E42C44600566F9E /* SummaryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FE163A1E42C44600566F9E /* SummaryHeaderView.swift */; };
+		450952F71E8DB06D00013AA6 /* ATKCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450952F41E8DB06D00013AA6 /* ATKCore.framework */; };
+		450952F81E8DB06D00013AA6 /* ATKMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450952F51E8DB06D00013AA6 /* ATKMath.framework */; };
+		450952F91E8DB06D00013AA6 /* ATKMathWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450952F61E8DB06D00013AA6 /* ATKMathWidget.framework */; };
 		45F91BD81E81C86500E26D3D /* org.iolani.inhouse.KnowYourAngles.c in Sources */ = {isa = PBXBuildFile; fileRef = 45F91BD71E81C86500E26D3D /* org.iolani.inhouse.KnowYourAngles.c */; };
 		8422E9C21D35BF9500F33978 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422E9C11D35BF9500F33978 /* FirstViewController.swift */; };
 		8429E1191D2C481500920987 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429E1181D2C481500920987 /* AppDelegate.swift */; };
@@ -83,13 +83,13 @@
 		36919FBE1E406E6E000A7647 /* SummaryCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryCollectionView.swift; sourceTree = "<group>"; };
 		36969D691DFD290F00F95635 /* MainViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewDataSource.swift; sourceTree = "<group>"; };
 		369BED621E1C55B500A9D0C7 /* DataModel 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DataModel 6.xcdatamodel"; sourceTree = "<group>"; };
-		36C69ED01D80A5FF0072CFFA /* ATKMathWidget.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ATKMathWidget.framework; path = "../MyScript_ATK-ios-2/Frameworks/ATKMathWidget.framework"; sourceTree = "<group>"; };
-		36C69ED21D80A6130072CFFA /* ATKMath.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ATKMath.framework; path = "../MyScript_ATK-ios-2/Frameworks/ATKMath.framework"; sourceTree = "<group>"; };
-		36C69ED41D80A6260072CFFA /* ATKCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ATKCore.framework; path = "../MyScript_ATK-ios-2/Frameworks/ATKCore.framework"; sourceTree = "<group>"; };
 		36C69ED61D80A6610072CFFA /* ATKMathWidget.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ATKMathWidget.bundle; sourceTree = "<group>"; };
 		36C69ED81D80A6850072CFFA /* resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = resources.bundle; sourceTree = "<group>"; };
 		36DFEBE91DDCDDD200DF333D /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		36FE163A1E42C44600566F9E /* SummaryHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryHeaderView.swift; sourceTree = "<group>"; };
+		450952F41E8DB06D00013AA6 /* ATKCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ATKCore.framework; sourceTree = "<group>"; };
+		450952F51E8DB06D00013AA6 /* ATKMath.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ATKMath.framework; sourceTree = "<group>"; };
+		450952F61E8DB06D00013AA6 /* ATKMathWidget.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ATKMathWidget.framework; sourceTree = "<group>"; };
 		45F91BD71E81C86500E26D3D /* org.iolani.inhouse.KnowYourAngles.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = org.iolani.inhouse.KnowYourAngles.c; sourceTree = "<group>"; };
 		840180CA1D2C562400CB794B /* MyCertificate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCertificate.h; sourceTree = "<group>"; };
 		8422E9C11D35BF9500F33978 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -118,11 +118,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				3661E5B91E0E1BD900601402 /* CoreData.framework in Frameworks */,
+				450952F91E8DB06D00013AA6 /* ATKMathWidget.framework in Frameworks */,
+				450952F81E8DB06D00013AA6 /* ATKMath.framework in Frameworks */,
 				36C69ECF1D80A5DE0072CFFA /* SystemConfiguration.framework in Frameworks */,
-				36C69ED11D80A5FF0072CFFA /* ATKMathWidget.framework in Frameworks */,
-				36C69ED31D80A6130072CFFA /* ATKMath.framework in Frameworks */,
-				36C69ED51D80A6260072CFFA /* ATKCore.framework in Frameworks */,
 				367470591E2EAD0E007228EC /* Fabric.framework in Frameworks */,
+				450952F71E8DB06D00013AA6 /* ATKCore.framework in Frameworks */,
 				3674705A1E2EAD0E007228EC /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,6 +147,9 @@
 		8429E10C1D2C481500920987 = {
 			isa = PBXGroup;
 			children = (
+				450952F41E8DB06D00013AA6 /* ATKCore.framework */,
+				450952F51E8DB06D00013AA6 /* ATKMath.framework */,
+				450952F61E8DB06D00013AA6 /* ATKMathWidget.framework */,
 				367470571E2EAD0E007228EC /* Fabric.framework */,
 				367470581E2EAD0E007228EC /* Crashlytics.framework */,
 				3661E5C01E0E318500601402 /* HighScore+CoreDataProperties.swift */,
@@ -156,9 +159,6 @@
 				3661E5B81E0E1BD900601402 /* CoreData.framework */,
 				36C69ED81D80A6850072CFFA /* resources.bundle */,
 				36C69ED61D80A6610072CFFA /* ATKMathWidget.bundle */,
-				36C69ED41D80A6260072CFFA /* ATKCore.framework */,
-				36C69ED21D80A6130072CFFA /* ATKMath.framework */,
-				36C69ED01D80A5FF0072CFFA /* ATKMathWidget.framework */,
 				8429E1491D2C494300920987 /* SystemConfiguration.framework */,
 				8429E1171D2C481500920987 /* KnowYourAngles */,
 				8429E12C1D2C481500920987 /* KnowYourAnglesTests */,
