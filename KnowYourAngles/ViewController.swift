@@ -99,6 +99,10 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             mathView.configure(withBundle: "math", andConfig: "standard");
             mathView.beautificationOption = MAWBeautifyOption.fontify;
             
+            /**********SET RIGHT OR LEFT HAND**********/
+            
+            //clearAnswerButton.trailingAnchor.constraintEqualToAnchor(mathView.trailingAnchor).active = true;
+            
             /**********LOAD NUMBER OF PROBLEMS**********/
             
             // totalNumOfProblems is set in Settings by user for the number of problems they want to be quizzed on. (10 by default)
