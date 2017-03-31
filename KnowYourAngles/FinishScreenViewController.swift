@@ -221,7 +221,7 @@ open class FinishScreenViewController: UIViewController{
             print("Could not fetch \(error), \(error.userInfo)")
         }
         catch let e as NSException{
-            print("\(e.userInfo)");
+            print("\(describing: e.userInfo)");
         }
         catch{
             print("You messed up.")

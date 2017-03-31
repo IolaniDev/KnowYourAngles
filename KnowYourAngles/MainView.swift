@@ -127,7 +127,7 @@ class MainView: UIView {
             let timerRect = CGRect(x: self.superview!.frame.width / 2, y: 100, width: 200, height: 200);
                 
             //draw the background of the timer
-            var path = UIBezierPath(arcCenter: CGPoint(x:timerRect.origin.x, y:timerRect.origin.y), radius: 50, startAngle: 0, endAngle: 2*CGFloat(M_PI), clockwise: true)
+            var path = UIBezierPath(arcCenter: CGPoint(x:timerRect.origin.x, y:timerRect.origin.y), radius: 50, startAngle: 0, endAngle: 2*CGFloat(Double.pi), clockwise: true)
             path.lineWidth = 100;
             UIColor.init(red: 40/255, green: 204/255, blue: 198/255, alpha: 1).setStroke();
             path.stroke();
@@ -142,7 +142,7 @@ class MainView: UIView {
             let maxTotal = maxMin * 60 + maxSec;
             let fraction : CGFloat = CGFloat.init((maxTotal - totalSec) / maxTotal);
                 
-            path = UIBezierPath(arcCenter: CGPoint(x:timerRect.origin.x, y:timerRect.origin.y), radius: 50, startAngle: -1*CGFloat(M_PI)/2, endAngle: -1*CGFloat(M_PI)/2+fraction*2*CGFloat(M_PI),clockwise: true)
+            path = UIBezierPath(arcCenter: CGPoint(x:timerRect.origin.x, y:timerRect.origin.y), radius: 50, startAngle: -1*CGFloat(Double.pi)/2, endAngle: -1*CGFloat(Double.pi)/2+fraction*2*CGFloat(Double.pi),clockwise: true)
             path.lineWidth = 100;
             UIColor.gray.setStroke();
                 
