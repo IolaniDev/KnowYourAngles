@@ -241,15 +241,15 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         
             correctAnswerImg = UIImage(named: problemSource.getCurrProblemAnswerName())!;
             answerImg = mathView.resultAsImage();
-            if(result?.characters.contains("="))!
+            if(result?.contains("="))!
             {
-                if(result?.characters.contains("…"))!
+                if(result?.contains("…"))!
                 {
-                    result = result?.substring(with: result!.characters.index(after: (result?.characters.index(of: "=")!)!)..<(result?.characters.index(of: "…")!)!)
+                    result = result?.substring(with: result!.index(after: (result?.index(of: "=")!)!)..<(result?.index(of: "…")!)!)
                 }
                 else
                 {
-                    result = result?.substring(from: result!.characters.index(after: (result?.characters.index(of: "=")!)!));
+                    result = result?.substring(from: result!.index(after: (result?.index(of: "=")!)!));
                 }
             }
             NSLog("Math Result: %@", result!);
@@ -303,7 +303,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         }
     }
     
-    func updateCountDown()
+    @objc func updateCountDown()
     {
         if(self.correctingMarksView.isOutOfTime)
         {
