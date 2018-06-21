@@ -11,3 +11,4 @@ Additionally, you will need to visit the [MyScript Developer site](https://devel
 - master: Includes Crashlytics, Fabric, and using "u" for the answer "undefined"
 - Version2: Includes a Launch Screen, Summary Page, and Scratch Paper
 - Version3:
+- Version4: Uses Swift 4 and Interactive Ink SDK 1.2
