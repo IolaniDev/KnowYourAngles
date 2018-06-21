@@ -17,7 +17,6 @@
 		366BAEDF1E0B069000C223EA /* HighScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366BAEDE1E0B069000C223EA /* HighScoreTableViewCell.swift */; };
 		367470591E2EAD0E007228EC /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 367470571E2EAD0E007228EC /* Fabric.framework */; };
 		3674705A1E2EAD0E007228EC /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 367470581E2EAD0E007228EC /* Crashlytics.framework */; };
-		3674D4AA1DF0F6AC00359EC1 /* PopoverSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674D4A91DF0F6AC00359EC1 /* PopoverSettingsTableViewController.swift */; };
 		368C58C31E0B28AD0008C8B0 /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368C58C21E0B28AD0008C8B0 /* HighScoreViewController.swift */; };
 		36919FBB1E405B43000A7647 /* SummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36919FBA1E405B43000A7647 /* SummaryCell.swift */; };
 		36919FBD1E406478000A7647 /* SummaryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36919FBC1E406478000A7647 /* SummaryCollectionViewController.swift */; };
@@ -77,7 +76,6 @@
 		366BAEDE1E0B069000C223EA /* HighScoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreTableViewCell.swift; sourceTree = "<group>"; };
 		367470571E2EAD0E007228EC /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		367470581E2EAD0E007228EC /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		3674D4A91DF0F6AC00359EC1 /* PopoverSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverSettingsTableViewController.swift; sourceTree = "<group>"; };
 		3681B3F01E0F513D00B5920B /* DataModel 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DataModel 3.xcdatamodel"; sourceTree = "<group>"; };
 		3681B3F11E0F51DF00B5920B /* DataModel 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DataModel 4.xcdatamodel"; sourceTree = "<group>"; };
 		3681B3F21E0F56BE00B5920B /* DataModel 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DataModel 5.xcdatamodel"; sourceTree = "<group>"; };
@@ -159,6 +157,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		366B07E920DC25210083B0C1 /* MyScriptCertificate */ = {
+			isa = PBXGroup;
+			children = (
+				45F91BD71E81C86500E26D3D /* org.iolani.inhouse.KnowYourAngles.c */,
+				840180CA1D2C562400CB794B /* MyCertificate.h */,
+			);
+			path = MyScriptCertificate;
+			sourceTree = "<group>";
+		};
+		366B07EB20DC264E0083B0C1 /* HighScore */ = {
+			isa = PBXGroup;
+			children = (
+				366BAEDE1E0B069000C223EA /* HighScoreTableViewCell.swift */,
+				368C58C21E0B28AD0008C8B0 /* HighScoreViewController.swift */,
+			);
+			path = HighScore;
+			sourceTree = "<group>";
+		};
+		366B07EC20DC26A10083B0C1 /* Summary */ = {
+			isa = PBXGroup;
+			children = (
+				36919FBA1E405B43000A7647 /* SummaryCell.swift */,
+				36919FBC1E406478000A7647 /* SummaryCollectionViewController.swift */,
+				36919FBE1E406E6E000A7647 /* SummaryCollectionView.swift */,
+				36FE163A1E42C44600566F9E /* SummaryHeaderView.swift */,
+			);
+			path = Summary;
+			sourceTree = "<group>";
+		};
+		366B07ED20DC272D0083B0C1 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				84C3E8211D2DC75300750751 /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
 		8429E10C1D2C481500920987 = {
 			isa = PBXGroup;
 			children = (
@@ -197,29 +232,23 @@
 		8429E1171D2C481500920987 /* KnowYourAngles */ = {
 			isa = PBXGroup;
 			children = (
-				45F91BD71E81C86500E26D3D /* org.iolani.inhouse.KnowYourAngles.c */,
-				840180CA1D2C562400CB794B /* MyCertificate.h */,
+				366B07ED20DC272D0083B0C1 /* Settings */,
+				366B07EC20DC26A10083B0C1 /* Summary */,
+				366B07EB20DC264E0083B0C1 /* HighScore */,
+				8429E1241D2C481500920987 /* Info.plist */,
+				366B07E920DC25210083B0C1 /* MyScriptCertificate */,
 				8429E1461D2C484E00920987 /* KnowYourAngles-Bridging-Header.h */,
 				8429E1181D2C481500920987 /* AppDelegate.swift */,
 				8429E11A1D2C481500920987 /* ViewController.swift */,
 				8429E11C1D2C481500920987 /* Main.storyboard */,
 				8429E11F1D2C481500920987 /* Assets.xcassets */,
 				8429E1211D2C481500920987 /* LaunchScreen.storyboard */,
-				8429E1241D2C481500920987 /* Info.plist */,
-				84C3E8211D2DC75300750751 /* SettingsViewController.swift */,
 				84461B4A1D308F1000BA997E /* FinishScreenViewController.swift */,
 				8422E9C11D35BF9500F33978 /* FirstViewController.swift */,
 				36DFEBE91DDCDDD200DF333D /* MainView.swift */,
-				3674D4A91DF0F6AC00359EC1 /* PopoverSettingsTableViewController.swift */,
 				36969D691DFD290F00F95635 /* MainViewDataSource.swift */,
-				366BAEDE1E0B069000C223EA /* HighScoreTableViewCell.swift */,
-				368C58C21E0B28AD0008C8B0 /* HighScoreViewController.swift */,
 				366A42231E0D0CBC006F0B1D /* DataModel.xcdatamodeld */,
 				3661E5BA1E0E1CB500601402 /* DataController.swift */,
-				36919FBA1E405B43000A7647 /* SummaryCell.swift */,
-				36919FBC1E406478000A7647 /* SummaryCollectionViewController.swift */,
-				36919FBE1E406E6E000A7647 /* SummaryCollectionView.swift */,
-				36FE163A1E42C44600566F9E /* SummaryHeaderView.swift */,
 			);
 			path = KnowYourAngles;
 			sourceTree = "<group>";
@@ -492,7 +521,6 @@
 				3661E5BB1E0E1CB500601402 /* DataController.swift in Sources */,
 				84C3E8221D2DC75300750751 /* SettingsViewController.swift in Sources */,
 				36969D6A1DFD290F00F95635 /* MainViewDataSource.swift in Sources */,
-				3674D4AA1DF0F6AC00359EC1 /* PopoverSettingsTableViewController.swift in Sources */,
 				366A42251E0D0CBC006F0B1D /* DataModel.xcdatamodeld in Sources */,
 				3661E5BF1E0E298600601402 /* Table.swift in Sources */,
 				8422E9C21D35BF9500F33978 /* FirstViewController.swift in Sources */,
