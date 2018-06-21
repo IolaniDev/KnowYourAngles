@@ -96,7 +96,7 @@ class MainView: UIView {
         
     }
     
-    func updateCountDown()
+    @objc func updateCountDown()
     {
         numSec -= 1;
         if(numSec == -1 && numMin > 0)
