@@ -26,6 +26,7 @@
 		36C69ED71D80A6610072CFFA /* ATKMathWidget.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 36C69ED61D80A6610072CFFA /* ATKMathWidget.bundle */; };
 		36C69ED91D80A6850072CFFA /* resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 36C69ED81D80A6850072CFFA /* resources.bundle */; };
 		36DFEBEA1DDCDDD200DF333D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DFEBE91DDCDDD200DF333D /* MainView.swift */; };
+		36F5B09720E16C7C003AA258 /* Problem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F5B09620E16C7C003AA258 /* Problem.swift */; };
 		36FE163B1E42C44600566F9E /* SummaryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FE163A1E42C44600566F9E /* SummaryHeaderView.swift */; };
 		450952F71E8DB06D00013AA6 /* ATKCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450952F41E8DB06D00013AA6 /* ATKCore.framework */; };
 		450952F81E8DB06D00013AA6 /* ATKMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450952F51E8DB06D00013AA6 /* ATKMath.framework */; };
@@ -88,6 +89,7 @@
 		36C69ED61D80A6610072CFFA /* ATKMathWidget.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ATKMathWidget.bundle; sourceTree = "<group>"; };
 		36C69ED81D80A6850072CFFA /* resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = resources.bundle; sourceTree = "<group>"; };
 		36DFEBE91DDCDDD200DF333D /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		36F5B09620E16C7C003AA258 /* Problem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Problem.swift; sourceTree = "<group>"; };
 		36FE163A1E42C44600566F9E /* SummaryHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryHeaderView.swift; sourceTree = "<group>"; };
 		450952F41E8DB06D00013AA6 /* ATKCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ATKCore.framework; sourceTree = "<group>"; };
 		450952F51E8DB06D00013AA6 /* ATKMath.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ATKMath.framework; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				36969D691DFD290F00F95635 /* MainViewDataSource.swift */,
 				366A42231E0D0CBC006F0B1D /* DataModel.xcdatamodeld */,
 				3661E5BA1E0E1CB500601402 /* DataController.swift */,
+				36F5B09620E16C7C003AA258 /* Problem.swift */,
 			);
 			path = KnowYourAngles;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 				36919FBB1E405B43000A7647 /* SummaryCell.swift in Sources */,
 				3661E5C31E0E318500601402 /* HighScore.swift in Sources */,
 				36DFEBEA1DDCDDD200DF333D /* MainView.swift in Sources */,
+				36F5B09720E16C7C003AA258 /* Problem.swift in Sources */,
 				8429E1191D2C481500920987 /* AppDelegate.swift in Sources */,
 				366BAEDF1E0B069000C223EA /* HighScoreTableViewCell.swift in Sources */,
 				3661E5BE1E0E298600601402 /* Table+CoreDataProperties.swift in Sources */,

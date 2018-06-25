@@ -1,5 +1,5 @@
 //
-//  CorrectingMarks.swift
+//  MainView.swift
 //  KnowYourAngles
 //
 //  Created by iPad App Dev on 11/16/16.
