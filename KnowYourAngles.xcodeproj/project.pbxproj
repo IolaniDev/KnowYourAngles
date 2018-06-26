@@ -32,8 +32,6 @@
 		450952F81E8DB06D00013AA6 /* ATKMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450952F51E8DB06D00013AA6 /* ATKMath.framework */; };
 		450952F91E8DB06D00013AA6 /* ATKMathWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450952F61E8DB06D00013AA6 /* ATKMathWidget.framework */; };
 		45F91BD81E81C86500E26D3D /* org.iolani.inhouse.KnowYourAngles.c in Sources */ = {isa = PBXBuildFile; fileRef = 45F91BD71E81C86500E26D3D /* org.iolani.inhouse.KnowYourAngles.c */; };
-		6FDA2CC0E5C45711CBD22076 /* Pods_KnowYourAnglesUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9699279DE415E7ABA42697C6 /* Pods_KnowYourAnglesUITests.framework */; };
-		79E7A541DA368F4F18070C33 /* Pods_KnowYourAnglesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4D72ABBB021AAA943066DED /* Pods_KnowYourAnglesTests.framework */; };
 		8422E9C21D35BF9500F33978 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422E9C11D35BF9500F33978 /* FirstViewController.swift */; };
 		8429E1191D2C481500920987 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429E1181D2C481500920987 /* AppDelegate.swift */; };
 		8429E11B1D2C481500920987 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429E11A1D2C481500920987 /* ViewController.swift */; };
@@ -44,7 +42,6 @@
 		8429E1391D2C481600920987 /* KnowYourAnglesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429E1381D2C481600920987 /* KnowYourAnglesUITests.swift */; };
 		84461B4B1D308F1000BA997E /* FinishScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84461B4A1D308F1000BA997E /* FinishScreenViewController.swift */; };
 		84C3E8221D2DC75300750751 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C3E8211D2DC75300750751 /* SettingsViewController.swift */; };
-		9AAFA4BE7C76989EC4978F6A /* Pods_KnowYourAngles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F1E2DFF6C55C5ED71F8D007C /* Pods_KnowYourAngles.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +62,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		29426D6E12A9BF3660C3EF57 /* Pods-KnowYourAngles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnowYourAngles.release.xcconfig"; path = "Pods/Target Support Files/Pods-KnowYourAngles/Pods-KnowYourAngles.release.xcconfig"; sourceTree = "<group>"; };
 		3661E5B81E0E1BD900601402 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		3661E5BA1E0E1CB500601402 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		3661E5BC1E0E298600601402 /* Table+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Table+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -114,14 +110,6 @@
 		8429E1491D2C494300920987 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		84461B4A1D308F1000BA997E /* FinishScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishScreenViewController.swift; sourceTree = "<group>"; };
 		84C3E8211D2DC75300750751 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		9699279DE415E7ABA42697C6 /* Pods_KnowYourAnglesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KnowYourAnglesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9CAD22B3C8A8801E3A839B07 /* Pods-KnowYourAnglesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnowYourAnglesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KnowYourAnglesTests/Pods-KnowYourAnglesTests.release.xcconfig"; sourceTree = "<group>"; };
-		A9906388FB815F2358C8CE2C /* Pods-KnowYourAnglesUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnowYourAnglesUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KnowYourAnglesUITests/Pods-KnowYourAnglesUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		AC11BD51920E3F17A01BD086 /* Pods-KnowYourAngles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnowYourAngles.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KnowYourAngles/Pods-KnowYourAngles.debug.xcconfig"; sourceTree = "<group>"; };
-		B64B79E40204FB6523FCDDA0 /* Pods-KnowYourAnglesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnowYourAnglesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KnowYourAnglesTests/Pods-KnowYourAnglesTests.debug.xcconfig"; sourceTree = "<group>"; };
-		D4D72ABBB021AAA943066DED /* Pods_KnowYourAnglesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KnowYourAnglesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F0839025B920CF69B4C3F62A /* Pods-KnowYourAnglesUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnowYourAnglesUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-KnowYourAnglesUITests/Pods-KnowYourAnglesUITests.release.xcconfig"; sourceTree = "<group>"; };
-		F1E2DFF6C55C5ED71F8D007C /* Pods_KnowYourAngles.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KnowYourAngles.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,7 +124,6 @@
 				367470591E2EAD0E007228EC /* Fabric.framework in Frameworks */,
 				450952F71E8DB06D00013AA6 /* ATKCore.framework in Frameworks */,
 				3674705A1E2EAD0E007228EC /* Crashlytics.framework in Frameworks */,
-				9AAFA4BE7C76989EC4978F6A /* Pods_KnowYourAngles.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,7 +131,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				79E7A541DA368F4F18070C33 /* Pods_KnowYourAnglesTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,7 +138,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6FDA2CC0E5C45711CBD22076 /* Pods_KnowYourAnglesUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,8 +201,6 @@
 				8429E12C1D2C481500920987 /* KnowYourAnglesTests */,
 				8429E1371D2C481600920987 /* KnowYourAnglesUITests */,
 				8429E1161D2C481500920987 /* Products */,
-				853B73F0F5C4EBBCFECCBC41 /* Pods */,
-				A52D84E5E25732A508D2EC4E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -274,29 +257,6 @@
 			path = KnowYourAnglesUITests;
 			sourceTree = "<group>";
 		};
-		853B73F0F5C4EBBCFECCBC41 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				AC11BD51920E3F17A01BD086 /* Pods-KnowYourAngles.debug.xcconfig */,
-				29426D6E12A9BF3660C3EF57 /* Pods-KnowYourAngles.release.xcconfig */,
-				B64B79E40204FB6523FCDDA0 /* Pods-KnowYourAnglesTests.debug.xcconfig */,
-				9CAD22B3C8A8801E3A839B07 /* Pods-KnowYourAnglesTests.release.xcconfig */,
-				A9906388FB815F2358C8CE2C /* Pods-KnowYourAnglesUITests.debug.xcconfig */,
-				F0839025B920CF69B4C3F62A /* Pods-KnowYourAnglesUITests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		A52D84E5E25732A508D2EC4E /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				F1E2DFF6C55C5ED71F8D007C /* Pods_KnowYourAngles.framework */,
-				D4D72ABBB021AAA943066DED /* Pods_KnowYourAnglesTests.framework */,
-				9699279DE415E7ABA42697C6 /* Pods_KnowYourAnglesUITests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -304,7 +264,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8429E13D1D2C481600920987 /* Build configuration list for PBXNativeTarget "KnowYourAngles" */;
 			buildPhases = (
-				EB03C8E4484906F557204438 /* [CP] Check Pods Manifest.lock */,
 				8429E1111D2C481500920987 /* Sources */,
 				8429E1121D2C481500920987 /* Frameworks */,
 				8429E1131D2C481500920987 /* Resources */,
@@ -323,7 +282,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8429E1401D2C481600920987 /* Build configuration list for PBXNativeTarget "KnowYourAnglesTests" */;
 			buildPhases = (
-				F59CB822FA5C33033CFC9F4F /* [CP] Check Pods Manifest.lock */,
 				8429E1251D2C481500920987 /* Sources */,
 				8429E1261D2C481500920987 /* Frameworks */,
 				8429E1271D2C481500920987 /* Resources */,
@@ -342,7 +300,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8429E1431D2C481600920987 /* Build configuration list for PBXNativeTarget "KnowYourAnglesUITests" */;
 			buildPhases = (
-				919A0612EA122E8BFC5A67DE /* [CP] Check Pods Manifest.lock */,
 				8429E1301D2C481600920987 /* Sources */,
 				8429E1311D2C481600920987 /* Frameworks */,
 				8429E1321D2C481600920987 /* Resources */,
@@ -446,60 +403,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "GIT_RELEASE_VERSION=$(git describe --tags --always --dirty)\nCOMMITS=$(git rev-list HEAD | wc -l)\nCOMMITS=$(($COMMITS))\ndefaults write \"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH%.*}\" \"CFBundleShortVersionString\" \"${GIT_RELEASE_VERSION#*v}\"\ndefaults write \"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH%.*}\" \"CFBundleVersion\" \"${COMMITS}\"\n\n./Fabric.framework/run 47d7101d489472c35e317e555b6f5723128756a8 9e7e01d4ef77c8fe881bbd5b7a9e382fd3bba44686f71353b7b9d73abc18720b";
-		};
-		919A0612EA122E8BFC5A67DE /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-KnowYourAnglesUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EB03C8E4484906F557204438 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-KnowYourAngles-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F59CB822FA5C33033CFC9F4F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-KnowYourAnglesTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -689,7 +592,6 @@
 		};
 		8429E13E1D2C481600920987 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC11BD51920E3F17A01BD086 /* Pods-KnowYourAngles.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -722,7 +624,6 @@
 		};
 		8429E13F1D2C481600920987 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 29426D6E12A9BF3660C3EF57 /* Pods-KnowYourAngles.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -753,7 +654,6 @@
 		};
 		8429E1411D2C481600920987 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B64B79E40204FB6523FCDDA0 /* Pods-KnowYourAnglesTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = KnowYourAnglesTests/Info.plist;
@@ -768,7 +668,6 @@
 		};
 		8429E1421D2C481600920987 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9CAD22B3C8A8801E3A839B07 /* Pods-KnowYourAnglesTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = KnowYourAnglesTests/Info.plist;
@@ -783,7 +682,6 @@
 		};
 		8429E1441D2C481600920987 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A9906388FB815F2358C8CE2C /* Pods-KnowYourAnglesUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = KnowYourAnglesUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -798,7 +696,6 @@
 		};
 		8429E1451D2C481600920987 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F0839025B920CF69B4C3F62A /* Pods-KnowYourAnglesUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = KnowYourAnglesUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

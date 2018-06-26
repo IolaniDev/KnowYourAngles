@@ -1236,7 +1236,7 @@
                                     <color key="titleColor" red="0.49803921569999998" green="1" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="e3i-SK-wxX" kind="show" id="keY-Jr-5Uo"/>
+                                    <segue destination="Mu1-7X-idf" kind="show" id="vzy-ys-Z4H"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Correct" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oYW-mq-M5Q">
@@ -1394,6 +1394,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="tAt-po-t3U"/>
-        <segue reference="keY-Jr-5Uo"/>
+        <segue reference="5j2-sC-J0f"/>
     </inferredMetricsTieBreakers>
 </document>
