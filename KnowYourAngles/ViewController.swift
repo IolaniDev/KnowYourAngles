@@ -133,14 +133,46 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                 // load the degree problems (if the user wants them)
                 if(savedSettings.value(forKey: "degrees") as! Bool)
                 {
-                    problemSource.loadDegreeProblems();
+                    problemSource.loadSineDegreeQuadrantalProblems();
+                    problemSource.loadSineDegreeQuadIProblems();
+                    problemSource.loadSineDegreeQuadIIProblems();
+                    problemSource.loadSineDegreeQuadIIIProblems();
+                    problemSource.loadSineDegreeQuadIVProblems();
+                    
+                    problemSource.loadCosineDegreeQuadrantalProblems();
+                    problemSource.loadCosineDegreeQuadIProblems();
+                    problemSource.loadCosineDegreeQuadIIProblems();
+                    problemSource.loadCosineDegreeQuadIIIProblems();
+                    problemSource.loadCosineDegreeQuadIVProblems();
+                    
+                    problemSource.loadTangentDegreeQuadrantalProblems();
+                    problemSource.loadTangentDegreeQuadIProblems();
+                    problemSource.loadTangentDegreeQuadIIProblems();
+                    problemSource.loadTangentDegreeQuadIIIProblems();
+                    problemSource.loadTangentDegreeQuadIVProblems();
                 }
                 // otherwise don't load them
             }
             // if there are no previously saved settings, by default include the problems in degrees.
             else
             {
-                problemSource.loadDegreeProblems();
+                problemSource.loadSineDegreeQuadrantalProblems();
+                problemSource.loadSineDegreeQuadIProblems();
+                problemSource.loadSineDegreeQuadIIProblems();
+                problemSource.loadSineDegreeQuadIIIProblems();
+                problemSource.loadSineDegreeQuadIVProblems();
+                
+                problemSource.loadCosineDegreeQuadrantalProblems();
+                problemSource.loadCosineDegreeQuadIProblems();
+                problemSource.loadCosineDegreeQuadIIProblems();
+                problemSource.loadCosineDegreeQuadIIIProblems();
+                problemSource.loadCosineDegreeQuadIVProblems();
+                
+                problemSource.loadTangentDegreeQuadrantalProblems();
+                problemSource.loadTangentDegreeQuadIProblems();
+                problemSource.loadTangentDegreeQuadIIProblems();
+                problemSource.loadTangentDegreeQuadIIIProblems();
+                problemSource.loadTangentDegreeQuadIVProblems();
             }
             
             /**********LOAD PROBLEMS THAT ARE IN RADIANS**********/
@@ -150,7 +182,23 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                 // load the radian problems (if the user wants them)
                 if(savedSettings.value(forKey: "radians") as! Bool)
                 {
-                    problemSource.loadRadianProblems();
+                    problemSource.loadSineRadiansQuadrantalProblems();
+                    problemSource.loadSineRadiansQuadIProblems();
+                    problemSource.loadSineRadiansQuadIIProblems();
+                    problemSource.loadSineRadiansQuadIIIProblems();
+                    problemSource.loadSineRadiansQuadIVProblems();
+                    
+                    problemSource.loadCosineRadiansQuadrantalProblems();
+                    problemSource.loadCosineRadiansQuadIProblems();
+                    problemSource.loadCosineRadiansQuadIIProblems();
+                    problemSource.loadCosineRadiansQuadIIIProblems();
+                    problemSource.loadCosineRadiansQuadIVProblems();
+                    
+                    problemSource.loadTangentRadiansQuadrantalProblems();
+                    problemSource.loadTangentRadiansQuadIProblems();
+                    problemSource.loadTangentRadiansQuadIIProblems();
+                    problemSource.loadTangentRadiansQuadIIIProblems();
+                    problemSource.loadTangentRadiansQuadIVProblems();
                 }
             }
             // otherwise do not load radian problems (by default)
@@ -165,21 +213,53 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                     {
                         if(savedSettings.value(forKey: "degrees") as! Bool)
                         {
-                            problemSource.loadReciprocalDegreeProblems()
+                            problemSource.loadCosecantDegreeQuadrantalProblems();
+                            problemSource.loadCosecantDegreeQuadIProblems();
+                            problemSource.loadCosecantDegreeQuadIIProblems();
+                            problemSource.loadCosecantDegreeQuadIIIProblems();
+                            problemSource.loadCosecantDegreeQuadIVProblems();
+                            
+                            problemSource.loadSecantDegreeQuadrantalProblems();
+                            problemSource.loadSecantDegreeQuadIProblems();
+                            problemSource.loadSecantDegreeQuadIIProblems();
+                            problemSource.loadSecantDegreeQuadIIIProblems();
+                            problemSource.loadSecantDegreeQuadIVProblems();
+                            
+                            problemSource.loadCotangentDegreeQuadrantalProblems();
+                            problemSource.loadCotangentDegreeQuadIProblems();
+                            problemSource.loadCotangentDegreeQuadIIProblems();
+                            problemSource.loadCotangentDegreeQuadIIIProblems();
+                            problemSource.loadCotangentDegreeQuadIVProblems();
                         }
                     }
                     if(savedSettings.object(forKey: "radians") != nil)
                     {
                         if(savedSettings.value(forKey: "radians") as! Bool)
                         {
-                            problemSource.loadReciprocalRadianProblems()
+                            problemSource.loadCosecantRadiansQuadrantalProblems();
+                            problemSource.loadCosecantRadiansQuadIProblems();
+                            problemSource.loadCosecantRadiansQuadIIProblems();
+                            problemSource.loadCosecantRadiansQuadIIIProblems();
+                            problemSource.loadCosecantRadiansQuadIVProblems();
+                            
+                            problemSource.loadSecantRadiansQuadrantalProblems();
+                            problemSource.loadSecantRadiansQuadIProblems();
+                            problemSource.loadSecantRadiansQuadIIProblems();
+                            problemSource.loadSecantRadiansQuadIIIProblems();
+                            problemSource.loadSecantRadiansQuadIVProblems();
+                            
+                            problemSource.loadCotangentRadiansQuadrantalProblems();
+                            problemSource.loadCotangentRadiansQuadIProblems();
+                            problemSource.loadCotangentRadiansQuadIIProblems();
+                            problemSource.loadCotangentRadiansQuadIIIProblems();
+                            problemSource.loadCotangentRadiansQuadIVProblems();
                         }
                     }
                 }
             }
             
             // setup image of first problem
-            correctingMarksView.problemImage.image = UIImage(named: problemSource.getRandomProblem());
+            correctingMarksView.problemImage.image = UIImage(named: problemSource.getRandomProblem().problemImageName);
             
             /*summariesToSend.append(UIImage(named: "problem")!)
             summariesToSend.append(UIImage(named: "correctAnswer")!)
@@ -239,18 +319,18 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         {
             correctingMarksView.numRemaining.text = "\(Int(correctingMarksView.numRemaining.text!)!-1)";
         
-            correctAnswerImg = UIImage(named: problemSource.getCurrProblemAnswerName())!;
+            correctAnswerImg = UIImage(named: problemSource.getCurrProblem().answerImageName)!;
             answerImg = mathView.resultAsImage();
             if(result?.contains("="))!
             {
-                if(result?.contains("…"))!
+                /*if(result?.contains("…"))!
                 {
                     result = result?.substring(with: result!.index(after: (result?.index(of: "=")!)!)..<(result?.index(of: "…")!)!)
-                }
-                else
-                {
+                }*/
+                //else
+                //{
                     result = result?.substring(from: result!.index(after: (result?.index(of: "=")!)!));
-                }
+                //}
             }
             NSLog("Math Result: %@", result!);
             if(problemSource.isCorrect(result!))
@@ -279,7 +359,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             else
             {
                 // set up a new problem
-                correctingMarksView.problemImage.image = UIImage(named: problemSource.getRandomProblem());
+                correctingMarksView.problemImage.image = UIImage(named: problemSource.getRandomProblem().problemImageName);
                 problemImg = correctingMarksView.problemImage.image!;
                 // clear the field to write your answer
                 mathView.clear(false);
