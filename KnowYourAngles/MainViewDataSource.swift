@@ -10,451 +10,614 @@ import Foundation
 
 class MainViewDataSource : NSObject{
     //possible problems using degrees
-    fileprivate var degreeProblems: [String] = ["Cos0", "Cos30", "Cos45", "Cos60", "Cos90", "Cos120", "Cos135", "Cos150", "Cos180", "Cos210", "Cos225", "Cos240", "Cos270", "Cos300", "Cos315", "Cos330", "Sin0", "Sin30", "Sin45", "Sin60", "Sin90", "Sin120", "Sin135", "Sin150", "Sin180", "Sin210", "Sin225", "Sin240", "Sin270", "Sin300", "Sin315", "Sin330", "tan0", "tan30", "tan45", "tan60", "tan90", "tan120", "tan135", "tan150", "tan180", "tan210", "tan225", "tan240", "tan270", "tan300", "tan315", "tan330"];
+    //fileprivate var degreeProblems: [String] = ["Cos0", "Cos30", "Cos45", "Cos60", "Cos90", "Cos120", "Cos135", "Cos150", "Cos180", "Cos210", "Cos225", "Cos240", "Cos270", "Cos300", "Cos315", "Cos330", "Sin0", "Sin30", "Sin45", "Sin60", "Sin90", "Sin120", "Sin135", "Sin150", "Sin180", "Sin210", "Sin225", "Sin240", "Sin270", "Sin300", "Sin315", "Sin330", "tan0", "tan30", "tan45", "tan60", "tan90", "tan120", "tan135", "tan150", "tan180", "tan210", "tan225", "tan240", "tan270", "tan300", "tan315", "tan330"];
     
     //possible problems using radians
-    fileprivate var radianProblems: [String] = ["Cos0rads", "CosPiOver6", "CosPiOver4", "CosPiOver3", "CosPiOver2", "Cos2PiOver3", "Cos3PiOver4", "Cos5PiOver6", "CosPi", "Cos7PiOver6", "Cos5PiOver4", "Cos4PiOver3", "Cos3PiOver2", "Cos5PiOver3", "Cos7PiOver4", "Cos11PiOver6", "Sin0rads", "SinPiOver6", "SinPiOver4", "SinPiOver3", "SinPiOver2", "Sin2PiOver3", "Sin3PiOver4", "Sin5PiOver6", "SinPi", "Sin7PiOver6", "Sin5PiOver4", "Sin4PiOver3", "Sin3PiOver2", "Sin5PiOver3", "Sin7PiOver4", "Sin11PiOver6", "Tan0rads", "TanPiOver6", "TanPiOver4", "TanPiOver3", "TanPiOver2", "Tan2PiOver3", "Tan3PiOver4", "Tan5PiOver6", "TanPi", "Tan7PiOver6", "Tan5PiOver4", "Tan4PiOver3", "Tan3PiOver2", "Tan5PiOver3", "Tan7PiOver4", "Tan11PiOver6"];
+    //fileprivate var radianProblems: [String] = ["Cos0rads", "CosPiOver6", "CosPiOver4", "CosPiOver3", "CosPiOver2", "Cos2PiOver3", "Cos3PiOver4", "Cos5PiOver6", "CosPi", "Cos7PiOver6", "Cos5PiOver4", "Cos4PiOver3", "Cos3PiOver2", "Cos5PiOver3", "Cos7PiOver4", "Cos11PiOver6", "Sin0rads", "SinPiOver6", "SinPiOver4", "SinPiOver3", "SinPiOver2", "Sin2PiOver3", "Sin3PiOver4", "Sin5PiOver6", "SinPi", "Sin7PiOver6", "Sin5PiOver4", "Sin4PiOver3", "Sin3PiOver2", "Sin5PiOver3", "Sin7PiOver4", "Sin11PiOver6", "Tan0rads", "TanPiOver6", "TanPiOver4", "TanPiOver3", "TanPiOver2", "Tan2PiOver3", "Tan3PiOver4", "Tan5PiOver6", "TanPi", "Tan7PiOver6", "Tan5PiOver4", "Tan4PiOver3", "Tan3PiOver2", "Tan5PiOver3", "Tan7PiOver4", "Tan11PiOver6"];
     
     //possible reciprocal problems using degrees
-    fileprivate var reciprocalDegreeProblems: [String] = ["Csc0", "Csc30", "Csc45", "Csc60", "Csc90", "Csc120", "Csc135", "Csc150", "Csc180", "Csc210", "Csc225", "Csc240", "Csc270", "Csc300", "Csc315", "Csc330", "Sec0", "Sec30", "Sec45", "Sec60", "Sec90", "Sec120", "Sec135", "Sec150", "Sec180", "Sec210", "Sec225", "Sec240", "Sec270", "Sec300", "Sec315", "Sec330", "Cot0", "Cot30", "Cot45", "Cot60", "Cot90", "Cot120", "Cot135", "Cot150", "Cot180", "Cot210", "Cot225", "Cot240", "Cot270", "Cot300", "Cot315", "Cot330"];
+    //fileprivate var reciprocalDegreeProblems: [String] = ["Csc0", "Csc30", "Csc45", "Csc60", "Csc90", "Csc120", "Csc135", "Csc150", "Csc180", "Csc210", "Csc225", "Csc240", "Csc270", "Csc300", "Csc315", "Csc330", "Sec0", "Sec30", "Sec45", "Sec60", "Sec90", "Sec120", "Sec135", "Sec150", "Sec180", "Sec210", "Sec225", "Sec240", "Sec270", "Sec300", "Sec315", "Sec330", "Cot0", "Cot30", "Cot45", "Cot60", "Cot90", "Cot120", "Cot135", "Cot150", "Cot180", "Cot210", "Cot225", "Cot240", "Cot270", "Cot300", "Cot315", "Cot330"];
     
     //possible reciprocal problems using radians
-    fileprivate var reciprocalRadianProblems: [String] = ["Csc0rads", "CscPiOver6", "CscPiOver4", "CscPiOver3", "CscPiOver2", "Csc2PiOver3", "Csc3PiOver4", "Csc5PiOver6", "CscPi", "Csc7PiOver6", "Csc5PiOver4", "Csc4PiOver3", "Csc3PiOver2", "Csc5PiOver3", "Csc7PiOver4", "Csc11PiOver6", "Sec0rads", "SecPiOver6", "SecPiOver4", "SecPiOver3", "SecPiOver2", "Sec2PiOver3", "Sec3PiOver4", "Sec5PiOver6", "SecPi", "Sec7PiOver6", "Sec5PiOver4", "Sec4PiOver3", "Sec3PiOver2", "Sec5PiOver3", "Sec7PiOver4", "Sec11PiOver6", "Cot0rads", "CotPiOver6", "CotPiOver4", "CotPiOver3", "CotPiOver2", "Cot2PiOver3", "Cot3PiOver4", "Cot5PiOver6", "CotPi", "Cot7PiOver6", "Cot5PiOver4", "Cot4PiOver3", "Cot3PiOver2", "Cot5PiOver3", "Cot7PiOver4", "Cot11PiOver6"];
+    //fileprivate var reciprocalRadianProblems: [String] = ["Csc0rads", "CscPiOver6", "CscPiOver4", "CscPiOver3", "CscPiOver2", "Csc2PiOver3", "Csc3PiOver4", "Csc5PiOver6", "CscPi", "Csc7PiOver6", "Csc5PiOver4", "Csc4PiOver3", "Csc3PiOver2", "Csc5PiOver3", "Csc7PiOver4", "Csc11PiOver6", "Sec0rads", "SecPiOver6", "SecPiOver4", "SecPiOver3", "SecPiOver2", "Sec2PiOver3", "Sec3PiOver4", "Sec5PiOver6", "SecPi", "Sec7PiOver6", "Sec5PiOver4", "Sec4PiOver3", "Sec3PiOver2", "Sec5PiOver3", "Sec7PiOver4", "Sec11PiOver6", "Cot0rads", "CotPiOver6", "CotPiOver4", "CotPiOver3", "CotPiOver2", "Cot2PiOver3", "Cot3PiOver4", "Cot5PiOver6", "CotPi", "Cot7PiOver6", "Cot5PiOver4", "Cot4PiOver3", "Cot3PiOver2", "Cot5PiOver3", "Cot7PiOver4", "Cot11PiOver6"];
     
     //empty array to hold the problems to choose from depending on the user's settings.
-    fileprivate var libraryOfProblems : [String];
+    fileprivate var libraryOfProblems : [Problem];
     
     //String to hold the name of the current problem
-    fileprivate var currProblem : String;
+    fileprivate var currProblem : Problem?;
     
     override init()
     {
         libraryOfProblems = [];
-        currProblem = "";
+        currProblem = nil;
     }
     
-    func loadDegreeProblems(){
-        libraryOfProblems.append(contentsOf: degreeProblems);
+    /********** Functions for Loading Sine (Degree) Problems **********/
+    func loadSineDegreeQuadrantalProblems(){
+        let sinDegQuadrantals : [Problem] = [
+            Problem.init(problemImageName: "Sin0", correctAnswer: "0", answerImageName: "Zero", typeOfProblem: "sine", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "Sin90", correctAnswer: "1", answerImageName: "One", typeOfProblem: "sine", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "Sin180", correctAnswer: "0", answerImageName: "Zero", typeOfProblem: "sine", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "Sin270", correctAnswer: "-1", answerImageName: "Negative1", typeOfProblem: "sine", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.quadrantal)
+        ];
+        libraryOfProblems.append(contentsOf: sinDegQuadrantals);
     }
     
-    func loadRadianProblems(){
-        libraryOfProblems.append(contentsOf: radianProblems);
+    func loadSineDegreeQuadIProblems(){
+        let sinDegQI : [Problem] = [
+            Problem.init(problemImageName: "Sin30", correctAnswer: "0.5", answerImageName: "OneOverTwo", typeOfProblem: "sine", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.I),
+            Problem.init(problemImageName: "Sin45", correctAnswer: "0.707…", answerImageName: "Root2Over2", typeOfProblem: "sine", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.I),
+            Problem.init(problemImageName: "Sin60", correctAnswer: "0.866…", answerImageName: "Root3Over2", typeOfProblem: "sine", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.I)
+        ];
+        libraryOfProblems.append(contentsOf: sinDegQI);
     }
     
-    func loadReciprocalDegreeProblems(){
-        libraryOfProblems.append(contentsOf: reciprocalDegreeProblems);
+    func loadSineDegreeQuadIIProblems(){
+        let sinDegQII : [Problem] = [
+            Problem.init(problemImageName: "Sin120", correctAnswer: "0.866…", answerImageName: "Root3Over2", typeOfProblem: "sine", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.II),
+            Problem.init(problemImageName: "Sin135", correctAnswer: "0.707…", answerImageName: "Root2Over2", typeOfProblem: "sine", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.II),
+            Problem.init(problemImageName: "Sin150", correctAnswer: "0.5", answerImageName: "OneOverTwo", typeOfProblem: "sine", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.II)
+        ];
+        libraryOfProblems.append(contentsOf: sinDegQII);
     }
     
-    func loadReciprocalRadianProblems(){
-        libraryOfProblems.append(contentsOf: reciprocalRadianProblems);
+    func loadSineDegreeQuadIIIProblems(){
+        let sinDegQIII : [Problem] = [
+            Problem.init(problemImageName: "Sin210", correctAnswer: "-0.5", answerImageName: "Negative1Over2", typeOfProblem: "sine", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.III),
+            Problem.init(problemImageName: "Sin225", correctAnswer: "-0.707…", answerImageName: "NegativeRoot2Over2", typeOfProblem: "sine", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.III),
+            Problem.init(problemImageName: "Sin240", correctAnswer: "-0.866…", answerImageName: "NegativeRoot3Over2", typeOfProblem: "sine", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.III)
+        ];
+        libraryOfProblems.append(contentsOf: sinDegQIII);
     }
     
-    func getRandomProblem() -> String {
+    func loadSineDegreeQuadIVProblems(){
+        let sinDegQIV : [Problem] = [
+            Problem.init(problemImageName: "Sin300", correctAnswer: "-0.866…", answerImageName: "NegativeRoot3Over2", typeOfProblem: "sine", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.IV),
+            Problem.init(problemImageName: "Sin315", correctAnswer: "-0.707…", answerImageName: "NegativeRoot2Over2", typeOfProblem: "sine", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.IV),
+            Problem.init(problemImageName: "Sin330", correctAnswer: "-0.5", answerImageName: "Negative1Over2", typeOfProblem: "sine", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.IV)
+        ];
+        libraryOfProblems.append(contentsOf: sinDegQIV);
+    }
+    
+    /********** Functions for Loading Sine (Radians) Problems **********/
+    func loadSineRadiansQuadrantalProblems (){
+        let sinRadsQuadrantals : [Problem] = [
+            Problem.init(problemImageName: "Sin0rads", correctAnswer: "0", answerImageName: "Zero", typeOfProblem: "sine", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "SinPiOver2", correctAnswer: "1", answerImageName: "One", typeOfProblem: "sine", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "SinPi", correctAnswer: "0", answerImageName: "Zero", typeOfProblem: "sine", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "Sin3PiOver2", correctAnswer: "-1", answerImageName: "Negative1", typeOfProblem: "sine", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.quadrantal)
+        ];
+        libraryOfProblems.append(contentsOf: sinRadsQuadrantals);
+    }
+    
+    func loadSineRadiansQuadIProblems(){
+        let sinRadsQI : [Problem] = [
+            Problem.init(problemImageName: "SinPiOver6", correctAnswer: "0.5", answerImageName: "OneOverTwo", typeOfProblem: "sine", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.I),
+            Problem.init(problemImageName: "SinPiOver4", correctAnswer: "0.707…", answerImageName: "Root2Over2", typeOfProblem: "sine", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.I),
+            Problem.init(problemImageName: "SinPiOver3", correctAnswer: "0.866…", answerImageName: "Root3Over2", typeOfProblem: "sine", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.I)
+        ];
+        libraryOfProblems.append(contentsOf: sinRadsQI);
+    }
+    
+    func loadSineRadiansQuadIIProblems(){
+        let sinRadsQII : [Problem] = [
+            Problem.init(problemImageName: "Sin2PiOver3", correctAnswer: "0.866…", answerImageName: "Root3Over2", typeOfProblem: "sine", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.II),
+            Problem.init(problemImageName: "Sin3PiOver4", correctAnswer: "0.707…", answerImageName: "Root2Over2", typeOfProblem: "sine", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.II),
+            Problem.init(problemImageName: "Sin5PiOver6", correctAnswer: "0.5", answerImageName: "OneOverTwo", typeOfProblem: "sine", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.II)
+        ];
+        libraryOfProblems.append(contentsOf: sinRadsQII);
+    }
+    
+    func loadSineRadiansQuadIIIProblems(){
+        let sinRadsQIII : [Problem] = [
+            Problem.init(problemImageName: "Sin7PiOver6", correctAnswer: "-0.5", answerImageName: "Negative1Over2", typeOfProblem: "sine", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.III),
+            Problem.init(problemImageName: "Sin5PiOver4", correctAnswer: "-0.707…", answerImageName: "NegativeRoot2Over2", typeOfProblem: "sine", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.III),
+            Problem.init(problemImageName: "Sin4PiOver3", correctAnswer: "-0.866…", answerImageName: "NegativeRoot3Over2", typeOfProblem: "sine", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.III)
+        ];
+        libraryOfProblems.append(contentsOf: sinRadsQIII);
+    }
+    
+    func loadSineRadiansQuadIVProblems(){
+        let sinRadsQIV : [Problem] = [
+            Problem.init(problemImageName: "Sin5PiOver3", correctAnswer: "-0.866…", answerImageName: "NegativeRoot3Over2", typeOfProblem: "sine", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.IV),
+            Problem.init(problemImageName: "Sin7PiOver4", correctAnswer: "-0.707…", answerImageName: "NegativeRoot2Over2", typeOfProblem: "sine", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.IV),
+            Problem.init(problemImageName: "Sin11PiOver6", correctAnswer: "-0.5", answerImageName: "Negative1Over2", typeOfProblem: "sine", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.IV)
+        ];
+        libraryOfProblems.append(contentsOf: sinRadsQIV);
+    }
+    
+    /********** Functions for Loading Cosine (Degree) Problems **********/
+    func loadCosineDegreeQuadrantalProblems (){
+        let cosDegQuadrantals : [Problem] = [
+            Problem.init(problemImageName: "Cos0", correctAnswer: "1", answerImageName: "One", typeOfProblem: "cosine", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "Cos90", correctAnswer: "0", answerImageName: "Zero", typeOfProblem: "cosine", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "Cos180", correctAnswer: "-1", answerImageName: "Negative1", typeOfProblem: "cosine", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "Cos270", correctAnswer: "0", answerImageName: "Zero", typeOfProblem: "cosine", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.quadrantal)
+        ];
+        libraryOfProblems.append(contentsOf: cosDegQuadrantals);
+    }
+    
+    func loadCosineDegreeQuadIProblems(){
+        let cosDegQI : [Problem] = [
+            Problem.init(problemImageName: "Cos30", correctAnswer: "0.866…", answerImageName: "Root3Over2", typeOfProblem: "cosine", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.I),
+            Problem.init(problemImageName: "Cos45", correctAnswer: "0.707…", answerImageName: "Root2Over2", typeOfProblem: "cosine", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.I),
+            Problem.init(problemImageName: "Cos60", correctAnswer: "0.5", answerImageName: "OneOverTwo", typeOfProblem: "cosine", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.I)
+        ];
+        libraryOfProblems.append(contentsOf: cosDegQI);
+    }
+    
+    func loadCosineDegreeQuadIIProblems(){
+        let cosDegQII : [Problem] = [
+            Problem.init(problemImageName: "Cos120", correctAnswer: "-0.5", answerImageName: "Negative1Over2", typeOfProblem: "cosine", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.II),
+            Problem.init(problemImageName: "Cos135", correctAnswer: "-0.707…", answerImageName: "NegativeRoot2Over2", typeOfProblem: "cosine", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.II),
+            Problem.init(problemImageName: "Cos150", correctAnswer: "-0.866…", answerImageName: "NegativeRoot3Over2", typeOfProblem: "cosine", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.II)
+        ];
+        libraryOfProblems.append(contentsOf: cosDegQII);
+    }
+    
+    func loadCosineDegreeQuadIIIProblems(){
+        let cosDegQIII : [Problem] = [
+            Problem.init(problemImageName: "Cos210", correctAnswer: "-0.866…", answerImageName: "NegativeRoot3Over2", typeOfProblem: "cosine", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.III),
+            Problem.init(problemImageName: "Cos225", correctAnswer: "-0.707…", answerImageName: "NegativeRoot2Over2", typeOfProblem: "cosine", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.III),
+            Problem.init(problemImageName: "Cos240", correctAnswer: "-0.5", answerImageName: "Negative1Over2", typeOfProblem: "cosine", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.III)
+        ];
+        libraryOfProblems.append(contentsOf: cosDegQIII);
+    }
+    
+    func loadCosineDegreeQuadIVProblems(){
+        let cosDegQIV : [Problem] = [
+            Problem.init(problemImageName: "Cos300", correctAnswer: "0.5", answerImageName: "OneOverTwo", typeOfProblem: "cosine", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.IV),
+            Problem.init(problemImageName: "Cos315", correctAnswer: "0.707…", answerImageName: "Root2Over2", typeOfProblem: "cosine", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.IV),
+            Problem.init(problemImageName: "Cos330", correctAnswer: "0.866…", answerImageName: "Root3Over2", typeOfProblem: "cosine", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.IV)
+        ];
+        libraryOfProblems.append(contentsOf: cosDegQIV);
+    }
+    
+    /********** Functions for Loading Cosine (Radians) Problems **********/
+    func loadCosineRadiansQuadrantalProblems (){
+        let cosRadsQudrantals : [Problem] = [
+            Problem.init(problemImageName: "Cos0rads", correctAnswer: "1", answerImageName: "One", typeOfProblem: "cosine", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "CosPiOver2", correctAnswer: "0", answerImageName: "Zero", typeOfProblem: "cosine", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "CosPi", correctAnswer: "-1", answerImageName: "Negative1", typeOfProblem: "cosine", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "Cos3PiOver2", correctAnswer: "0", answerImageName: "Zero", typeOfProblem: "cosine", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.quadrantal)
+        ];
+        libraryOfProblems.append(contentsOf: cosRadsQudrantals);
+    }
+    
+    func loadCosineRadiansQuadIProblems(){
+        let cosRadsQI : [Problem] = [
+            Problem.init(problemImageName: "CosPiOver6", correctAnswer: "0.866…", answerImageName: "Root3Over2", typeOfProblem: "cosine", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.I),
+            Problem.init(problemImageName: "CosPiOver4", correctAnswer: "0.707…", answerImageName: "Root2Over2", typeOfProblem: "cosine", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.I),
+            Problem.init(problemImageName: "CosPiOver3", correctAnswer: "0.5", answerImageName: "OneOverTwo", typeOfProblem: "cosine", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.I)
+        ];
+        libraryOfProblems.append(contentsOf: cosRadsQI);
+    }
+    
+    func loadCosineRadiansQuadIIProblems(){
+        let cosRadsQII : [Problem] = [
+            Problem.init(problemImageName: "Cos2PiOver3", correctAnswer: "-0.5", answerImageName: "Negative1Over2", typeOfProblem: "cosine", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.II),
+            Problem.init(problemImageName: "Cos3PiOver4", correctAnswer: "-0.707…", answerImageName: "NegativeRoot2Over2", typeOfProblem: "cosine", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.II),
+            Problem.init(problemImageName: "Cos5PiOver6", correctAnswer: "-0.866…", answerImageName: "NegativeRoot3Over2", typeOfProblem: "cosine", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.II)
+        ];
+        libraryOfProblems.append(contentsOf: cosRadsQII);
+    }
+    
+    func loadCosineRadiansQuadIIIProblems(){
+        let cosRadsQIII : [Problem] = [
+            Problem.init(problemImageName: "Cos7PiOver6", correctAnswer: "-0.866…", answerImageName: "NegativeRoot3Over2", typeOfProblem: "cosine", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.III),
+            Problem.init(problemImageName: "Cos5PiOver4", correctAnswer: "-0.707…", answerImageName: "NegativeRoot2Over2", typeOfProblem: "cosine", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.III),
+            Problem.init(problemImageName: "Cos4PiOver3", correctAnswer: "-0.5", answerImageName: "Negative1Over2", typeOfProblem: "cosine", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.III)
+        ];
+        libraryOfProblems.append(contentsOf: cosRadsQIII);
+    }
+    
+    func loadCosineRadiansQuadIVProblems(){
+        let cosRadsQIV : [Problem] = [
+            Problem.init(problemImageName: "Cos5PiOver3", correctAnswer: "0.5", answerImageName: "OneOverTwo", typeOfProblem: "cosine", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.IV),
+            Problem.init(problemImageName: "Cos7PiOver4", correctAnswer: "0.707…", answerImageName: "Root2Over2", typeOfProblem: "cosine", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.IV),
+            Problem.init(problemImageName: "Cos11PiOver6", correctAnswer: "0.866…", answerImageName: "Root3Over2", typeOfProblem: "cosine", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.IV)
+        ];
+        libraryOfProblems.append(contentsOf: cosRadsQIV);
+    }
+    
+    /********** Functions for Loading Tangent (Degree) Problems **********/
+    func loadTangentDegreeQuadrantalProblems (){
+        let tanDegQuadrantals : [Problem] = [
+            Problem.init(problemImageName: "tan0", correctAnswer: "0", answerImageName: "Zero", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "tan90", correctAnswer: "u", answerImageName: "U", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "tan180", correctAnswer: "0", answerImageName: "Zero", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "tan360", correctAnswer: "u", answerImageName: "U", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.quadrantal)
+        ];
+        libraryOfProblems.append(contentsOf: tanDegQuadrantals);
+    }
+    
+    func loadTangentDegreeQuadIProblems(){
+        let tanDegQI : [Problem] = [
+            Problem.init(problemImageName: "tan30", correctAnswer: "0.577…", answerImageName: "Root3Over3", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.I),
+            Problem.init(problemImageName: "tan45", correctAnswer: "1", answerImageName: "One", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.I),
+            Problem.init(problemImageName: "tan60", correctAnswer: "1.732…", answerImageName: "Root3", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.I)
+        ];
+        libraryOfProblems.append(contentsOf: tanDegQI);
+    }
+    
+    func loadTangentDegreeQuadIIProblems(){
+        let tanDegQII : [Problem] = [
+            Problem.init(problemImageName: "tan120", correctAnswer: "-1.732…", answerImageName: "NegativeRoot3", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.II),
+            Problem.init(problemImageName: "tan135", correctAnswer: "-1", answerImageName: "Negative1", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.II),
+            Problem.init(problemImageName: "tan150", correctAnswer: "-0.577…", answerImageName: "NegativeRoot3Over3", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.II)
+        ];
+        libraryOfProblems.append(contentsOf: tanDegQII);
+    }
+    
+    func loadTangentDegreeQuadIIIProblems(){
+        let tanDegQIII : [Problem] = [
+            Problem.init(problemImageName: "tan210", correctAnswer: "0.577…", answerImageName: "Root3Over3", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.I),
+            Problem.init(problemImageName: "tan225", correctAnswer: "1", answerImageName: "One", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.I),
+            Problem.init(problemImageName: "tan240", correctAnswer: "1.732…", answerImageName: "Root3", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.I)
+        ];
+        libraryOfProblems.append(contentsOf: tanDegQIII);
+    }
+    
+    func loadTangentDegreeQuadIVProblems(){
+        let tanDegQIV : [Problem] = [
+            Problem.init(problemImageName: "tan300", correctAnswer: "-1.732…", answerImageName: "NegativeRoot3", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.II),
+            Problem.init(problemImageName: "tan315", correctAnswer: "-1", answerImageName: "Negative1", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.II),
+            Problem.init(problemImageName: "tan330", correctAnswer: "-0.577…", answerImageName: "NegativeRoot3Over3", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.II)
+        ];
+        libraryOfProblems.append(contentsOf: tanDegQIV);
+    }
+    
+    /********** Functions for Loading Tangent (Radians) Problems **********/
+    func loadTangentRadiansQuadrantalProblems (){
+        let tanRadsQuadrantals : [Problem] = [
+            Problem.init(problemImageName: "Tan0rads", correctAnswer: "0", answerImageName: "Zero", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "TanPiOver2", correctAnswer: "u", answerImageName: "U", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "TanPi", correctAnswer: "0", answerImageName: "Zero", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "Tan3PiOver2", correctAnswer: "u", answerImageName: "U", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.quadrantal)
+        ];
+        libraryOfProblems.append(contentsOf: tanRadsQuadrantals);
+    }
+    
+    func loadTangentRadiansQuadIProblems(){
+        let tanRadsQI : [Problem] = [
+            Problem.init(problemImageName: "TanPiOver6", correctAnswer: "0.577…", answerImageName: "Root3Over3", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.I),
+            Problem.init(problemImageName: "TanPiOver4", correctAnswer: "1", answerImageName: "One", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.I),
+            Problem.init(problemImageName: "TanPiOver3", correctAnswer: "1.732…", answerImageName: "Root3", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.I)
+        ];
+        libraryOfProblems.append(contentsOf: tanRadsQI);
+    }
+    
+    func loadTangentRadiansQuadIIProblems(){
+        let tanRadsQII : [Problem] = [
+            Problem.init(problemImageName: "Tan2PiOver3", correctAnswer: "-1.732…", answerImageName: "NegativeRoot3", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.II),
+            Problem.init(problemImageName: "Tan3PiOver4", correctAnswer: "-1", answerImageName: "Negative1", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.II),
+            Problem.init(problemImageName: "Tan5PiOver6", correctAnswer: "-0.577…", answerImageName: "NegativeRoot3Over3", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.II)
+        ];
+        libraryOfProblems.append(contentsOf: tanRadsQII);
+    }
+    
+    func loadTangentRadiansQuadIIIProblems(){
+        let tanRadsQIII : [Problem] = [
+            Problem.init(problemImageName: "Tan7PiOver6", correctAnswer: "0.577…", answerImageName: "Root3Over3", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.I),
+            Problem.init(problemImageName: "Tan5PiOver4", correctAnswer: "1", answerImageName: "One", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.I),
+            Problem.init(problemImageName: "Tan4PiOver3", correctAnswer: "1.732…", answerImageName: "Root3", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.I)
+        ];
+        libraryOfProblems.append(contentsOf: tanRadsQIII);
+    }
+    
+    func loadTangentRadiansQuadIVProblems(){
+        let tanRadsQIV : [Problem] = [
+            Problem.init(problemImageName: "Tan5PiOver3", correctAnswer: "-1.732…", answerImageName: "NegativeRoot3", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.II),
+            Problem.init(problemImageName: "Tan7PiOver4", correctAnswer: "-1", answerImageName: "Negative1", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.II),
+            Problem.init(problemImageName: "Tan11PiOver6", correctAnswer: "-0.577…", answerImageName: "NegativeRoot3Over3", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.II)
+        ];
+        libraryOfProblems.append(contentsOf: tanRadsQIV);
+    }
+    
+    /********** Functions for Loading Cosecant (Degree) Problems **********/
+    func loadCosecantDegreeQuadrantalProblems (){
+        let cscDegQuadrantals : [Problem] = [
+            Problem.init(problemImageName: "Csc0", correctAnswer: "u", answerImageName: "U", typeOfProblem: "cosecant", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "Csc90", correctAnswer: "1", answerImageName: "One", typeOfProblem: "cosecant", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "Csc180", correctAnswer: "u", answerImageName: "U", typeOfProblem: "cosecant", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "Csc270", correctAnswer: "-1", answerImageName: "Negative1", typeOfProblem: "cosecant", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.quadrantal)
+        ];
+        libraryOfProblems.append(contentsOf: cscDegQuadrantals);
+    }
+    
+    func loadCosecantDegreeQuadIProblems(){
+        let cscDegQI : [Problem] = [
+            Problem.init(problemImageName: "Csc30", correctAnswer: "2", answerImageName: "Two", typeOfProblem: "cosecant", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.I),
+            Problem.init(problemImageName: "Csc45", correctAnswer: "1.414…", answerImageName: "Root2", typeOfProblem: "cosecant", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.I),
+            Problem.init(problemImageName: "Csc60", correctAnswer: "1.154…", answerImageName: "TwoRoot3Over3", typeOfProblem: "cosecant", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.I),
+        ];
+        libraryOfProblems.append(contentsOf: cscDegQI);
+    }
+    
+    func loadCosecantDegreeQuadIIProblems(){
+        let cscDegQII : [Problem] = [
+            Problem.init(problemImageName: "Csc120", correctAnswer: "1.154…", answerImageName: "TwoRoot3Over3", typeOfProblem: "cosecant", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.II),
+            Problem.init(problemImageName: "Csc135", correctAnswer: "1.414…", answerImageName: "Root2", typeOfProblem: "cosecant", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.II),
+            Problem.init(problemImageName: "Csc150", correctAnswer: "2", answerImageName: "Two", typeOfProblem: "cosecant", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.II)
+        ];
+        libraryOfProblems.append(contentsOf: cscDegQII);
+    }
+    
+    func loadCosecantDegreeQuadIIIProblems(){
+        let cscDegQIII : [Problem] = [
+            Problem.init(problemImageName: "Csc210", correctAnswer: "-2", answerImageName: "Negative2", typeOfProblem: "cosecant", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.III),
+            Problem.init(problemImageName: "Csc225", correctAnswer: "-1.414…", answerImageName: "NegativeRoot2", typeOfProblem: "cosecant", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.III),
+            Problem.init(problemImageName: "Csc240", correctAnswer: "-1.154…", answerImageName: "Negative2Root3Over3", typeOfProblem: "cosecant", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.III)
+        ];
+        libraryOfProblems.append(contentsOf: cscDegQIII);
+    }
+    
+    func loadCosecantDegreeQuadIVProblems(){
+        let cscDegQIV : [Problem] = [
+            Problem.init(problemImageName: "Csc300", correctAnswer: "-1.154…", answerImageName: "Negative2Root3Over3", typeOfProblem: "cosecant", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.IV),
+            Problem.init(problemImageName: "Csc315", correctAnswer: "-1.414…", answerImageName: "NegativeRoot2", typeOfProblem: "cosecant", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.IV),
+            Problem.init(problemImageName: "Csc330", correctAnswer: "-2", answerImageName: "Negative2", typeOfProblem: "cosecant", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.IV)
+        ];
+        libraryOfProblems.append(contentsOf: cscDegQIV);
+    }
+    
+    /********** Functions for Loading Cosecant (Radians) Problems **********/
+    func loadCosecantRadiansQuadrantalProblems (){
+        let cscRadsQuadrantals : [Problem] = [
+            Problem.init(problemImageName: "Csc0rads", correctAnswer: "u", answerImageName: "U", typeOfProblem: "cosecant", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "CscPiOver2", correctAnswer: "1", answerImageName: "One", typeOfProblem: "cosecant", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "CscPi", correctAnswer: "u", answerImageName: "U", typeOfProblem: "cosecant", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "Csc3PiOver2", correctAnswer: "-1", answerImageName: "Negative1", typeOfProblem: "cosecant", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.quadrantal)
+        ];
+        libraryOfProblems.append(contentsOf: cscRadsQuadrantals);
+    }
+    
+    func loadCosecantRadiansQuadIProblems(){
+        let cscRadsQI : [Problem] = [
+            Problem.init(problemImageName: "CscPiOver6", correctAnswer: "2", answerImageName: "Two", typeOfProblem: "cosecant", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.I),
+            Problem.init(problemImageName: "CscPiOver4", correctAnswer: "1.414…", answerImageName: "Root2", typeOfProblem: "cosecant", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.I),
+            Problem.init(problemImageName: "CscPiOver3", correctAnswer: "1.154…", answerImageName: "TwoRoot3Over3", typeOfProblem: "cosecant", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.I),
+            ];
+        libraryOfProblems.append(contentsOf: cscRadsQI);
+    }
+    
+    func loadCosecantRadiansQuadIIProblems(){
+        let cscRadsQII : [Problem] = [
+            Problem.init(problemImageName: "Csc2PiOver3", correctAnswer: "1.154…", answerImageName: "TwoRoot3Over3", typeOfProblem: "cosecant", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.II),
+            Problem.init(problemImageName: "Csc3PiOver4", correctAnswer: "1.414…", answerImageName: "Root2", typeOfProblem: "cosecant", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.II),
+            Problem.init(problemImageName: "Csc5PiOver6", correctAnswer: "2", answerImageName: "Two", typeOfProblem: "cosecant", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.II)
+        ];
+        libraryOfProblems.append(contentsOf: cscRadsQII);
+    }
+    
+    func loadCosecantRadiansQuadIIIProblems(){
+        let cscRadsQIII : [Problem] = [
+            Problem.init(problemImageName: "Csc7PiOver6", correctAnswer: "-2", answerImageName: "Negative2", typeOfProblem: "cosecant", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.III),
+            Problem.init(problemImageName: "Csc5PiOver4", correctAnswer: "-1.414…", answerImageName: "NegativeRoot2", typeOfProblem: "cosecant", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.III),
+            Problem.init(problemImageName: "Csc4PiOver3", correctAnswer: "-1.154…", answerImageName: "Negative2Root3Over3", typeOfProblem: "cosecant", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.III)
+        ];
+        libraryOfProblems.append(contentsOf: cscRadsQIII);
+    }
+    
+    func loadCosecantRadiansQuadIVProblems(){
+        let cscRadsQIV : [Problem] = [
+            Problem.init(problemImageName: "Csc5PiOver3", correctAnswer: "-1.154…", answerImageName: "Negative2Root3Over3", typeOfProblem: "cosecant", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.IV),
+            Problem.init(problemImageName: "Csc7PiOver4", correctAnswer: "-1.414…", answerImageName: "NegativeRoot2", typeOfProblem: "cosecant", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.IV),
+            Problem.init(problemImageName: "Csc11PiOver6", correctAnswer: "-2", answerImageName: "Negative2", typeOfProblem: "cosecant", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.IV)
+        ];
+        libraryOfProblems.append(contentsOf: cscRadsQIV);
+    }
+    
+    /********** Functions for Loading Secant (Degree) Problems **********/
+    func loadSecantDegreeQuadrantalProblems (){
+        let secDegQuadrantals : [Problem] = [
+            Problem.init(problemImageName: "Sec0", correctAnswer: "1", answerImageName: "One", typeOfProblem: "secant", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "Sec90", correctAnswer: "u", answerImageName: "U", typeOfProblem: "secant", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "Sec180", correctAnswer: "-1", answerImageName: "Negative1", typeOfProblem: "secant", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "Sec270", correctAnswer: "u", answerImageName: "U", typeOfProblem: "secant", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.quadrantal)
+        ];
+        libraryOfProblems.append(contentsOf: secDegQuadrantals);
+    }
+    
+    func loadSecantDegreeQuadIProblems(){
+        let secDegQI : [Problem] = [
+            Problem.init(problemImageName: "Sec30", correctAnswer: "1.154…", answerImageName: "TwoRoot3Over3", typeOfProblem: "secant", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.I),
+            Problem.init(problemImageName: "Sec45", correctAnswer: "1.414…", answerImageName: "Root2", typeOfProblem: "secant", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.I),
+            Problem.init(problemImageName: "Sec60", correctAnswer: "2", answerImageName: "Two", typeOfProblem: "secant", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.I)
+        ];
+        libraryOfProblems.append(contentsOf: secDegQI);
+    }
+    
+    func loadSecantDegreeQuadIIProblems(){
+        let secDegQII : [Problem] = [
+            Problem.init(problemImageName: "Sec120", correctAnswer: "-2", answerImageName: "Negative2", typeOfProblem: "secant", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.II),
+            Problem.init(problemImageName: "Sec135", correctAnswer: "-1.414…", answerImageName: "NegativeRoot2", typeOfProblem: "secant", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.II),
+            Problem.init(problemImageName: "Sec150", correctAnswer: "-1.154…", answerImageName: "Negative2Root3Over3", typeOfProblem: "secant", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.II)
+        ];
+        libraryOfProblems.append(contentsOf: secDegQII);
+    }
+    
+    func loadSecantDegreeQuadIIIProblems(){
+        let secDegQIII : [Problem] = [
+            Problem.init(problemImageName: "Sec210", correctAnswer: "-1.154…", answerImageName: "Negative2Root3Over3", typeOfProblem: "secant", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.III),
+            Problem.init(problemImageName: "Sec225", correctAnswer: "-1.414…", answerImageName: "NegativeRoot2", typeOfProblem: "secant", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.III),
+            Problem.init(problemImageName: "Sec240", correctAnswer: "-2", answerImageName: "Negative2", typeOfProblem: "secant", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.III)
+        ];
+        libraryOfProblems.append(contentsOf: secDegQIII);
+    }
+    
+    func loadSecantDegreeQuadIVProblems(){
+        let secDegQIV : [Problem] = [
+            Problem.init(problemImageName: "Sec300", correctAnswer: "2", answerImageName: "Two", typeOfProblem: "secant", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.IV),
+            Problem.init(problemImageName: "Sec315", correctAnswer: "1.414…", answerImageName: "Root2", typeOfProblem: "secant", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.IV),
+            Problem.init(problemImageName: "Sec330", correctAnswer: "1.154…", answerImageName: "TwoRoot3Over3", typeOfProblem: "secant", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.IV)
+        ];
+        libraryOfProblems.append(contentsOf: secDegQIV);
+    }
+    /********** Functions for Loading Secant (Radians) Problems **********/
+    func loadSecantRadiansQuadrantalProblems (){
+        let secRadsQuadrantals : [Problem] = [
+            Problem.init(problemImageName: "Sec0rads", correctAnswer: "1", answerImageName: "One", typeOfProblem: "secant", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "SecPiOver2", correctAnswer: "u", answerImageName: "U", typeOfProblem: "secant", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "SecPi", correctAnswer: "-1", answerImageName: "Negative1", typeOfProblem: "secant", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "Sec3PiOver2", correctAnswer: "u", answerImageName: "U", typeOfProblem: "secant", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.quadrantal)
+        ];
+        libraryOfProblems.append(contentsOf: secRadsQuadrantals);
+    }
+    
+    func loadSecantRadiansQuadIProblems(){
+        let secRadsQI : [Problem] = [
+            Problem.init(problemImageName: "SecPiOver6", correctAnswer: "1.154…", answerImageName: "TwoRoot3Over3", typeOfProblem: "secant", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.I),
+            Problem.init(problemImageName: "SecPiOver4", correctAnswer: "1.414…", answerImageName: "Root2", typeOfProblem: "secant", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.I),
+            Problem.init(problemImageName: "SecPiOver3", correctAnswer: "2", answerImageName: "Two", typeOfProblem: "secant", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.I)
+        ];
+        libraryOfProblems.append(contentsOf: secRadsQI);
+    }
+    
+    func loadSecantRadiansQuadIIProblems(){
+        let secRadsQII : [Problem] = [
+            Problem.init(problemImageName: "Sec2PiOver3", correctAnswer: "-2", answerImageName: "Negative2", typeOfProblem: "secant", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.II),
+            Problem.init(problemImageName: "Sec3PiOver4", correctAnswer: "-1.414…", answerImageName: "NegativeRoot2", typeOfProblem: "secant", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.II),
+            Problem.init(problemImageName: "Sec5PiOver6", correctAnswer: "-1.154…", answerImageName: "Negative2Root3Over3", typeOfProblem: "secant", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.II)
+        ];
+        libraryOfProblems.append(contentsOf: secRadsQII);
+    }
+    
+    func loadSecantRadiansQuadIIIProblems(){
+        let secRadsQIII : [Problem] = [
+            Problem.init(problemImageName: "Sec7PiOver6", correctAnswer: "-1.154…", answerImageName: "Negative2Root3Over3", typeOfProblem: "secant", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.III),
+            Problem.init(problemImageName: "Sec5PiOver4", correctAnswer: "-1.414…", answerImageName: "NegativeRoot2", typeOfProblem: "secant", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.III),
+            Problem.init(problemImageName: "Sec4PiOver3", correctAnswer: "-2", answerImageName: "Negative2", typeOfProblem: "secant", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.III)
+        ];
+        libraryOfProblems.append(contentsOf: secRadsQIII);
+    }
+    
+    func loadSecantRadiansQuadIVProblems(){
+        let secRadsQIV : [Problem] = [
+            Problem.init(problemImageName: "Sec5PiOver3", correctAnswer: "2", answerImageName: "Two", typeOfProblem: "secant", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.IV),
+            Problem.init(problemImageName: "Sec7PiOver4", correctAnswer: "1.414…", answerImageName: "Root2", typeOfProblem: "secant", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.IV),
+            Problem.init(problemImageName: "Sec11PiOver6", correctAnswer: "1.154…", answerImageName: "TwoRoot3Over3", typeOfProblem: "secant", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.IV)
+        ];
+        libraryOfProblems.append(contentsOf: secRadsQIV);
+    }
+    
+    /********** Functions for Loading Cotangent (Degree) Problems **********/
+    func loadCotangentDegreeQuadrantalProblems (){
+        let cotDegQuandrantals : [Problem] = [
+            Problem.init(problemImageName: "Cot0", correctAnswer: "u", answerImageName: "U", typeOfProblem: "cotangent", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "Cot90", correctAnswer: "0", answerImageName: "Zero", typeOfProblem: "cotangent", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "Cot180", correctAnswer: "u", answerImageName: "U", typeOfProblem: "cotangent", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "Cot270", correctAnswer: "0", answerImageName: "Zero", typeOfProblem: "cotangent", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.quadrantal)
+        ];
+        libraryOfProblems.append(contentsOf: cotDegQuandrantals);
+    }
+    
+    func loadCotangentDegreeQuadIProblems(){
+        let cotDegQI : [Problem] = [
+            Problem.init(problemImageName: "Cot30", correctAnswer: "1.732…", answerImageName: "Root3", typeOfProblem: "cotangent", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.I),
+            Problem.init(problemImageName: "Cot45", correctAnswer: "1", answerImageName: "One", typeOfProblem: "cotangent", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.I),
+            Problem.init(problemImageName: "Cot60", correctAnswer: "0.577…", answerImageName: "Root3Over3", typeOfProblem: "cotangent", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.I)
+        ];
+        libraryOfProblems.append(contentsOf: cotDegQI);
+    }
+    
+    func loadCotangentDegreeQuadIIProblems(){
+        let cotDegQII : [Problem] = [
+            Problem.init(problemImageName: "Cot120", correctAnswer: "-0.577…", answerImageName: "NegativeRoot3Over3", typeOfProblem: "cotangent", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.II),
+            Problem.init(problemImageName: "Cot135", correctAnswer: "-1", answerImageName: "Negative1", typeOfProblem: "cotangent", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.II),
+            Problem.init(problemImageName: "Cot150", correctAnswer: "-1.732…", answerImageName: "NegativeRoot3", typeOfProblem: "cotangent", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.II)
+        ];
+        libraryOfProblems.append(contentsOf: cotDegQII);
+    }
+    
+    func loadCotangentDegreeQuadIIIProblems(){
+        let cotDegQIII : [Problem] = [
+            Problem.init(problemImageName: "Cot210", correctAnswer: "1.732…", answerImageName: "Root3", typeOfProblem: "cotangent", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.III),
+            Problem.init(problemImageName: "Cot225", correctAnswer: "1", answerImageName: "One", typeOfProblem: "cotangent", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.III),
+            Problem.init(problemImageName: "Cot240", correctAnswer: "0.577…", answerImageName: "Root3Over3", typeOfProblem: "cotangent", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.III)
+        ];
+        libraryOfProblems.append(contentsOf: cotDegQIII);
+    }
+    
+    func loadCotangentDegreeQuadIVProblems(){
+        let cotDegQIV : [Problem] = [
+            Problem.init(problemImageName: "Cot300", correctAnswer: "-0.577…", answerImageName: "NegativeRoot3Over3", typeOfProblem: "cotangent", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.IV),
+            Problem.init(problemImageName: "Cot315", correctAnswer: "-1", answerImageName: "Negative1", typeOfProblem: "cotangent", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.IV),
+            Problem.init(problemImageName: "Cot330", correctAnswer: "-1.732…", answerImageName: "NegativeRoot3", typeOfProblem: "cotangent", unitsOfAngle: Problem.angleUnits.degrees, problemQuadrant: Problem.quadrant.IV)
+        ];
+        libraryOfProblems.append(contentsOf: cotDegQIV);
+    }
+    
+    /********** Functions for Loading Cotangent (Radians) Problems **********/
+    func loadCotangentRadiansQuadrantalProblems (){
+        let cotRadsQuandrantals : [Problem] = [
+            Problem.init(problemImageName: "Cot0rads", correctAnswer: "u", answerImageName: "U", typeOfProblem: "cotangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "CotPiOver2", correctAnswer: "0", answerImageName: "Zero", typeOfProblem: "cotangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "CotPi", correctAnswer: "u", answerImageName: "U", typeOfProblem: "cotangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.quadrantal),
+            Problem.init(problemImageName: "Cot3PiOver2", correctAnswer: "0", answerImageName: "Zero", typeOfProblem: "cotangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.quadrantal)
+        ];
+        libraryOfProblems.append(contentsOf: cotRadsQuandrantals);
+    }
+    
+    func loadCotangentRadiansQuadIProblems(){
+        let cotRadsQI : [Problem] = [
+            Problem.init(problemImageName: "CotPiOver6", correctAnswer: "1.732…", answerImageName: "Root3", typeOfProblem: "cotangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.I),
+            Problem.init(problemImageName: "CotPiOver4", correctAnswer: "1", answerImageName: "One", typeOfProblem: "cotangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.I),
+            Problem.init(problemImageName: "CotPiOver3", correctAnswer: "0.577…", answerImageName: "Root3Over3", typeOfProblem: "cotangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.I)
+        ];
+        libraryOfProblems.append(contentsOf: cotRadsQI);
+    }
+    
+    func loadCotangentRadiansQuadIIProblems(){
+        let cotRadsQII : [Problem] = [
+            Problem.init(problemImageName: "Cot2PiOver3", correctAnswer: "-0.577…", answerImageName: "NegativeRoot3Over3", typeOfProblem: "cotangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.II),
+            Problem.init(problemImageName: "Cot3PiOver4", correctAnswer: "-1", answerImageName: "Negative1", typeOfProblem: "cotangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.II),
+            Problem.init(problemImageName: "Cot5PiOver6", correctAnswer: "-1.732…", answerImageName: "NegativeRoot3", typeOfProblem: "cotangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.II)
+        ];
+        libraryOfProblems.append(contentsOf: cotRadsQII);
+    }
+    
+    func loadCotangentRadiansQuadIIIProblems(){
+        let cotRadsQIII : [Problem] = [
+            Problem.init(problemImageName: "Cot7PiOver6", correctAnswer: "1.732…", answerImageName: "Root3", typeOfProblem: "cotangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.III),
+            Problem.init(problemImageName: "Cot5PiOver4", correctAnswer: "1", answerImageName: "One", typeOfProblem: "cotangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.III),
+            Problem.init(problemImageName: "Cot4PiOver3", correctAnswer: "0.577…", answerImageName: "Root3Over3", typeOfProblem: "cotangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.III)
+        ];
+        libraryOfProblems.append(contentsOf: cotRadsQIII);
+    }
+    
+    func loadCotangentRadiansQuadIVProblems(){
+        let cotRadsQIV : [Problem] = [
+            Problem.init(problemImageName: "Cot5PiOver3", correctAnswer: "-0.577…", answerImageName: "NegativeRoot3Over3", typeOfProblem: "cotangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.IV),
+            Problem.init(problemImageName: "Cot7PiOver4", correctAnswer: "-1", answerImageName: "Negative1", typeOfProblem: "cotangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.IV),
+            Problem.init(problemImageName: "Cot11PiOver6", correctAnswer: "-1.732…", answerImageName: "NegativeRoot3", typeOfProblem: "cotangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.IV)
+        ];
+        libraryOfProblems.append(contentsOf: cotRadsQIV);
+    }
+    
+    func getRandomProblem() -> Problem {
         if(libraryOfProblems.count>0)
         {
             let randomNum = Int(arc4random_uniform(UInt32(libraryOfProblems.count)));
             currProblem = libraryOfProblems.remove(at: randomNum);
-            return currProblem;
         }
-        else
-        {
-            return "";
-        }
+        return currProblem!;
     }
     
     func isCorrect(_ answer : String) -> Bool {
-        //16 possibilities
-        if(["Cos0", "Sin90", "tan45", "tan225", "Cos0rads", "SinPiOver2", "TanPiOver4", "Tan5PiOver4", "Cot45", "CotPiOver4", "Cot225", "Cot5Piover4", "Sec0", "Sec0rads", "Csc90", "CscPiOver2"].contains(currProblem))
+        if(currProblem?.correctAnswer == answer)
         {
-            if(answer=="1")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return true;
         }
-            //16 possibilities
-        else if(["Cos90", "Cos270", "Sin0", "Sin180", "tan0", "tan180", "CosPiOver2", "Cos3PiOver2", "Sin0rads", "SinPi", "Tan0rads", "TanPi", "Cot90", "CotPiOver2", "Cot270", "Cot3PiOver2"].contains(currProblem))
+        else
         {
-            if(answer == "0")
-            {
-                return true;
-            }
-            else{
-                return false;
-            }
-        }
-        //16 possibilities
-        else if(["Cos180", "Sin270", "tan135", "tan315", "CosPi", "Sin3PiOver2", "Tan3PiOver4", "Tan7PiOver4", "Cot135", "Cot3PiOver4", "Cot315", "Cot7PiOver4", "Sec180", "SecPi", "Csc270", "Csc3PiOver2"].contains(currProblem))
-        {
-            //Answer: -1
-            if(answer == "-1")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        //16 possibilities
-        else if(["tan90", "tan270", "TanPiOver2", "Tan3PiOver2", "Cot0", "Cot0rads", "Cot180", "CotPi", "Sec90", "SecPiOver2", "Sec270", "Sec3PiOver2", "Csc0", "Csc0rads", "Csc180", "CscPi"].contains(currProblem))
-        {
-            //Answer: undefined
-            if(answer == "u" || answer == "undefined" || answer == "U")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-            //8 possibilities
-        else if(["Cos60", "Cos300", "Sin30", "Sin150", "CosPiOver3", "Cos5PiOver3", "SinPiOver6", "Sin5PiOver6"].contains(currProblem))
-        {
-            if(answer == "0.5")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-            //8 possibilities
-        else if(["Cos30", "Cos330", "Sin60", "Sin120", "CosPiOver6", "Cos11PiOver6", "SinPiOver3", "Sin2PiOver3"].contains(currProblem))
-        {
-            //Answer: [√[3]/2]=0.866…
-            if(answer == "0.866")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-            //8 possibilities
-        else if (["Cos150", "Cos210", "Sin240", "Sin300", "Cos5PiOver6", "Cos7PiOver6", "Sin4PiOver3", "Sin5PiOver3"].contains(currProblem))
-        {
-            //Answer: -[√[3]/2]=-0.866… or [-√[3]/2]=-0.866… or [√[3]/-2]=-0.866…
-            if(answer == "-0.866")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-            //8 possibilities
-        else if (["Cos45", "Cos315", "Sin45", "Sin135", "CosPiOver4", "Cos7PiOver4", "SinPiOver4", "Sin3PiOver4"].contains(currProblem))
-        {
-            //Answer: [√[2]/2]=0.707…
-            if(answer == "0.707")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-            //8 possibilities
-        else if (["Cos135", "Cos225", "Sin225", "Sin315", "Cos3PiOver4", "Cos5PiOver4", "Sin5PiOver4", "Sin7PiOver4"].contains(currProblem))
-        {
-            //Answer: -[√[2]/2]=-0.707… or [[-√[2]]/2]=-0.707… or [√[2]/-2]=-0.707…
-            if(answer == "-0.707")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-            //8 possibilities
-        else if (["Cos120", "Cos240", "Sin210", "Sin330", "Cos2PiOver3", "Cos4PiOver3", "Sin7PiOver6", "Sin11PiOver6"].contains(currProblem))
-        {
-            //Answer: -[1/2]=-0.5 or [-1/2]=-0.5 or [1/-2]=-0.5 or -0.5
-            if(answer == "-0.5")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        
-            //8 possibilities
-        else if(["tan30", "tan210", "TanPiOver6", "Tan7PiOver6", "Cot60", "CotPiOver3", "Cot240", "Cot4PiOver3"].contains(currProblem))
-        {
-            //Answer: [√[3]/3]=0.577…
-            if(answer == "0.577")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-            //8 possibilities
-        else if(["tan150", "tan330", "Tan5PiOver6", "Tan11PiOver6", "Cot120", "Cot2PiOver3", "Cot300", "Cot5PiOver3"].contains(currProblem))
-        {
-            //Answer: -[√[3]/3]=-0.577… or [-√[3]/3]=-0.577… or [√[3]/-3]=-0.577…
-            if(answer == "-0.577")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-            //8 possibilities
-        else if(["tan60", "tan240", "TanPiOver3", "Tan4PiOver3", "Cot30", "CotPiOver6", "Cot210", "Cot7PiOver6"].contains(currProblem))
-        {
-            //Answer:  √[3]=1.732…
-            if(answer == "1.732")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-            //8 possibilities
-        else if(["tan120", "tan300", "Tan2PiOver3", "Tan5PiOver3", "Cot150", "Cot5PiOver6", "Cot330", "Cot11PiOver6"].contains(currProblem))
-        {
-            //Answer:  -√[3]=-1.732…
-            if(answer == "-1.732")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-        
-            //8 possibilities
-        else if(["Sec30", "SecPiOver6", "Sec330", "Sec11PiOver6", "Csc60", "CscPiOver3", "Csc120", "Csc2PiOver3"].contains(currProblem))
-        {
-            //Answer: [[2×√[3]]/3]=1.154…
-            if(answer == "1.154")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-            //8 possibilities
-        else if(["Sec45", "SecPiOver4", "Sec315", "Sec7PiOver4", "Csc45", "CscPiOver4", "Csc135", "Csc3PiOver4"].contains(currProblem))
-        {
-            //Answer: √[2]=1.414…
-            if(answer == "1.414")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-            //8 possibilities
-        else if(["Sec60", "SecPiOver3", "Sec300", "Sec5PiOver3", "Csc30", "CscPiOver6", "Csc150", "Csc5PiOver6"].contains(currProblem))
-        {
-            //Answer: 2
-            if(answer == "2")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-            //8 possibilities
-        else if(["Sec120", "Sec2PiOver3", "Sec240", "Sec4PiOver3", "Csc210", "Csc7PiOver6", "Csc330", "Csc11PiOver6"].contains(currProblem))
-        {
-            //Answer: -2
-            if(answer == "-2")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-            //8 possibilities
-        else if(["Sec135", "Sec3PiOver4", "Sec225", "Sec5PiOver4", "Csc225", "Csc5PiOver4", "Csc315", "Csc7PiOver4"].contains(currProblem))
-        {
-            //Answer: -√[2]=-1.414…
-            if(answer == "-1.414")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-            //8 possibilities
-        else if(["Sec150", "Sec5PiOver6", "Sec210", "Sec7PiOver6", "Csc240", "Csc4PiOver3", "Csc300", "Csc5PiOver3"].contains(currProblem))
-        {
-            //Answer: -[[2×√[3]]/3]=-1.154… or [[-2×√[3]]/3]=-1.154… or [[2×√[3]]/-3]=-1.154… or [[2×(-√[3])]/3]=-1.154…
-            if(answer == "-1.154")
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-            //if the program goes in here...that means some problem was displayed that's not in the library...i.e. trouble!
-        else{
-            NSLog("the current problem is not in the current list");
             return false;
         }
     }
-    func getCurrProblemName() -> String
-    {
-        return currProblem;
-    }
     
-    func getCurrProblemAnswerName() -> String
+    func getCurrProblem() -> Problem
     {
-        //16 possibilities
-        if(["Cos0", "Sin90", "tan45", "tan225", "Cos0rads", "SinPiOver2", "TanPiOver4", "Tan5PiOver4", "Cot45", "CotPiOver4", "Cot225", "Cot5Piover4", "Sec0", "Sec0rads", "Csc90", "CscPiOver2"].contains(currProblem))
-        {
-            return "One";
-        }
-            //16 possibilities
-        else if(["Cos90", "Cos270", "Sin0", "Sin180", "tan0", "tan180", "CosPiOver2", "Cos3PiOver2", "Sin0rads", "SinPi", "Tan0rads", "TanPi", "Cot90", "CotPiOver2", "Cot270", "Cot3PiOver2"].contains(currProblem))
-        {
-            return "Zero";
-        }
-            //16 possibilities
-        else if(["Cos180", "Sin270", "tan135", "tan315", "CosPi", "Sin3PiOver2", "Tan3PiOver4", "Tan7PiOver4", "Cot135", "Cot3PiOver4", "Cot315", "Cot7PiOver4", "Sec180", "SecPi", "Csc270", "Csc3PiOver2"].contains(currProblem))
-        {
-            return "Negative1";
-        }
-            //16 possibilities
-        else if(["tan90", "tan270", "TanPiOver2", "Tan3PiOver2", "Cot0", "Cot0rads", "Cot180", "CotPi", "Sec90", "SecPiOver2", "Sec270", "Sec3PiOver2", "Csc0", "Csc0rads", "Csc180", "CscPi"].contains(currProblem))
-        {
-            return "U";
-        }
-            //8 possibilities
-        else if(["Cos60", "Cos300", "Sin30", "Sin150", "CosPiOver3", "Cos5PiOver3", "SinPiOver6", "Sin5PiOver6"].contains(currProblem))
-        {
-            return "OneOverTwo";
-        }
-            //8 possibilities
-        else if(["Cos30", "Cos330", "Sin60", "Sin120", "CosPiOver6", "Cos11PiOver6", "SinPiOver3", "Sin2PiOver3"].contains(currProblem))
-        {
-            //Answer: [√[3]/2]=0.866…
-            return "Root3Over2"
-        }
-            //8 possibilities
-        else if (["Cos150", "Cos210", "Sin240", "Sin300", "Cos5PiOver6", "Cos7PiOver6", "Sin4PiOver3", "Sin5PiOver3"].contains(currProblem))
-        {
-            //Answer: -[√[3]/2]=-0.866… or [-√[3]/2]=-0.866… or [√[3]/-2]=-0.866…
-            return "NegativeRoot3Over2"
-        }
-            //8 possibilities
-        else if (["Cos45", "Cos315", "Sin45", "Sin135", "CosPiOver4", "Cos7PiOver4", "SinPiOver4", "Sin3PiOver4"].contains(currProblem))
-        {
-            //Answer: [√[2]/2]=0.707…
-            return "Root2Over2"
-        }
-            //8 possibilities
-        else if (["Cos135", "Cos225", "Sin225", "Sin315", "Cos3PiOver4", "Cos5PiOver4", "Sin5PiOver4", "Sin7PiOver4"].contains(currProblem))
-        {
-            //Answer: -[√[2]/2]=-0.707… or [[-√[2]]/2]=-0.707… or [√[2]/-2]=-0.707…
-            return "NegativeRoot2Over2"
-        }
-            //8 possibilities
-        else if (["Cos120", "Cos240", "Sin210", "Sin330", "Cos2PiOver3", "Cos4PiOver3", "Sin7PiOver6", "Sin11PiOver6"].contains(currProblem))
-        {
-            //Answer: -[1/2]=-0.5 or [-1/2]=-0.5 or [1/-2]=-0.5 or -0.5
-            return "Negative1Over2"
-        }
-            
-            //8 possibilities
-        else if(["tan30", "tan210", "TanPiOver6", "Tan7PiOver6", "Cot60", "CotPiOver3", "Cot240", "Cot4PiOver3"].contains(currProblem))
-        {
-            //Answer: [√[3]/3]=0.577…
-            return "Root3Over3";
-        }
-            //8 possibilities
-        else if(["tan150", "tan330", "Tan5PiOver6", "Tan11PiOver6", "Cot120", "Cot2PiOver3", "Cot300", "Cot5PiOver3"].contains(currProblem))
-        {
-            //Answer: -[√[3]/3]=-0.577… or [-√[3]/3]=-0.577… or [√[3]/-3]=-0.577…
-            return "NegativeRoot3Over3"
-        }
-            //8 possibilities
-        else if(["tan60", "tan240", "TanPiOver3", "Tan4PiOver3", "Cot30", "CotPiOver6", "Cot210", "Cot7PiOver6"].contains(currProblem))
-        {
-            //Answer:  √[3]=1.732…
-            return "Root3";
-        }
-            //8 possibilities
-        else if(["tan120", "tan300", "Tan2PiOver3", "Tan5PiOver3", "Cot150", "Cot5PiOver6", "Cot330", "Cot11PiOver6"].contains(currProblem))
-        {
-            //Answer:  -√[3]=-1.732…
-            return "NegativeRoot3"
-        }
-            
-            //8 possibilities
-        else if(["Sec30", "SecPiOver6", "Sec330", "Sec11PiOver6", "Csc60", "CscPiOver3", "Csc120", "Csc2PiOver3"].contains(currProblem))
-        {
-            //Answer: [[2×√[3]]/3]=1.154…
-            return "TwoRoot3Over3"
-        }
-            //8 possibilities
-        else if(["Sec45", "SecPiOver4", "Sec315", "Sec7PiOver4", "Csc45", "CscPiOver4", "Csc135", "Csc3PiOver4"].contains(currProblem))
-        {
-            //Answer: √[2]=1.414…
-            return "Root2"
-        }
-            //8 possibilities
-        else if(["Sec60", "SecPiOver3", "Sec300", "Sec5PiOver3", "Csc30", "CscPiOver6", "Csc150", "Csc5PiOver6"].contains(currProblem))
-        {
-            //Answer: 2
-            return "Two";
-        }
-            //8 possibilities
-        else if(["Sec120", "Sec2PiOver3", "Sec240", "Sec4PiOver3", "Csc210", "Csc7PiOver6", "Csc330", "Csc11PiOver6"].contains(currProblem))
-        {
-            //Answer: -2
-            return "Negative2"
-        }
-            //8 possibilities
-        else if(["Sec135", "Sec3PiOver4", "Sec225", "Sec5PiOver4", "Csc225", "Csc5PiOver4", "Csc315", "Csc7PiOver4"].contains(currProblem))
-        {
-            //Answer: -√[2]=-1.414…
-            return "NegativeRoot2"
-        }
-            //8 possibilities
-        else if(["Sec150", "Sec5PiOver6", "Sec210", "Sec7PiOver6", "Csc240", "Csc4PiOver3", "Csc300", "Csc5PiOver3"].contains(currProblem))
-        {
-            //Answer: -[[2×√[3]]/3]=-1.154… or [[-2×√[3]]/3]=-1.154… or [[2×√[3]]/-3]=-1.154… or [[2×(-√[3])]/3]=-1.154…
-            return "Negative2Root3Over3"
-        }
-            //if the program goes in here...that means some problem was displayed that's not in the library...i.e. trouble!
-        else{
-            NSLog("the current problem is not in the current list");
-            return "";
-        }
+        return currProblem!;
     }
 }
