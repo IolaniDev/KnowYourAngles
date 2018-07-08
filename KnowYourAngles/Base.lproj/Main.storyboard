@@ -138,7 +138,7 @@
         <!--Settings-->
         <scene sceneID="zzr-8y-NIy">
             <objects>
-                <viewController title="Settings" id="VL1-64-KTH" sceneMemberID="viewController">
+                <viewController title="Settings" id="VL1-64-KTH" customClass="SettingsViewController" customModule="KnowYourAngles" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xti-1X-A6O"/>
                         <viewControllerLayoutGuide type="bottom" id="8uy-68-f5V"/>
@@ -162,7 +162,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="IN2-80-F7b" userLabel="Left Hand Mode and Angle Options">
                                         <rect key="frame" x="224.5" y="130" width="440" height="168"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="A4Z-QP-ofW" userLabel="LeftHandMode">
+                                            <stackView opaque="NO" contentMode="center" ambiguous="YES" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="A4Z-QP-ofW" userLabel="LeftHandMode">
                                                 <rect key="frame" x="106" y="0.0" width="228" height="43"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Left-Hand:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epm-kG-sQd" userLabel="LeftHand">
@@ -196,6 +196,9 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="49" id="PqN-2R-QtG"/>
                                                                 </constraints>
+                                                                <connections>
+                                                                    <action selector="radiansSwitchChanged:" destination="VL1-64-KTH" eventType="valueChanged" id="FJm-Yt-bbk"/>
+                                                                </connections>
                                                             </switch>
                                                         </subviews>
                                                     </stackView>
@@ -210,6 +213,9 @@
                                                             </label>
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BHy-Qv-hS4">
                                                                 <rect key="frame" x="149" y="6" width="51" height="31"/>
+                                                                <connections>
+                                                                    <action selector="degreesSwitchChanged:" destination="VL1-64-KTH" eventType="valueChanged" id="YmL-aE-flE"/>
+                                                                </connections>
                                                             </switch>
                                                         </subviews>
                                                     </stackView>
@@ -523,6 +529,10 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="icons8-settings-50" selectedImage="icons8-settings-filled-50" id="uhh-8M-L90"/>
+                    <connections>
+                        <outlet property="degreesSwitch" destination="BHy-Qv-hS4" id="nHt-Cb-92x"/>
+                        <outlet property="radiansSwitch" destination="TpZ-9j-5WF" id="phR-dh-E5A"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ks-CJ-U0x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -531,7 +541,7 @@
         <!--Home-->
         <scene sceneID="H78-TK-EY2">
             <objects>
-                <viewController title="Home" id="e3i-SK-wxX" sceneMemberID="viewController">
+                <viewController title="Home" id="e3i-SK-wxX" customClass="FirstViewController" customModule="KnowYourAngles" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EP2-QO-nRW"/>
                         <viewControllerLayoutGuide type="bottom" id="GMV-cs-n2j"/>
@@ -566,7 +576,7 @@
                                             <color key="titleColor" red="0.15686274510000001" green="0.80000000000000004" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="BYZ-38-t0r" kind="show" id="PxO-Yb-HO4"/>
+                                            <segue destination="wjb-wb-x2B" kind="show" id="BHB-wc-QL9"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -583,6 +593,151 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="blX-JB-Qtn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1437" y="-613"/>
+        </scene>
+        <!--Quiz Setup-->
+        <scene sceneID="r8U-5W-HrV">
+            <objects>
+                <viewController title="Quiz Setup" id="wjb-wb-x2B" customClass="QuizSetupViewController" customModule="KnowYourAngles" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vCb-sy-Ws6"/>
+                        <viewControllerLayoutGuide type="bottom" id="NLM-MR-MsZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aAB-0Y-pdk">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="ajc-9W-tRE" userLabel="Number of Problems &amp; Timer Setup View">
+                                <rect key="frame" x="156.5" y="374" width="711" height="618"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="4vk-KG-IVH" userLabel="Number of Problems">
+                                        <rect key="frame" x="0.0" y="0.0" width="711" height="144"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Uxi-AD-B3b">
+                                                <rect key="frame" x="0.0" y="0.0" width="711" height="84"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Number of Problems:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tqI-YH-jPD">
+                                                        <rect key="frame" x="0.0" y="0.0" width="622" height="84"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                                        <color key="textColor" red="0.15686274510000001" green="0.80000000000000004" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="50" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bMm-YT-DH6">
+                                                        <rect key="frame" x="627" y="0.0" width="84" height="84"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="45" id="Q0U-fm-9Wn"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                                        <color key="textColor" red="0.15686274510000001" green="0.80000000000000004" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                        <variation key="default">
+                                                            <mask key="constraints">
+                                                                <exclude reference="Q0U-fm-9Wn"/>
+                                                            </mask>
+                                                        </variation>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="84" id="B61-xC-9ed"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="711" id="GYU-KZ-vIq"/>
+                                                    <constraint firstItem="tqI-YH-jPD" firstAttribute="leading" secondItem="Uxi-AD-B3b" secondAttribute="leading" id="ePB-LG-4eo"/>
+                                                    <constraint firstItem="tqI-YH-jPD" firstAttribute="top" secondItem="Uxi-AD-B3b" secondAttribute="top" id="pLz-b8-4Jm"/>
+                                                </constraints>
+                                            </stackView>
+                                            <slider opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="10" maxValue="48" translatesAutoresizingMaskIntoConstraints="NO" id="5bH-Lo-qIr" userLabel="Problem Slider">
+                                                <rect key="frame" x="103.5" y="114" width="504" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="FtH-BU-zI3"/>
+                                                    <constraint firstAttribute="width" constant="500" id="qP0-9n-QaY"/>
+                                                </constraints>
+                                                <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                <color key="maximumTrackTintColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <action selector="sliderChanged:" destination="GMS-eI-xVZ" eventType="valueChanged" id="CkP-bO-wDg"/>
+                                                    <action selector="sliderChanged:" destination="wjb-wb-x2B" eventType="valueChanged" id="NAt-ps-O39"/>
+                                                </connections>
+                                            </slider>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Uxi-AD-B3b" firstAttribute="leading" secondItem="4vk-KG-IVH" secondAttribute="leading" id="8z2-oR-ZbG"/>
+                                            <constraint firstItem="Uxi-AD-B3b" firstAttribute="top" secondItem="4vk-KG-IVH" secondAttribute="top" id="Fox-7n-pN2"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="center" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="QZ8-46-3Pq" userLabel="Timer On or Off">
+                                        <rect key="frame" x="233.5" y="194" width="244.5" height="84"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMl-y6-VsV">
+                                                <rect key="frame" x="0.0" y="0.0" width="185.5" height="84"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                                <color key="textColor" red="0.15686274510000001" green="0.80000000000000004" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YZT-NM-TOe">
+                                                <rect key="frame" x="195.5" y="26.5" width="51" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="31" id="mt8-4G-DeT"/>
+                                                </constraints>
+                                                <color key="onTintColor" red="0.49803921569999998" green="1" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <action selector="timerSwitchChanged:" destination="GMS-eI-xVZ" eventType="valueChanged" id="bDL-2i-zoq"/>
+                                                    <action selector="timerSwitchChanged:" destination="wjb-wb-x2B" eventType="valueChanged" id="fwr-KR-Y86"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="WhB-5e-d93" userLabel="Length of Time">
+                                        <rect key="frame" x="51" y="328" width="609" height="144"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 minute 30 seconds" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u93-q4-dar">
+                                                <rect key="frame" x="0.0" y="0.0" width="609" height="84"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                                <color key="textColor" red="0.15686274510000001" green="0.80000000000000004" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <slider opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.5" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="1hT-iG-wjM">
+                                                <rect key="frame" x="202.5" y="114" width="204" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="200" id="FQL-DM-DBW"/>
+                                                    <constraint firstAttribute="height" constant="30" id="cWa-D0-MsB"/>
+                                                </constraints>
+                                                <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="maximumTrackTintColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
+                                                <connections>
+                                                    <action selector="timerSliderChanged:" destination="GMS-eI-xVZ" eventType="valueChanged" id="BSJ-7h-cgc"/>
+                                                    <action selector="timerSliderChanged:" destination="wjb-wb-x2B" eventType="valueChanged" id="J2e-tU-UMj"/>
+                                                </connections>
+                                            </slider>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wl1-Yp-buO">
+                                        <rect key="frame" x="293" y="522" width="125" height="96"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                        <state key="normal" title="Play">
+                                            <color key="titleColor" red="0.15686274510000001" green="0.80000000000000004" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="WXl-9s-H34"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.098039215690000001" green="0.49803921569999998" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="ajc-9W-tRE" firstAttribute="centerY" secondItem="aAB-0Y-pdk" secondAttribute="centerY" id="agF-gT-R0n"/>
+                            <constraint firstItem="ajc-9W-tRE" firstAttribute="centerX" secondItem="aAB-0Y-pdk" secondAttribute="centerX" id="qW8-wd-XGm"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="problemSlider" destination="5bH-Lo-qIr" id="yp0-E7-bty"/>
+                        <outlet property="timerLabel" destination="u93-q4-dar" id="Egj-JE-2ZQ"/>
+                        <outlet property="timerSlider" destination="1hT-iG-wjM" id="cp8-sv-0FZ"/>
+                        <outlet property="timerSwitch" destination="YZT-NM-TOe" id="aZI-22-6Fb"/>
+                        <outlet property="totalNumOfProblems" destination="bMm-YT-DH6" id="S8R-nR-Cip"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K9v-fY-6c5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-669" y="-604"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="h4Q-ph-1Np">
@@ -790,9 +945,6 @@
                                                 </constraints>
                                                 <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                 <color key="maximumTrackTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                <connections>
-                                                    <action selector="sliderChanged:" destination="GMS-eI-xVZ" eventType="valueChanged" id="z4A-Qu-rqG"/>
-                                                </connections>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 minute 30 seconds" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tzZ-k6-3cN">
                                                 <rect key="frame" x="62" y="261.5" width="250" height="35"/>
@@ -815,9 +967,6 @@
                                                     <constraint firstAttribute="height" constant="31" id="Tds-Q4-kxx"/>
                                                 </constraints>
                                                 <color key="onTintColor" red="0.49803921569999998" green="1" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <connections>
-                                                    <action selector="timerSwitchChanged:" destination="GMS-eI-xVZ" eventType="valueChanged" id="ngn-ke-ytk"/>
-                                                </connections>
                                             </switch>
                                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.5" maxValue="3" translatesAutoresizingMaskIntoConstraints="NO" id="zQH-Jm-tda">
                                                 <rect key="frame" x="85.5" y="310.5" width="204" height="31"/>
@@ -827,9 +976,6 @@
                                                 </constraints>
                                                 <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="maximumTrackTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                                <connections>
-                                                    <action selector="timerSliderChanged:" destination="GMS-eI-xVZ" eventType="valueChanged" id="tc8-g8-XBa"/>
-                                                </connections>
                                             </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Include Problems With:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGt-1T-c3B">
                                                 <rect key="frame" x="49" y="366.5" width="277" height="34"/>
@@ -846,9 +992,6 @@
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IK0-ZO-Jkb">
                                                 <rect key="frame" x="220" y="410" width="51" height="31"/>
                                                 <color key="onTintColor" red="0.49803921569999998" green="1" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <connections>
-                                                    <action selector="degreesSwitchChanged:" destination="GMS-eI-xVZ" eventType="valueChanged" id="01K-Jc-A8y"/>
-                                                </connections>
                                             </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Radians" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sAn-WN-paX">
                                                 <rect key="frame" x="105" y="450.5" width="96.5" height="34"/>
@@ -859,9 +1002,6 @@
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fW7-dl-pU1">
                                                 <rect key="frame" x="220" y="452" width="51" height="31"/>
                                                 <color key="onTintColor" red="0.49803921569999998" green="1" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <connections>
-                                                    <action selector="radiansSwitchChanged:" destination="GMS-eI-xVZ" eventType="valueChanged" id="pbr-Vl-KDq"/>
-                                                </connections>
                                             </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reciprocal Functions" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggg-QV-IoJ">
                                                 <rect key="frame" x="61.5" y="492.5" width="140" height="67"/>
@@ -875,9 +1015,6 @@
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RNJ-hE-tFC">
                                                 <rect key="frame" x="220" y="510.5" width="51" height="31"/>
                                                 <color key="onTintColor" red="0.49803921569999998" green="1" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <connections>
-                                                    <action selector="reciprocalsSwitchChanged:" destination="GMS-eI-xVZ" eventType="valueChanged" id="gLB-xw-MSZ"/>
-                                                </connections>
                                             </switch>
                                         </subviews>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -932,14 +1069,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="degreesSwitch" destination="IK0-ZO-Jkb" id="3LY-db-kDi"/>
-                        <outlet property="problemSlider" destination="T1p-kF-bcA" id="jWt-Xk-IsT"/>
-                        <outlet property="radiansSwitch" destination="fW7-dl-pU1" id="GAR-3g-b8K"/>
-                        <outlet property="reciprocalsSwitch" destination="RNJ-hE-tFC" id="mrf-FY-haR"/>
                         <outlet property="timerLabel" destination="tzZ-k6-3cN" id="DKa-eh-2Fp"/>
-                        <outlet property="timerSlider" destination="zQH-Jm-tda" id="DxY-Sk-lrO"/>
-                        <outlet property="timerSwitch" destination="L0o-Ld-8eb" id="pD8-wf-EIy"/>
-                        <outlet property="totalNumOfProblems" destination="xJF-Ma-uKI" id="lYo-ez-ew8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="evJ-3H-PlK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -970,9 +1100,6 @@
                                 <state key="normal" title="Main Menu">
                                     <color key="titleColor" red="0.49803921569999998" green="1" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <connections>
-                                    <segue destination="Mu1-7X-idf" kind="show" id="6fa-as-oX6"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxN-Uz-eHe">
                                 <rect key="frame" x="744" y="40" width="260" height="55"/>
@@ -1456,7 +1583,6 @@
         <image name="yourAnswer" width="122" height="122"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="yJJ-cV-MRz"/>
-        <segue reference="6fa-as-oX6"/>
+        <segue reference="tAt-po-t3U"/>
     </inferredMetricsTieBreakers>
 </document>
