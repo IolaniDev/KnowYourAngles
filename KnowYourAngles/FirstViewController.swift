@@ -65,6 +65,41 @@ class FirstViewController : UIViewController{
             defaultSettings.setValue(false, forKey: "radians");
         }
         
+        /**********SETTINGS FOR PROBLEMS FROM QUADRANTALS**********/
+        //check if there are no previously saved settings for including problems with quadrantals
+        if (defaultSettings.object(forKey: "quadrantals") == nil)
+        {
+            defaultSettings.setValue(true, forKey: "quadrantals");
+        }
+        
+        /**********SETTINGS FOR PROBLEMS FROM QUADRANT I**********/
+        //check if there are no previously saved settings for including problems with Quadrant I
+        if (defaultSettings.object(forKey: "quadI") == nil)
+        {
+            defaultSettings.setValue(true, forKey: "quadI");
+        }
+        
+        /**********SETTINGS FOR PROBLEMS FROM QUADRANT II**********/
+        //check if there are no previously saved settings for including problems with Quadrant II
+        if (defaultSettings.object(forKey: "quadII") == nil)
+        {
+            defaultSettings.setValue(true, forKey: "quadII");
+        }
+        
+        /**********SETTINGS FOR PROBLEMS FROM QUADRANT III**********/
+        //check if there are no previously saved settings for including problems with Quadrant III
+        if (defaultSettings.object(forKey: "quadIII") == nil)
+        {
+            defaultSettings.setValue(true, forKey: "quadIII");
+        }
+        
+        /**********SETTINGS FOR PROBLEMS FROM QUADRANT IV**********/
+        //check if there are no previously saved settings for including problems with Quadrant IV
+        if (defaultSettings.object(forKey: "quadIV") == nil)
+        {
+            defaultSettings.setValue(true, forKey: "quadIV");
+        }
+        
         /**********SETTINGS FOR PROBLEMS USING RECIPROCALS**********/
         //if there are no previously saved settings for including reciprocal trig facts, then don't include them
         if(defaultSettings.object(forKey: "reciprocals") == nil)
