@@ -240,6 +240,9 @@
                                                     </label>
                                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WOM-9x-G7m">
                                                         <rect key="frame" x="184" y="25" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="quadrantalsSwitchChanged:" destination="VL1-64-KTH" eventType="valueChanged" id="x8Y-3r-jua"/>
+                                                        </connections>
                                                     </switch>
                                                 </subviews>
                                             </stackView>
@@ -263,6 +266,9 @@
                                                             </label>
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qXo-ny-86z">
                                                                 <rect key="frame" x="22" y="6" width="51" height="31"/>
+                                                                <connections>
+                                                                    <action selector="quad1SwitchChanged:" destination="VL1-64-KTH" eventType="valueChanged" id="1UP-DQ-E9V"/>
+                                                                </connections>
                                                             </switch>
                                                         </subviews>
                                                     </stackView>
@@ -277,6 +283,9 @@
                                                             </label>
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uV2-ub-E0b">
                                                                 <rect key="frame" x="34" y="6" width="51" height="31"/>
+                                                                <connections>
+                                                                    <action selector="quad2SwitchChanged:" destination="VL1-64-KTH" eventType="valueChanged" id="0GI-L9-Vo2"/>
+                                                                </connections>
                                                             </switch>
                                                         </subviews>
                                                     </stackView>
@@ -291,6 +300,9 @@
                                                             </label>
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fwX-TJ-VDF">
                                                                 <rect key="frame" x="46" y="6" width="51" height="31"/>
+                                                                <connections>
+                                                                    <action selector="quad3SwitchChanged:" destination="VL1-64-KTH" eventType="valueChanged" id="m2I-Om-455"/>
+                                                                </connections>
                                                             </switch>
                                                         </subviews>
                                                     </stackView>
@@ -305,6 +317,9 @@
                                                             </label>
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="a3K-5p-yow">
                                                                 <rect key="frame" x="48" y="6" width="51" height="31"/>
+                                                                <connections>
+                                                                    <action selector="quad4SwitchChanged:" destination="VL1-64-KTH" eventType="valueChanged" id="c6k-oy-Eux"/>
+                                                                </connections>
                                                             </switch>
                                                         </subviews>
                                                     </stackView>
@@ -531,6 +546,11 @@
                     <tabBarItem key="tabBarItem" title="" image="icons8-settings-50" selectedImage="icons8-settings-filled-50" id="uhh-8M-L90"/>
                     <connections>
                         <outlet property="degreesSwitch" destination="BHy-Qv-hS4" id="nHt-Cb-92x"/>
+                        <outlet property="quad1Switch" destination="qXo-ny-86z" id="WEf-bi-dlO"/>
+                        <outlet property="quad2Switch" destination="uV2-ub-E0b" id="sg4-3X-wea"/>
+                        <outlet property="quad3Switch" destination="fwX-TJ-VDF" id="1pL-Ng-qOm"/>
+                        <outlet property="quad4Switch" destination="a3K-5p-yow" id="rtD-Yv-RBU"/>
+                        <outlet property="quadrantalsSwitch" destination="WOM-9x-G7m" id="g6G-xW-Ghf"/>
                         <outlet property="radiansSwitch" destination="TpZ-9j-5WF" id="phR-dh-E5A"/>
                     </connections>
                 </viewController>
