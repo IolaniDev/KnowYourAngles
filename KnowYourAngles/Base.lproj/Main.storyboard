@@ -347,6 +347,9 @@
                                                             </label>
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qwe-LE-bL0">
                                                                 <rect key="frame" x="75" y="16.5" width="51" height="31"/>
+                                                                <connections>
+                                                                    <action selector="trigFunctionSwitchChanged:" destination="VL1-64-KTH" eventType="valueChanged" id="YHL-Rs-kJB"/>
+                                                                </connections>
                                                             </switch>
                                                         </subviews>
                                                     </stackView>
@@ -359,8 +362,11 @@
                                                                 <color key="textColor" red="0.15686274510000001" green="0.80000000000000004" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cOQ-ms-3Ex">
+                                                            <switch opaque="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cOQ-ms-3Ex">
                                                                 <rect key="frame" x="75" y="16.5" width="51" height="31"/>
+                                                                <connections>
+                                                                    <action selector="trigFunctionSwitchChanged:" destination="VL1-64-KTH" eventType="valueChanged" id="1u6-zw-QV6"/>
+                                                                </connections>
                                                             </switch>
                                                         </subviews>
                                                     </stackView>
@@ -373,8 +379,11 @@
                                                                 <color key="textColor" red="0.15686274510000001" green="0.80000000000000004" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QyZ-6r-tbM">
+                                                            <switch opaque="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QyZ-6r-tbM">
                                                                 <rect key="frame" x="75" y="16.5" width="51" height="31"/>
+                                                                <connections>
+                                                                    <action selector="trigFunctionSwitchChanged:" destination="VL1-64-KTH" eventType="valueChanged" id="2e5-1n-vDr"/>
+                                                                </connections>
                                                             </switch>
                                                         </subviews>
                                                     </stackView>
@@ -392,8 +401,11 @@
                                                                 <color key="textColor" red="0.15686274510000001" green="0.80000000000000004" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wO7-25-kpt">
+                                                            <switch opaque="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wO7-25-kpt">
                                                                 <rect key="frame" x="82" y="16.5" width="51" height="31"/>
+                                                                <connections>
+                                                                    <action selector="trigFunctionSwitchChanged:" destination="VL1-64-KTH" eventType="valueChanged" id="OL0-Zn-2Qc"/>
+                                                                </connections>
                                                             </switch>
                                                         </subviews>
                                                         <constraints>
@@ -409,8 +421,11 @@
                                                                 <color key="textColor" red="0.15686274510000001" green="0.80000000000000004" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x4S-MB-jJe">
+                                                            <switch opaque="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x4S-MB-jJe">
                                                                 <rect key="frame" x="74" y="16.5" width="51" height="31"/>
+                                                                <connections>
+                                                                    <action selector="trigFunctionSwitchChanged:" destination="VL1-64-KTH" eventType="valueChanged" id="kYr-zV-HtL"/>
+                                                                </connections>
                                                             </switch>
                                                         </subviews>
                                                     </stackView>
@@ -423,8 +438,11 @@
                                                                 <color key="textColor" red="0.15686274510000001" green="0.80000000000000004" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RKZ-Xx-Yeg">
+                                                            <switch opaque="NO" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RKZ-Xx-Yeg">
                                                                 <rect key="frame" x="69" y="16.5" width="51" height="31"/>
+                                                                <connections>
+                                                                    <action selector="trigFunctionSwitchChanged:" destination="VL1-64-KTH" eventType="valueChanged" id="gie-Ki-3ZX"/>
+                                                                </connections>
                                                             </switch>
                                                         </subviews>
                                                     </stackView>
@@ -545,6 +563,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="icons8-settings-50" selectedImage="icons8-settings-filled-50" id="uhh-8M-L90"/>
                     <connections>
+                        <outlet property="cosecantSwitch" destination="wO7-25-kpt" id="lmW-rh-tU9"/>
+                        <outlet property="cosineSwitch" destination="cOQ-ms-3Ex" id="2qN-KZ-lXF"/>
+                        <outlet property="cotangentSwitch" destination="RKZ-Xx-Yeg" id="82A-2n-hx0"/>
                         <outlet property="degreesSwitch" destination="BHy-Qv-hS4" id="nHt-Cb-92x"/>
                         <outlet property="quad1Switch" destination="qXo-ny-86z" id="WEf-bi-dlO"/>
                         <outlet property="quad2Switch" destination="uV2-ub-E0b" id="sg4-3X-wea"/>
@@ -552,6 +573,9 @@
                         <outlet property="quad4Switch" destination="a3K-5p-yow" id="rtD-Yv-RBU"/>
                         <outlet property="quadrantalsSwitch" destination="WOM-9x-G7m" id="g6G-xW-Ghf"/>
                         <outlet property="radiansSwitch" destination="TpZ-9j-5WF" id="phR-dh-E5A"/>
+                        <outlet property="secantSwitch" destination="x4S-MB-jJe" id="HZo-jH-bJr"/>
+                        <outlet property="sineSwitch" destination="qwe-LE-bL0" id="2g5-1P-klH"/>
+                        <outlet property="tangentSwitch" destination="QyZ-6r-tbM" id="Wm6-Qm-eBp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2ks-CJ-U0x" userLabel="First Responder" sceneMemberID="firstResponder"/>
