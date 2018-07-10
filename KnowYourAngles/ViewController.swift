@@ -126,34 +126,96 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             // setup the number of correctly answered questions label
             correctingMarksView.numCorrect.text = "0";
             
-            /**********LOAD PROBLEMS THAT ARE IN DEGREES**********/
+            /**********LOAD SINE PROBLEMS**********/
             // if there are previously saved settings...
-            if(savedSettings.object(forKey: "degrees") != nil)
+            if(savedSettings.object(forKey: "sine") != nil)
             {
-                // load the degree problems (if the user wants them)
-                if(savedSettings.value(forKey: "degrees") as! Bool)
+                //check if the user wants sine problems
+                if(savedSettings.value(forKey: "sine") as! Bool)
                 {
-                    problemSource.loadSineDegreeQuadrantalProblems();
-                    problemSource.loadSineDegreeQuadIProblems();
-                    problemSource.loadSineDegreeQuadIIProblems();
-                    problemSource.loadSineDegreeQuadIIIProblems();
-                    problemSource.loadSineDegreeQuadIVProblems();
-                    
-                    problemSource.loadCosineDegreeQuadrantalProblems();
-                    problemSource.loadCosineDegreeQuadIProblems();
-                    problemSource.loadCosineDegreeQuadIIProblems();
-                    problemSource.loadCosineDegreeQuadIIIProblems();
-                    problemSource.loadCosineDegreeQuadIVProblems();
-                    
-                    problemSource.loadTangentDegreeQuadrantalProblems();
-                    problemSource.loadTangentDegreeQuadIProblems();
-                    problemSource.loadTangentDegreeQuadIIProblems();
-                    problemSource.loadTangentDegreeQuadIIIProblems();
-                    problemSource.loadTangentDegreeQuadIVProblems();
+                    //check if the user wants quadrantals
+                    if(savedSettings.value(forKey: "quadrantals") as! Bool)
+                    {
+                        //check if the user wants radians
+                        if(savedSettings.value(forKey: "radians") as! Bool)
+                        {
+                            //load sine quadrantal problems in radians
+                            problemSource.loadSineRadiansQuadrantalProblems();
+                        }
+                        //check if the user wants degrees
+                        if(savedSettings.value(forKey: "degrees") as! Bool)
+                        {
+                            //load sine quadrantal problems in degrees
+                            problemSource.loadSineDegreeQuadrantalProblems();
+                        }
+                    }
+                    //check if the user wants quadrant I
+                    if(savedSettings.value(forKey: "quadI") as! Bool)
+                    {
+                        //check if the user wants radians
+                        if(savedSettings.value(forKey: "radians") as! Bool)
+                        {
+                            //load sine problems from Quadrant I in radians
+                            problemSource.loadSineRadiansQuadIProblems();
+                        }
+                        //check if the user wants degrees
+                        if(savedSettings.value(forKey: "degrees") as! Bool)
+                        {
+                            //load sine problems from Quadrant I in degrees
+                            problemSource.loadSineDegreeQuadIProblems();
+                        }
+                    }
+                    //check if the user wants quadrant II
+                    if(savedSettings.value(forKey: "quadII") as! Bool)
+                    {
+                        //check if the user wants radians
+                        if(savedSettings.value(forKey: "radians") as! Bool)
+                        {
+                            //load sine problems from Quadrant II in radians
+                            problemSource.loadSineRadiansQuadIIProblems();
+                        }
+                        //check if the user wants degrees
+                        if(savedSettings.value(forKey: "degrees") as! Bool)
+                        {
+                            //load sine problems from Quadrant II in degrees
+                            problemSource.loadSineDegreeQuadIIProblems();
+                        }
+                    }
+                    //check if the user wants quadrant III
+                    if(savedSettings.value(forKey: "quadIII") as! Bool)
+                    {
+                        //check if the user wants radians
+                        if(savedSettings.value(forKey: "radians") as! Bool)
+                        {
+                            //load sine problems from Quadrant III in radians
+                            problemSource.loadSineRadiansQuadIIIProblems();
+                        }
+                        //check if the user wants degrees
+                        if(savedSettings.value(forKey: "degrees") as! Bool)
+                        {
+                            //load sine problems from Quadrant III in degrees
+                            problemSource.loadSineDegreeQuadIIIProblems();
+                        }
+                    }
+                    //check if the user wants quadrant IV
+                    if(savedSettings.value(forKey: "quadIV") as! Bool)
+                    {
+                        //check if the user wants radians
+                        if(savedSettings.value(forKey: "radians") as! Bool)
+                        {
+                            //load sine problems from Quadrant IV in radians
+                            problemSource.loadSineRadiansQuadIVProblems();
+                        }
+                        //check if the user wants degrees
+                        if(savedSettings.value(forKey: "degrees") as! Bool)
+                        {
+                            //load sine problems from Quadrant IV in degrees
+                            problemSource.loadSineDegreeQuadIVProblems();
+                        }
+                    }
                 }
-                // otherwise don't load them
             }
-            // if there are no previously saved settings, by default include the problems in degrees.
+            // if there are no previously saved settings, by default include the sine problems in degrees from quadrantals and all quadrants
             else
             {
                 problemSource.loadSineDegreeQuadrantalProblems();
@@ -161,13 +223,179 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                 problemSource.loadSineDegreeQuadIIProblems();
                 problemSource.loadSineDegreeQuadIIIProblems();
                 problemSource.loadSineDegreeQuadIVProblems();
-                
+            }
+            
+            /**********LOAD COSINE PROBLEMS**********/
+            // if there are previously saved settings...
+            if(savedSettings.object(forKey: "cosine") != nil)
+            {
+                //check if the user wants cosine problems...
+                if(savedSettings.value(forKey: "cosine") as! Bool)
+                {
+                    //check if the user wants quadrantal problems
+                    if(savedSettings.value(forKey: "quadrantals") as! Bool)
+                    {
+                        //check if the user wants radians
+                        if(savedSettings.value(forKey: "radians") as! Bool)
+                        {
+                            problemSource.loadCosineRadiansQuadrantalProblems();
+                        }
+                        //check if the user wants degrees
+                        if(savedSettings.value(forKey: "degrees") as! Bool)
+                        {
+                            problemSource.loadCosineDegreeQuadrantalProblems();
+                        }
+                    }
+                    //check if the user wants problems from Quadrant I
+                    if(savedSettings.value(forKey: "quadI") as! Bool)
+                    {
+                        //check if the user wants radians
+                        if(savedSettings.value(forKey: "radians") as! Bool)
+                        {
+                            problemSource.loadCosineRadiansQuadIProblems();
+                        }
+                        //check if the user wants degrees
+                        if(savedSettings.value(forKey: "degrees") as! Bool)
+                        {
+                            problemSource.loadCosineDegreeQuadIProblems();
+                        }
+                    }
+                    //check if the user wants problems from Quadrant II
+                    if(savedSettings.value(forKey: "quadII") as! Bool)
+                    {
+                        //check if the user wants radians
+                        if(savedSettings.value(forKey: "radians") as! Bool)
+                        {
+                            problemSource.loadCosineRadiansQuadIIProblems();
+                        }
+                        //check if the user wants degrees
+                        if(savedSettings.value(forKey: "degrees") as! Bool)
+                        {
+                            problemSource.loadCosineDegreeQuadIIProblems();
+                        }
+                    }
+                    //check if the user wants problems from Quadrant III
+                    if(savedSettings.value(forKey: "quadIII") as! Bool)
+                    {
+                        //check if the user wants radians
+                        if(savedSettings.value(forKey: "radians") as! Bool)
+                        {
+                            problemSource.loadCosineRadiansQuadIIIProblems();
+                        }
+                        //check if the user wants degrees
+                        if(savedSettings.value(forKey: "degrees") as! Bool)
+                        {
+                            problemSource.loadCosineDegreeQuadIIIProblems();
+                        }
+                    }
+                    //check if the user wants problems from Quadrant IV
+                    if(savedSettings.value(forKey: "quadIV") as! Bool)
+                    {
+                        //check if the user wants radians
+                        if(savedSettings.value(forKey: "radians") as! Bool)
+                        {
+                            problemSource.loadCosineRadiansQuadIVProblems();
+                        }
+                        //check if the user wants degrees
+                        if(savedSettings.value(forKey: "degrees") as! Bool)
+                        {
+                            problemSource.loadCosineDegreeQuadIVProblems();
+                        }
+                    }
+                }
+            }
+            // if there are no previously saved settings, by default, include the cosine problems in degrees from quadrantals and all quadrants
+            else
+            {
                 problemSource.loadCosineDegreeQuadrantalProblems();
                 problemSource.loadCosineDegreeQuadIProblems();
                 problemSource.loadCosineDegreeQuadIIProblems();
                 problemSource.loadCosineDegreeQuadIIIProblems();
                 problemSource.loadCosineDegreeQuadIVProblems();
-                
+            }
+            
+            /**********LOAD TANGENT PROBLEMS**********/
+            // if there are previously saved settings...
+            if(savedSettings.object(forKey: "tangent") != nil)
+            {
+                // check if the user wants tangent problems
+                if(savedSettings.value(forKey: "tangent") as! Bool)
+                {
+                    // check if the user wants quadrantal problems
+                    if(savedSettings.value(forKey: "quadrantals") as! Bool)
+                    {
+                        // check if the user wants radians
+                        if(savedSettings.value(forKey: "radians") as! Bool)
+                        {
+                            problemSource.loadTangentRadiansQuadrantalProblems();
+                        }
+                        // check if the user wants degrees
+                        if(savedSettings.value(forKey: "degrees") as! Bool)
+                        {
+                            problemSource.loadTangentDegreeQuadrantalProblems();
+                        }
+                    }
+                    // check if the user wants problems from Quadrant I
+                    if(savedSettings.value(forKey: "quadI") as! Bool)
+                    {
+                        // check if the user wants radians
+                        if(savedSettings.value(forKey: "radians") as! Bool)
+                        {
+                            problemSource.loadTangentRadiansQuadIProblems();
+                        }
+                        // check if the user wants degrees
+                        if(savedSettings.value(forKey: "degrees") as! Bool)
+                        {
+                            problemSource.loadTangentDegreeQuadIProblems();
+                        }
+                    }
+                    // check if the user wants problems from Quadrant II
+                    if(savedSettings.value(forKey: "quadII") as! Bool)
+                    {
+                        // check if the user wants radians
+                        if(savedSettings.value(forKey: "radians") as! Bool)
+                        {
+                            problemSource.loadTangentRadiansQuadIIProblems();
+                        }
+                        // check if the user wants degrees
+                        if(savedSettings.value(forKey: "degrees") as! Bool)
+                        {
+                            problemSource.loadTangentDegreeQuadIIProblems();
+                        }
+                    }
+                    // check if the user wants problems from Quadrant III
+                    if(savedSettings.value(forKey: "quadIII") as! Bool)
+                    {
+                        // check if the user wants radians
+                        if(savedSettings.value(forKey: "radians") as! Bool)
+                        {
+                            problemSource.loadTangentRadiansQuadIIIProblems();
+                        }
+                        // check if the user wants degrees
+                        if(savedSettings.value(forKey: "degrees") as! Bool)
+                        {
+                            problemSource.loadTangentDegreeQuadIIIProblems();
+                        }
+                    }
+                    // check if the user wants problems from Quadrant IV
+                    if(savedSettings.value(forKey: "quadIV") as! Bool)
+                    {
+                        // check if the user wants radians
+                        if(savedSettings.value(forKey: "radians") as! Bool)
+                        {
+                            problemSource.loadTangentRadiansQuadIVProblems();
+                        }
+                        // check if the user wants degrees
+                        if(savedSettings.value(forKey: "degrees") as! Bool)
+                        {
+                            problemSource.loadTangentDegreeQuadIVProblems();
+                        }
+                    }
+                }
+            }
+            // if there are no previously saved settings, by default, include the tanget problems in degrees from quadrantals and all quadrants
+            else
+            {
                 problemSource.loadTangentDegreeQuadrantalProblems();
                 problemSource.loadTangentDegreeQuadIProblems();
                 problemSource.loadTangentDegreeQuadIIProblems();
@@ -175,96 +403,251 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                 problemSource.loadTangentDegreeQuadIVProblems();
             }
             
-            /**********LOAD PROBLEMS THAT ARE IN RADIANS**********/
+            /**********LOAD COSECANT PROBLEMS**********/
             // if there are previously saved settings...
-            if(savedSettings.object(forKey: "radians") != nil)
+            if(savedSettings.object(forKey: "cosecant") != nil)
             {
-                // load the radian problems (if the user wants them)
-                if(savedSettings.value(forKey: "radians") as! Bool)
+                // check if user wants cosecant problems
+                if(savedSettings.value(forKey: "cosecant") as! Bool)
                 {
-                    problemSource.loadSineRadiansQuadrantalProblems();
-                    problemSource.loadSineRadiansQuadIProblems();
-                    problemSource.loadSineRadiansQuadIIProblems();
-                    problemSource.loadSineRadiansQuadIIIProblems();
-                    problemSource.loadSineRadiansQuadIVProblems();
-                    
-                    problemSource.loadCosineRadiansQuadrantalProblems();
-                    problemSource.loadCosineRadiansQuadIProblems();
-                    problemSource.loadCosineRadiansQuadIIProblems();
-                    problemSource.loadCosineRadiansQuadIIIProblems();
-                    problemSource.loadCosineRadiansQuadIVProblems();
-                    
-                    problemSource.loadTangentRadiansQuadrantalProblems();
-                    problemSource.loadTangentRadiansQuadIProblems();
-                    problemSource.loadTangentRadiansQuadIIProblems();
-                    problemSource.loadTangentRadiansQuadIIIProblems();
-                    problemSource.loadTangentRadiansQuadIVProblems();
-                }
-            }
-            // otherwise do not load radian problems (by default)
-            
-             /**********LOAD RECIPROCAL PROBLEMS**********/
-            // load the reciprocal problems (if the user wants them)
-            if(savedSettings.object(forKey: "reciprocals") != nil)
-            {
-                if(savedSettings.value(forKey: "reciprocals") as! Bool)
-                {
-                    if(savedSettings.object(forKey: "degrees") != nil)
+                    // check if user wants quadrantal problems
+                    if(savedSettings.value(forKey: "quadrantals") as! Bool)
                     {
-                        if(savedSettings.value(forKey: "degrees") as! Bool)
-                        {
-                            problemSource.loadCosecantDegreeQuadrantalProblems();
-                            problemSource.loadCosecantDegreeQuadIProblems();
-                            problemSource.loadCosecantDegreeQuadIIProblems();
-                            problemSource.loadCosecantDegreeQuadIIIProblems();
-                            problemSource.loadCosecantDegreeQuadIVProblems();
-                            
-                            problemSource.loadSecantDegreeQuadrantalProblems();
-                            problemSource.loadSecantDegreeQuadIProblems();
-                            problemSource.loadSecantDegreeQuadIIProblems();
-                            problemSource.loadSecantDegreeQuadIIIProblems();
-                            problemSource.loadSecantDegreeQuadIVProblems();
-                            
-                            problemSource.loadCotangentDegreeQuadrantalProblems();
-                            problemSource.loadCotangentDegreeQuadIProblems();
-                            problemSource.loadCotangentDegreeQuadIIProblems();
-                            problemSource.loadCotangentDegreeQuadIIIProblems();
-                            problemSource.loadCotangentDegreeQuadIVProblems();
-                        }
-                    }
-                    if(savedSettings.object(forKey: "radians") != nil)
-                    {
+                        // check if the user wants radians
                         if(savedSettings.value(forKey: "radians") as! Bool)
                         {
                             problemSource.loadCosecantRadiansQuadrantalProblems();
+                        }
+                        // check if the user wants degrees
+                        if(savedSettings.value(forKey: "degrees") as! Bool)
+                        {
+                            problemSource.loadCosecantDegreeQuadrantalProblems();
+                        }
+                    }
+                    // check if user wants problems from Quadrant I
+                    if(savedSettings.value(forKey: "quadI") as! Bool)
+                    {
+                        // check if the user wants radians
+                        if(savedSettings.value(forKey: "radians") as! Bool)
+                        {
                             problemSource.loadCosecantRadiansQuadIProblems();
+                        }
+                        // check if the user wants degrees
+                        if(savedSettings.value(forKey: "degrees") as! Bool)
+                        {
+                            problemSource.loadCosecantDegreeQuadIProblems();
+                        }
+                    }
+                    // check if user wants problems from Quadrant II
+                    if(savedSettings.value(forKey: "quadII") as! Bool)
+                    {
+                        // check if the user wants radians
+                        if(savedSettings.value(forKey: "radians") as! Bool)
+                        {
                             problemSource.loadCosecantRadiansQuadIIProblems();
+                        }
+                        // check if the user wants degrees
+                        if(savedSettings.value(forKey: "degrees") as! Bool)
+                        {
+                            problemSource.loadCosecantDegreeQuadIIProblems();
+                        }
+                    }
+                    // check if user wants problems from Quadrant III
+                    if(savedSettings.value(forKey: "quadIII") as! Bool)
+                    {
+                        // check if the user wants radians
+                        if(savedSettings.value(forKey: "radians") as! Bool)
+                        {
                             problemSource.loadCosecantRadiansQuadIIIProblems();
+                        }
+                        // check if the user wants degrees
+                        if(savedSettings.value(forKey: "degrees") as! Bool)
+                        {
+                            problemSource.loadCosecantDegreeQuadIIIProblems();
+                        }
+                    }
+                    // check if user wants problems from Quadrant IV
+                    if(savedSettings.value(forKey: "quadIV") as! Bool)
+                    {
+                        // check if the user wants radians
+                        if(savedSettings.value(forKey: "radians") as! Bool)
+                        {
                             problemSource.loadCosecantRadiansQuadIVProblems();
-                            
-                            problemSource.loadSecantRadiansQuadrantalProblems();
-                            problemSource.loadSecantRadiansQuadIProblems();
-                            problemSource.loadSecantRadiansQuadIIProblems();
-                            problemSource.loadSecantRadiansQuadIIIProblems();
-                            problemSource.loadSecantRadiansQuadIVProblems();
-                            
-                            problemSource.loadCotangentRadiansQuadrantalProblems();
-                            problemSource.loadCotangentRadiansQuadIProblems();
-                            problemSource.loadCotangentRadiansQuadIIProblems();
-                            problemSource.loadCotangentRadiansQuadIIIProblems();
-                            problemSource.loadCotangentRadiansQuadIVProblems();
+                        }
+                        // check if the user wants degrees
+                        if(savedSettings.value(forKey: "degrees") as! Bool)
+                        {
+                            problemSource.loadCosecantDegreeQuadIVProblems();
                         }
                     }
                 }
             }
+            // if there are no previously saved settings then, by default, do not load cosecant problems
+            
+            /**********LOAD SECANT PROBLEMS**********/
+            // if there are previously saved settings...
+            if(savedSettings.object(forKey: "secant") != nil)
+            {
+                // check if the user wants secant problems
+                if(savedSettings.value(forKey: "secant") as! Bool)
+                {
+                    // check if user wants quadrantal problems
+                    if(savedSettings.value(forKey: "quadrantals") as! Bool)
+                    {
+                        // check if the user wants radians
+                        if(savedSettings.value(forKey: "radians") as! Bool)
+                        {
+                            problemSource.loadSecantRadiansQuadrantalProblems();
+                        }
+                        // check if the user wants degrees
+                        if(savedSettings.value(forKey: "degrees") as! Bool)
+                        {
+                            problemSource.loadSecantDegreeQuadrantalProblems();
+                        }
+                    }
+                    // check if user wants problems from Quadrant I
+                    if(savedSettings.value(forKey: "quadI") as! Bool)
+                    {
+                        // check if the user wants radians
+                        if(savedSettings.value(forKey: "radians") as! Bool)
+                        {
+                            problemSource.loadSecantRadiansQuadIProblems();
+                        }
+                        // check if the user wants degrees
+                        if(savedSettings.value(forKey: "degrees") as! Bool)
+                        {
+                            problemSource.loadSecantDegreeQuadIProblems();
+                        }
+                    }
+                    // check if user wants problems from Quadrant II
+                    if(savedSettings.value(forKey: "quadII") as! Bool)
+                    {
+                        // check if the user wants radians
+                        if(savedSettings.value(forKey: "radians") as! Bool)
+                        {
+                            problemSource.loadSecantRadiansQuadIIProblems();
+                        }
+                        // check if the user wants degrees
+                        if(savedSettings.value(forKey: "degrees") as! Bool)
+                        {
+                            problemSource.loadSecantDegreeQuadIIProblems();
+                        }
+                    }
+                    // check if user wants problems from Quadrant III
+                    if(savedSettings.value(forKey: "quadIII") as! Bool)
+                    {
+                        // check if the user wants radians
+                        if(savedSettings.value(forKey: "radians") as! Bool)
+                        {
+                            problemSource.loadSecantRadiansQuadIIIProblems();
+                        }
+                        // check if the user wants degrees
+                        if(savedSettings.value(forKey: "degrees") as! Bool)
+                        {
+                            problemSource.loadSecantDegreeQuadIIIProblems();
+                        }
+                    }
+                    // check if user wants problems from Quadrant IV
+                    if(savedSettings.value(forKey: "quadIV") as! Bool)
+                    {
+                        // check if the user wants radians
+                        if(savedSettings.value(forKey: "radians") as! Bool)
+                        {
+                            problemSource.loadSecantRadiansQuadIVProblems();
+                        }
+                        // check if the user wants degrees
+                        if(savedSettings.value(forKey: "degrees") as! Bool)
+                        {
+                            problemSource.loadSecantDegreeQuadIVProblems();
+                        }
+                    }
+                }
+            }
+            // if there are no previously saved settings then, by default, do not load secant problems
+            
+            /**********LOAD COTANGENT PROBLEMS**********/
+            // if there are previously saved settings...
+            if(savedSettings.object(forKey: "cotangent") != nil)
+            {
+                // check if the user wants cotangent problems
+                if(savedSettings.value(forKey: "cotangent") as! Bool)
+                {
+                    // check if user wants quadrantal problems
+                    if(savedSettings.value(forKey: "quadrantals") as! Bool)
+                    {
+                        // check if the user wants radians
+                        if(savedSettings.value(forKey: "radians") as! Bool)
+                        {
+                            problemSource.loadCotangentRadiansQuadrantalProblems();
+                        }
+                        // check if the user wants degrees
+                        if(savedSettings.value(forKey: "degrees") as! Bool)
+                        {
+                            problemSource.loadCotangentDegreeQuadrantalProblems();
+                        }
+                    }
+                    // check if user wants problems from Quadrant I
+                    if(savedSettings.value(forKey: "quadI") as! Bool)
+                    {
+                        // check if the user wants radians
+                        if(savedSettings.value(forKey: "radians") as! Bool)
+                        {
+                            problemSource.loadCotangentRadiansQuadIProblems();
+                        }
+                        // check if the user wants degrees
+                        if(savedSettings.value(forKey: "degrees") as! Bool)
+                        {
+                            problemSource.loadCotangentDegreeQuadIProblems();
+                        }
+                    }
+                    // check if user wants problems from Quadrant II
+                    if(savedSettings.value(forKey: "quadII") as! Bool)
+                    {
+                        // check if the user wants radians
+                        if(savedSettings.value(forKey: "radians") as! Bool)
+                        {
+                            problemSource.loadCotangentRadiansQuadIIProblems();
+                        }
+                        // check if the user wants degrees
+                        if(savedSettings.value(forKey: "degrees") as! Bool)
+                        {
+                            problemSource.loadCotangentDegreeQuadIIProblems();
+                        }
+                    }
+                    // check if user wants problems from Quadrant III
+                    if(savedSettings.value(forKey: "quadIII") as! Bool)
+                    {
+                        // check if the user wants radians
+                        if(savedSettings.value(forKey: "radians") as! Bool)
+                        {
+                            problemSource.loadCotangentRadiansQuadIIIProblems();
+                        }
+                        // check if the user wants degrees
+                        if(savedSettings.value(forKey: "degrees") as! Bool)
+                        {
+                            problemSource.loadCotangentDegreeQuadIIIProblems();
+                        }
+                    }
+                    // check if user wants problems from Quadrant IV
+                    if(savedSettings.value(forKey: "quadIV") as! Bool)
+                    {
+                        // check if the user wants radians
+                        if(savedSettings.value(forKey: "radians") as! Bool)
+                        {
+                            problemSource.loadCotangentRadiansQuadIVProblems();
+                        }
+                        // check if the user wants degrees
+                        if(savedSettings.value(forKey: "degrees") as! Bool)
+                        {
+                            problemSource.loadCotangentDegreeQuadIVProblems();
+                        }
+                    }
+                }
+            }
+            // if there are no previously saved settings then, by default, do not load cotangent problems
             
             // setup image of first problem
             correctingMarksView.problemImage.image = UIImage(named: problemSource.getRandomProblem().problemImageName);
-            
-            /*summariesToSend.append(UIImage(named: "problem")!)
-            summariesToSend.append(UIImage(named: "correctAnswer")!)
-            summariesToSend.append(UIImage(named: "yourAnswer")!)
-            summariesToSend.append(UIImage(named: "rightOrWrong")!)*/
             
             problemImg = correctingMarksView.problemImage.image!;
             

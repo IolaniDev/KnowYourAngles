@@ -100,11 +100,46 @@ class FirstViewController : UIViewController{
             defaultSettings.setValue(true, forKey: "quadIV");
         }
         
-        /**********SETTINGS FOR PROBLEMS USING RECIPROCALS**********/
-        //if there are no previously saved settings for including reciprocal trig facts, then don't include them
-        if(defaultSettings.object(forKey: "reciprocals") == nil)
+        /**********SETTINGS FOR PROBLEMS FROM SINE**********/
+        //check if there are no previously saved settings for including sine problems
+        if (defaultSettings.object(forKey: "sine") == nil)
         {
-            defaultSettings.setValue(false, forKey: "reciprocals");
+            defaultSettings.setValue(true, forKey: "sine");
+        }
+        
+        /**********SETTINGS FOR PROBLEMS FROM COSINE**********/
+        //check if there are no previously saved settings for including cosine problems
+        if (defaultSettings.object(forKey: "cosine") == nil)
+        {
+            defaultSettings.setValue(true, forKey: "cosine");
+        }
+        
+        /**********SETTINGS FOR PROBLEMS FROM TANGENT**********/
+        //check if there are no previously saved settings for including tangent problems
+        if (defaultSettings.object(forKey: "tangent") == nil)
+        {
+            defaultSettings.setValue(true, forKey: "tangent");
+        }
+        
+        /**********SETTINGS FOR PROBLEMS FROM COSECANT**********/
+        //check if there are no previously saved settings for including cosecant problems
+        if (defaultSettings.object(forKey: "cosecant") == nil)
+        {
+            defaultSettings.setValue(false, forKey: "cosecant");
+        }
+        
+        /**********SETTINGS FOR PROBLEMS FROM SECANT**********/
+        //check if there are no previously saved settings for including secant problems
+        if (defaultSettings.object(forKey: "secant") == nil)
+        {
+            defaultSettings.setValue(false, forKey: "secant");
+        }
+        
+        /**********SETTINGS FOR PROBLEMS FROM COTANGENT**********/
+        //check if there are no previously saved settings for including cotangent problems
+        if (defaultSettings.object(forKey: "cotangent") == nil)
+        {
+            defaultSettings.setValue(false, forKey: "cotangent");
         }
         
     }

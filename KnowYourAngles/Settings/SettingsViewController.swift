@@ -18,6 +18,7 @@ open class SettingsViewController: UIViewController{
     @IBOutlet weak var radiansSwitch: UISwitch!
     
     //quadrantalsSwitch controls whether the problems displayed are on the axes (x and y)
+    //NOTE: at least one of the quadrants or the quadrantals option must be selected
     @IBOutlet weak var quadrantalsSwitch: UISwitch!
     //quad1Switch controls whether the problems displayed are from Quadrant I
     @IBOutlet weak var quad1Switch: UISwitch!
@@ -28,8 +29,14 @@ open class SettingsViewController: UIViewController{
     //quad4Switch controls whether the problems displayed are from Quadrant IV
     @IBOutlet weak var quad4Switch: UISwitch!
     
-    //reciprocalsSwitch controls whether to include the reciprocal functions (sec, csc, cot) in the problem set.
-    //@IBOutlet weak var reciprocalsSwitch: UISwitch!
+    //trig function switches controls whether the problems displayed use each trig function (sine, cosine, tangent, cosecant, secant, and tangent)
+    @IBOutlet weak var sineSwitch: UISwitch!
+    @IBOutlet weak var cosineSwitch: UISwitch!
+    @IBOutlet weak var tangentSwitch: UISwitch!
+    @IBOutlet weak var cosecantSwitch: UISwitch!
+    @IBOutlet weak var secantSwitch: UISwitch!
+    @IBOutlet weak var cotangentSwitch: UISwitch!
+    
     
     //grab the previously saved settings (if any)
     let defaultSettings = UserDefaults.standard
@@ -128,18 +135,83 @@ open class SettingsViewController: UIViewController{
             defaultSettings.setValue(quad4Switch.isOn, forKey: "quadIV");
         }
         
-        /**********SETTINGS FOR PROBLEMS USING RECIPROCALS**********/
-        //if there are previously saved settings for including reciprocal trig facts, then use them
-        /*if(defaultSettings.object(forKey: "reciprocals") != nil)
+        /**********SETTINGS FOR PROBLEMS USING SINE **********/
+        //check if there are previously saved settings for sine
+        if (defaultSettings.object(forKey: "sine") != nil)
         {
-            reciprocalsSwitch.setOn(defaultSettings.value(forKey: "reciprocals") as! Bool, animated: true);
+            sineSwitch.setOn(defaultSettings.value(forKey: "sine") as! Bool, animated: true);
         }
-            //otherwise, by default, don't include problems with reciprocals.
+            //if there are no previously saved settings, then, by default, include sine problems
         else
         {
-            reciprocalsSwitch.setOn(false, animated: true);
-            defaultSettings.setValue(reciprocalsSwitch.isOn, forKey: "reciprocals");
-        }*/
+            sineSwitch.setOn(true, animated: true);
+            defaultSettings.setValue(sineSwitch.isOn, forKey: "sine");
+        }
+        
+        /**********SETTINGS FOR PROBLEMS USING COSINE **********/
+        //check if there are previously saved settings for cosine
+        if (defaultSettings.object(forKey: "cosine") != nil)
+        {
+            cosineSwitch.setOn(defaultSettings.value(forKey: "cosine") as! Bool, animated: true);
+        }
+            //if there are no previously saved settings, then, by default, include cosine problems
+        else
+        {
+            cosineSwitch.setOn(true, animated: true);
+            defaultSettings.setValue(cosineSwitch.isOn, forKey: "cosine");
+        }
+        
+        /**********SETTINGS FOR PROBLEMS USING TANGENT **********/
+        //check if there are previously saved settings for tangent
+        if (defaultSettings.object(forKey: "tangent") != nil)
+        {
+            tangentSwitch.setOn(defaultSettings.value(forKey: "tangent") as! Bool, animated: true);
+        }
+            //if there are no previously saved settings, then, by default, include tangent problems
+        else
+        {
+            tangentSwitch.setOn(true, animated: true);
+            defaultSettings.setValue(tangentSwitch.isOn, forKey: "tangent");
+        }
+        
+        /**********SETTINGS FOR PROBLEMS USING COSECANT **********/
+        //check if there are previously saved settings for cosecant
+        if (defaultSettings.object(forKey: "cosecant") != nil)
+        {
+            cosecantSwitch.setOn(defaultSettings.value(forKey: "cosecant") as! Bool, animated: true);
+        }
+            //if there are no previously saved settings, then, by default, do not include cosecant problems
+        else
+        {
+            cosecantSwitch.setOn(false, animated: true);
+            defaultSettings.setValue(cosecantSwitch.isOn, forKey: "cosecant");
+        }
+        
+        /**********SETTINGS FOR PROBLEMS USING SECANT **********/
+        //check if there are previously saved settings for secant
+        if (defaultSettings.object(forKey: "secant") != nil)
+        {
+            secantSwitch.setOn(defaultSettings.value(forKey: "secant") as! Bool, animated: true);
+        }
+            //if there are no previously saved settings, then, by default, do not include secant problems
+        else
+        {
+            secantSwitch.setOn(false, animated: true);
+            defaultSettings.setValue(secantSwitch.isOn, forKey: "secant");
+        }
+        
+        /**********SETTINGS FOR PROBLEMS USING COTANGENT **********/
+        //check if there are previously saved settings for cotangent
+        if (defaultSettings.object(forKey: "cotangent") != nil)
+        {
+            cotangentSwitch.setOn(defaultSettings.value(forKey: "cotangent") as! Bool, animated: true);
+        }
+            //if there are no previously saved settings, then, by default, do not include cotangent problems
+        else
+        {
+            cotangentSwitch.setOn(false, animated: true);
+            defaultSettings.setValue(cotangentSwitch.isOn, forKey: "cotangent");
+        }
     }
 
     //function is called when the user changes whether to include radian problems or not
@@ -220,9 +292,26 @@ open class SettingsViewController: UIViewController{
         defaultSettings.setValue(sender.isOn, forKey: "quadIV");
     }
     
-    
-    //update settings if the state of the reciprocals switch is changed.
-    @IBAction func reciprocalsSwitchChanged(_ sender: UISwitch) {
-        defaultSettings.setValue(sender.isOn, forKey: "reciprocals");
+    @IBAction func trigFunctionSwitchChanged(_ sender: UISwitch) {
+        var keyName = ""
+        switch(sender.tag)
+        {
+        case 0:
+            keyName = "sine";
+        case 1:
+            keyName = "cosine";
+        case 2:
+            keyName = "tangent";
+        case 3:
+            keyName = "cosecant";
+        case 4:
+            keyName = "secant";
+        case 5:
+            keyName = "cotangent";
+        default: break
+        }
+        defaultSettings.setValue(sender.isOn, forKey: keyName);
     }
+    
+    
 }
