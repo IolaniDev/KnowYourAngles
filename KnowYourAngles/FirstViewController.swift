@@ -20,12 +20,19 @@ class FirstViewController : UIViewController{
         super.viewDidLoad()
         
         //Since this is the first screen that loads in the app, set up initial settings (or use previously saved ones)
+        /**********SETTINGS FOR NUM OF PROBLEMS**********/
+        if (defaultSettings.object(forKey: "numOfProblems") == nil)
+        {
+            //set the number of problems to 10
+            defaultSettings.setValue(10, forKey: "numOfProblems");
+        }
+        
         /**********SETTINGS FOR MAX NUM OF PROBLEMS**********/
         //if there are no previously saved settings for the number of problems...then set defaults
         if (defaultSettings.object(forKey: "maxNumOfProblems") == nil)
         {
-            //set the default number of problems to 10
-            defaultSettings.setValue(10, forKey: "maxNumOfProblems");
+            //set the default maximum number of problems to 48 which would be the number of problems if the user includes sin, cos, tan for all degrees on the unit circle.
+            defaultSettings.setValue(48, forKey: "maxNumOfProblems");
         }
         
         /**********SETTINGS FOR TIMER**********/

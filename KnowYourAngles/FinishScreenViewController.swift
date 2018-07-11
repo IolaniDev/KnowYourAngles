@@ -137,10 +137,10 @@ open class FinishScreenViewController: UIViewController{
             categories += "rad"
         }
         // include rec if the set of problems included reciprocals
-        if(savedSettings.value(forKey: "reciprocals") as! Bool)
+        /*if(savedSettings.value(forKey: "reciprocals") as! Bool)
         {
             categories += "rec"
-        }
+        }*/
         
         // set the category for the High Score entry
         score.setValue(categories, forKey: "category");

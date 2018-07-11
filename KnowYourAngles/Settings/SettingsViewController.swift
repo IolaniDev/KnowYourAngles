@@ -37,7 +37,6 @@ open class SettingsViewController: UIViewController{
     @IBOutlet weak var secantSwitch: UISwitch!
     @IBOutlet weak var cotangentSwitch: UISwitch!
     
-    
     //grab the previously saved settings (if any)
     let defaultSettings = UserDefaults.standard
     
@@ -214,6 +213,61 @@ open class SettingsViewController: UIViewController{
         }
     }
 
+    override open func viewWillDisappear(_ animated: Bool) {
+        var total = 0;
+        if(defaultSettings.value(forKey: "quadrantals") as! Bool)
+        {
+            total += 4;
+        }
+        if(defaultSettings.value(forKey: "quadI") as! Bool)
+        {
+            total += 3;
+        }
+        if(defaultSettings.value(forKey: "quadII") as! Bool)
+        {
+            total += 3;
+        }
+        if(defaultSettings.value(forKey: "quadIII") as! Bool)
+        {
+            total += 3;
+        }
+        if(defaultSettings.value(forKey: "quadIV") as! Bool)
+        {
+            total += 3;
+        }
+        if(defaultSettings.value(forKey: "radians") as! Bool && defaultSettings.value(forKey: "degrees") as! Bool)
+        {
+            total *= 2;
+        }
+        var multiplier = 0;
+        if(defaultSettings.value(forKey: "sine") as! Bool)
+        {
+            multiplier += 1;
+        }
+        if(defaultSettings.value(forKey: "cosine") as! Bool)
+        {
+            multiplier += 1;
+        }
+        if(defaultSettings.value(forKey: "tangent") as! Bool)
+        {
+            multiplier += 1;
+        }
+        if(defaultSettings.value(forKey: "cosecant") as! Bool)
+        {
+            multiplier += 1;
+        }
+        if(defaultSettings.value(forKey: "secant") as! Bool)
+        {
+            multiplier += 1;
+        }
+        if(defaultSettings.value(forKey: "cotangent") as! Bool)
+        {
+            multiplier += 1;
+        }
+        total *= multiplier;
+        defaultSettings.setValue(total, forKey: "maxNumOfProblems");
+    }
+    
     //function is called when the user changes whether to include radian problems or not
     @IBAction func radiansSwitchChanged(_ sender: UISwitch) {
         //make sure the degree switch is turned on if turning off radians.
