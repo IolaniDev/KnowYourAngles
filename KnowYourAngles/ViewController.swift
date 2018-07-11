@@ -108,17 +108,17 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             // totalNumOfProblems is set in Settings by user for the number of problems they want to be quizzed on. (10 by default)
             var totalNumOfProblems : Int;
             
-            // if the user has previously saved settings, load the max num of problems the player wants to complete
-            if (savedSettings.object(forKey: "maxNumOfProblems") != nil)
+            // if the user has previously saved settings, load the num of problems the player wants to complete
+            if (savedSettings.object(forKey: "numOfProblems") != nil)
             {
-                totalNumOfProblems = savedSettings.value(forKey: "maxNumOfProblems") as! Int;
+                totalNumOfProblems = savedSettings.value(forKey: "numOfProblems") as! Int;
             }
             // otherwise use the default values of 10 problems
             else
             {
                 // set the default number of problems to 10
                 totalNumOfProblems = 10;
-                savedSettings.setValue(totalNumOfProblems, forKey: "maxNumOfProblems");
+                savedSettings.setValue(totalNumOfProblems, forKey: "numOfProblems");
             }
             // setup the number of remaining problems label
             correctingMarksView.numRemaining.text = String(totalNumOfProblems);
@@ -755,7 +755,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         if segue.identifier == "toFinishScreen" {
             let finishViewController = segue.destination as! FinishScreenViewController
             finishViewController.finalScore = Int(correctingMarksView.numCorrect.text!)!;
-            finishViewController.totalNum = savedSettings.value(forKey: "maxNumOfProblems") as! Int;
+            finishViewController.totalNum = savedSettings.value(forKey: "numOfProblems") as! Int;
             
             let totalSec = 60*self.correctingMarksView.numMin+self.correctingMarksView.numSec;
             let maxTotal = (savedSettings.value(forKey: "amtTimeMin") as! Int) * 60 + (savedSettings.value(forKey: "amtTimeSec") as! Int);

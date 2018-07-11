@@ -687,7 +687,7 @@
                                                     <constraint firstItem="tqI-YH-jPD" firstAttribute="top" secondItem="Uxi-AD-B3b" secondAttribute="top" id="pLz-b8-4Jm"/>
                                                 </constraints>
                                             </stackView>
-                                            <slider opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="10" minValue="10" maxValue="48" translatesAutoresizingMaskIntoConstraints="NO" id="5bH-Lo-qIr" userLabel="Problem Slider">
+                                            <slider opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minValue="3" maxValue="50" translatesAutoresizingMaskIntoConstraints="NO" id="5bH-Lo-qIr" userLabel="Problem Slider">
                                                 <rect key="frame" x="103.5" y="114" width="504" height="31"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="30" id="FtH-BU-zI3"/>
@@ -1144,6 +1144,9 @@
                                 <state key="normal" title="Main Menu">
                                     <color key="titleColor" red="0.49803921569999998" green="1" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="Mu1-7X-idf" kind="show" id="Wtc-7e-2hj"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxN-Uz-eHe">
                                 <rect key="frame" x="744" y="40" width="260" height="55"/>
@@ -1628,5 +1631,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="tAt-po-t3U"/>
+        <segue reference="Wtc-7e-2hj"/>
     </inferredMetricsTieBreakers>
 </document>

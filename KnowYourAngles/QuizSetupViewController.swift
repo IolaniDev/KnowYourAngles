@@ -29,16 +29,29 @@ class QuizSetupViewController: UIViewController {
         super.viewDidLoad()
         
         /**********SETTINGS FOR MAX NUM OF PROBLEMS**********/
-        //if there are previously saved settings for the number of problems, use them
-        if (defaultSettings.object(forKey: "maxNumOfProblems") != nil) {
-            problemSlider.value = defaultSettings.value(forKey: "maxNumOfProblems") as! Float;
+        //if there are previously saved settings for the max number of problems, use them
+        if (defaultSettings.object(forKey: "maxNumOfProblems") != nil)
+        {
+            problemSlider.maximumValue = defaultSettings.value(forKey: "maxNumOfProblems") as! Float;
         }
-            //if there are no pre-existing settings, then...
+        // if there are no pre-existing settings, then use 48
         else
         {
-            //set the default number of problems to 10
-            problemSlider.value = 10;
-            defaultSettings.setValue(problemSlider.value, forKey: "maxNumOfProblems");
+            problemSlider.maximumValue = 48.0;
+            defaultSettings.setValue(problemSlider.maximumValue, forKey: "maxNumOfProblems");
+        }
+        
+        /**********SETTINGS FOR NUM OF PROBLEMS**********/
+        //if there are previously saved settings for the number of problems, use them
+        if (defaultSettings.object(forKey: "numOfProblems") != nil) {
+            problemSlider.value = defaultSettings.value(forKey: "numOfProblems") as! Float;
+        }
+        //if there are no pre-existing settings, then...
+        else
+        {
+            //set the default number of problems to 10 or the max num of problems, whichever is smaller
+            problemSlider.value = min(10, defaultSettings.value(forKey: "maxNumOfProblems") as! Float)
+            defaultSettings.setValue(problemSlider.value, forKey: "numOfProblems");
         }
         
         // set the text on the settings page
@@ -107,7 +120,7 @@ class QuizSetupViewController: UIViewController {
         totalNumOfProblems.text = "\(lroundf(sender.value))";
         
         //save the number of problems in settings
-        defaultSettings.setValue(lroundf(sender.value), forKey: "maxNumOfProblems");
+        defaultSettings.setValue(lroundf(sender.value), forKey: "numOfProblems");
     }
     
     //timerSwitchChanged is called when the user turns on or off the timer.
