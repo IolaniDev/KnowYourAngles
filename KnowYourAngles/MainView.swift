@@ -173,8 +173,10 @@ class MainView: UIView {
     // function called when user answers correctly
     func drawRight(){
         // sets the position of the green check
-        correctImageView.frame.origin.x = workArea.frame.origin.x + (workArea.frame.width/2) - correctImageView.frame.width/2;
-        correctImageView.frame.origin.y = workArea.frame.origin.y + (workArea.frame.height/2) - correctImageView.frame.height/2;
+        //correctImageView.frame.origin.x = workArea.frame.origin.x + (workArea.frame.width/2) - correctImageView.frame.width/2;
+        correctImageView.center.x = workArea.center.x
+        //correctImageView.frame.origin.y = workArea.frame.origin.y + (workArea.frame.height/2) - correctImageView.frame.height/2;
+        correctImageView.center.y = workArea.center.y
         // add the green check to the screen
         self.addSubview(correctImageView);
         self.bringSubview(toFront: correctImageView);
