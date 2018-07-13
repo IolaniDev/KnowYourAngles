@@ -44,6 +44,10 @@ class QuizSetupViewController: UIViewController {
         /**********SETTINGS FOR NUM OF PROBLEMS**********/
         //if there are previously saved settings for the number of problems, use them
         if (defaultSettings.object(forKey: "numOfProblems") != nil) {
+            if(defaultSettings.value(forKey: "numOfProblems") as! Float > defaultSettings.value(forKey: "maxNumOfProblems") as! Float)
+            {
+                defaultSettings.setValue(defaultSettings.value(forKey: "maxNumOfProblems"), forKey: "numOfProblems");
+            }
             problemSlider.value = defaultSettings.value(forKey: "numOfProblems") as! Float;
         }
         //if there are no pre-existing settings, then...
