@@ -35,6 +35,7 @@ class MainView: UIView {
     //boolean representing whether the user finished the desired amount of questions or ran out of time before moving to end screen.
     var isOutOfTime = false;
     
+    @IBOutlet weak var problemAndAnswerStackView: UIStackView!
     // reference the mathview for positioning of the correct and incorrect marks
     @IBOutlet weak var workArea: MAWMathView!
     // imageview to hold the red x (meaning incorrect)
@@ -156,10 +157,12 @@ class MainView: UIView {
     // function called when user answers incorrectly
     func drawWrong(){
         // sets the position of the red x
-        wrongImageView.frame.origin.x = workArea.frame.origin.x + (workArea.frame.width/2) - wrongImageView.frame.width/2;
-        wrongImageView.frame.origin.y = workArea.frame.origin.y + (workArea.frame.height/2) - wrongImageView.frame.height/2;
+        wrongImageView.center.x = self.convert(workArea.frame, from: problemAndAnswerStackView).midX;
+        wrongImageView.center.y = self.convert(workArea.frame, from: problemAndAnswerStackView).midY;
+        
         // add red x to the screen
         self.addSubview(wrongImageView);
+        
         // make sure the red x is in front
         self.bringSubview(toFront: wrongImageView);
     
@@ -173,10 +176,9 @@ class MainView: UIView {
     // function called when user answers correctly
     func drawRight(){
         // sets the position of the green check
-        //correctImageView.frame.origin.x = workArea.frame.origin.x + (workArea.frame.width/2) - correctImageView.frame.width/2;
-        correctImageView.center.x = workArea.center.x
-        //correctImageView.frame.origin.y = workArea.frame.origin.y + (workArea.frame.height/2) - correctImageView.frame.height/2;
-        correctImageView.center.y = workArea.center.y
+        correctImageView.center.x = self.convert(workArea.frame, from: problemAndAnswerStackView).midX;
+        correctImageView.center.y = self.convert(workArea.frame, from: problemAndAnswerStackView).midY;
+        
         // add the green check to the screen
         self.addSubview(correctImageView);
         self.bringSubview(toFront: correctImageView);
