@@ -1350,6 +1350,34 @@
                                     <action selector="clearScratchPaper:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nP2-Al-DNt"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Origin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YP9-Ys-6WE">
+                                <rect key="frame" x="255" y="266.5" width="178" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Center" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ttv-ly-slj">
+                                <rect key="frame" x="477" y="400" width="199" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BoundsMid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uRQ-ul-I5z">
+                                <rect key="frame" x="222" y="133.5" width="337" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Converted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="48U-qh-CdB">
+                                <rect key="frame" x="512" y="733" width="308" height="84"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.098039215690000001" green="0.49803921569999998" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -1386,6 +1414,7 @@
                             <outlet property="countdownTimer" destination="Kis-Pb-w0V" id="JN0-mq-v7g"/>
                             <outlet property="numCorrect" destination="muU-zW-946" id="JM1-J9-PKv"/>
                             <outlet property="numRemaining" destination="3Tk-nR-i7F" id="dka-PR-0Tb"/>
+                            <outlet property="problemAndAnswerStackView" destination="Uyw-fQ-iV0" id="IH7-Fc-Nsb"/>
                             <outlet property="problemImage" destination="cq9-Np-18c" id="Be4-9f-o9e"/>
                             <outlet property="workArea" destination="fZZ-Ja-u7v" id="xmG-vm-0fz"/>
                         </connections>
@@ -1424,6 +1453,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="tAt-po-t3U"/>
-        <segue reference="Wtc-7e-2hj"/>
+        <segue reference="vzy-ys-Z4H"/>
     </inferredMetricsTieBreakers>
 </document>
