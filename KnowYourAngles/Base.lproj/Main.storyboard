@@ -69,7 +69,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.098039215690000001" green="0.49803921569999998" blue="0.48627450979999998" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="icons8-info-50" selectedImage="icons8-info-filled-50" id="3rI-I0-GCI"/>
+                    <tabBarItem key="tabBarItem" title="" image="icons8-info-50" selectedImage="icons8-info-filled-50" id="3rI-I0-GCI"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ylt-nX-pL2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -391,7 +391,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pju-sD-ejQ">
-                                <rect key="frame" x="468" y="1232" width="88" height="55"/>
+                                <rect key="frame" x="468" y="1212" width="88" height="55"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <state key="normal" title="Reset">
                                     <color key="titleColor" red="0.49803921569999998" green="1" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
@@ -407,7 +407,7 @@
                             <constraint firstItem="eCL-h7-H9h" firstAttribute="centerX" secondItem="0WC-rh-Fku" secondAttribute="centerX" id="Aes-iP-xEx"/>
                             <constraint firstItem="eCL-h7-H9h" firstAttribute="top" secondItem="dLW-0V-9mI" secondAttribute="bottom" constant="100" id="MIa-vA-KXv"/>
                             <constraint firstItem="NIi-fL-2ya" firstAttribute="centerX" secondItem="0WC-rh-Fku" secondAttribute="centerX" id="Pdd-LV-rrB"/>
-                            <constraint firstItem="fWb-2B-u8d" firstAttribute="top" secondItem="pju-sD-ejQ" secondAttribute="bottom" constant="30" id="Xbx-8X-OzL"/>
+                            <constraint firstItem="fWb-2B-u8d" firstAttribute="top" secondItem="pju-sD-ejQ" secondAttribute="bottom" constant="50" id="Xbx-8X-OzL"/>
                             <constraint firstItem="pju-sD-ejQ" firstAttribute="centerX" secondItem="0WC-rh-Fku" secondAttribute="centerX" id="xOV-aI-uLE"/>
                         </constraints>
                     </view>
