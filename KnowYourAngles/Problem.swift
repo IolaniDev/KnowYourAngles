@@ -19,6 +19,7 @@ class Problem{
     enum angleUnits{
         case radians
         case degrees
+        case radiansAndDegrees
     }
     
     enum quadrant{
