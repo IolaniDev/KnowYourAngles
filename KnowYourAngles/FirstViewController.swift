@@ -177,6 +177,48 @@ class FirstViewController : UIViewController{
             defaultSettings.setValue(false, forKey: "cotangent");
         }
         
+        /**********SETTINGS FOR PROBLEMS FROM ARCSINE**********/
+        //check if there are no previously saved settings for including arcsine problems
+        if (defaultSettings.object(forKey: "arcsine") == nil)
+        {
+            defaultSettings.setValue(false, forKey: "arcsine");
+        }
+        
+        /**********SETTINGS FOR PROBLEMS FROM ARCCOSINE**********/
+        //check if there are no previously saved settings for including arccosine problems
+        if (defaultSettings.object(forKey: "arccosine") == nil)
+        {
+            defaultSettings.setValue(false, forKey: "arccosine");
+        }
+        
+        /**********SETTINGS FOR PROBLEMS FROM ARCTANGENT**********/
+        //check if there are no previously saved settings for including arctangent problems
+        if (defaultSettings.object(forKey: "arctangent") == nil)
+        {
+            defaultSettings.setValue(false, forKey: "arctangent");
+        }
+        
+        /**********SETTINGS FOR PROBLEMS FROM ARCCOSECANT**********/
+        //check if there are no previously saved settings for including arccosecant problems
+        if (defaultSettings.object(forKey: "arccosecant") == nil)
+        {
+            defaultSettings.setValue(false, forKey: "arccosecant");
+        }
+        
+        /**********SETTINGS FOR PROBLEMS FROM ARCSECANT**********/
+        //check if there are no previously saved settings for including arcsecant problems
+        if (defaultSettings.object(forKey: "arcsecant") == nil)
+        {
+            defaultSettings.setValue(false, forKey: "arcsecant");
+        }
+        
+        /**********SETTINGS FOR PROBLEMS FROM ARCCOTANGENT**********/
+        //check if there are no previously saved settings for including arccotangent problems
+        if (defaultSettings.object(forKey: "arccotangent") == nil)
+        {
+            defaultSettings.setValue(false, forKey: "arccotangent");
+        }
+        
         /**********STATISTICS FOR SINE PROBLEMS**********/
         if(defaultSettings.object(forKey: "sineStatsNumCorrect") == nil)
         {
@@ -235,6 +277,66 @@ class FirstViewController : UIViewController{
         if(defaultSettings.object(forKey: "cotangentStatsNumTotal") == nil)
         {
             defaultSettings.setValue(0, forKey: "cotangentStatsNumTotal");
+        }
+        
+        /**********STATISTICS FOR ARCSINE PROBLEMS**********/
+        if(defaultSettings.object(forKey: "arcsineStatsNumCorrect") == nil)
+        {
+            defaultSettings.setValue(0, forKey: "arcsineStatsNumCorrect");
+        }
+        if(defaultSettings.object(forKey: "arcsineStatsNumTotal") == nil)
+        {
+            defaultSettings.setValue(0, forKey: "arcsineStatsNumTotal");
+        }
+        
+        /**********STATISTICS FOR ARCCOSINE PROBLEMS**********/
+        if(defaultSettings.object(forKey: "arccosineStatsNumCorrect") == nil)
+        {
+            defaultSettings.setValue(0, forKey: "arccosineStatsNumCorrect");
+        }
+        if(defaultSettings.object(forKey: "arccosineStatsNumTotal") == nil)
+        {
+            defaultSettings.setValue(0, forKey: "arccosineStatsNumTotal");
+        }
+        
+        /**********STATISTICS FOR ARCTANGENT PROBLEMS**********/
+        if(defaultSettings.object(forKey: "arctangentStatsNumCorrect") == nil)
+        {
+            defaultSettings.setValue(0, forKey: "arctangentStatsNumCorrect");
+        }
+        if(defaultSettings.object(forKey: "arctangentStatsNumTotal") == nil)
+        {
+            defaultSettings.setValue(0, forKey: "arctangentStatsNumTotal");
+        }
+        
+        /**********STATISTICS FOR ARCCOSECANT PROBLEMS**********/
+        if(defaultSettings.object(forKey: "arccosecantStatsNumCorrect") == nil)
+        {
+            defaultSettings.setValue(0, forKey: "arccosecantStatsNumCorrect");
+        }
+        if(defaultSettings.object(forKey: "arccosecantStatsNumTotal") == nil)
+        {
+            defaultSettings.setValue(0, forKey: "arccosecantStatsNumTotal");
+        }
+        
+        /**********STATISTICS FOR ARCSECANT PROBLEMS**********/
+        if(defaultSettings.object(forKey: "arcsecantStatsNumCorrect") == nil)
+        {
+            defaultSettings.setValue(0, forKey: "arcsecantStatsNumCorrect");
+        }
+        if(defaultSettings.object(forKey: "arcsecantStatsNumTotal") == nil)
+        {
+            defaultSettings.setValue(0, forKey: "arcsecantStatsNumTotal");
+        }
+        
+        /**********STATISTICS FOR ARCCOTANGENT PROBLEMS**********/
+        if(defaultSettings.object(forKey: "arccotangentStatsNumCorrect") == nil)
+        {
+            defaultSettings.setValue(0, forKey: "arccotangentStatsNumCorrect");
+        }
+        if(defaultSettings.object(forKey: "arccotangentStatsNumTotal") == nil)
+        {
+            defaultSettings.setValue(0, forKey: "arccotangentStatsNumTotal");
         }
     }
 }
