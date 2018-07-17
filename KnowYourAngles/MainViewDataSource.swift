@@ -616,7 +616,7 @@ class MainViewDataSource : NSObject{
     /********** Functions for Loading Inverse Cosine Problems **********/
     func loadArccosineQuadrantalProblems (){
         let arccosineQuadrantals : [InverseProblem] = [
-            InverseProblem.init(problemImageName: "ArccosNegative1", correctAnswer: "3.141…", answerImageName: "Pi", otherCorrectAnswer: "180", otherAnswerImageName: "180deg", typeOfProblem: "arccosine", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.quadrantal),
+            InverseProblem.init(problemImageName: "ArccosNegative1", correctAnswer: "π", answerImageName: "Pi", otherCorrectAnswer: "180", otherAnswerImageName: "180deg", typeOfProblem: "arccosine", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.quadrantal),
             InverseProblem.init(problemImageName: "Arccos0", correctAnswer: "1.570…", answerImageName: "PiOver2", otherCorrectAnswer: "90", otherAnswerImageName: "90deg", typeOfProblem: "arccosine", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.quadrantal),
             InverseProblem.init(problemImageName: "Arccos1", correctAnswer: "0", answerImageName: "0rads", otherCorrectAnswer: "0", otherAnswerImageName: "0deg", typeOfProblem: "arccosine", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.quadrantal)
         ]
@@ -698,7 +698,7 @@ class MainViewDataSource : NSObject{
     func loadArcsecantQuadrantalProblems (){
         let arcsecQuadrantals : [InverseProblem] = [
             InverseProblem.init(problemImageName: "Arcsec1", correctAnswer: "0", answerImageName: "0rads", otherCorrectAnswer: "0", otherAnswerImageName: "0deg", typeOfProblem: "arcsecant", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.quadrantal),
-            InverseProblem.init(problemImageName: "ArcsecNegative1", correctAnswer: "3.141…", answerImageName: "Pi", otherCorrectAnswer: "180", otherAnswerImageName: "180deg", typeOfProblem: "arcsecant", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.quadrantal)
+            InverseProblem.init(problemImageName: "ArcsecNegative1", correctAnswer: "π", answerImageName: "Pi", otherCorrectAnswer: "180", otherAnswerImageName: "180deg", typeOfProblem: "arcsecant", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.quadrantal)
         ]
         libraryOfProblems.append(contentsOf: arcsecQuadrantals);
     }
@@ -758,7 +758,18 @@ class MainViewDataSource : NSObject{
     }
     
     func isCorrect(_ answer : String) -> Bool {
-        if(currProblem?.correctAnswer == answer)
+        if (currProblem as? InverseProblem) != nil
+        {
+            if(currProblem?.correctAnswer.lowercased() == answer.lowercased() || (currProblem as! InverseProblem).otherCorrectAnswer.lowercased() == answer.lowercased())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        else if(currProblem?.correctAnswer.lowercased() == answer.lowercased())
         {
             return true;
         }

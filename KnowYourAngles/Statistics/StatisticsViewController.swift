@@ -20,6 +20,12 @@ class StatisticsViewController : UIViewController {
     @IBOutlet weak var cosecantPercentage: UILabel!
     @IBOutlet weak var secantPercentage: UILabel!
     @IBOutlet weak var cotangentPercentage: UILabel!
+    @IBOutlet weak var arcsinePercentage: UILabel!
+    @IBOutlet weak var arccosinePercentage: UILabel!
+    @IBOutlet weak var arctangentPercentage: UILabel!
+    @IBOutlet weak var arccosecantPercentage: UILabel!
+    @IBOutlet weak var arcsecantPercentage: UILabel!
+    @IBOutlet weak var arccotangentPercentage: UILabel!
     
     //grab the previously saved settings (if any)
     let defaultSettings = UserDefaults.standard
@@ -123,6 +129,72 @@ class StatisticsViewController : UIViewController {
         {
             cotangentPercentage.text = "0%";
         }
+        
+        //if there is data recorded for arcsine problems, then use it to calculate a percentage
+        if(defaultSettings.value(forKey: "arcsineStatsNumTotal") as! Int != 0)
+        {
+            arcsinePercentage.text = String((defaultSettings.value(forKey: "arcsineStatsNumCorrect") as! Float) / (defaultSettings.value(forKey: "arcsineStatsNumTotal") as! Float) * 100) + "%";
+        }
+            //otherwise set the percentage to zero
+        else
+        {
+            arcsinePercentage.text = "0%";
+        }
+        
+        //if there is data recorded for arccosine problems, then use it to calculate a percentage
+        if(defaultSettings.value(forKey: "arccosineStatsNumTotal") as! Int != 0)
+        {
+            arccosinePercentage.text = String((defaultSettings.value(forKey: "arccosineStatsNumCorrect") as! Float) / (defaultSettings.value(forKey: "arccosineStatsNumTotal") as! Float) * 100) + "%";
+        }
+            //otherwise set the percentage to zero
+        else
+        {
+            arccosinePercentage.text = "0%";
+        }
+        
+        //if there is data recorded for arctangent problems, then use it to calculate a percentage
+        if(defaultSettings.value(forKey: "arctangentStatsNumTotal") as! Int != 0)
+        {
+            arctangentPercentage.text = String((defaultSettings.value(forKey: "arctangentStatsNumCorrect") as! Float) / (defaultSettings.value(forKey: "arctangentStatsNumTotal") as! Float) * 100) + "%";
+        }
+            //otherwise set the percentage to zero
+        else
+        {
+            arctangentPercentage.text = "0%";
+        }
+        
+        //if there is data recorded for arccosecant problems, then use it to calculate a percentage
+        if(defaultSettings.value(forKey: "arccosecantStatsNumTotal") as! Int != 0)
+        {
+            arccosecantPercentage.text = String((defaultSettings.value(forKey: "arccosecantStatsNumCorrect") as! Float) / (defaultSettings.value(forKey: "arccosecantStatsNumTotal") as! Float) * 100) + "%";
+        }
+            //otherwise set the percentage to zero
+        else
+        {
+            arccosecantPercentage.text = "0%";
+        }
+        
+        //if there is data recorded for arcsecant problems, then use it to calculate a percentage
+        if(defaultSettings.value(forKey: "arcsecantStatsNumTotal") as! Int != 0)
+        {
+            arcsecantPercentage.text = String((defaultSettings.value(forKey: "arcsecantStatsNumCorrect") as! Float) / (defaultSettings.value(forKey: "arcsecantStatsNumTotal") as! Float) * 100) + "%";
+        }
+            //otherwise set the percentage to zero
+        else
+        {
+            arcsecantPercentage.text = "0%";
+        }
+        
+        //if there is data recorded for arccotangent problems, then use it to calculate a percentage
+        if(defaultSettings.value(forKey: "arccotangentStatsNumTotal") as! Int != 0)
+        {
+            arccotangentPercentage.text = String((defaultSettings.value(forKey: "arccotangentStatsNumCorrect") as! Float) / (defaultSettings.value(forKey: "arccotangentStatsNumTotal") as! Float) * 100) + "%";
+        }
+            //otherwise set the percentage to zero
+        else
+        {
+            arccotangentPercentage.text = "0%";
+        }
     }
     
     @IBAction func resetStats(_ sender: UIButton)
@@ -162,5 +234,29 @@ class StatisticsViewController : UIViewController {
         defaultSettings.setValue(0, forKey: "tangentStatsNumCorrect");
         defaultSettings.setValue(0, forKey: "tangentStatsNumTotal");
         tangentPercentage.text = "0%";
+        
+        defaultSettings.setValue(0, forKey: "arcsineStatsNumCorrect");
+        defaultSettings.setValue(0, forKey: "arcsineStatsNumTotal");
+        arcsinePercentage.text = "0%";
+        
+        defaultSettings.setValue(0, forKey: "arccosineStatsNumCorrect");
+        defaultSettings.setValue(0, forKey: "arccosineStatsNumTotal");
+        arccosinePercentage.text = "0%";
+        
+        defaultSettings.setValue(0, forKey: "arctangentStatsNumCorrect");
+        defaultSettings.setValue(0, forKey: "arctangentStatsNumTotal");
+        arctangentPercentage.text = "0%";
+        
+        defaultSettings.setValue(0, forKey: "arccosecantStatsNumCorrect");
+        defaultSettings.setValue(0, forKey: "arccosecantStatsNumTotal");
+        arccosecantPercentage.text = "0%";
+        
+        defaultSettings.setValue(0, forKey: "arcsecantStatsNumCorrect");
+        defaultSettings.setValue(0, forKey: "arcsecantStatsNumTotal");
+        arcsecantPercentage.text = "0%";
+        
+        defaultSettings.setValue(0, forKey: "arccotangentStatsNumCorrect");
+        defaultSettings.setValue(0, forKey: "arccotangentStatsNumTotal");
+        arccotangentPercentage.text = "0%";
     }
 }

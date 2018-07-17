@@ -646,6 +646,162 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             }
             // if there are no previously saved settings then, by default, do not load cotangent problems
             
+            /**********LOAD ARCSINE PROBLEMS**********/
+            // if there are previously saved settings...
+            if(savedSettings.object(forKey: "arcsine") != nil)
+            {
+                // check if the user wants arcsine problems
+                if(savedSettings.value(forKey: "arcsine") as! Bool)
+                {
+                    // check if user wants quadrantal problems
+                    if(savedSettings.value(forKey: "quadrantals") as! Bool)
+                    {
+                        problemSource.loadArcsineQuadrantalProblems();
+                    }
+                    // check if user wants problems from Quadrant I
+                    if(savedSettings.value(forKey: "quadI") as! Bool)
+                    {
+                        problemSource.loadArcsineQuadIProblems();
+                    }
+                    // check if user wants problems from Quadrant IV
+                    if(savedSettings.value(forKey: "quadIV") as! Bool)
+                    {
+                        problemSource.loadArcsineQuadIVProblems();
+                    }
+                }
+            }
+            // if there are no previously saved settings then, by default, do not load arcsine problems
+            
+            /**********LOAD ARCCOSINE PROBLEMS**********/
+            // if there are previously saved settings...
+            if(savedSettings.object(forKey: "arccosine") != nil)
+            {
+                // check if the user wants arccosine problems
+                if(savedSettings.value(forKey: "arccosine") as! Bool)
+                {
+                    // check if user wants quadrantal problems
+                    if(savedSettings.value(forKey: "quadrantals") as! Bool)
+                    {
+                        problemSource.loadArccosineQuadrantalProblems();
+                    }
+                    // check if user wants problems from Quadrant I
+                    if(savedSettings.value(forKey: "quadI") as! Bool)
+                    {
+                        problemSource.loadArccosineQuadIProblems();
+                    }
+                    // check if user wants problems from Quadrant II
+                    if(savedSettings.value(forKey: "quadII") as! Bool)
+                    {
+                        problemSource.loadArccosineQuadIIProblems();
+                    }
+                }
+            }
+            // if there are no previously saved settings then, by default, do not load arccosine problems
+            
+            /**********LOAD ARCTANGENT PROBLEMS**********/
+            // if there are previously saved settings...
+            if(savedSettings.object(forKey: "arctangent") != nil)
+            {
+                // check if the user wants arctangent problems
+                if(savedSettings.value(forKey: "arctangent") as! Bool)
+                {
+                    // check if user wants quadrantal problems
+                    if(savedSettings.value(forKey: "quadrantals") as! Bool)
+                    {
+                        problemSource.loadArctangentQuadrantalProblems();
+                    }
+                    // check if user wants problems from Quadrant I
+                    if(savedSettings.value(forKey: "quadI") as! Bool)
+                    {
+                        problemSource.loadArctangentQuadIProblems();
+                    }
+                    // check if user wants problems from Quadrant IV
+                    if(savedSettings.value(forKey: "quadIV") as! Bool)
+                    {
+                        problemSource.loadArctangentQuadIVProblems();
+                    }
+                }
+            }
+            // if there are no previously saved settings then, by default, do not load arctangent problems
+            
+            /**********LOAD ARCCOSECANT PROBLEMS**********/
+            // if there are previously saved settings...
+            if(savedSettings.object(forKey: "arccosecant") != nil)
+            {
+                // check if the user wants arccosecant problems
+                if(savedSettings.value(forKey: "arccosecant") as! Bool)
+                {
+                    // check if user wants quadrantal problems
+                    if(savedSettings.value(forKey: "quadrantals") as! Bool)
+                    {
+                        problemSource.loadArccosecantQuadrantalProblems();
+                    }
+                    // check if user wants problems from Quadrant I
+                    if(savedSettings.value(forKey: "quadI") as! Bool)
+                    {
+                        problemSource.loadArccosecantQuadIProblems();
+                    }
+                    // check if user wants problems from Quadrant IV
+                    if(savedSettings.value(forKey: "quadIV") as! Bool)
+                    {
+                        problemSource.loadArccosecantQuadIVProblems();
+                    }
+                }
+            }
+            // if there are no previously saved settings then, by default, do not load arccosecant problems
+            
+            /**********LOAD ARCSECANT PROBLEMS**********/
+            // if there are previously saved settings...
+            if(savedSettings.object(forKey: "arcsecant") != nil)
+            {
+                // check if the user wants arcsecant problems
+                if(savedSettings.value(forKey: "arcsecant") as! Bool)
+                {
+                    // check if user wants quadrantal problems
+                    if(savedSettings.value(forKey: "quadrantals") as! Bool)
+                    {
+                        problemSource.loadArcsecantQuadrantalProblems();
+                    }
+                    // check if user wants problems from Quadrant I
+                    if(savedSettings.value(forKey: "quadI") as! Bool)
+                    {
+                        problemSource.loadArcsecantQuadIProblems();
+                    }
+                    // check if user wants problems from Quadrant II
+                    if(savedSettings.value(forKey: "quadII") as! Bool)
+                    {
+                        problemSource.loadArcsecantQuadIIProblems();
+                    }
+                }
+            }
+            // if there are no previously saved settings then, by default, do not load arcsecant problems
+            
+            /**********LOAD ARCCOTANGENT PROBLEMS**********/
+            // if there are previously saved settings...
+            if(savedSettings.object(forKey: "arccotangent") != nil)
+            {
+                // check if the user wants arccotangent problems
+                if(savedSettings.value(forKey: "arccotangent") as! Bool)
+                {
+                    // check if user wants quadrantal problems
+                    if(savedSettings.value(forKey: "quadrantals") as! Bool)
+                    {
+                        problemSource.loadArccotangentQuadrantalProblems();
+                    }
+                    // check if user wants problems from Quadrant I
+                    if(savedSettings.value(forKey: "quadI") as! Bool)
+                    {
+                        problemSource.loadArccotangentQuadIProblems();
+                    }
+                    // check if user wants problems from Quadrant II
+                    if(savedSettings.value(forKey: "quadII") as! Bool)
+                    {
+                        problemSource.loadArccotangentQuadIIProblems();
+                    }
+                }
+            }
+            // if there are no previously saved settings then, by default, do not load arccotangent problems
+            
             // setup image of first problem
             correctingMarksView.problemImage.image = UIImage(named: problemSource.getRandomProblem().problemImageName);
             

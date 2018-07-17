@@ -37,6 +37,14 @@ open class SettingsViewController: UIViewController{
     @IBOutlet weak var secantSwitch: UISwitch!
     @IBOutlet weak var cotangentSwitch: UISwitch!
     
+    //inverse trig function switches controls whether the problems displayed use each inverse trig function
+    @IBOutlet weak var arcsineSwitch: UISwitch!
+    @IBOutlet weak var arccosineSwitch: UISwitch!
+    @IBOutlet weak var arctangentSwitch: UISwitch!
+    @IBOutlet weak var arccosecantSwitch: UISwitch!
+    @IBOutlet weak var arcsecantSwitch: UISwitch!
+    @IBOutlet weak var arccotangentSwitch: UISwitch!
+    
     //grab the previously saved settings (if any)
     let defaultSettings = UserDefaults.standard
     
@@ -211,6 +219,84 @@ open class SettingsViewController: UIViewController{
             cotangentSwitch.setOn(false, animated: true);
             defaultSettings.setValue(cotangentSwitch.isOn, forKey: "cotangent");
         }
+        
+        /**********SETTINGS FOR PROBLEMS USING ARCSINE **********/
+        //check if there are previously saved settings for arcsine
+        if (defaultSettings.object(forKey: "arcsine") != nil)
+        {
+            arcsineSwitch.setOn(defaultSettings.value(forKey: "arcsine") as! Bool, animated: true);
+        }
+            //if there are no previously saved settings, then, by default, include sine problems
+        else
+        {
+            arcsineSwitch.setOn(true, animated: true);
+            defaultSettings.setValue(arcsineSwitch.isOn, forKey: "arcsine");
+        }
+        
+        /**********SETTINGS FOR PROBLEMS USING ARCCOSINE **********/
+        //check if there are previously saved settings for arccosine
+        if (defaultSettings.object(forKey: "arccosine") != nil)
+        {
+            arccosineSwitch.setOn(defaultSettings.value(forKey: "arccosine") as! Bool, animated: true);
+        }
+            //if there are no previously saved settings, then, by default, include arccosine problems
+        else
+        {
+            arccosineSwitch.setOn(true, animated: true);
+            defaultSettings.setValue(arccosineSwitch.isOn, forKey: "arccosine");
+        }
+        
+        /**********SETTINGS FOR PROBLEMS USING ARCTANGENT **********/
+        //check if there are previously saved settings for arctangent
+        if (defaultSettings.object(forKey: "arctangent") != nil)
+        {
+            arctangentSwitch.setOn(defaultSettings.value(forKey: "arctangent") as! Bool, animated: true);
+        }
+            //if there are no previously saved settings, then, by default, include arctangent problems
+        else
+        {
+            arctangentSwitch.setOn(true, animated: true);
+            defaultSettings.setValue(arctangentSwitch.isOn, forKey: "arctangent");
+        }
+        
+        /**********SETTINGS FOR PROBLEMS USING ARCCOSECANT **********/
+        //check if there are previously saved settings for arccosecant
+        if (defaultSettings.object(forKey: "arccosecant") != nil)
+        {
+            arccosecantSwitch.setOn(defaultSettings.value(forKey: "arccosecant") as! Bool, animated: true);
+        }
+            //if there are no previously saved settings, then, by default, include arccosecant problems
+        else
+        {
+            arccosecantSwitch.setOn(true, animated: true);
+            defaultSettings.setValue(arccosecantSwitch.isOn, forKey: "arccosecant");
+        }
+        
+        /**********SETTINGS FOR PROBLEMS USING ARCSECANT **********/
+        //check if there are previously saved settings for arcsecant
+        if (defaultSettings.object(forKey: "arcsecant") != nil)
+        {
+            arcsecantSwitch.setOn(defaultSettings.value(forKey: "arcsecant") as! Bool, animated: true);
+        }
+            //if there are no previously saved settings, then, by default, include arcsecant problems
+        else
+        {
+            arcsecantSwitch.setOn(true, animated: true);
+            defaultSettings.setValue(arcsecantSwitch.isOn, forKey: "arcsecant");
+        }
+        
+        /**********SETTINGS FOR PROBLEMS USING ARCCOTANGENT **********/
+        //check if there are previously saved settings for arccotangent
+        if (defaultSettings.object(forKey: "arccotangent") != nil)
+        {
+            arccotangentSwitch.setOn(defaultSettings.value(forKey: "arccotangent") as! Bool, animated: true);
+        }
+            //if there are no previously saved settings, then, by default, include arccotangent problems
+        else
+        {
+            arccotangentSwitch.setOn(true, animated: true);
+            defaultSettings.setValue(arccotangentSwitch.isOn, forKey: "arccotangent");
+        }
     }
 
     override open func viewWillDisappear(_ animated: Bool) {
@@ -265,6 +351,97 @@ open class SettingsViewController: UIViewController{
             multiplier += 1;
         }
         total *= multiplier;
+
+        if(defaultSettings.value(forKey: "arcsine") as! Bool)
+        {
+            if(defaultSettings.value(forKey: "quadrantals") as! Bool)
+            {
+                total += 3;
+            }
+            if(defaultSettings.value(forKey: "quadI") as! Bool)
+            {
+                total += 3;
+            }
+            if(defaultSettings.value(forKey: "quadIV") as! Bool)
+            {
+                total += 3;
+            }
+        }
+        if(defaultSettings.value(forKey: "arccosine") as! Bool)
+        {
+            if(defaultSettings.value(forKey: "quadrantals") as! Bool)
+            {
+                total += 3;
+            }
+            if(defaultSettings.value(forKey: "quadI") as! Bool)
+            {
+                total += 3;
+            }
+            if(defaultSettings.value(forKey: "quadII") as! Bool)
+            {
+                total += 3;
+            }
+        }
+        if(defaultSettings.value(forKey: "arctangent") as! Bool)
+        {
+            if(defaultSettings.value(forKey: "quadrantals") as! Bool)
+            {
+                total += 1;
+            }
+            if(defaultSettings.value(forKey: "quadI") as! Bool)
+            {
+                total += 3;
+            }
+            if(defaultSettings.value(forKey: "quadIV") as! Bool)
+            {
+                total += 3;
+            }
+        }
+        if(defaultSettings.value(forKey: "arccosecant") as! Bool)
+        {
+            if(defaultSettings.value(forKey: "quadrantals") as! Bool)
+            {
+                total += 2;
+            }
+            if(defaultSettings.value(forKey: "quadI") as! Bool)
+            {
+                total += 3;
+            }
+            if(defaultSettings.value(forKey: "quadIV") as! Bool)
+            {
+                total += 3;
+            }
+        }
+        if(defaultSettings.value(forKey: "arcsecant") as! Bool)
+        {
+            if(defaultSettings.value(forKey: "quadrantals") as! Bool)
+            {
+                total += 2;
+            }
+            if(defaultSettings.value(forKey: "quadI") as! Bool)
+            {
+                total += 3;
+            }
+            if(defaultSettings.value(forKey: "quadII") as! Bool)
+            {
+                total += 3;
+            }
+        }
+        if(defaultSettings.value(forKey: "arccotangent") as! Bool)
+        {
+            if(defaultSettings.value(forKey: "quadrantals") as! Bool)
+            {
+                total += 1;
+            }
+            if(defaultSettings.value(forKey: "quadI") as! Bool)
+            {
+                total += 3;
+            }
+            if(defaultSettings.value(forKey: "quadII") as! Bool)
+            {
+                total += 3;
+            }
+        }
         defaultSettings.setValue(total, forKey: "maxNumOfProblems");
     }
     
@@ -347,6 +524,14 @@ open class SettingsViewController: UIViewController{
     }
     
     @IBAction func trigFunctionSwitchChanged(_ sender: UISwitch) {
+        //if none of the trig functions are on, turn on the sine switch
+        if(!sineSwitch.isOn && !cosineSwitch.isOn && !tangentSwitch.isOn && !cosecantSwitch.isOn && !secantSwitch.isOn && !cotangentSwitch.isOn && !arcsineSwitch.isOn && !arccosineSwitch.isOn && !arctangentSwitch.isOn && !arccosecantSwitch.isOn && !arcsecantSwitch.isOn && !arccotangentSwitch.isOn)
+        {
+            sineSwitch.setOn(true, animated: true);
+            defaultSettings.setValue(sineSwitch.isOn, forKey: "sine");
+        }
+        //save the state of the quad1Switch to default settings
+        defaultSettings.setValue(sender.isOn, forKey: "quadIV");
         var keyName = ""
         switch(sender.tag)
         {
@@ -362,6 +547,18 @@ open class SettingsViewController: UIViewController{
             keyName = "secant";
         case 5:
             keyName = "cotangent";
+        case 6:
+            keyName = "arcsine";
+        case 7:
+            keyName = "arccosine";
+        case 8:
+            keyName = "arctangent";
+        case 9:
+            keyName = "arccosecant";
+        case 10:
+            keyName = "arcsecant";
+        case 11:
+            keyName = "arccotangent"
         default: break
         }
         defaultSettings.setValue(sender.isOn, forKey: keyName);
