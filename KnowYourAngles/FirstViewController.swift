@@ -64,12 +64,40 @@ class FirstViewController : UIViewController{
         {
             defaultSettings.setValue(true, forKey: "degrees");
         }
+        //check if there are no previously saved settings for the statistics involving degrees
+        if (defaultSettings.object(forKey: "degreeStatsNumCorrect") == nil)
+        {
+            defaultSettings.setValue(0, forKey: "degreeStatsNumCorrect");
+        }
+        if (defaultSettings.object(forKey: "degreeStatsNumTotal") == nil)
+        {
+            defaultSettings.setValue(0, forKey: "degreeStatsNumTotal");
+        }
         
         /**********SETTINGS FOR PROBLEMS USING RADIANS**********/
         //check if there are no previously saved settings for including problems with radians
         if (defaultSettings.object(forKey: "radians") == nil)
         {
             defaultSettings.setValue(false, forKey: "radians");
+        }
+        //check if there are no previously saved settings for the statistics involving radians
+        if (defaultSettings.object(forKey: "radianStatsNumCorrect") == nil)
+        {
+            defaultSettings.setValue(0, forKey: "radianStatsNumCorrect");
+        }
+        if (defaultSettings.object(forKey: "radianStatsNumTotal") == nil)
+        {
+            defaultSettings.setValue(0, forKey: "radianStatsNumTotal");
+        }
+        
+        //check if there are no previously saved settings for the statistics involving radians and degrees
+        if (defaultSettings.object(forKey: "radianAndDegreeStatsNumCorrect") == nil)
+        {
+            defaultSettings.setValue(0, forKey: "radianAndDegreeStatsNumCorrect");
+        }
+        if (defaultSettings.object(forKey: "radianAndDegreeStatsNumTotal") == nil)
+        {
+            defaultSettings.setValue(0, forKey: "radianAndDegreeStatsNumTotal");
         }
         
         /**********SETTINGS FOR PROBLEMS FROM QUADRANTALS**********/
