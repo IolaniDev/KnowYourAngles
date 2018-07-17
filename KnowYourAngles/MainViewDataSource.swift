@@ -9,17 +9,6 @@
 import Foundation
 
 class MainViewDataSource : NSObject{
-    //possible problems using degrees
-    //fileprivate var degreeProblems: [String] = ["Cos0", "Cos30", "Cos45", "Cos60", "Cos90", "Cos120", "Cos135", "Cos150", "Cos180", "Cos210", "Cos225", "Cos240", "Cos270", "Cos300", "Cos315", "Cos330", "Sin0", "Sin30", "Sin45", "Sin60", "Sin90", "Sin120", "Sin135", "Sin150", "Sin180", "Sin210", "Sin225", "Sin240", "Sin270", "Sin300", "Sin315", "Sin330", "tan0", "tan30", "tan45", "tan60", "tan90", "tan120", "tan135", "tan150", "tan180", "tan210", "tan225", "tan240", "tan270", "tan300", "tan315", "tan330"];
-    
-    //possible problems using radians
-    //fileprivate var radianProblems: [String] = ["Cos0rads", "CosPiOver6", "CosPiOver4", "CosPiOver3", "CosPiOver2", "Cos2PiOver3", "Cos3PiOver4", "Cos5PiOver6", "CosPi", "Cos7PiOver6", "Cos5PiOver4", "Cos4PiOver3", "Cos3PiOver2", "Cos5PiOver3", "Cos7PiOver4", "Cos11PiOver6", "Sin0rads", "SinPiOver6", "SinPiOver4", "SinPiOver3", "SinPiOver2", "Sin2PiOver3", "Sin3PiOver4", "Sin5PiOver6", "SinPi", "Sin7PiOver6", "Sin5PiOver4", "Sin4PiOver3", "Sin3PiOver2", "Sin5PiOver3", "Sin7PiOver4", "Sin11PiOver6", "Tan0rads", "TanPiOver6", "TanPiOver4", "TanPiOver3", "TanPiOver2", "Tan2PiOver3", "Tan3PiOver4", "Tan5PiOver6", "TanPi", "Tan7PiOver6", "Tan5PiOver4", "Tan4PiOver3", "Tan3PiOver2", "Tan5PiOver3", "Tan7PiOver4", "Tan11PiOver6"];
-    
-    //possible reciprocal problems using degrees
-    //fileprivate var reciprocalDegreeProblems: [String] = ["Csc0", "Csc30", "Csc45", "Csc60", "Csc90", "Csc120", "Csc135", "Csc150", "Csc180", "Csc210", "Csc225", "Csc240", "Csc270", "Csc300", "Csc315", "Csc330", "Sec0", "Sec30", "Sec45", "Sec60", "Sec90", "Sec120", "Sec135", "Sec150", "Sec180", "Sec210", "Sec225", "Sec240", "Sec270", "Sec300", "Sec315", "Sec330", "Cot0", "Cot30", "Cot45", "Cot60", "Cot90", "Cot120", "Cot135", "Cot150", "Cot180", "Cot210", "Cot225", "Cot240", "Cot270", "Cot300", "Cot315", "Cot330"];
-    
-    //possible reciprocal problems using radians
-    //fileprivate var reciprocalRadianProblems: [String] = ["Csc0rads", "CscPiOver6", "CscPiOver4", "CscPiOver3", "CscPiOver2", "Csc2PiOver3", "Csc3PiOver4", "Csc5PiOver6", "CscPi", "Csc7PiOver6", "Csc5PiOver4", "Csc4PiOver3", "Csc3PiOver2", "Csc5PiOver3", "Csc7PiOver4", "Csc11PiOver6", "Sec0rads", "SecPiOver6", "SecPiOver4", "SecPiOver3", "SecPiOver2", "Sec2PiOver3", "Sec3PiOver4", "Sec5PiOver6", "SecPi", "Sec7PiOver6", "Sec5PiOver4", "Sec4PiOver3", "Sec3PiOver2", "Sec5PiOver3", "Sec7PiOver4", "Sec11PiOver6", "Cot0rads", "CotPiOver6", "CotPiOver4", "CotPiOver3", "CotPiOver2", "Cot2PiOver3", "Cot3PiOver4", "Cot5PiOver6", "CotPi", "Cot7PiOver6", "Cot5PiOver4", "Cot4PiOver3", "Cot3PiOver2", "Cot5PiOver3", "Cot7PiOver4", "Cot11PiOver6"];
     
     //empty array to hold the problems to choose from depending on the user's settings.
     fileprivate var libraryOfProblems : [Problem];
@@ -594,6 +583,169 @@ class MainViewDataSource : NSObject{
             Problem.init(problemImageName: "Cot11PiOver6", correctAnswer: "-1.732…", answerImageName: "NegativeRoot3", typeOfProblem: "cotangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.IV)
         ];
         libraryOfProblems.append(contentsOf: cotRadsQIV);
+    }
+    
+    /********** Functions for Loading Inverse Sine Problems **********/
+    func loadArcsineQuadrantalProblems (){
+        let arcsineQuadrantals : [InverseProblem] = [
+            InverseProblem.init(problemImageName: "ArcsinNegative1", correctAnswer: "-1.570…", answerImageName: "NegativePiOver2", otherCorrectAnswer: "-90", otherAnswerImageName: "Negative90deg", typeOfProblem: "arcsine", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.quadrantal),
+            InverseProblem.init(problemImageName: "Arcsin0", correctAnswer: "0", answerImageName: "0rads", otherCorrectAnswer: "0", otherAnswerImageName: "0deg", typeOfProblem: "arcsine", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.quadrantal),
+            InverseProblem.init(problemImageName: "Arcsin1", correctAnswer: "1.570…", answerImageName: "PiOver2", otherCorrectAnswer: "90", otherAnswerImageName: "90deg", typeOfProblem: "arcsine", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.quadrantal)
+        ]
+        libraryOfProblems.append(contentsOf: arcsineQuadrantals);
+    }
+    
+    func loadArcsineQuadIProblems (){
+        let arcsineQI : [InverseProblem] = [
+            InverseProblem.init(problemImageName: "Arcsin1Over2", correctAnswer: "0.523…", answerImageName: "PiOver6", otherCorrectAnswer: "30", otherAnswerImageName: "30deg", typeOfProblem: "arcsine", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.I),
+            InverseProblem.init(problemImageName: "ArcsinRoot2Over2", correctAnswer: "0.785…", answerImageName: "PiOver4", otherCorrectAnswer: "45", otherAnswerImageName: "45deg", typeOfProblem: "arcsine", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.I),
+            InverseProblem.init(problemImageName: "ArcsinRoot3Over2", correctAnswer: "1.047…", answerImageName: "PiOver3", otherCorrectAnswer: "60", otherAnswerImageName: "60deg", typeOfProblem: "arcsine", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.I)
+        ]
+        libraryOfProblems.append(contentsOf: arcsineQI);
+    }
+    
+    func loadArcsineQuadIVProblems (){
+        let arcsineQIV : [InverseProblem] = [
+            InverseProblem.init(problemImageName: "ArcsinNegativeRoot3Over2", correctAnswer: "-1.047…", answerImageName: "NegativePiOver3", otherCorrectAnswer: "-60", otherAnswerImageName: "Negative60deg", typeOfProblem: "arcsine", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.IV),
+            InverseProblem.init(problemImageName: "ArcsinNegativeRoot2Over2", correctAnswer: "-0.785…", answerImageName: "NegativePiOver4", otherCorrectAnswer: "-45", otherAnswerImageName: "Negative45deg", typeOfProblem: "arcsine", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.IV),
+            InverseProblem.init(problemImageName: "ArcsinNegative1Over2", correctAnswer: "-0.523…", answerImageName: "NegativePiOver6", otherCorrectAnswer: "-30", otherAnswerImageName: "Negative30deg", typeOfProblem: "arcsine", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.IV)
+        ]
+        libraryOfProblems.append(contentsOf: arcsineQIV);
+    }
+    
+    /********** Functions for Loading Inverse Cosine Problems **********/
+    func loadArccosineQuadrantalProblems (){
+        let arccosineQuadrantals : [InverseProblem] = [
+            InverseProblem.init(problemImageName: "ArccosNegative1", correctAnswer: "3.141…", answerImageName: "Pi", otherCorrectAnswer: "180", otherAnswerImageName: "180deg", typeOfProblem: "arccosine", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.quadrantal),
+            InverseProblem.init(problemImageName: "Arccos0", correctAnswer: "1.570…", answerImageName: "PiOver2", otherCorrectAnswer: "90", otherAnswerImageName: "90deg", typeOfProblem: "arccosine", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.quadrantal),
+            InverseProblem.init(problemImageName: "Arccos1", correctAnswer: "0", answerImageName: "0rads", otherCorrectAnswer: "0", otherAnswerImageName: "0deg", typeOfProblem: "arccosine", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.quadrantal)
+        ]
+        libraryOfProblems.append(contentsOf: arccosineQuadrantals);
+    }
+    
+    func loadArccosineQuadIProblems (){
+        let arccosineQI : [InverseProblem] = [
+            InverseProblem.init(problemImageName: "Arccos1Over2", correctAnswer: "1.047…", answerImageName: "PiOver3", otherCorrectAnswer: "60", otherAnswerImageName: "60deg", typeOfProblem: "arccosine", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.I),
+            InverseProblem.init(problemImageName: "ArccosRoot2Over2", correctAnswer: "0.785…", answerImageName: "PiOver4", otherCorrectAnswer: "45", otherAnswerImageName: "45deg", typeOfProblem: "arccosine", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.I),
+            InverseProblem.init(problemImageName: "ArccosRoot3Over2", correctAnswer: "0.523…", answerImageName: "PiOver6", otherCorrectAnswer: "30", otherAnswerImageName: "30deg", typeOfProblem: "arccosine", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.I)
+        ]
+        libraryOfProblems.append(contentsOf: arccosineQI);
+    }
+    
+    func loadArccosineQuadIIProblems (){
+        let arccosineQII : [InverseProblem] = [
+            InverseProblem.init(problemImageName: "ArccosNegativeRoot3Over2", correctAnswer: "2.617…", answerImageName: "FivePiOver6", otherCorrectAnswer: "150", otherAnswerImageName: "150deg", typeOfProblem: "arccosine", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.II),
+            InverseProblem.init(problemImageName: "ArccosNegativeRoot2Over2", correctAnswer: "2.356…", answerImageName: "ThreePiOver4", otherCorrectAnswer: "135", otherAnswerImageName: "135deg", typeOfProblem: "arccosine", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.II),
+            InverseProblem.init(problemImageName: "ArccosNegative1Over2", correctAnswer: "2.094…", answerImageName: "TwoPiOver3", otherCorrectAnswer: "120", otherAnswerImageName: "120deg", typeOfProblem: "arccosine", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.II)
+        ]
+        libraryOfProblems.append(contentsOf: arccosineQII);
+    }
+    
+    /********** Functions for Loading Inverse Tangent Problems **********/
+    func loadArctangentQuadrantalProblems (){
+        let arctangentQuadrantals : [InverseProblem] = [
+            InverseProblem.init(problemImageName: "Arctan0", correctAnswer: "0", answerImageName: "0rads", otherCorrectAnswer: "0", otherAnswerImageName: "0deg", typeOfProblem: "arctangent", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.quadrantal)
+        ]
+        libraryOfProblems.append(contentsOf: arctangentQuadrantals);
+    }
+    
+    func loadArctangentQuadIProblems (){
+        let arctangentQuadI : [InverseProblem] = [
+            InverseProblem.init(problemImageName: "ArctanRoot3Over3", correctAnswer: "0.523…", answerImageName: "PiOver6", otherCorrectAnswer: "30", otherAnswerImageName: "30deg", typeOfProblem: "arctangent", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.I),
+            InverseProblem.init(problemImageName: "Arctan1", correctAnswer: "0.785…", answerImageName: "PiOver4", otherCorrectAnswer: "45", otherAnswerImageName: "45deg", typeOfProblem: "arctangent", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.I),
+            InverseProblem.init(problemImageName: "ArctanRoot3", correctAnswer: "1.047…", answerImageName: "PiOver3", otherCorrectAnswer: "60", otherAnswerImageName: "60deg", typeOfProblem: "arctangent", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.I)
+        ]
+        libraryOfProblems.append(contentsOf: arctangentQuadI);
+    }
+    
+    func loadArctangentQuadIVProblems (){
+        let arctangentQuadIV : [InverseProblem] = [
+            InverseProblem.init(problemImageName: "ArctanNegativeRoot3Over3", correctAnswer: "-0.523…", answerImageName: "NegativePiOver6", otherCorrectAnswer: "-30", otherAnswerImageName: "Negative30deg", typeOfProblem: "arctangent", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.IV),
+            InverseProblem.init(problemImageName: "ArctanNegative1", correctAnswer: "-0.785…", answerImageName: "NegativePiOver4", otherCorrectAnswer: "-45", otherAnswerImageName: "Negative45deg", typeOfProblem: "arctangent", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.IV),
+            InverseProblem.init(problemImageName: "ArctanNegativeRoot3", correctAnswer: "-1.047…", answerImageName: "NegativePiOver3", otherCorrectAnswer: "-60", otherAnswerImageName: "Negative60deg", typeOfProblem: "arctangent", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.IV)
+        ]
+        libraryOfProblems.append(contentsOf: arctangentQuadIV);
+    }
+    
+    /********** Functions for Loading Inverse Cosecant Problems **********/
+    func loadArccosecantQuadrantalProblems (){
+        let arccosecantQuadrantals : [InverseProblem] = [
+            InverseProblem.init(problemImageName: "ArccscNegative1", correctAnswer: "-1.570…", answerImageName: "NegativePiOver2", otherCorrectAnswer: "-90", otherAnswerImageName: "Negative90", typeOfProblem: "arccosecant", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.quadrantal),
+            InverseProblem.init(problemImageName: "Arccsc1", correctAnswer: "1.570…", answerImageName: "PiOver2", otherCorrectAnswer: "90", otherAnswerImageName: "90deg", typeOfProblem: "arccosecant", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.quadrantal)
+        ]
+        libraryOfProblems.append(contentsOf: arccosecantQuadrantals);
+    }
+    
+    func loadArccosecantQuadIProblems (){
+        let arccosecantQuadI : [InverseProblem] = [
+            InverseProblem.init(problemImageName: "Arccsc2", correctAnswer: "0.523…", answerImageName: "PiOver6", otherCorrectAnswer: "30", otherAnswerImageName: "30deg", typeOfProblem: "arccosecant", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.I),
+            InverseProblem.init(problemImageName: "ArccscRoot2", correctAnswer: "0.785…", answerImageName: "PiOver4", otherCorrectAnswer: "45", otherAnswerImageName: "45deg", typeOfProblem: "arccosecant", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.I),
+            InverseProblem.init(problemImageName: "Arccsc2Root3Over3", correctAnswer: "1.047…", answerImageName: "PiOver3", otherCorrectAnswer: "60", otherAnswerImageName: "60deg", typeOfProblem: "arccosecant", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.I)
+        ]
+        libraryOfProblems.append(contentsOf: arccosecantQuadI);
+    }
+    
+    func loadArccosecantQuadIVProblems (){
+        let arccosecantQuadIV : [InverseProblem] = [
+            InverseProblem.init(problemImageName: "ArccscNegative2", correctAnswer: "-0.523…", answerImageName: "NegativePiOver6", otherCorrectAnswer: "-30", otherAnswerImageName: "Negative30deg", typeOfProblem: "arccosecant", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.IV),
+            InverseProblem.init(problemImageName: "ArccscNegativeRoot2", correctAnswer: "-0.785…", answerImageName: "NegativePiOver4", otherCorrectAnswer: "-45", otherAnswerImageName: "Negative45deg", typeOfProblem: "arccosecant", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.IV),
+            InverseProblem.init(problemImageName: "ArccscNegative2Root3Over3", correctAnswer: "-1.047…", answerImageName: "NegativePiOver3", otherCorrectAnswer: "-60", otherAnswerImageName: "Negative60deg", typeOfProblem: "arccosecant", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.IV)
+        ]
+        libraryOfProblems.append(contentsOf: arccosecantQuadIV);
+    }
+    
+    /********** Functions for Loading Inverse Secant Problems **********/
+    func loadArcsecantQuadrantalProblems (){
+        let arcsecQuadrantals : [InverseProblem] = [
+            InverseProblem.init(problemImageName: "Arcsec1", correctAnswer: "0", answerImageName: "0rads", otherCorrectAnswer: "0", otherAnswerImageName: "0deg", typeOfProblem: "arcsecant", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.quadrantal),
+            InverseProblem.init(problemImageName: "ArcsecNegative1", correctAnswer: "3.141…", answerImageName: "Pi", otherCorrectAnswer: "180", otherAnswerImageName: "180deg", typeOfProblem: "arcsecant", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.quadrantal)
+        ]
+        libraryOfProblems.append(contentsOf: arcsecQuadrantals);
+    }
+    
+    func loadArcsecantQuadIProblems (){
+        let arcsecQuadI : [InverseProblem] = [
+            InverseProblem.init(problemImageName: "Arcsec2Root3Over3", correctAnswer: "0.523…", answerImageName: "PiOver6", otherCorrectAnswer: "30", otherAnswerImageName: "30deg", typeOfProblem: "arcsecant", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.I),
+            InverseProblem.init(problemImageName: "ArcsecRoot2", correctAnswer: "0.785…", answerImageName: "PiOver4", otherCorrectAnswer: "45", otherAnswerImageName: "45deg", typeOfProblem: "arcsecant", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.I),
+            InverseProblem.init(problemImageName: "Arcsec2", correctAnswer: "1.047…", answerImageName: "PiOver3", otherCorrectAnswer: "60", otherAnswerImageName: "60deg", typeOfProblem: "arcsecant", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.I)
+        ]
+        libraryOfProblems.append(contentsOf: arcsecQuadI);
+    }
+    
+    func loadArcsecantQuadIIProblems (){
+        let arcsecQuadII : [InverseProblem] = [
+            InverseProblem.init(problemImageName: "ArcsecNegative2", correctAnswer: "2.094…", answerImageName: "TwoPiOver3", otherCorrectAnswer: "120", otherAnswerImageName: "120deg", typeOfProblem: "Arcsecant", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.II),
+            InverseProblem.init(problemImageName: "ArcsecNegativeRoot2", correctAnswer: "2.356…", answerImageName: "ThreePiOver4", otherCorrectAnswer: "135", otherAnswerImageName: "135deg", typeOfProblem: "arcsecant", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.II),
+            //5 pi over 6
+            InverseProblem.init(problemImageName: "ArcsecNegative2Root3Over3", correctAnswer: "2.617…", answerImageName: "FivePiOver6", otherCorrectAnswer: "150", otherAnswerImageName: "150deg", typeOfProblem: "arcsecant", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.II)
+        ]
+        libraryOfProblems.append(contentsOf: arcsecQuadII);
+    }
+    
+    /********** Functions for Loading Inverse Cotangent Problems **********/
+    func loadArccotangentQuadrantalProblems (){
+        let arccotQuadrantals : [InverseProblem] = [
+            InverseProblem.init(problemImageName: "Arccot0", correctAnswer: "1.570…", answerImageName: "PiOver2", otherCorrectAnswer: "90", otherAnswerImageName: "90deg", typeOfProblem: "arccotangent", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.quadrantal)
+        ]
+        libraryOfProblems.append(contentsOf: arccotQuadrantals);
+    }
+    
+    func loadArccotangentQuadIProblems (){
+        let arccotQuadI : [InverseProblem] = [
+            InverseProblem.init(problemImageName: "ArccotRoot3", correctAnswer: "0.523…", answerImageName: "PiOver6", otherCorrectAnswer: "30", otherAnswerImageName: "30deg", typeOfProblem: "arccotangent", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.I),
+            InverseProblem.init(problemImageName: "Arccot1", correctAnswer: "0.785…", answerImageName: "PiOver4", otherCorrectAnswer: "45", otherAnswerImageName: "45deg", typeOfProblem: "arccotangent", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.I),
+            InverseProblem.init(problemImageName: "ArccotRoot3Over3", correctAnswer: "1.047…", answerImageName: "PiOver3", otherCorrectAnswer: "60", otherAnswerImageName: "60deg", typeOfProblem: "arccotangent", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.I)
+        ]
+        libraryOfProblems.append(contentsOf: arccotQuadI);
+    }
+    
+    func loadArccotangentQuadIIProblems (){
+        let arccotQuadII : [InverseProblem] = [
+            InverseProblem.init(problemImageName: "ArccotNegativeRoot3Over3", correctAnswer: "2.094…", answerImageName: "TwoPiOver3", otherCorrectAnswer: "120", otherAnswerImageName: "120deg", typeOfProblem: "arccotangent", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.II),
+            InverseProblem.init(problemImageName: "ArccotNegative1", correctAnswer: "2.356…", answerImageName: "ThreePiOver4", otherCorrectAnswer: "135", otherAnswerImageName: "135deg", typeOfProblem: "arccotangent", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.II),
+            InverseProblem.init(problemImageName: "ArccotNegativeRoot3", correctAnswer: "2.617…", answerImageName: "FivePiOver6", otherCorrectAnswer: "150", otherAnswerImageName: "150deg", typeOfProblem: "arccotangent", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.II)
+        ]
+        libraryOfProblems.append(contentsOf: arccotQuadII);
     }
     
     func getRandomProblem() -> Problem {
