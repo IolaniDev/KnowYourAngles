@@ -13,9 +13,5 @@ class SummaryCollectionView : UICollectionView{
     override func layoutSubviews() {
         super.layoutSubviews()
         (collectionViewLayout as? UICollectionViewFlowLayout)?.sectionHeadersPinToVisibleBounds = true;
-//        let location = CGPointMake(0, contentOffset.y)
-//        let size = header.frame.size
-//        
-//        header.frame = CGRect(origin: location, size: size)
     }
 }

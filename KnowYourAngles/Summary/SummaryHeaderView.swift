@@ -14,9 +14,4 @@ class SummaryHeaderView : UICollectionReusableView{
     @IBOutlet weak var correctAnswerImg: UIImageView!
     @IBOutlet weak var yourAnswerImg: UIImageView!
     @IBOutlet weak var rightOrWrongImg: UIImageView!
-
-    /*required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        
-    }*/
 }
