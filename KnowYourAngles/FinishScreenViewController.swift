@@ -84,15 +84,6 @@ open class FinishScreenViewController: UIViewController{
         // log results in high scores
         logResultsInHighScores();
         
-        /*self.tableView.backgroundColor = UIColor(red: 25/255, green: 127/255, blue: 124/255, alpha: 1);
-        
-        self.tableView.contentInset = UIEdgeInsetsMake(50, 0, 0, 0);
-        
-        self.tableView.dataSource = self;
-        self.tableView.delegate = self;
-        
-        tableView.reloadData();*/
-        
         summaryView.dataSource = mainController;
         summaryView.delegate = mainController;
     }
@@ -234,50 +225,4 @@ open class FinishScreenViewController: UIViewController{
             print("Could not save \(error), \(error.userInfo)")
         }
     }
-    
-    /*public func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1;
-    }
-    
-    public func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return totalNum;
-    }
-    
-    public func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cellIdentifier = "SummaryCell";
-        guard let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as? SummaryCell else{
-                fatalError("The dequeued cell is not an instance of SummaryCell");
-            }
-        
-        //configure the cell
-        cell.backgroundColor = UIColor(red: 25/255, green: 127/255, blue: 124/255, alpha: 1);
-        
-        cell.summaryEntry.text = "summary entry 1";
-        //cell.imageView?.image = UIImage(named: "Cos0.png")
-        cell.problemImg = UIImageView(image: summaryData[indexPath.row].0);
-        cell.correctAnswerImg = UIImageView(image: summaryData[indexPath.row].1);
-        cell.answerImg = UIImageView(image:summaryData[indexPath.row].2);
-        cell.summaryEntry.backgroundColor = UIColor(red: 25/255, green: 127/255, blue: 124/255, alpha: 1);
-        
-        return cell;
-    }*/
 }
-
-/*extension FinishScreenViewController : UICollectionViewDelegateFlowLayout{
-    
-    public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let paddingSpace = sectionInsets.left * (itemsPerRow+1)
-        let availableWidth = view.frame.width - paddingSpace
-        let widthPerItem = availableWidth / itemsPerRow
-        
-        return CGSize(width: widthPerItem, height: widthPerItem);
-    }
-   
-    public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-        return sectionInsets;
-    }
-    
-    public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return sectionInsets.left;
-    }
-}*/

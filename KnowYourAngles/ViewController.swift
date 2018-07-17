@@ -43,10 +43,10 @@ class ViewController: UIViewController, MAWMathViewDelegate{
     var problemSource = MainViewDataSource.init();
     
     //reference to array of summary data to send to Finish Screen
-    //var summariesToSend : [(UIImage, UIImage, UIImage, UIImage)] = []
     var summariesToSend : [UIImage] = [];
-    var problemImg : UIImage = UIImage();
-    var correctAnswerImg : UIImage = UIImage();
+    //var problemImg : UIImage = UIImage();
+    //var correctAnswerImg : UIImage = UIImage();
+    //image representing the user's answer
     var answerImg : UIImage = UIImage();
     var markImg : UIImage = UIImage();
     
@@ -649,7 +649,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             // setup image of first problem
             correctingMarksView.problemImage.image = UIImage(named: problemSource.getRandomProblem().problemImageName);
             
-            problemImg = correctingMarksView.problemImage.image!;
+            //problemImg = correctingMarksView.problemImage.image!;
             
             // add an observer for when the timer runs out.
             NotificationCenter.default.addObserver(self, selector: #selector(updateCountDown), name: NSNotification.Name(rawValue: "segueNow"), object: nil);
@@ -702,7 +702,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         {
             correctingMarksView.numRemaining.text = "\(Int(correctingMarksView.numRemaining.text!)!-1)";
         
-            correctAnswerImg = UIImage(named: problemSource.getCurrProblem().answerImageName)!;
+            //correctAnswerImg = UIImage(named: problemSource.getCurrProblem().answerImageName)!;
             answerImg = mathView.resultAsImage();
             if(result?.contains("="))!
             {
@@ -721,15 +721,18 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                 correctingMarksView.numCorrect.text = "\(Int(correctingMarksView.numCorrect.text!)!+1)";
                 correctingMarksView.drawRight();
                 markImg = UIImage(named: "Correct")!;
+                updateStatistics(isCorrect: true);
             }
             else
             {
                 correctingMarksView.drawWrong();
                 markImg = UIImage(named: "Wrong")!;
+                updateStatistics(isCorrect: false);
             }
         
-            summariesToSend.append(problemImg);
-            summariesToSend.append(correctAnswerImg);
+            //add images to the summary view on the finish screen
+            summariesToSend.append(UIImage(named: problemSource.getCurrProblem().answerImageName)!);
+            summariesToSend.append(UIImage(named: problemSource.getCurrProblem().answerImageName)!);
             summariesToSend.append(answerImg);
             summariesToSend.append(markImg);
             
@@ -743,7 +746,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             {
                 // set up a new problem
                 correctingMarksView.problemImage.image = UIImage(named: problemSource.getRandomProblem().problemImageName);
-                problemImg = correctingMarksView.problemImage.image!;
+
                 // clear the field to write your answer
                 mathView.clear(false);
                 scratchPaperImageView.image = nil;
@@ -829,6 +832,16 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             // draw a single point
             drawLineFrom(lastPoint, toPoint: lastPoint)
         }
+    }
+    
+    func updateStatistics(isCorrect : Bool)
+    {
+        if(isCorrect)
+        {
+            let newValue:Int = savedSettings.value(forKey: problemSource.getCurrProblem().typeOfProblem + "StatsNumCorrect") as! Int + 1;
+            savedSettings.setValue(newValue, forKey: problemSource.getCurrProblem().typeOfProblem + "StatsNumCorrect");
+        }
+        savedSettings.setValue(savedSettings.value(forKey: problemSource.getCurrProblem().typeOfProblem + "StatsNumTotal") as! Int + 1, forKey: problemSource.getCurrProblem().typeOfProblem + "StatsNumTotal");
     }
 }
 

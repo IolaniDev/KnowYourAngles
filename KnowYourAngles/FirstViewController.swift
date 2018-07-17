@@ -149,5 +149,64 @@ class FirstViewController : UIViewController{
             defaultSettings.setValue(false, forKey: "cotangent");
         }
         
+        /**********STATISTICS FOR SINE PROBLEMS**********/
+        if(defaultSettings.object(forKey: "sineStatsNumCorrect") == nil)
+        {
+            defaultSettings.setValue(0, forKey: "sineStatsNumCorrect");
+        }
+        if(defaultSettings.object(forKey: "sineStatsNumTotal") == nil)
+        {
+            defaultSettings.setValue(0, forKey: "sineStatsNumTotal");
+        }
+        
+        /**********STATISTICS FOR COSINE PROBLEMS**********/
+        if(defaultSettings.object(forKey: "cosineStatsNumCorrect") == nil)
+        {
+            defaultSettings.setValue(0, forKey: "cosineStatsNumCorrect");
+        }
+        if(defaultSettings.object(forKey: "cosineStatsNumTotal") == nil)
+        {
+            defaultSettings.setValue(0, forKey: "cosineStatsNumTotal");
+        }
+        
+        /**********STATISTICS FOR TANGENT PROBLEMS**********/
+        if(defaultSettings.object(forKey: "tangentStatsNumCorrect") == nil)
+        {
+            defaultSettings.setValue(0, forKey: "tangentStatsNumCorrect");
+        }
+        if(defaultSettings.object(forKey: "tangentStatsNumTotal") == nil)
+        {
+            defaultSettings.setValue(0, forKey: "tangentStatsNumTotal");
+        }
+        
+        /**********STATISTICS FOR COSECANT PROBLEMS**********/
+        if(defaultSettings.object(forKey: "cosecantStatsNumCorrect") == nil)
+        {
+            defaultSettings.setValue(0, forKey: "cosecantStatsNumCorrect");
+        }
+        if(defaultSettings.object(forKey: "cosecantStatsNumTotal") == nil)
+        {
+            defaultSettings.setValue(0, forKey: "cosecantStatsNumTotal");
+        }
+        
+        /**********STATISTICS FOR SECANT PROBLEMS**********/
+        if(defaultSettings.object(forKey: "secantStatsNumCorrect") == nil)
+        {
+            defaultSettings.setValue(0, forKey: "secantStatsNumCorrect");
+        }
+        if(defaultSettings.object(forKey: "secantStatsNumTotal") == nil)
+        {
+            defaultSettings.setValue(0, forKey: "secantStatsNumTotal");
+        }
+        
+        /**********STATISTICS FOR COTANGENT PROBLEMS**********/
+        if(defaultSettings.object(forKey: "cotangentStatsNumCorrect") == nil)
+        {
+            defaultSettings.setValue(0, forKey: "cotangentStatsNumCorrect");
+        }
+        if(defaultSettings.object(forKey: "cotangentStatsNumTotal") == nil)
+        {
+            defaultSettings.setValue(0, forKey: "cotangentStatsNumTotal");
+        }
     }
 }
