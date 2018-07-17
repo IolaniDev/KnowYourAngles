@@ -731,7 +731,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             }
         
             //add images to the summary view on the finish screen
-            summariesToSend.append(UIImage(named: problemSource.getCurrProblem().answerImageName)!);
+            summariesToSend.append(UIImage(named: problemSource.getCurrProblem().problemImageName)!);
             summariesToSend.append(UIImage(named: problemSource.getCurrProblem().answerImageName)!);
             summariesToSend.append(answerImg);
             summariesToSend.append(markImg);
@@ -842,6 +842,18 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             savedSettings.setValue(newValue, forKey: problemSource.getCurrProblem().typeOfProblem + "StatsNumCorrect");
         }
         savedSettings.setValue(savedSettings.value(forKey: problemSource.getCurrProblem().typeOfProblem + "StatsNumTotal") as! Int + 1, forKey: problemSource.getCurrProblem().typeOfProblem + "StatsNumTotal");
+        if(problemSource.getCurrProblem().unitsOfAngle == Problem.angleUnits.radians)
+        {
+            savedSettings.setValue(savedSettings.value(forKey: "radianStatsNumCorrect") as! Int + 1, forKey: "radianStatsNumCorrect");
+            savedSettings.setValue(savedSettings.value(forKey: "radianStatsNumTotal") as! Int + 1, forKey: "radianStatsNumTotal");
+        }
+        if(problemSource.getCurrProblem().unitsOfAngle == Problem.angleUnits.degrees)
+        {
+            savedSettings.setValue(savedSettings.value(forKey: "degreeStatsNumCorrect") as! Int + 1, forKey: "degreeStatsNumCorrect");
+            savedSettings.setValue(savedSettings.value(forKey: "degreeStatsNumTotal") as! Int + 1, forKey: "degreeStatsNumTotal");
+        }
+        savedSettings.setValue(savedSettings.value(forKey: "radianAndDegreeStatsNumCorrect") as! Int + 1, forKey: "radianAndDegreeStatsNumCorrect");
+        savedSettings.setValue(savedSettings.value(forKey: "radianAndDegreeStatsNumTotal") as! Int + 1, forKey: "radianAndDegreeStatsNumTotal");
     }
 }
 

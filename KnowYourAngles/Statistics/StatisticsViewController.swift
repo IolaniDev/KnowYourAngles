@@ -25,6 +25,39 @@ class StatisticsViewController : UIViewController {
     let defaultSettings = UserDefaults.standard
     
     override func viewDidLoad() {
+        //if there is data recorded for problems measured in radians, then use it to calculate a percentage
+        if(defaultSettings.value(forKey: "radianStatsNumTotal") as! Int != 0)
+        {
+            radianPercentage.text = String((defaultSettings.value(forKey: "radianStatsNumCorrect") as! Float) / (defaultSettings.value(forKey: "radianStatsNumTotal") as! Float) * 100) + "%";
+        }
+        //otherwise set the percentage to zero
+        else
+        {
+            radianPercentage.text = "0%";
+        }
+        
+        //if there is data recorded for problems measured in degrees, then use it to calculate a percentage
+        if(defaultSettings.value(forKey: "degreeStatsNumTotal") as! Int != 0)
+        {
+            degreePercentage.text = String((defaultSettings.value(forKey: "degreeStatsNumCorrect") as! Float) / (defaultSettings.value(forKey: "degreeStatsNumTotal") as! Float) * 100) + "%";
+        }
+            //otherwise set the percentage to zero
+        else
+        {
+            degreePercentage.text = "0%";
+        }
+        
+        //if there is data recorded for problems measured in radians and degrees, then use it to calculate a percentage
+        if(defaultSettings.value(forKey: "radianAndDegreeStatsNumTotal") as! Int != 0)
+        {
+            radianAndDegreePercentage.text = String((defaultSettings.value(forKey: "radianAndDegreeStatsNumCorrect") as! Float) / (defaultSettings.value(forKey: "radianAndDegreeStatsNumTotal") as! Float) * 100) + "%";
+        }
+            //otherwise set the percentage to zero
+        else
+        {
+            radianAndDegreePercentage.text = "0%";
+        }
+        
         //if there is data recorded for sine problems, then use it to calculate a percentage
         if(defaultSettings.value(forKey: "sineStatsNumTotal") as! Int != 0)
         {
@@ -94,6 +127,18 @@ class StatisticsViewController : UIViewController {
     
     @IBAction func resetStats(_ sender: UIButton)
     {
+        defaultSettings.setValue(0, forKey: "radianStatsNumCorrect");
+        defaultSettings.setValue(0, forKey: "radianStatsNumTotal");
+        radianPercentage.text = "0%";
+        
+        defaultSettings.setValue(0, forKey: "degreeStatsNumCorrect");
+        defaultSettings.setValue(0, forKey: "degreeStatsNumTotal");
+        degreePercentage.text = "0%";
+        
+        defaultSettings.setValue(0, forKey: "radianAndDegreeStatsNumCorrect");
+        defaultSettings.setValue(0, forKey: "radianAndDegreeStatsNumTotal");
+        radianAndDegreePercentage.text = "0%";
+        
         defaultSettings.setValue(0, forKey: "sineStatsNumCorrect");
         defaultSettings.setValue(0, forKey: "sineStatsNumTotal");
         sinePercentage.text = "0%";
