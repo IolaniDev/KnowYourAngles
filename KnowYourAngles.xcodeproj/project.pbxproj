@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3661E5B91E0E1BD900601402 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3661E5B81E0E1BD900601402 /* CoreData.framework */; };
-		3661E5BB1E0E1CB500601402 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661E5BA1E0E1CB500601402 /* DataController.swift */; };
 		3661E5BE1E0E298600601402 /* Table+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661E5BC1E0E298600601402 /* Table+CoreDataProperties.swift */; };
 		3661E5BF1E0E298600601402 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661E5BD1E0E298600601402 /* Table.swift */; };
 		3661E5C21E0E318500601402 /* HighScore+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661E5C01E0E318500601402 /* HighScore+CoreDataProperties.swift */; };
@@ -61,7 +60,6 @@
 
 /* Begin PBXFileReference section */
 		3661E5B81E0E1BD900601402 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		3661E5BA1E0E1CB500601402 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		3661E5BC1E0E298600601402 /* Table+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Table+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		3661E5BD1E0E298600601402 /* Table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
 		3661E5C01E0E318500601402 /* HighScore+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HighScore+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -237,7 +235,6 @@
 				36DD592920F183BD007248B7 /* QuizSetupViewController.swift */,
 				36DFEBE91DDCDDD200DF333D /* MainView.swift */,
 				36969D691DFD290F00F95635 /* MainViewDataSource.swift */,
-				3661E5BA1E0E1CB500601402 /* DataController.swift */,
 				36F5B09620E16C7C003AA258 /* Problem.swift */,
 			);
 			path = KnowYourAngles;
@@ -429,7 +426,6 @@
 				36DD592A20F183BD007248B7 /* QuizSetupViewController.swift in Sources */,
 				36C426B620FD43C300061D8F /* StatisticsViewController.swift in Sources */,
 				84461B4B1D308F1000BA997E /* FinishScreenViewController.swift in Sources */,
-				3661E5BB1E0E1CB500601402 /* DataController.swift in Sources */,
 				84C3E8221D2DC75300750751 /* SettingsViewController.swift in Sources */,
 				36969D6A1DFD290F00F95635 /* MainViewDataSource.swift in Sources */,
 				3661E5BF1E0E298600601402 /* Table.swift in Sources */,
