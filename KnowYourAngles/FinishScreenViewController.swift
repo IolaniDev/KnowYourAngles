@@ -8,30 +8,6 @@
 
 import Foundation
 import CoreData
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
-}
-
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l > r
-  default:
-    return rhs < lhs
-  }
-}
-
 
 open class FinishScreenViewController: UIViewController{
     
@@ -41,18 +17,13 @@ open class FinishScreenViewController: UIViewController{
     var finalTime = (0,0);
     var isTimerOn = false;
     //original problem, correct answer, what user answered, correct or wrong
-    //var summaryData : [(UIImage,UIImage,UIImage,UIImage)]=[];
     var summaryData : [UIImage] = [];
-    
-    //let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0);
-    //let itemsPerRow: CGFloat = 3;
     
     // references to UI components on storyboard
     @IBOutlet weak var finishScore: UILabel!
     @IBOutlet weak var finishTime: UILabel!
     //@IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var summaryView: UICollectionView!
-    
     
     // load previously saved settings (if there are any)
     fileprivate let savedSettings = UserDefaults.standard
@@ -61,10 +32,8 @@ open class FinishScreenViewController: UIViewController{
     override open func viewDidLoad() {
         super.viewDidLoad();
         let mainController = SummaryCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
-        //let navigationController = UINavigationController(rootViewController: mainController)
         self.addChildViewController(mainController);
         
-        //viewControllers = [navigationController]
         mainController.summaryData = self.summaryData;
         // set the score results
         finishScore.text = "Score: \(finalScore) out of \(totalNum)";
