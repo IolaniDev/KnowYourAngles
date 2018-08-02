@@ -10,32 +10,6 @@
 //  https://www.raywenderlich.com/87899/make-simple-drawing-app-uikit-swift
 
 import UIKit
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l < r
-  case (nil, _?):
-    return true
-  default:
-    return false
-  }
-}
-
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-fileprivate func <= <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-  switch (lhs, rhs) {
-  case let (l?, r?):
-    return l <= r
-  default:
-    return !(rhs < lhs)
-  }
-}
-
-// import CoreGraphics
-
 
 class ViewController: UIViewController, MAWMathViewDelegate{
     
@@ -946,7 +920,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             summariesToSend.append(markImg);
             
             // if we ran through the requested number of problems...
-            if(Int(correctingMarksView.numRemaining.text!) <= 0)
+            if(Int(correctingMarksView.numRemaining.text!)! <= 0)
             {
                 // segue to finish screen.
                 performSegue(withIdentifier: "toFinishScreen", sender: self);
@@ -963,6 +937,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         }
     }
     
+    // function to prepare data to send to the finish screen
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toFinishScreen" {
             let finishViewController = segue.destination as! FinishScreenViewController
@@ -978,6 +953,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         }
     }
     
+    // function to detect when the timer has run out
     @objc func updateCountDown()
     {
         if(self.correctingMarksView.isOutOfTime)
@@ -986,10 +962,12 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         }
     }
     
+    // function to clear the writing space where the user writes their answer
     @IBAction func clearMathView(_ sender: UIButton) {
         mathView.clear(false);
     }
     
+    /**********FUNCTIONS FOR SCRATCH PAPER**********/
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         swiped = false
         if let touch = touches.first {

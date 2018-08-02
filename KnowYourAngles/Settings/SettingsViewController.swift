@@ -314,6 +314,7 @@ open class SettingsViewController: UIViewController{
         }
     }
 
+    //when the user moves out of the Settings scene, calculate the total number of problems the user will be able to choose from for quiz mode
     override open func viewWillDisappear(_ animated: Bool) {
         var total = 0;
         if(defaultSettings.value(forKey: "quadrantals") as! Bool)

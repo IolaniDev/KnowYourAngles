@@ -43,9 +43,6 @@ class MainView: UIView {
     // imageview to hold the green check (meaning correct)
     let correctImageView = UIImageView(image: UIImage(named: "Correct")!);
 
-    @IBAction func clearMathView(_ sender: UIButton) {
-        workArea.clear(false);
-    }
     //another initialize
     required init?(coder aDecoder: NSCoder)
     {
