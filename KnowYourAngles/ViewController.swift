@@ -44,8 +44,6 @@ class ViewController: UIViewController, MAWMathViewDelegate{
     
     //reference to array of summary data to send to Finish Screen
     var summariesToSend : [UIImage] = [];
-    //var problemImg : UIImage = UIImage();
-    //var correctAnswerImg : UIImage = UIImage();
     //image representing the user's answer
     var answerImg : UIImage = UIImage();
     var markImg : UIImage = UIImage();
