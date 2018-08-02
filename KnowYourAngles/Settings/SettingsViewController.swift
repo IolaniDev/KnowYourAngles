@@ -11,6 +11,9 @@ import UIKit
 
 open class SettingsViewController: UIViewController{
     
+    //leftHandSwitch controls whether the app is in left-hand mode or not
+    @IBOutlet weak var leftHandSwitch: UISwitch!
+    
     //degreesSwitch controls whether the problems displayed are in degrees
     //NOTE: Either degrees or radians must be selected. It is not possible to display problems without degrees and without radians.
     @IBOutlet weak var degreesSwitch: UISwitch!
@@ -52,6 +55,18 @@ open class SettingsViewController: UIViewController{
     override open func viewDidLoad() {
         //call on the super class viewDidLoad method
         super.viewDidLoad()
+        
+        /**********SETTINGS FOR RIGHT-HAND VS LEFT-HAND MODE**********/
+        //check if there are previously saved settings for right-hand vs. left-hand mode
+        if (defaultSettings.object(forKey: "isLeftHandMode") != nil) {
+            leftHandSwitch.setOn(defaultSettings.value(forKey: "isLeftHandMode") as! Bool, animated: true);
+        }
+        //if there are no previously saved settings, then by default use right-hand mode
+        else
+        {
+            leftHandSwitch.setOn(false, animated: true);
+            defaultSettings.setValue(leftHandSwitch.isOn, forKey: "isLeftHandMode");
+        }
         
         /**********SETTINGS FOR PROBLEMS USING DEGREES**********/
         //check if there are previously saved settings for including the problems with degrees.
@@ -531,7 +546,7 @@ open class SettingsViewController: UIViewController{
             defaultSettings.setValue(sineSwitch.isOn, forKey: "sine");
         }
         //save the state of the quad1Switch to default settings
-        defaultSettings.setValue(sender.isOn, forKey: "quadIV");
+        //defaultSettings.setValue(sender.isOn, forKey: "quadIV");
         var keyName = ""
         switch(sender.tag)
         {
@@ -558,7 +573,9 @@ open class SettingsViewController: UIViewController{
         case 10:
             keyName = "arcsecant";
         case 11:
-            keyName = "arccotangent"
+            keyName = "arccotangent";
+        case 12:
+            keyName = "isLeftHandMode";
         default: break
         }
         defaultSettings.setValue(sender.isOn, forKey: keyName);

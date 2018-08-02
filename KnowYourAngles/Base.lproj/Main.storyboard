@@ -470,8 +470,11 @@
                                                         <color key="textColor" red="0.15686274510000001" green="0.80000000000000004" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u4M-Lp-JiN">
+                                                    <switch opaque="NO" tag="12" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u4M-Lp-JiN">
                                                         <rect key="frame" x="179" y="6" width="51" height="31"/>
+                                                        <connections>
+                                                            <action selector="trigFunctionSwitchChanged:" destination="VL1-64-KTH" eventType="valueChanged" id="gjA-rF-WCx"/>
+                                                        </connections>
                                                     </switch>
                                                 </subviews>
                                                 <constraints>
@@ -893,6 +896,7 @@
                         <outlet property="cosineSwitch" destination="cOQ-ms-3Ex" id="2qN-KZ-lXF"/>
                         <outlet property="cotangentSwitch" destination="RKZ-Xx-Yeg" id="82A-2n-hx0"/>
                         <outlet property="degreesSwitch" destination="BHy-Qv-hS4" id="nHt-Cb-92x"/>
+                        <outlet property="leftHandSwitch" destination="u4M-Lp-JiN" id="ub3-4b-9ji"/>
                         <outlet property="quad1Switch" destination="qXo-ny-86z" id="WEf-bi-dlO"/>
                         <outlet property="quad2Switch" destination="uV2-ub-E0b" id="sg4-3X-wea"/>
                         <outlet property="quad3Switch" destination="fwX-TJ-VDF" id="1pL-Ng-qOm"/>
@@ -1280,7 +1284,7 @@
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="MainView" customModule="KnowYourAngles" customModuleProvider="target">
+                    <view key="view" contentMode="center" id="8bC-Xf-vdC" customClass="MainView" customModule="KnowYourAngles" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -1380,8 +1384,8 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fq-CU-ZLT" userLabel="Clear">
-                                <rect key="frame" x="290" y="599.5" width="100" height="50"/>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3fq-CU-ZLT" userLabel="Clear">
+                                <rect key="frame" x="290" y="599.5" width="444" height="50"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.69999999999999996" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="EFa-ox-v27"/>
@@ -1396,7 +1400,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sZd-L5-smp">
-                                <rect key="frame" x="290" y="811" width="110" height="55"/>
+                                <rect key="frame" x="290" y="811" width="444" height="55"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <state key="normal" title="Submit">
                                     <color key="titleColor" red="0.098039215690000001" green="0.49803921569999998" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1406,7 +1410,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ucy-Jx-kHg">
-                                <rect key="frame" x="290" y="866" width="170" height="55"/>
+                                <rect key="frame" x="290" y="866" width="444" height="55"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <state key="normal" title="Clear Work">
                                     <color key="titleColor" red="0.49803921569999998" green="1" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1418,35 +1422,26 @@
                         </subviews>
                         <color key="backgroundColor" red="0.098039215690000001" green="0.49803921569999998" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="3fq-CU-ZLT" firstAttribute="centerX" secondItem="sZd-L5-smp" secondAttribute="centerX" id="5Ev-y4-eeW"/>
                             <constraint firstItem="xMZ-ZX-WBq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="5Sd-Jq-386"/>
                             <constraint firstItem="Ucy-Jx-kHg" firstAttribute="leading" secondItem="fZZ-Ja-u7v" secondAttribute="leading" id="77q-qS-Wnl"/>
                             <constraint firstItem="ji5-Of-lPL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="60" id="CZh-nU-yaX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="xMZ-ZX-WBq" secondAttribute="trailing" id="L2c-Qy-2Yy"/>
                             <constraint firstItem="fZZ-Ja-u7v" firstAttribute="top" secondItem="3fq-CU-ZLT" secondAttribute="top" id="N81-Zp-6l1"/>
-                            <constraint firstItem="xMZ-ZX-WBq" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="NKF-Yv-0Rt"/>
                             <constraint firstItem="ji5-Of-lPL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="15" id="Oqy-W9-SVL"/>
+                            <constraint firstItem="Ucy-Jx-kHg" firstAttribute="trailing" secondItem="fZZ-Ja-u7v" secondAttribute="trailing" id="PR1-lh-0PQ"/>
                             <constraint firstItem="sZd-L5-smp" firstAttribute="leading" secondItem="fZZ-Ja-u7v" secondAttribute="leading" id="bqR-u3-i61"/>
+                            <constraint firstItem="sZd-L5-smp" firstAttribute="trailing" secondItem="fZZ-Ja-u7v" secondAttribute="trailing" id="c2F-CR-CY4"/>
                             <constraint firstItem="Ucy-Jx-kHg" firstAttribute="top" secondItem="Uyw-fQ-iV0" secondAttribute="bottom" id="d2H-md-mic"/>
                             <constraint firstItem="Uyw-fQ-iV0" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="15" id="gDB-25-rB2"/>
+                            <constraint firstItem="3fq-CU-ZLT" firstAttribute="trailing" secondItem="fZZ-Ja-u7v" secondAttribute="trailing" id="gIW-xn-yJA"/>
                             <constraint firstItem="Uyw-fQ-iV0" firstAttribute="top" secondItem="ji5-Of-lPL" secondAttribute="bottom" id="gRV-hK-NLb"/>
-                            <constraint firstItem="xMZ-ZX-WBq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gd7-NT-pAL"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xMZ-ZX-WBq" secondAttribute="bottom" id="gdy-qh-C4M"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Uyw-fQ-iV0" secondAttribute="trailing" constant="15" id="hrE-1g-acX"/>
-                            <constraint firstItem="3fq-CU-ZLT" firstAttribute="top" secondItem="sZd-L5-smp" secondAttribute="bottom" constant="2" id="hxt-aW-qrd"/>
                             <constraint firstItem="xMZ-ZX-WBq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="pz4-X6-F9D"/>
                             <constraint firstItem="sZd-L5-smp" firstAttribute="bottom" secondItem="fZZ-Ja-u7v" secondAttribute="bottom" id="rwZ-kv-jjp"/>
-                            <constraint firstItem="fZZ-Ja-u7v" firstAttribute="leading" secondItem="3fq-CU-ZLT" secondAttribute="leading" id="uzj-2O-sbr"/>
+                            <constraint firstItem="3fq-CU-ZLT" firstAttribute="leading" secondItem="fZZ-Ja-u7v" secondAttribute="leading" id="xwh-lF-z64"/>
                             <constraint firstAttribute="trailing" secondItem="ji5-Of-lPL" secondAttribute="trailing" constant="15" id="yf2-MC-Sz4"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="NKF-Yv-0Rt"/>
-                                <exclude reference="gd7-NT-pAL"/>
-                                <exclude reference="5Ev-y4-eeW"/>
-                                <exclude reference="hxt-aW-qrd"/>
-                            </mask>
-                        </variation>
                         <connections>
                             <outlet property="countdownTimer" destination="Kis-Pb-w0V" id="JN0-mq-v7g"/>
                             <outlet property="numCorrect" destination="muU-zW-946" id="JM1-J9-PKv"/>
@@ -1457,9 +1452,15 @@
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="clearAnswerButtonLeadingConstraint" destination="xwh-lF-z64" id="Rlw-Dl-nbc"/>
+                        <outlet property="clearAnswerButtonTrailingConstraint" destination="gIW-xn-yJA" id="wIG-MI-1gO"/>
+                        <outlet property="clearWorkButtonLeadingConstraint" destination="77q-qS-Wnl" id="Ogg-Pb-4oB"/>
+                        <outlet property="clearWorkButtonTrailingConstraint" destination="PR1-lh-0PQ" id="eiM-RQ-wj2"/>
                         <outlet property="correctingMarksView" destination="8bC-Xf-vdC" id="4kd-mA-6pO"/>
                         <outlet property="mathView" destination="fZZ-Ja-u7v" id="3Cf-5C-w7V"/>
                         <outlet property="scratchPaperImageView" destination="xMZ-ZX-WBq" id="Whp-42-o0S"/>
+                        <outlet property="submitButtonLeadingConstraint" destination="bqR-u3-i61" id="FjS-AH-DVK"/>
+                        <outlet property="submitButtonTrailingConstraint" destination="c2F-CR-CY4" id="pAy-Du-zT2"/>
                         <segue destination="wG3-dw-WPk" kind="show" identifier="toFinishScreen" id="akq-RD-u1L"/>
                     </connections>
                 </viewController>
@@ -1489,6 +1490,6 @@
         <image name="yourAnswer" width="122" height="122"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Wtc-7e-2hj"/>
+        <segue reference="vzy-ys-Z4H"/>
     </inferredMetricsTieBreakers>
 </document>
