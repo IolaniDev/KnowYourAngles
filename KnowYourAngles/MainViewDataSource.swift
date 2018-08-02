@@ -748,12 +748,22 @@ class MainViewDataSource : NSObject{
         libraryOfProblems.append(contentsOf: arccotQuadII);
     }
     
+    //get and remove a random problem from the library of problems
+    // this function is used for Quiz Mode
     func getRandomProblem() -> Problem {
         if(libraryOfProblems.count>0)
         {
             let randomNum = Int(arc4random_uniform(UInt32(libraryOfProblems.count)));
             currProblem = libraryOfProblems.remove(at: randomNum);
         }
+        return currProblem!;
+    }
+    
+    // get, but do not remove, a random problem from the library of problems
+    //this function is used for Study Mode
+    func pickRandomProblem() -> Problem {
+        let randomNum = Int(arc4random_uniform(UInt32(libraryOfProblems.count)));
+        currProblem = libraryOfProblems[randomNum];
         return currProblem!;
     }
     

@@ -17,6 +17,8 @@
 		36919FBD1E406478000A7647 /* SummaryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36919FBC1E406478000A7647 /* SummaryCollectionViewController.swift */; };
 		36919FBF1E406E6E000A7647 /* SummaryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36919FBE1E406E6E000A7647 /* SummaryCollectionView.swift */; };
 		36969D6A1DFD290F00F95635 /* MainViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36969D691DFD290F00F95635 /* MainViewDataSource.swift */; };
+		36B51E3B2112B8ED00AD4095 /* StudyMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B51E3A2112B8ED00AD4095 /* StudyMode.swift */; };
+		36B51E3D2112BDD600AD4095 /* StudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B51E3C2112BDD600AD4095 /* StudyView.swift */; };
 		36C426B620FD43C300061D8F /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C426B520FD43C300061D8F /* StatisticsViewController.swift */; };
 		36C69ECF1D80A5DE0072CFFA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8429E1491D2C494300920987 /* SystemConfiguration.framework */; };
 		36C69ED71D80A6610072CFFA /* ATKMathWidget.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 36C69ED61D80A6610072CFFA /* ATKMathWidget.bundle */; };
@@ -69,6 +71,8 @@
 		36919FBC1E406478000A7647 /* SummaryCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryCollectionViewController.swift; sourceTree = "<group>"; };
 		36919FBE1E406E6E000A7647 /* SummaryCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryCollectionView.swift; sourceTree = "<group>"; };
 		36969D691DFD290F00F95635 /* MainViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewDataSource.swift; sourceTree = "<group>"; };
+		36B51E3A2112B8ED00AD4095 /* StudyMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyMode.swift; sourceTree = "<group>"; };
+		36B51E3C2112BDD600AD4095 /* StudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyView.swift; sourceTree = "<group>"; };
 		36C426B520FD43C300061D8F /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		36C69ED61D80A6610072CFFA /* ATKMathWidget.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ATKMathWidget.bundle; sourceTree = "<group>"; };
 		36C69ED81D80A6850072CFFA /* resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = resources.bundle; sourceTree = "<group>"; };
@@ -228,6 +232,8 @@
 				8429E1181D2C481500920987 /* AppDelegate.swift */,
 				8429E11A1D2C481500920987 /* ViewController.swift */,
 				8429E11C1D2C481500920987 /* Main.storyboard */,
+				36B51E3A2112B8ED00AD4095 /* StudyMode.swift */,
+				36B51E3C2112BDD600AD4095 /* StudyView.swift */,
 				8429E11F1D2C481500920987 /* Assets.xcassets */,
 				8429E1211D2C481500920987 /* LaunchScreen.storyboard */,
 				84461B4A1D308F1000BA997E /* FinishScreenViewController.swift */,
@@ -412,12 +418,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36B51E3B2112B8ED00AD4095 /* StudyMode.swift in Sources */,
 				8429E11B1D2C481500920987 /* ViewController.swift in Sources */,
 				3661E5C21E0E318500601402 /* HighScore+CoreDataProperties.swift in Sources */,
 				45F91BD81E81C86500E26D3D /* org.iolani.inhouse.KnowYourAngles.c in Sources */,
 				36919FBB1E405B43000A7647 /* SummaryCell.swift in Sources */,
 				3661E5C31E0E318500601402 /* HighScore.swift in Sources */,
 				36DFEBEA1DDCDDD200DF333D /* MainView.swift in Sources */,
+				36B51E3D2112BDD600AD4095 /* StudyView.swift in Sources */,
 				36F5B09720E16C7C003AA258 /* Problem.swift in Sources */,
 				8429E1191D2C481500920987 /* AppDelegate.swift in Sources */,
 				3661E5BE1E0E298600601402 /* Table+CoreDataProperties.swift in Sources */,
