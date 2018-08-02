@@ -57,6 +57,18 @@ class ViewController: UIViewController, MAWMathViewDelegate{
     //reference to the View that controls displaying the problems, number correct, number remaining, etc.
     @IBOutlet var correctingMarksView: MainView!
     
+    //reference to the constraints on the clear answer button
+    @IBOutlet weak var clearAnswerButtonLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var clearAnswerButtonTrailingConstraint: NSLayoutConstraint!
+    
+    //reference to the constraints on the submit button
+    @IBOutlet weak var submitButtonLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var submitButtonTrailingConstraint: NSLayoutConstraint!
+    
+    //reference to constraints on the Clear Work button
+    @IBOutlet weak var clearWorkButtonLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var clearWorkButtonTrailingConstraint: NSLayoutConstraint!
+    
     // load previously saved settings (if there are any)
     let savedSettings = UserDefaults.standard
     
@@ -69,6 +81,10 @@ class ViewController: UIViewController, MAWMathViewDelegate{
     
     @IBAction func clearScratchPaper(_ sender: UIButton) {
         scratchPaperImageView.image = nil;
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
     }
     // loading the view
     override func viewDidLoad() {
@@ -100,8 +116,47 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             mathView.beautificationOption = MAWBeautifyOption.fontify;
             
             /**********SET RIGHT OR LEFT HAND**********/
-            
-            //clearAnswerButton.trailingAnchor.constraintEqualToAnchor(mathView.trailingAnchor).active = true;
+            //if the user has previously saved settings for left vs. right-hand mode, use their settings
+            if (savedSettings.object(forKey: "isLeftHandMode") != nil)
+            {
+                if(savedSettings.value(forKey: "isLeftHandMode") as! Bool)
+                {
+                    //activate the trailing constraint
+                    clearAnswerButtonTrailingConstraint.isActive = true;
+                    submitButtonTrailingConstraint.isActive = true;
+                    clearWorkButtonTrailingConstraint.isActive = true;
+                    
+                    //deactivate the leading constraint
+                    clearAnswerButtonLeadingConstraint.isActive = false
+                    submitButtonLeadingConstraint.isActive = false;
+                    clearWorkButtonLeadingConstraint.isActive = false;
+                }
+                else
+                {
+                    //deactivate the trailing constraint
+                    clearAnswerButtonTrailingConstraint.isActive = false;
+                    submitButtonTrailingConstraint.isActive = false;
+                    clearWorkButtonTrailingConstraint.isActive = false;
+                    
+                    //activate the leading constraint
+                    clearAnswerButtonLeadingConstraint.isActive = true;
+                    submitButtonLeadingConstraint.isActive = true;
+                    clearWorkButtonLeadingConstraint.isActive = true;
+                }
+            }
+                //if the user does not have saved settings for left vs. right-hand mode, default to right-hand mode
+            else
+            {
+                //deactivate the trailing constraint
+                clearAnswerButtonTrailingConstraint.isActive = false;
+                submitButtonTrailingConstraint.isActive = false;
+                clearWorkButtonTrailingConstraint.isActive = false;
+                
+                //activate the leading constraint
+                clearAnswerButtonLeadingConstraint.isActive = true;
+                submitButtonLeadingConstraint.isActive = true;
+                clearWorkButtonLeadingConstraint.isActive = true;
+            }
             
             /**********LOAD NUMBER OF PROBLEMS**********/
             

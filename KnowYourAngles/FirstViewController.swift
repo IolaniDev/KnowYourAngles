@@ -58,6 +58,13 @@ class FirstViewController : UIViewController{
             }
         }
         
+        /**********SETTINGS FOR LEFT-HAND VS. RIGHT HAND MODE**********/
+        //if there are no previously saved settings for left vs. right-hand mode, by default, set it to right-hand mode.
+        if (defaultSettings.object(forKey: "isLeftHandMode") == nil)
+        {
+            defaultSettings.setValue(false, forKey: "isLeftHandMode");
+        }
+        
         /**********SETTINGS FOR PROBLEMS USING DEGREES**********/
         //check if there are no previously saved settings for including the problems with degrees.
         if (defaultSettings.object(forKey: "degrees") == nil)
