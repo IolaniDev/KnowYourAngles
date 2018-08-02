@@ -121,7 +121,6 @@ class MainView: UIView {
         //if the timer should be on...
         if(isClockVisibile)
         {
-            countdownTimer.center = CGPoint(x: self.superview!.frame.width / 2, y: numRemaining.frame.origin.y);
             countdownTimer.isHidden = false;
             countdownTimer.textColor = UIColor.init(red: 40/255, green: 204/255, blue: 198/255, alpha: 1);
             countdownTimer.text = String(format:"%02d:%02d", numMin, numSec);
