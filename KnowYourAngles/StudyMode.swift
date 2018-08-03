@@ -902,8 +902,6 @@ class StudyMode : UIViewController, MAWMathViewDelegate {
             }
         }
         
-        //clear out the old feedback
-        summaryData.removeAll();
         //add images to the summary view on the finish screen
         summaryData.append(UIImage(named: (problemSource?.getCurrProblem().problemImageName)!)!);
         summaryData.append(UIImage(named: (problemSource?.getCurrProblem().answerImageName)!)!);
@@ -912,6 +910,8 @@ class StudyMode : UIViewController, MAWMathViewDelegate {
         
         mainController?.summaryData = self.summaryData;
         immediateFeedback.reloadData();
+        //scroll down so the latest problem and answer are shown
+        immediateFeedback.scrollToItem(at: IndexPath.init(item: immediateFeedback.numberOfItems(inSection: 0)-1, section: 0), at: UICollectionViewScrollPosition.bottom, animated: true);
         
         // set up a new problem
         studyView.problemImage.image = UIImage(named: (problemSource?.pickRandomProblem().problemImageName)!);
