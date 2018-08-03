@@ -288,18 +288,18 @@ class MainViewDataSource : NSObject{
     
     func loadTangentRadiansQuadIIIProblems(){
         let tanRadsQIII : [Problem] = [
-            Problem.init(problemImageName: "Tan7PiOver6", correctAnswer: "0.577…", answerImageName: "Root3Over3", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.I),
-            Problem.init(problemImageName: "Tan5PiOver4", correctAnswer: "1", answerImageName: "One", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.I),
-            Problem.init(problemImageName: "Tan4PiOver3", correctAnswer: "1.732…", answerImageName: "Root3", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.I)
+            Problem.init(problemImageName: "Tan7PiOver6", correctAnswer: "0.577…", answerImageName: "Root3Over3", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.III),
+            Problem.init(problemImageName: "Tan5PiOver4", correctAnswer: "1", answerImageName: "One", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.III),
+            Problem.init(problemImageName: "Tan4PiOver3", correctAnswer: "1.732…", answerImageName: "Root3", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.III)
         ];
         libraryOfProblems.append(contentsOf: tanRadsQIII);
     }
     
     func loadTangentRadiansQuadIVProblems(){
         let tanRadsQIV : [Problem] = [
-            Problem.init(problemImageName: "Tan5PiOver3", correctAnswer: "-1.732…", answerImageName: "NegativeRoot3", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.II),
-            Problem.init(problemImageName: "Tan7PiOver4", correctAnswer: "-1", answerImageName: "Negative1", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.II),
-            Problem.init(problemImageName: "Tan11PiOver6", correctAnswer: "-0.577…", answerImageName: "NegativeRoot3Over3", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.II)
+            Problem.init(problemImageName: "Tan5PiOver3", correctAnswer: "-1.732…", answerImageName: "NegativeRoot3", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.IV),
+            Problem.init(problemImageName: "Tan7PiOver4", correctAnswer: "-1", answerImageName: "Negative1", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.IV),
+            Problem.init(problemImageName: "Tan11PiOver6", correctAnswer: "-0.577…", answerImageName: "NegativeRoot3Over3", typeOfProblem: "tangent", unitsOfAngle: Problem.angleUnits.radians, problemQuadrant: Problem.quadrant.IV)
         ];
         libraryOfProblems.append(contentsOf: tanRadsQIV);
     }
