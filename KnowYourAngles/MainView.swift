@@ -122,7 +122,14 @@ class MainView: UIView {
         if(isClockVisibile)
         {
             countdownTimer.isHidden = false;
-            countdownTimer.textColor = UIColor.init(red: 40/255, green: 204/255, blue: 198/255, alpha: 1);
+            if(numMin == 0 && numSec <= 10)
+            {
+                countdownTimer.textColor = UIColor.init(red: 1, green: 0, blue: 0, alpha: 1);
+            }
+            else
+            {
+                countdownTimer.textColor = UIColor.init(red: 40/255, green: 204/255, blue: 198/255, alpha: 1);
+            }
             countdownTimer.text = String(format:"%02d:%02d", numMin, numSec);
         }
         else{
