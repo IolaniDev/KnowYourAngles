@@ -889,14 +889,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             answerImg = mathView.resultAsImage();
             if(result?.contains("="))!
             {
-                /*if(result?.contains("…"))!
-                {
-                    result = result?.substring(with: result!.index(after: (result?.index(of: "=")!)!)..<(result?.index(of: "…")!)!)
-                }*/
-                //else
-                //{
-                    result = result?.substring(from: result!.index(after: (result?.index(of: "=")!)!));
-                //}
+                result = String(result![result!.index(after: (result?.index(of: "=")!)!)...]);
             }
             NSLog("Math Result: %@", result!);
             if(problemSource.isCorrect(result!))
