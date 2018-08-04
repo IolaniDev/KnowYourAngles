@@ -875,7 +875,7 @@ class StudyMode : UIViewController, MAWMathViewDelegate {
             if(result?.contains("="))!
             {
                 // then remove the part of the answer before and including the equals symbol
-                result = result?.substring(from: result!.index(after: (result?.index(of: "=")!)!));
+                result = String((result?[result!.index(after: (result?.index(of: "=")!)!)...])!)
             }
     
             // if the user got the problem correct ...
