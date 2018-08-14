@@ -1,5 +1,5 @@
 //
-//  CorrectingMarks.swift
+//  MainView.swift
 //  KnowYourAngles
 //
 //  Created by iPad App Dev on 11/16/16.
@@ -35,6 +35,7 @@ class MainView: UIView {
     //boolean representing whether the user finished the desired amount of questions or ran out of time before moving to end screen.
     var isOutOfTime = false;
     
+    @IBOutlet weak var problemAndAnswerStackView: UIStackView!
     // reference the mathview for positioning of the correct and incorrect marks
     @IBOutlet weak var workArea: MAWMathView!
     // imageview to hold the red x (meaning incorrect)
@@ -42,9 +43,6 @@ class MainView: UIView {
     // imageview to hold the green check (meaning correct)
     let correctImageView = UIImageView(image: UIImage(named: "Correct")!);
 
-    @IBAction func clearMathView(_ sender: UIButton) {
-        workArea.clear(false);
-    }
     //another initialize
     required init?(coder aDecoder: NSCoder)
     {
@@ -66,7 +64,7 @@ class MainView: UIView {
                     numMin = savedSettings.value(forKey: "amtTimeMin") as! Int;
                     numSec = savedSettings.value(forKey: "amtTimeSec") as! Int;
                 }
-                    //otherwise use the default value of 30 seconds and save to settings.
+                //otherwise use the default value of 30 seconds and save to settings.
                 else
                 {
                     numMin = 0;
@@ -93,10 +91,9 @@ class MainView: UIView {
             savedSettings.setValue(0, forKey: "amtTimeSec");
             isClockVisibile = false;
         }
-        
     }
     
-    func updateCountDown()
+    @objc func updateCountDown()
     {
         numSec -= 1;
         if(numSec == -1 && numMin > 0)
@@ -124,29 +121,16 @@ class MainView: UIView {
         //if the timer should be on...
         if(isClockVisibile)
         {
-            let timerRect = CGRect(x: self.superview!.frame.width / 2, y: 100, width: 200, height: 200);
-                
-            //draw the background of the timer
-            var path = UIBezierPath(arcCenter: CGPoint(x:timerRect.origin.x, y:timerRect.origin.y), radius: 50, startAngle: 0, endAngle: 2*CGFloat(Double.pi), clockwise: true)
-            path.lineWidth = 100;
-            UIColor.init(red: 40/255, green: 204/255, blue: 198/255, alpha: 1).setStroke();
-            path.stroke();
-            
-            // position the countdown timer label on top of the timer
-            countdownTimer.center = CGPoint(x: timerRect.origin.x, y: timerRect.origin.y);
             countdownTimer.isHidden = false;
-            countdownTimer.textColor = UIColor.black;
+            if(numMin == 0 && numSec <= 10)
+            {
+                countdownTimer.textColor = UIColor.init(red: 1, green: 0, blue: 0, alpha: 1);
+            }
+            else
+            {
+                countdownTimer.textColor = UIColor.init(red: 40/255, green: 204/255, blue: 198/255, alpha: 1);
+            }
             countdownTimer.text = String(format:"%02d:%02d", numMin, numSec);
-            
-            let totalSec = Float(60*numMin+numSec);
-            let maxTotal = maxMin * 60 + maxSec;
-            let fraction : CGFloat = CGFloat.init((maxTotal - totalSec) / maxTotal);
-                
-            path = UIBezierPath(arcCenter: CGPoint(x:timerRect.origin.x, y:timerRect.origin.y), radius: 50, startAngle: -1*CGFloat(Double.pi)/2, endAngle: -1*CGFloat(Double.pi)/2+fraction*2*CGFloat(Double.pi),clockwise: true)
-            path.lineWidth = 100;
-            UIColor.gray.setStroke();
-                
-            path.stroke();
         }
         else{
             countdownTimer.isHidden = true;
@@ -156,10 +140,12 @@ class MainView: UIView {
     // function called when user answers incorrectly
     func drawWrong(){
         // sets the position of the red x
-        wrongImageView.frame.origin.x = workArea.frame.origin.x + (workArea.frame.width/2) - wrongImageView.frame.width/2;
-        wrongImageView.frame.origin.y = workArea.frame.origin.y + (workArea.frame.height/2) - wrongImageView.frame.height/2;
+        wrongImageView.center.x = self.convert(workArea.frame, from: problemAndAnswerStackView).midX;
+        wrongImageView.center.y = self.convert(workArea.frame, from: problemAndAnswerStackView).midY;
+        
         // add red x to the screen
         self.addSubview(wrongImageView);
+        
         // make sure the red x is in front
         self.bringSubview(toFront: wrongImageView);
     
@@ -173,8 +159,9 @@ class MainView: UIView {
     // function called when user answers correctly
     func drawRight(){
         // sets the position of the green check
-        correctImageView.frame.origin.x = workArea.frame.origin.x + (workArea.frame.width/2) - correctImageView.frame.width/2;
-        correctImageView.frame.origin.y = workArea.frame.origin.y + (workArea.frame.height/2) - correctImageView.frame.height/2;
+        correctImageView.center.x = self.convert(workArea.frame, from: problemAndAnswerStackView).midX;
+        correctImageView.center.y = self.convert(workArea.frame, from: problemAndAnswerStackView).midY;
+        
         // add the green check to the screen
         self.addSubview(correctImageView);
         self.bringSubview(toFront: correctImageView);
