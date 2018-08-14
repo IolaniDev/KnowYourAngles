@@ -8,25 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		3661E5B91E0E1BD900601402 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3661E5B81E0E1BD900601402 /* CoreData.framework */; };
-		3661E5BB1E0E1CB500601402 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661E5BA1E0E1CB500601402 /* DataController.swift */; };
-		3661E5BE1E0E298600601402 /* Table+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661E5BC1E0E298600601402 /* Table+CoreDataProperties.swift */; };
-		3661E5BF1E0E298600601402 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661E5BD1E0E298600601402 /* Table.swift */; };
-		3661E5C21E0E318500601402 /* HighScore+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661E5C01E0E318500601402 /* HighScore+CoreDataProperties.swift */; };
-		3661E5C31E0E318500601402 /* HighScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3661E5C11E0E318500601402 /* HighScore.swift */; };
-		366A42251E0D0CBC006F0B1D /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 366A42231E0D0CBC006F0B1D /* DataModel.xcdatamodeld */; };
-		366BAEDF1E0B069000C223EA /* HighScoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 366BAEDE1E0B069000C223EA /* HighScoreTableViewCell.swift */; };
 		367470591E2EAD0E007228EC /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 367470571E2EAD0E007228EC /* Fabric.framework */; };
-		3674705A1E2EAD0E007228EC /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 367470581E2EAD0E007228EC /* Crashlytics.framework */; };
-		3674D4AA1DF0F6AC00359EC1 /* PopoverSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3674D4A91DF0F6AC00359EC1 /* PopoverSettingsTableViewController.swift */; };
-		368C58C31E0B28AD0008C8B0 /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 368C58C21E0B28AD0008C8B0 /* HighScoreViewController.swift */; };
 		36919FBB1E405B43000A7647 /* SummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36919FBA1E405B43000A7647 /* SummaryCell.swift */; };
 		36919FBD1E406478000A7647 /* SummaryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36919FBC1E406478000A7647 /* SummaryCollectionViewController.swift */; };
 		36919FBF1E406E6E000A7647 /* SummaryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36919FBE1E406E6E000A7647 /* SummaryCollectionView.swift */; };
 		36969D6A1DFD290F00F95635 /* MainViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36969D691DFD290F00F95635 /* MainViewDataSource.swift */; };
+		36B51E3B2112B8ED00AD4095 /* StudyMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B51E3A2112B8ED00AD4095 /* StudyMode.swift */; };
+		36B51E3D2112BDD600AD4095 /* StudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B51E3C2112BDD600AD4095 /* StudyView.swift */; };
+		36C426B620FD43C300061D8F /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C426B520FD43C300061D8F /* StatisticsViewController.swift */; };
 		36C69ECF1D80A5DE0072CFFA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8429E1491D2C494300920987 /* SystemConfiguration.framework */; };
 		36C69ED71D80A6610072CFFA /* ATKMathWidget.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 36C69ED61D80A6610072CFFA /* ATKMathWidget.bundle */; };
 		36C69ED91D80A6850072CFFA /* resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 36C69ED81D80A6850072CFFA /* resources.bundle */; };
+		36DD592A20F183BD007248B7 /* QuizSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DD592920F183BD007248B7 /* QuizSetupViewController.swift */; };
 		36DFEBEA1DDCDDD200DF333D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DFEBE91DDCDDD200DF333D /* MainView.swift */; };
+		36F5B09720E16C7C003AA258 /* Problem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F5B09620E16C7C003AA258 /* Problem.swift */; };
 		36FE163B1E42C44600566F9E /* SummaryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FE163A1E42C44600566F9E /* SummaryHeaderView.swift */; };
 		450952F71E8DB06D00013AA6 /* ATKCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450952F41E8DB06D00013AA6 /* ATKCore.framework */; };
 		450952F81E8DB06D00013AA6 /* ATKMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450952F51E8DB06D00013AA6 /* ATKMath.framework */; };
@@ -63,29 +58,23 @@
 
 /* Begin PBXFileReference section */
 		3661E5B81E0E1BD900601402 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		3661E5BA1E0E1CB500601402 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
-		3661E5BC1E0E298600601402 /* Table+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Table+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		3661E5BD1E0E298600601402 /* Table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
-		3661E5C01E0E318500601402 /* HighScore+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HighScore+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		3661E5C11E0E318500601402 /* HighScore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScore.swift; sourceTree = "<group>"; };
-		3661E5C41E0E484200601402 /* DataModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DataModel 2.xcdatamodel"; sourceTree = "<group>"; };
-		366A42241E0D0CBC006F0B1D /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
-		366BAEDE1E0B069000C223EA /* HighScoreTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreTableViewCell.swift; sourceTree = "<group>"; };
 		367470571E2EAD0E007228EC /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
-		367470581E2EAD0E007228EC /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		3674D4A91DF0F6AC00359EC1 /* PopoverSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverSettingsTableViewController.swift; sourceTree = "<group>"; };
-		3681B3F01E0F513D00B5920B /* DataModel 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DataModel 3.xcdatamodel"; sourceTree = "<group>"; };
-		3681B3F11E0F51DF00B5920B /* DataModel 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DataModel 4.xcdatamodel"; sourceTree = "<group>"; };
-		3681B3F21E0F56BE00B5920B /* DataModel 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DataModel 5.xcdatamodel"; sourceTree = "<group>"; };
-		368C58C21E0B28AD0008C8B0 /* HighScoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
 		36919FBA1E405B43000A7647 /* SummaryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryCell.swift; sourceTree = "<group>"; };
 		36919FBC1E406478000A7647 /* SummaryCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryCollectionViewController.swift; sourceTree = "<group>"; };
 		36919FBE1E406E6E000A7647 /* SummaryCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryCollectionView.swift; sourceTree = "<group>"; };
 		36969D691DFD290F00F95635 /* MainViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewDataSource.swift; sourceTree = "<group>"; };
-		369BED621E1C55B500A9D0C7 /* DataModel 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "DataModel 6.xcdatamodel"; sourceTree = "<group>"; };
+		36B51E3A2112B8ED00AD4095 /* StudyMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyMode.swift; sourceTree = "<group>"; };
+		36B51E3C2112BDD600AD4095 /* StudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyView.swift; sourceTree = "<group>"; };
+		36C426B520FD43C300061D8F /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		36C69ED61D80A6610072CFFA /* ATKMathWidget.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ATKMathWidget.bundle; sourceTree = "<group>"; };
 		36C69ED81D80A6850072CFFA /* resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = resources.bundle; sourceTree = "<group>"; };
+		36DD592920F183BD007248B7 /* QuizSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizSetupViewController.swift; sourceTree = "<group>"; };
 		36DFEBE91DDCDDD200DF333D /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		36E5079D20E1E8CF0045D0CD /* STIXSizThreeSymBol.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = STIXSizThreeSymBol.otf; sourceTree = "<group>"; };
+		36E5079E20E1E8CF0045D0CD /* STIXSizOneSymBol.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = STIXSizOneSymBol.otf; sourceTree = "<group>"; };
+		36E5079F20E1E8CF0045D0CD /* STIXGeneralItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = STIXGeneralItalic.ttf; sourceTree = "<group>"; };
+		36E507A020E1E8CF0045D0CD /* STIXSizTwoSymBol.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = STIXSizTwoSymBol.otf; sourceTree = "<group>"; };
+		36F5B09620E16C7C003AA258 /* Problem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Problem.swift; sourceTree = "<group>"; };
 		36FE163A1E42C44600566F9E /* SummaryHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryHeaderView.swift; sourceTree = "<group>"; };
 		450952F41E8DB06D00013AA6 /* ATKCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ATKCore.framework; sourceTree = "<group>"; };
 		450952F51E8DB06D00013AA6 /* ATKMath.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ATKMath.framework; sourceTree = "<group>"; };
@@ -123,7 +112,6 @@
 				36C69ECF1D80A5DE0072CFFA /* SystemConfiguration.framework in Frameworks */,
 				367470591E2EAD0E007228EC /* Fabric.framework in Frameworks */,
 				450952F71E8DB06D00013AA6 /* ATKCore.framework in Frameworks */,
-				3674705A1E2EAD0E007228EC /* Crashlytics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -144,6 +132,53 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		366B07E920DC25210083B0C1 /* MyScriptCertificate */ = {
+			isa = PBXGroup;
+			children = (
+				45F91BD71E81C86500E26D3D /* org.iolani.inhouse.KnowYourAngles.c */,
+				840180CA1D2C562400CB794B /* MyCertificate.h */,
+			);
+			path = MyScriptCertificate;
+			sourceTree = "<group>";
+		};
+		366B07EB20DC264E0083B0C1 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				36C426B520FD43C300061D8F /* StatisticsViewController.swift */,
+			);
+			path = Statistics;
+			sourceTree = "<group>";
+		};
+		366B07EC20DC26A10083B0C1 /* Summary */ = {
+			isa = PBXGroup;
+			children = (
+				36919FBA1E405B43000A7647 /* SummaryCell.swift */,
+				36919FBC1E406478000A7647 /* SummaryCollectionViewController.swift */,
+				36919FBE1E406E6E000A7647 /* SummaryCollectionView.swift */,
+				36FE163A1E42C44600566F9E /* SummaryHeaderView.swift */,
+			);
+			path = Summary;
+			sourceTree = "<group>";
+		};
+		366B07ED20DC272D0083B0C1 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				84C3E8211D2DC75300750751 /* SettingsViewController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		36E507A120E1E8F10045D0CD /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				36E5079F20E1E8CF0045D0CD /* STIXGeneralItalic.ttf */,
+				36E5079E20E1E8CF0045D0CD /* STIXSizOneSymBol.otf */,
+				36E5079D20E1E8CF0045D0CD /* STIXSizThreeSymBol.otf */,
+				36E507A020E1E8CF0045D0CD /* STIXSizTwoSymBol.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		8429E10C1D2C481500920987 = {
 			isa = PBXGroup;
 			children = (
@@ -151,11 +186,6 @@
 				450952F51E8DB06D00013AA6 /* ATKMath.framework */,
 				450952F61E8DB06D00013AA6 /* ATKMathWidget.framework */,
 				367470571E2EAD0E007228EC /* Fabric.framework */,
-				367470581E2EAD0E007228EC /* Crashlytics.framework */,
-				3661E5C01E0E318500601402 /* HighScore+CoreDataProperties.swift */,
-				3661E5C11E0E318500601402 /* HighScore.swift */,
-				3661E5BC1E0E298600601402 /* Table+CoreDataProperties.swift */,
-				3661E5BD1E0E298600601402 /* Table.swift */,
 				3661E5B81E0E1BD900601402 /* CoreData.framework */,
 				36C69ED81D80A6850072CFFA /* resources.bundle */,
 				36C69ED61D80A6610072CFFA /* ATKMathWidget.bundle */,
@@ -180,29 +210,26 @@
 		8429E1171D2C481500920987 /* KnowYourAngles */ = {
 			isa = PBXGroup;
 			children = (
-				45F91BD71E81C86500E26D3D /* org.iolani.inhouse.KnowYourAngles.c */,
-				840180CA1D2C562400CB794B /* MyCertificate.h */,
+				36E507A120E1E8F10045D0CD /* Fonts */,
+				366B07ED20DC272D0083B0C1 /* Settings */,
+				366B07EC20DC26A10083B0C1 /* Summary */,
+				366B07EB20DC264E0083B0C1 /* Statistics */,
+				8429E1241D2C481500920987 /* Info.plist */,
+				366B07E920DC25210083B0C1 /* MyScriptCertificate */,
 				8429E1461D2C484E00920987 /* KnowYourAngles-Bridging-Header.h */,
 				8429E1181D2C481500920987 /* AppDelegate.swift */,
 				8429E11A1D2C481500920987 /* ViewController.swift */,
 				8429E11C1D2C481500920987 /* Main.storyboard */,
+				36B51E3A2112B8ED00AD4095 /* StudyMode.swift */,
+				36B51E3C2112BDD600AD4095 /* StudyView.swift */,
 				8429E11F1D2C481500920987 /* Assets.xcassets */,
 				8429E1211D2C481500920987 /* LaunchScreen.storyboard */,
-				8429E1241D2C481500920987 /* Info.plist */,
-				84C3E8211D2DC75300750751 /* SettingsViewController.swift */,
 				84461B4A1D308F1000BA997E /* FinishScreenViewController.swift */,
 				8422E9C11D35BF9500F33978 /* FirstViewController.swift */,
+				36DD592920F183BD007248B7 /* QuizSetupViewController.swift */,
 				36DFEBE91DDCDDD200DF333D /* MainView.swift */,
-				3674D4A91DF0F6AC00359EC1 /* PopoverSettingsTableViewController.swift */,
 				36969D691DFD290F00F95635 /* MainViewDataSource.swift */,
-				366BAEDE1E0B069000C223EA /* HighScoreTableViewCell.swift */,
-				368C58C21E0B28AD0008C8B0 /* HighScoreViewController.swift */,
-				366A42231E0D0CBC006F0B1D /* DataModel.xcdatamodeld */,
-				3661E5BA1E0E1CB500601402 /* DataController.swift */,
-				36919FBA1E405B43000A7647 /* SummaryCell.swift */,
-				36919FBC1E406478000A7647 /* SummaryCollectionViewController.swift */,
-				36919FBE1E406E6E000A7647 /* SummaryCollectionView.swift */,
-				36FE163A1E42C44600566F9E /* SummaryHeaderView.swift */,
+				36F5B09620E16C7C003AA258 /* Problem.swift */,
 			);
 			path = KnowYourAngles;
 			sourceTree = "<group>";
@@ -289,22 +316,22 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "Iolani School";
 				TargetAttributes = {
 					8429E1141D2C481500920987 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = JP7JGNH77T;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0900;
 					};
 					8429E1281D2C481500920987 = {
 						CreatedOnToolsVersion = 7.2;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0900;
 						TestTargetID = 8429E1141D2C481500920987;
 					};
 					8429E1331D2C481600920987 = {
 						CreatedOnToolsVersion = 7.2;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0900;
 						TestTargetID = 8429E1141D2C481500920987;
 					};
 				};
@@ -379,25 +406,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				36B51E3B2112B8ED00AD4095 /* StudyMode.swift in Sources */,
 				8429E11B1D2C481500920987 /* ViewController.swift in Sources */,
-				3661E5C21E0E318500601402 /* HighScore+CoreDataProperties.swift in Sources */,
 				45F91BD81E81C86500E26D3D /* org.iolani.inhouse.KnowYourAngles.c in Sources */,
-				368C58C31E0B28AD0008C8B0 /* HighScoreViewController.swift in Sources */,
 				36919FBB1E405B43000A7647 /* SummaryCell.swift in Sources */,
-				3661E5C31E0E318500601402 /* HighScore.swift in Sources */,
 				36DFEBEA1DDCDDD200DF333D /* MainView.swift in Sources */,
+				36B51E3D2112BDD600AD4095 /* StudyView.swift in Sources */,
+				36F5B09720E16C7C003AA258 /* Problem.swift in Sources */,
 				8429E1191D2C481500920987 /* AppDelegate.swift in Sources */,
-				366BAEDF1E0B069000C223EA /* HighScoreTableViewCell.swift in Sources */,
-				3661E5BE1E0E298600601402 /* Table+CoreDataProperties.swift in Sources */,
 				36919FBD1E406478000A7647 /* SummaryCollectionViewController.swift in Sources */,
 				36919FBF1E406E6E000A7647 /* SummaryCollectionView.swift in Sources */,
+				36DD592A20F183BD007248B7 /* QuizSetupViewController.swift in Sources */,
+				36C426B620FD43C300061D8F /* StatisticsViewController.swift in Sources */,
 				84461B4B1D308F1000BA997E /* FinishScreenViewController.swift in Sources */,
-				3661E5BB1E0E1CB500601402 /* DataController.swift in Sources */,
 				84C3E8221D2DC75300750751 /* SettingsViewController.swift in Sources */,
 				36969D6A1DFD290F00F95635 /* MainViewDataSource.swift in Sources */,
-				3674D4AA1DF0F6AC00359EC1 /* PopoverSettingsTableViewController.swift in Sources */,
-				366A42251E0D0CBC006F0B1D /* DataModel.xcdatamodeld in Sources */,
-				3661E5BF1E0E298600601402 /* Table.swift in Sources */,
 				8422E9C21D35BF9500F33978 /* FirstViewController.swift in Sources */,
 				36FE163B1E42C44600566F9E /* SummaryHeaderView.swift in Sources */,
 			);
@@ -462,14 +485,22 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -509,14 +540,22 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -568,7 +607,8 @@
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "KnowYourAngles-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -597,7 +637,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "KnowYourAngles-Bridging-Header.h";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -610,7 +651,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.iolani.KnowYourAnglesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KnowYourAngles.app/KnowYourAngles";
 			};
 			name = Debug;
@@ -623,7 +665,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.iolani.KnowYourAnglesTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/KnowYourAngles.app/KnowYourAngles";
 			};
 			name = Release;
@@ -635,7 +678,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.iolani.KnowYourAnglesUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = KnowYourAngles;
 				USES_XCTRUNNER = YES;
 			};
@@ -648,7 +692,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = org.iolani.KnowYourAnglesUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = KnowYourAngles;
 				USES_XCTRUNNER = YES;
 			};
@@ -694,24 +739,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		366A42231E0D0CBC006F0B1D /* DataModel.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				369BED621E1C55B500A9D0C7 /* DataModel 6.xcdatamodel */,
-				3681B3F21E0F56BE00B5920B /* DataModel 5.xcdatamodel */,
-				3681B3F11E0F51DF00B5920B /* DataModel 4.xcdatamodel */,
-				3681B3F01E0F513D00B5920B /* DataModel 3.xcdatamodel */,
-				3661E5C41E0E484200601402 /* DataModel 2.xcdatamodel */,
-				366A42241E0D0CBC006F0B1D /* DataModel.xcdatamodel */,
-			);
-			currentVersion = 366A42241E0D0CBC006F0B1D /* DataModel.xcdatamodel */;
-			path = DataModel.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 8429E10D1D2C481500920987 /* Project object */;
 }
