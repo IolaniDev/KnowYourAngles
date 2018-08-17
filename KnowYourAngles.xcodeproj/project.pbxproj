@@ -595,7 +595,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = KnowYourAngles/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACH_O_TYPE = mh_execute;
 				OTHER_LDFLAGS = (
@@ -626,7 +626,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = KnowYourAngles/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				MACH_O_TYPE = mh_execute;
 				OTHER_LDFLAGS = (
