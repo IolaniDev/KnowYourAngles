@@ -815,7 +815,7 @@ class StudyMode : UIViewController, MAWMathViewDelegate {
         
         //setup the immediate feedback
         mainController = SummaryCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
-        self.addChildViewController(mainController!);
+        self.addChild(mainController!);
         
         mainController?.summaryData = self.summaryData;
         
@@ -827,9 +827,9 @@ class StudyMode : UIViewController, MAWMathViewDelegate {
         super.viewDidAppear(animated);
         if(!(certificateRegistered))
         {
-            let alertController = UIAlertController(title: "Invalid certificate", message: "Please use a valid certificate", preferredStyle: UIAlertControllerStyle.alert)
+            let alertController = UIAlertController(title: "Invalid certificate", message: "Please use a valid certificate", preferredStyle: UIAlertController.Style.alert)
             
-            let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil);
+            let okAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil);
             
             alertController.addAction(okAction)
             present(alertController, animated: true, completion: nil)
@@ -875,7 +875,7 @@ class StudyMode : UIViewController, MAWMathViewDelegate {
             if(result?.contains("="))!
             {
                 // then remove the part of the answer before and including the equals symbol
-                result = String((result?[result!.index(after: (result?.index(of: "=")!)!)...])!)
+                result = String((result?[result!.index(after: (result?.firstIndex(of: "=")!)!)...])!)
             }
     
             // if the user got the problem correct ...
@@ -911,7 +911,7 @@ class StudyMode : UIViewController, MAWMathViewDelegate {
         mainController?.summaryData = self.summaryData;
         immediateFeedback.reloadData();
         //scroll down so the latest problem and answer are shown
-        immediateFeedback.scrollToItem(at: IndexPath.init(item: immediateFeedback.numberOfItems(inSection: 0)-1, section: 0), at: UICollectionViewScrollPosition.bottom, animated: true);
+        immediateFeedback.scrollToItem(at: IndexPath.init(item: immediateFeedback.numberOfItems(inSection: 0)-1, section: 0), at: UICollectionView.ScrollPosition.bottom, animated: true);
         
         // set up a new problem
         studyView.problemImage.image = UIImage(named: (problemSource?.pickRandomProblem().problemImageName)!);

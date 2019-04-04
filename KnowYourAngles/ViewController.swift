@@ -843,9 +843,9 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         super.viewDidAppear(animated);
         if(!(certificateRegistered))
         {
-            let alertController = UIAlertController(title: "Invalid certificate", message: "Please use a valid certificate", preferredStyle: UIAlertControllerStyle.alert)
+            let alertController = UIAlertController(title: "Invalid certificate", message: "Please use a valid certificate", preferredStyle: UIAlertController.Style.alert)
             
-            let okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil);
+            let okAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil);
             
             alertController.addAction(okAction)
             present(alertController, animated: true, completion: nil)
@@ -889,7 +889,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             answerImg = mathView.resultAsImage();
             if(result?.contains("="))!
             {
-                result = String(result![result!.index(after: (result?.index(of: "=")!)!)...]);
+                result = String(result![result!.index(after: (result?.firstIndex(of: "=")!)!)...]);
             }
             NSLog("Math Result: %@", result!);
             if(problemSource.isCorrect(result!))

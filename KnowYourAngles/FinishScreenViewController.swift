@@ -32,7 +32,7 @@ open class FinishScreenViewController: UIViewController{
     override open func viewDidLoad() {
         super.viewDidLoad();
         let mainController = SummaryCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
-        self.addChildViewController(mainController);
+        self.addChild(mainController);
         
         mainController.summaryData = self.summaryData;
         // set the score results

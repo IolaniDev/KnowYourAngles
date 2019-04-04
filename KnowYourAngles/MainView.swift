@@ -147,7 +147,7 @@ class MainView: UIView {
         self.addSubview(wrongImageView);
         
         // make sure the red x is in front
-        self.bringSubview(toFront: wrongImageView);
+        self.bringSubviewToFront(wrongImageView);
     
         // animate the red x fading away
         self.wrongImageView.alpha = 255;
@@ -164,7 +164,7 @@ class MainView: UIView {
         
         // add the green check to the screen
         self.addSubview(correctImageView);
-        self.bringSubview(toFront: correctImageView);
+        self.bringSubviewToFront(correctImageView);
         
         // animate the green check fading away
         self.correctImageView.alpha = 255;

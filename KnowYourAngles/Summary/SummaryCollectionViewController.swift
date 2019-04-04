@@ -46,13 +46,13 @@ extension SummaryCollectionViewController : UICollectionViewDelegateFlowLayout{
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         switch kind{
-        case UICollectionElementKindSectionHeader:
+        case UICollectionView.elementKindSectionHeader:
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "summaryHeader", for: indexPath) as! SummaryHeaderView;
             headerView.backgroundColor = UIColor.white;
-            headerView.problemImg = UIImageView(image: UIImage(named: "problem"));
-            headerView.correctAnswerImg = UIImageView(image: UIImage(named: "correctAnswer"));
-            headerView.yourAnswerImg = UIImageView(image: UIImage(named: "yourAnswer"));
-            headerView.rightOrWrongImg = UIImageView(image: UIImage(named: "rightOrWrong"));
+            headerView.problemImg.image = UIImage(named: "problem");
+            headerView.correctAnswerImg.image = UIImage(named: "correctAnswer");
+            headerView.yourAnswerImg.image = UIImage(named: "yourAnswer");
+            headerView.rightOrWrongImg.image = UIImage(named: "rightOrWrong");
             return headerView;
         default:
             assert(false, "Unexpected element kind")
