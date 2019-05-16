@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		182E8EF729A5AFC343CBA792 /* libPods-KnowYourAngles.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40FF2CF1ABF5447993FC0B86 /* libPods-KnowYourAngles.a */; };
 		3661E5B91E0E1BD900601402 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3661E5B81E0E1BD900601402 /* CoreData.framework */; };
-		367470591E2EAD0E007228EC /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 367470571E2EAD0E007228EC /* Fabric.framework */; };
 		36919FBB1E405B43000A7647 /* SummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36919FBA1E405B43000A7647 /* SummaryCell.swift */; };
 		36919FBD1E406478000A7647 /* SummaryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36919FBC1E406478000A7647 /* SummaryCollectionViewController.swift */; };
 		36919FBF1E406E6E000A7647 /* SummaryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36919FBE1E406E6E000A7647 /* SummaryCollectionView.swift */; };
@@ -17,15 +17,10 @@
 		36B51E3D2112BDD600AD4095 /* StudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B51E3C2112BDD600AD4095 /* StudyView.swift */; };
 		36C426B620FD43C300061D8F /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C426B520FD43C300061D8F /* StatisticsViewController.swift */; };
 		36C69ECF1D80A5DE0072CFFA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8429E1491D2C494300920987 /* SystemConfiguration.framework */; };
-		36C69ED71D80A6610072CFFA /* ATKMathWidget.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 36C69ED61D80A6610072CFFA /* ATKMathWidget.bundle */; };
-		36C69ED91D80A6850072CFFA /* resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 36C69ED81D80A6850072CFFA /* resources.bundle */; };
 		36DD592A20F183BD007248B7 /* QuizSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DD592920F183BD007248B7 /* QuizSetupViewController.swift */; };
 		36DFEBEA1DDCDDD200DF333D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DFEBE91DDCDDD200DF333D /* MainView.swift */; };
 		36F5B09720E16C7C003AA258 /* Problem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F5B09620E16C7C003AA258 /* Problem.swift */; };
 		36FE163B1E42C44600566F9E /* SummaryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FE163A1E42C44600566F9E /* SummaryHeaderView.swift */; };
-		450952F71E8DB06D00013AA6 /* ATKCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450952F41E8DB06D00013AA6 /* ATKCore.framework */; };
-		450952F81E8DB06D00013AA6 /* ATKMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450952F51E8DB06D00013AA6 /* ATKMath.framework */; };
-		450952F91E8DB06D00013AA6 /* ATKMathWidget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450952F61E8DB06D00013AA6 /* ATKMathWidget.framework */; };
 		45F91BD81E81C86500E26D3D /* org.iolani.inhouse.KnowYourAngles.c in Sources */ = {isa = PBXBuildFile; fileRef = 45F91BD71E81C86500E26D3D /* org.iolani.inhouse.KnowYourAngles.c */; };
 		8422E9C21D35BF9500F33978 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422E9C11D35BF9500F33978 /* FirstViewController.swift */; };
 		8429E1191D2C481500920987 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429E1181D2C481500920987 /* AppDelegate.swift */; };
@@ -56,8 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B42B7C875C421A44E725627 /* Pods-KnowYourAngles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnowYourAngles.release.xcconfig"; path = "Target Support Files/Pods-KnowYourAngles/Pods-KnowYourAngles.release.xcconfig"; sourceTree = "<group>"; };
 		3661E5B81E0E1BD900601402 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		367470571E2EAD0E007228EC /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		36919FBA1E405B43000A7647 /* SummaryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryCell.swift; sourceTree = "<group>"; };
 		36919FBC1E406478000A7647 /* SummaryCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryCollectionViewController.swift; sourceTree = "<group>"; };
 		36919FBE1E406E6E000A7647 /* SummaryCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryCollectionView.swift; sourceTree = "<group>"; };
@@ -65,8 +60,6 @@
 		36B51E3A2112B8ED00AD4095 /* StudyMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyMode.swift; sourceTree = "<group>"; };
 		36B51E3C2112BDD600AD4095 /* StudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyView.swift; sourceTree = "<group>"; };
 		36C426B520FD43C300061D8F /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
-		36C69ED61D80A6610072CFFA /* ATKMathWidget.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ATKMathWidget.bundle; sourceTree = "<group>"; };
-		36C69ED81D80A6850072CFFA /* resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = resources.bundle; sourceTree = "<group>"; };
 		36DD592920F183BD007248B7 /* QuizSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizSetupViewController.swift; sourceTree = "<group>"; };
 		36DFEBE91DDCDDD200DF333D /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		36E5079D20E1E8CF0045D0CD /* STIXSizThreeSymBol.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = STIXSizThreeSymBol.otf; sourceTree = "<group>"; };
@@ -75,10 +68,10 @@
 		36E507A020E1E8CF0045D0CD /* STIXSizTwoSymBol.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = STIXSizTwoSymBol.otf; sourceTree = "<group>"; };
 		36F5B09620E16C7C003AA258 /* Problem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Problem.swift; sourceTree = "<group>"; };
 		36FE163A1E42C44600566F9E /* SummaryHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryHeaderView.swift; sourceTree = "<group>"; };
-		450952F41E8DB06D00013AA6 /* ATKCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ATKCore.framework; sourceTree = "<group>"; };
-		450952F51E8DB06D00013AA6 /* ATKMath.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ATKMath.framework; sourceTree = "<group>"; };
-		450952F61E8DB06D00013AA6 /* ATKMathWidget.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ATKMathWidget.framework; sourceTree = "<group>"; };
+		3FFCF7A9BE88E421344AC94C /* Pods_KnowYourAnglesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KnowYourAnglesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		40FF2CF1ABF5447993FC0B86 /* libPods-KnowYourAngles.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KnowYourAngles.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45F91BD71E81C86500E26D3D /* org.iolani.inhouse.KnowYourAngles.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = org.iolani.inhouse.KnowYourAngles.c; sourceTree = "<group>"; };
+		5F32BE4E557A3B2C9EB2B3F4 /* Pods-KnowYourAngles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnowYourAngles.debug.xcconfig"; path = "Target Support Files/Pods-KnowYourAngles/Pods-KnowYourAngles.debug.xcconfig"; sourceTree = "<group>"; };
 		840180CA1D2C562400CB794B /* MyCertificate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCertificate.h; sourceTree = "<group>"; };
 		8422E9C11D35BF9500F33978 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		8429E1151D2C481500920987 /* KnowYourAngles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnowYourAngles.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +91,7 @@
 		8429E1491D2C494300920987 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		84461B4A1D308F1000BA997E /* FinishScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishScreenViewController.swift; sourceTree = "<group>"; };
 		84C3E8211D2DC75300750751 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		93B41575A23EA5D1DB5A2634 /* Pods_KnowYourAnglesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KnowYourAnglesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,11 +100,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				3661E5B91E0E1BD900601402 /* CoreData.framework in Frameworks */,
-				450952F91E8DB06D00013AA6 /* ATKMathWidget.framework in Frameworks */,
-				450952F81E8DB06D00013AA6 /* ATKMath.framework in Frameworks */,
 				36C69ECF1D80A5DE0072CFFA /* SystemConfiguration.framework in Frameworks */,
-				367470591E2EAD0E007228EC /* Fabric.framework in Frameworks */,
-				450952F71E8DB06D00013AA6 /* ATKCore.framework in Frameworks */,
+				182E8EF729A5AFC343CBA792 /* libPods-KnowYourAngles.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,18 +172,14 @@
 		8429E10C1D2C481500920987 = {
 			isa = PBXGroup;
 			children = (
-				450952F41E8DB06D00013AA6 /* ATKCore.framework */,
-				450952F51E8DB06D00013AA6 /* ATKMath.framework */,
-				450952F61E8DB06D00013AA6 /* ATKMathWidget.framework */,
-				367470571E2EAD0E007228EC /* Fabric.framework */,
 				3661E5B81E0E1BD900601402 /* CoreData.framework */,
-				36C69ED81D80A6850072CFFA /* resources.bundle */,
-				36C69ED61D80A6610072CFFA /* ATKMathWidget.bundle */,
 				8429E1491D2C494300920987 /* SystemConfiguration.framework */,
 				8429E1171D2C481500920987 /* KnowYourAngles */,
 				8429E12C1D2C481500920987 /* KnowYourAnglesTests */,
 				8429E1371D2C481600920987 /* KnowYourAnglesUITests */,
 				8429E1161D2C481500920987 /* Products */,
+				A84C561C0D9756B273D361DE /* Pods */,
+				FDE9A74D9794B2336D3C36B3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -251,6 +238,25 @@
 			path = KnowYourAnglesUITests;
 			sourceTree = "<group>";
 		};
+		A84C561C0D9756B273D361DE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5F32BE4E557A3B2C9EB2B3F4 /* Pods-KnowYourAngles.debug.xcconfig */,
+				0B42B7C875C421A44E725627 /* Pods-KnowYourAngles.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		FDE9A74D9794B2336D3C36B3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3FFCF7A9BE88E421344AC94C /* Pods_KnowYourAnglesTests.framework */,
+				93B41575A23EA5D1DB5A2634 /* Pods_KnowYourAnglesUITests.framework */,
+				40FF2CF1ABF5447993FC0B86 /* libPods-KnowYourAngles.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -258,6 +264,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8429E13D1D2C481600920987 /* Build configuration list for PBXNativeTarget "KnowYourAngles" */;
 			buildPhases = (
+				C05A7F1C64432A47B9E3E575 /* [CP] Check Pods Manifest.lock */,
 				8429E1111D2C481500920987 /* Sources */,
 				8429E1121D2C481500920987 /* Frameworks */,
 				8429E1131D2C481500920987 /* Resources */,
@@ -360,8 +367,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				36C69ED91D80A6850072CFFA /* resources.bundle in Resources */,
-				36C69ED71D80A6610072CFFA /* ATKMathWidget.bundle in Resources */,
 				8429E1231D2C481500920987 /* LaunchScreen.storyboard in Resources */,
 				8429E1201D2C481500920987 /* Assets.xcassets in Resources */,
 				8429E11E1D2C481500920987 /* Main.storyboard in Resources */,
@@ -396,7 +401,29 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "GIT_RELEASE_VERSION=$(git describe --tags --always --dirty)\nCOMMITS=$(git rev-list HEAD | wc -l)\nCOMMITS=$(($COMMITS))\ndefaults write \"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH%.*}\" \"CFBundleShortVersionString\" \"${GIT_RELEASE_VERSION#*v}\"\ndefaults write \"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH%.*}\" \"CFBundleVersion\" \"${COMMITS}\"\n\n./Fabric.framework/run 47d7101d489472c35e317e555b6f5723128756a8 9e7e01d4ef77c8fe881bbd5b7a9e382fd3bba44686f71353b7b9d73abc18720b";
+			shellScript = "GIT_RELEASE_VERSION=$(git describe --tags --always --dirty)\nCOMMITS=$(git rev-list HEAD | wc -l)\nCOMMITS=$(($COMMITS))\ndefaults write \"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH%.*}\" \"CFBundleShortVersionString\" \"${GIT_RELEASE_VERSION#*v}\"\ndefaults write \"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH%.*}\" \"CFBundleVersion\" \"${COMMITS}\"\n\n./Fabric.framework/run 47d7101d489472c35e317e555b6f5723128756a8 9e7e01d4ef77c8fe881bbd5b7a9e382fd3bba44686f71353b7b9d73abc18720b\n";
+		};
+		C05A7F1C64432A47B9E3E575 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KnowYourAngles-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -508,6 +535,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -522,12 +550,16 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -565,6 +597,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -573,11 +606,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.2;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -585,25 +622,26 @@
 		};
 		8429E13E1D2C481600920987 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F32BE4E557A3B2C9EB2B3F4 /* Pods-KnowYourAngles.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../MyScript_ATK-ios-2/Frameworks\"",
-					"$(PROJECT_DIR)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = KnowYourAngles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MACH_O_TYPE = mh_execute;
-				OTHER_LDFLAGS = (
-					"-lstdc++",
-					"-ObjC",
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/MyScriptInteractiveInk-Runtime\"",
 				);
+				MACH_O_TYPE = mh_execute;
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.iolani.inhouse.KnowYourAngles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -611,35 +649,38 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "${PODS_ROOT}/**";
 			};
 			name = Debug;
 		};
 		8429E13F1D2C481600920987 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B42B7C875C421A44E725627 /* Pods-KnowYourAngles.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SRCROOT)/../MyScript_ATK-ios-2/Frameworks\"",
-					"$(PROJECT_DIR)",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = KnowYourAngles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MACH_O_TYPE = mh_execute;
-				OTHER_LDFLAGS = (
-					"-lstdc++",
-					"-ObjC",
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/MyScriptInteractiveInk-Runtime\"",
 				);
+				MACH_O_TYPE = mh_execute;
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = org.iolani.inhouse.KnowYourAngles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "KnowYourAngles-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "${PODS_ROOT}/**";
 			};
 			name = Release;
 		};

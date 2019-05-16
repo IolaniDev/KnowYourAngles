@@ -23,7 +23,7 @@ class StudyView : UIView {
     // imageview to hold the green check (meaning correct)
     let correctImageView = UIImageView(image: UIImage(named: "Correct")!);
     // reference the mathview for positioning of the correct and incorrect marks
-    @IBOutlet weak var workArea: MAWMathView!
+    @IBOutlet weak var workArea: InputView!
    
     // function called when user answers incorrectly
     func drawWrong(){

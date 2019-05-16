@@ -7,14 +7,15 @@
 //
 
 import Foundation
+import UIKit
 
-class StudyMode : UIViewController, MAWMathViewDelegate {
+class StudyMode : UIViewController{
     
     //reference to data related to the problems displayed
     var problemSource : MainViewDataSource?;
     
     // mathView holds the view where you can write answers
-    @IBOutlet var mathView: MAWMathView!
+    @IBOutlet var mathView: InputView!
     var certificateRegistered : Bool!;
     
     //reference to the View that controls displaying the problems, number correct, number remaining, etc.
@@ -58,30 +59,7 @@ class StudyMode : UIViewController, MAWMathViewDelegate {
         //Setup Writing Recognition
         super.viewDidLoad();
         
-        // Register MyScript certificate before anything else
-        let certificate = Data(bytes: myCertificate.bytes, count: myCertificate.length);
         
-        certificateRegistered = mathView.registerCertificate(certificate);
-        
-        // Register as delegate to be notified of configuration, recognition, ...
-        if((certificateRegistered) != nil)
-        {
-            mathView.delegate = self;
-            _ = Bundle.main
-            
-            var bundlePath : NSString = Bundle.main.path(forResource: "resources", ofType: "bundle")! as NSString
-            
-            bundlePath = bundlePath.appendingPathComponent("conf") as NSString; mathView.addSearchDir(bundlePath as String)
-            
-            // The configuration is an asynchronous operation. Callbacks are provided to
-            // monitor the beginning and end of the configuration process.
-            //
-            // "math" references the math bundle name in conf/math.conf file in your resources.
-            // "standard" references the configuration name in math.conf
-            
-            mathView.configure(withBundle: "math", andConfig: "standard");
-            mathView.beautificationOption = MAWBeautifyOption.fontify;
-        }
         
         /**********SET RIGHT OR LEFT HAND**********/
         //if the user has previously saved settings for left vs. right-hand mode, use their settings
@@ -807,201 +785,183 @@ class StudyMode : UIViewController, MAWMathViewDelegate {
                     problemSource?.loadArccotangentQuadIIProblems();
                 }
             }
+            
+            // if there are no previously saved settings then, by default, do not load arccotangent problems
+            
+            // setup image of first problem
+            studyView.problemImage.image = UIImage(named: (problemSource?.pickRandomProblem().problemImageName)!);
+            
+            //setup the immediate feedback
+            mainController = SummaryCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
+            self.addChild(mainController!);
+            
+            mainController?.summaryData = self.summaryData;
+            
+            immediateFeedback.dataSource = mainController;
+            immediateFeedback.delegate = mainController;
         }
-        // if there are no previously saved settings then, by default, do not load arccotangent problems
         
-        // setup image of first problem
-        studyView.problemImage.image = UIImage(named: (problemSource?.pickRandomProblem().problemImageName)!);
-        
-        //setup the immediate feedback
-        mainController = SummaryCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
-        self.addChild(mainController!);
-        
-        mainController?.summaryData = self.summaryData;
-        
-        immediateFeedback.dataSource = mainController;
-        immediateFeedback.delegate = mainController;
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated);
-        if(!(certificateRegistered))
-        {
-            let alertController = UIAlertController(title: "Invalid certificate", message: "Please use a valid certificate", preferredStyle: UIAlertController.Style.alert)
-            
-            let okAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil);
-            
-            alertController.addAction(okAction)
-            present(alertController, animated: true, completion: nil)
-        }
-    }
-    
-    @objc(mathViewDidEndConfiguration:) func mathViewDidEndConfiguration(_ mathView: MAWMathView)
-    {
-        NSLog("Math Widget configured");
-    }
-    
-    func didFailConfigurationWithError(_ error: NSError, mathView: MAWMathView)
-    {
-        NSLog("Unable to configure the Math Widget: %@", error);
-    }
-    
-    func mathViewDidEndRecognition(_ mathView: MAWMathView)
-    {
-        NSLog("Math Widget recognition: %@", mathView.resultAsText());
-    }
-    
-    func mathViewDidEndWriting(_ mathView: MAWMathView ){
-        NSLog("Math Widget End Writing: %@", mathView.resultAsText());
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func nextButtonPressed(_ sender: UIButton) {
-        // check if answer written is correct
-        mathView.solve();
-        var result = mathView.resultAsText();
-        
-        //If the user wrote an answer...
-        if(!(result?.isEmpty)!)
-        {
-            // get the image of the answer the user wrote
-            answerImg = mathView.resultAsImage();
-            
-            //if the user's answer has an equals symbol in it ...
-            if(result?.contains("="))!
+        func viewDidAppear(_ animated: Bool) {
+            super.viewDidAppear(animated);
+            if(!(certificateRegistered))
             {
-                // then remove the part of the answer before and including the equals symbol
-                result = String((result?[result!.index(after: (result?.firstIndex(of: "=")!)!)...])!)
-            }
-    
-            // if the user got the problem correct ...
-            if(problemSource?.isCorrect(result!))!
-            {
-                //add 1 to the number of correctly answered problems
-                studyView.numCorrect.text = "\(Int(studyView.numCorrect.text!)!+1)";
-                //draw the green check mark for the user so they know they got the problem correct
-                studyView.drawRight();
+                let alertController = UIAlertController(title: "Invalid certificate", message: "Please use a valid certificate", preferredStyle: UIAlertController.Style.alert)
                 
-                markImg = UIImage(named: "Correct")!;
-                updateStatistics(isCorrect: true);
-            }
-            // if the user got the problem incorrect
-            else
-            {
-                //add 1 to the number of incorrectly answered problems
-                studyView.numIncorrect.text = "\(Int(studyView.numIncorrect.text!)!+1)";
-                //draw the red x for the user so they know they got the problem incorrect
-                studyView.drawWrong();
+                let okAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil);
                 
-                markImg = UIImage(named: "Wrong")!;
-                updateStatistics(isCorrect: false);
+                alertController.addAction(okAction)
+                present(alertController, animated: true, completion: nil)
             }
         }
         
-        //add images to the summary view on the finish screen
-        summaryData.append(UIImage(named: (problemSource?.getCurrProblem().problemImageName)!)!);
-        summaryData.append(UIImage(named: (problemSource?.getCurrProblem().answerImageName)!)!);
-        summaryData.append(answerImg);
-        summaryData.append(markImg);
-        
-        mainController?.summaryData = self.summaryData;
-        immediateFeedback.reloadData();
-        //scroll down so the latest problem and answer are shown
-        immediateFeedback.scrollToItem(at: IndexPath.init(item: immediateFeedback.numberOfItems(inSection: 0)-1, section: 0), at: UICollectionView.ScrollPosition.bottom, animated: true);
-        
-        // set up a new problem
-        studyView.problemImage.image = UIImage(named: (problemSource?.pickRandomProblem().problemImageName)!);
-        
-        // clear the field to write your answer
-        mathView.clear(false);
-        scratchPaperImageView.image = nil;
-    }
-    
-    @IBAction func clearMathView(_ sender: UIButton) {
-        mathView.clear(false);
-    }
-    
-    func updateStatistics(isCorrect : Bool)
-    {
-        if(isCorrect)
-        {
-            let newValue:Int = savedSettings.value(forKey: (problemSource?.getCurrProblem().typeOfProblem)! + "StatsNumCorrect") as! Int + 1;
-            savedSettings.setValue(newValue, forKey: (problemSource?.getCurrProblem().typeOfProblem)! + "StatsNumCorrect");
+        func didReceiveMemoryWarning() {
+            super.didReceiveMemoryWarning()
+            // Dispose of any resources that can be recreated.
         }
-        savedSettings.setValue(savedSettings.value(forKey: (problemSource?.getCurrProblem().typeOfProblem)! + "StatsNumTotal") as! Int + 1, forKey: (problemSource?.getCurrProblem().typeOfProblem)! + "StatsNumTotal");
-        if(problemSource?.getCurrProblem().unitsOfAngle == Problem.angleUnits.radians)
-        {
-            savedSettings.setValue(savedSettings.value(forKey: "radianStatsNumCorrect") as! Int + 1, forKey: "radianStatsNumCorrect");
-            savedSettings.setValue(savedSettings.value(forKey: "radianStatsNumTotal") as! Int + 1, forKey: "radianStatsNumTotal");
-        }
-        if(problemSource?.getCurrProblem().unitsOfAngle == Problem.angleUnits.degrees)
-        {
-            savedSettings.setValue(savedSettings.value(forKey: "degreeStatsNumCorrect") as! Int + 1, forKey: "degreeStatsNumCorrect");
-            savedSettings.setValue(savedSettings.value(forKey: "degreeStatsNumTotal") as! Int + 1, forKey: "degreeStatsNumTotal");
-        }
-        savedSettings.setValue(savedSettings.value(forKey: "radianAndDegreeStatsNumCorrect") as! Int + 1, forKey: "radianAndDegreeStatsNumCorrect");
-        savedSettings.setValue(savedSettings.value(forKey: "radianAndDegreeStatsNumTotal") as! Int + 1, forKey: "radianAndDegreeStatsNumTotal");
-    }
-    
-    /**********FUNCTIONS FOR SCRATCH PAPER**********/
-    @IBAction func clearScratchPaper(_ sender: UIButton) {
-        scratchPaperImageView.image = nil;
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        swiped = false
-        if let touch = touches.first {
-            lastPoint = touch.location(in: self.view)
-        }
-    }
-    
-    func drawLineFrom(_ fromPoint: CGPoint, toPoint: CGPoint) {
         
-        // 1
-        UIGraphicsBeginImageContext(view.frame.size)
-        let context = UIGraphicsGetCurrentContext()
-        scratchPaperImageView.image?.draw(in: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
-        
-        // 2
-        context?.move(to: CGPoint(x: fromPoint.x, y: fromPoint.y))
-        context?.addLine(to: CGPoint(x: toPoint.x, y: toPoint.y))
-        
-        // 3
-        context?.setLineCap(CGLineCap.round);
-        context?.setLineWidth(brushWidth);
-        context?.setStrokeColor(red: 0, green: 0, blue: 0, alpha: 1.0);
-        context?.setBlendMode(CGBlendMode.normal);
-        
-        // 4
-        context?.strokePath()
-        
-        // 5
-        scratchPaperImageView.image = UIGraphicsGetImageFromCurrentImageContext()
-        scratchPaperImageView.alpha = opacity
-        UIGraphicsEndImageContext()
-        
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // 6
-        swiped = true
-        if let touch = touches.first {
-            let currentPoint = touch.location(in: view)
-            drawLineFrom(lastPoint, toPoint: currentPoint)
+        func nextButtonPressed(_ sender: UIButton) {
+            // check if answer written is correct
+            //mathView.solve();
+            /*var result = mathView.resultAsText();
             
-            // 7
-            lastPoint = currentPoint
+            //If the user wrote an answer...
+            if(!(result?.isEmpty)!)
+            {
+                // get the image of the answer the user wrote
+                answerImg = mathView.resultAsImage();
+                
+                //if the user's answer has an equals symbol in it ...
+                if(result?.contains("="))!
+                {
+                    // then remove the part of the answer before and including the equals symbol
+                    result = String((result?[result!.index(after: (result?.firstIndex(of: "=")!)!)...])!)
+                }
+                
+                // if the user got the problem correct ...
+                if(problemSource?.isCorrect(result!))!
+                {
+                    //add 1 to the number of correctly answered problems
+                    studyView.numCorrect.text = "\(Int(studyView.numCorrect.text!)!+1)";
+                    //draw the green check mark for the user so they know they got the problem correct
+                    studyView.drawRight();
+                    
+                    markImg = UIImage(named: "Correct")!;
+                    updateStatistics(isCorrect: true);
+                }
+                    // if the user got the problem incorrect
+                else
+                {
+                    //add 1 to the number of incorrectly answered problems
+                    studyView.numIncorrect.text = "\(Int(studyView.numIncorrect.text!)!+1)";
+                    //draw the red x for the user so they know they got the problem incorrect
+                    studyView.drawWrong();
+                    
+                    markImg = UIImage(named: "Wrong")!;
+                    updateStatistics(isCorrect: false);
+                }
+            }*/
+            
+            //add images to the summary view on the finish screen
+            summaryData.append(UIImage(named: (problemSource?.getCurrProblem().problemImageName)!)!);
+            summaryData.append(UIImage(named: (problemSource?.getCurrProblem().answerImageName)!)!);
+            summaryData.append(answerImg);
+            summaryData.append(markImg);
+            
+            mainController?.summaryData = self.summaryData;
+            immediateFeedback.reloadData();
+            //scroll down so the latest problem and answer are shown
+            immediateFeedback.scrollToItem(at: IndexPath.init(item: immediateFeedback.numberOfItems(inSection: 0)-1, section: 0), at: UICollectionView.ScrollPosition.bottom, animated: true);
+            
+            // set up a new problem
+            studyView.problemImage.image = UIImage(named: (problemSource?.pickRandomProblem().problemImageName)!);
+            
+            // clear the field to write your answer
+            //mathView.clear(false);
+            scratchPaperImageView.image = nil;
         }
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if !swiped {
-            // draw a single point
-            drawLineFrom(lastPoint, toPoint: lastPoint)
+        
+        func clearMathView(_ sender: UIButton) {
+            //mathView.clear(false);
+        }
+        
+        func updateStatistics(isCorrect : Bool)
+        {
+            if(isCorrect)
+            {
+                let newValue:Int = savedSettings.value(forKey: (problemSource?.getCurrProblem().typeOfProblem)! + "StatsNumCorrect") as! Int + 1;
+                savedSettings.setValue(newValue, forKey: (problemSource?.getCurrProblem().typeOfProblem)! + "StatsNumCorrect");
+            }
+            savedSettings.setValue(savedSettings.value(forKey: (problemSource?.getCurrProblem().typeOfProblem)! + "StatsNumTotal") as! Int + 1, forKey: (problemSource?.getCurrProblem().typeOfProblem)! + "StatsNumTotal");
+            if(problemSource?.getCurrProblem().unitsOfAngle == Problem.angleUnits.radians)
+            {
+                savedSettings.setValue(savedSettings.value(forKey: "radianStatsNumCorrect") as! Int + 1, forKey: "radianStatsNumCorrect");
+                savedSettings.setValue(savedSettings.value(forKey: "radianStatsNumTotal") as! Int + 1, forKey: "radianStatsNumTotal");
+            }
+            if(problemSource?.getCurrProblem().unitsOfAngle == Problem.angleUnits.degrees)
+            {
+                savedSettings.setValue(savedSettings.value(forKey: "degreeStatsNumCorrect") as! Int + 1, forKey: "degreeStatsNumCorrect");
+                savedSettings.setValue(savedSettings.value(forKey: "degreeStatsNumTotal") as! Int + 1, forKey: "degreeStatsNumTotal");
+            }
+            savedSettings.setValue(savedSettings.value(forKey: "radianAndDegreeStatsNumCorrect") as! Int + 1, forKey: "radianAndDegreeStatsNumCorrect");
+            savedSettings.setValue(savedSettings.value(forKey: "radianAndDegreeStatsNumTotal") as! Int + 1, forKey: "radianAndDegreeStatsNumTotal");
+        }
+        
+        /**********FUNCTIONS FOR SCRATCH PAPER**********/
+        func clearScratchPaper(_ sender: UIButton) {
+            scratchPaperImageView.image = nil;
+        }
+        
+        func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+            swiped = false
+            if let touch = touches.first {
+                lastPoint = touch.location(in: self.view)
+            }
+        }
+        
+        func drawLineFrom(_ fromPoint: CGPoint, toPoint: CGPoint) {
+            
+            // 1
+            UIGraphicsBeginImageContext(view.frame.size)
+            let context = UIGraphicsGetCurrentContext()
+            scratchPaperImageView.image?.draw(in: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
+            
+            // 2
+            context?.move(to: CGPoint(x: fromPoint.x, y: fromPoint.y))
+            context?.addLine(to: CGPoint(x: toPoint.x, y: toPoint.y))
+            
+            // 3
+            context?.setLineCap(CGLineCap.round);
+            context?.setLineWidth(brushWidth);
+            context?.setStrokeColor(red: 0, green: 0, blue: 0, alpha: 1.0);
+            context?.setBlendMode(CGBlendMode.normal);
+            
+            // 4
+            context?.strokePath()
+            
+            // 5
+            scratchPaperImageView.image = UIGraphicsGetImageFromCurrentImageContext()
+            scratchPaperImageView.alpha = opacity
+            UIGraphicsEndImageContext()
+            
+        }
+        
+        func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+            // 6
+            swiped = true
+            if let touch = touches.first {
+                let currentPoint = touch.location(in: view)
+                drawLineFrom(lastPoint, toPoint: currentPoint)
+                
+                // 7
+                lastPoint = currentPoint
+            }
+        }
+        
+        func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+            if !swiped {
+                // draw a single point
+                drawLineFrom(lastPoint, toPoint: lastPoint)
+            }
         }
     }
 }

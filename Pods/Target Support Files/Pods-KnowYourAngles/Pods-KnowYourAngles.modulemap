@@ -1,4 +1,4 @@
-framework module Pods_KnowYourAngles {
+module Pods_KnowYourAngles {
   umbrella header "Pods-KnowYourAngles-umbrella.h"
 
   export *

@@ -11,7 +11,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, MAWMathViewDelegate{
+class ViewController: UIViewController {
     
     //reference to data related to the problems displayed
     var problemSource = MainViewDataSource.init();
@@ -23,7 +23,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
     var markImg : UIImage = UIImage();
     
     // mathView holds the view where you can write answers
-    @IBOutlet var mathView: MAWMathView!
+    @IBOutlet var mathView: InputView!
     var certificateRegistered : Bool!;
     
     //reference to the View that controls displaying the problems, number correct, number remaining, etc.
@@ -63,30 +63,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         //Setup Writing Recognition
         super.viewDidLoad();
         
-        // Register MyScript certificate before anything else
-        let certificate = Data(bytes: myCertificate.bytes, count: myCertificate.length);
-        
-        certificateRegistered = mathView.registerCertificate(certificate);
-        
-        // Register as delegate to be notified of configuration, recognition, ...
-        if((certificateRegistered) != nil)
-        {
-            mathView.delegate = self;
-            _ = Bundle.main
-            
-            var bundlePath : NSString = Bundle.main.path(forResource: "resources", ofType: "bundle")! as NSString
-            
-            bundlePath = bundlePath.appendingPathComponent("conf") as NSString; mathView.addSearchDir(bundlePath as String)
-            
-            // The configuration is an asynchronous operation. Callbacks are provided to
-            // monitor the beginning and end of the configuration process.
-            //
-            // "math" references the math bundle name in conf/math.conf file in your resources.
-            // "standard" references the configuration name in math.conf
-            
-            mathView.configure(withBundle: "math", andConfig: "standard");
-            mathView.beautificationOption = MAWBeautifyOption.fontify;
-            
+           
             /**********SET RIGHT OR LEFT HAND**********/
             //if the user has previously saved settings for left vs. right-hand mode, use their settings
             if (savedSettings.object(forKey: "isLeftHandMode") != nil)
@@ -836,7 +813,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
             
             // add an observer for when the timer runs out.
             NotificationCenter.default.addObserver(self, selector: #selector(updateCountDown), name: NSNotification.Name(rawValue: "segueNow"), object: nil);
-        }
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -852,25 +829,6 @@ class ViewController: UIViewController, MAWMathViewDelegate{
         }
     }
     
-    @objc(mathViewDidEndConfiguration:) func mathViewDidEndConfiguration(_ mathView: MAWMathView)
-    {
-        NSLog("Math Widget configured");
-    }
-    
-    func didFailConfigurationWithError(_ error: NSError, mathView: MAWMathView)
-    {
-        NSLog("Unable to configure the Math Widget: %@", error);
-    }
-    
-    func mathViewDidEndRecognition(_ mathView: MAWMathView)
-    {
-        NSLog("Math Widget recognition: %@", mathView.resultAsText());
-    }
-    
-    func mathViewDidEndWriting(_ mathView: MAWMathView ){
-        NSLog("Math Widget End Writing: %@", mathView.resultAsText());
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -878,10 +836,11 @@ class ViewController: UIViewController, MAWMathViewDelegate{
     
     @IBAction func nextButtonPressed(_ sender: UIButton) {
         // check if answer written is correct
-        mathView.solve();
-        var result = mathView.resultAsText();
+        //mathView.solve();
+        /*var result = "";
+        //var result = mathView.resultAsText();
         
-        if(!(result?.isEmpty)!)
+        if(!(result.isEmpty))
         {
             correctingMarksView.numRemaining.text = "\(Int(correctingMarksView.numRemaining.text!)!-1)";
         
@@ -927,7 +886,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
                 mathView.clear(false);
                 scratchPaperImageView.image = nil;
             }
-        }
+        }*/
     }
     
     // function to prepare data to send to the finish screen
@@ -957,7 +916,7 @@ class ViewController: UIViewController, MAWMathViewDelegate{
     
     // function to clear the writing space where the user writes their answer
     @IBAction func clearMathView(_ sender: UIButton) {
-        mathView.clear(false);
+        //mathView.clear(false);
     }
     
     /**********FUNCTIONS FOR SCRATCH PAPER**********/
