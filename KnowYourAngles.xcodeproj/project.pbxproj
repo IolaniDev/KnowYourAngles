@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		182E8EF729A5AFC343CBA792 /* libPods-KnowYourAngles.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40FF2CF1ABF5447993FC0B86 /* libPods-KnowYourAngles.a */; };
+		363BE51722AF29B4002BA369 /* INFO in Resources */ = {isa = PBXBuildFile; fileRef = 363BE51622AF29B4002BA369 /* INFO */; };
+		363BE51922AF29C7002BA369 /* recognition-assets in Resources */ = {isa = PBXBuildFile; fileRef = 363BE51822AF29C7002BA369 /* recognition-assets */; };
 		3661E5B91E0E1BD900601402 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3661E5B81E0E1BD900601402 /* CoreData.framework */; };
 		36919FBB1E405B43000A7647 /* SummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36919FBA1E405B43000A7647 /* SummaryCell.swift */; };
 		36919FBD1E406478000A7647 /* SummaryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36919FBC1E406478000A7647 /* SummaryCollectionViewController.swift */; };
@@ -52,6 +54,8 @@
 
 /* Begin PBXFileReference section */
 		0B42B7C875C421A44E725627 /* Pods-KnowYourAngles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnowYourAngles.release.xcconfig"; path = "Target Support Files/Pods-KnowYourAngles/Pods-KnowYourAngles.release.xcconfig"; sourceTree = "<group>"; };
+		363BE51622AF29B4002BA369 /* INFO */ = {isa = PBXFileReference; lastKnownFileType = folder; path = INFO; sourceTree = "<group>"; };
+		363BE51822AF29C7002BA369 /* recognition-assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "recognition-assets"; sourceTree = "<group>"; };
 		3661E5B81E0E1BD900601402 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		36919FBA1E405B43000A7647 /* SummaryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryCell.swift; sourceTree = "<group>"; };
 		36919FBC1E406478000A7647 /* SummaryCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryCollectionViewController.swift; sourceTree = "<group>"; };
@@ -122,6 +126,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		363BE51522AF23B8002BA369 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				363BE51822AF29C7002BA369 /* recognition-assets */,
+				363BE51622AF29B4002BA369 /* INFO */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		366B07E920DC25210083B0C1 /* MyScriptCertificate */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +209,7 @@
 		8429E1171D2C481500920987 /* KnowYourAngles */ = {
 			isa = PBXGroup;
 			children = (
+				363BE51522AF23B8002BA369 /* Resources */,
 				36E507A120E1E8F10045D0CD /* Fonts */,
 				366B07ED20DC272D0083B0C1 /* Settings */,
 				366B07EC20DC26A10083B0C1 /* Summary */,
@@ -368,7 +382,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8429E1231D2C481500920987 /* LaunchScreen.storyboard in Resources */,
+				363BE51922AF29C7002BA369 /* recognition-assets in Resources */,
 				8429E1201D2C481500920987 /* Assets.xcassets in Resources */,
+				363BE51722AF29B4002BA369 /* INFO in Resources */,
 				8429E11E1D2C481500920987 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

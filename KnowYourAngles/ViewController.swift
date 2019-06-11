@@ -24,7 +24,9 @@ class ViewController: UIViewController {
     
     // mathView holds the view where you can write answers
     @IBOutlet var mathView: InputView!
-    var certificateRegistered : Bool!;
+    //var certificateRegistered : Bool!;
+
+    weak var editorViewController: EditorViewController!
     
     //reference to the View that controls displaying the problems, number correct, number remaining, etc.
     @IBOutlet var correctingMarksView: MainView!
@@ -814,9 +816,43 @@ class ViewController: UIViewController {
             // add an observer for when the timer runs out.
             NotificationCenter.default.addObserver(self, selector: #selector(updateCountDown), name: NSNotification.Name(rawValue: "segueNow"), object: nil);
         
+            /***** New Stuff 6-10-19*****/
+        editorViewController = (children.first as! EditorViewController)
+        
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            if (appDelegate.engine == nil)
+            {
+                let alert = UIAlertController(title: "Certificate error",
+                                              message: appDelegate.engineErrorMessage,
+                                              preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "OK",
+                                              style: UIAlertAction.Style.default,
+                                              handler: {(action: UIAlertAction) -> Void in
+                                                exit(1)
+                }))
+                self.present(alert, animated: true, completion: nil)
+                return
+            }
+            editorViewController.engine = appDelegate.engine
+        }
+        
+        editorViewController.inputMode = .forcePen  // We want the Pen mode for this GetStarted sample code. It lets the user use either its mouse or fingers to draw.
+        // If you have got an iPad Pro with an Apple Pencil, please set this value to InputModeAuto for a better experience.
+        
+        do {
+            if let package = try createPackage(packageName: "New") {
+                try editorViewController.editor.part = package.getPartAt(0)
+            }
+        } catch {
+            print("Error while creating package : " + error.localizedDescription)
+        }
+        
+        //timerStarted = false;
+        //statusCheckTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(checkStatus(timer:)), userInfo: nil, repeats: true);
+        //beautifyTimer = Timer();
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    /*override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated);
         if(!(certificateRegistered))
         {
@@ -827,7 +863,7 @@ class ViewController: UIViewController {
             alertController.addAction(okAction)
             present(alertController, animated: true, completion: nil)
         }
-    }
+    }*/
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -993,6 +1029,21 @@ class ViewController: UIViewController {
         }
         savedSettings.setValue(savedSettings.value(forKey: "radianAndDegreeStatsNumCorrect") as! Int + 1, forKey: "radianAndDegreeStatsNumCorrect");
         savedSettings.setValue(savedSettings.value(forKey: "radianAndDegreeStatsNumTotal") as! Int + 1, forKey: "radianAndDegreeStatsNumTotal");
+    }
+    
+    func createPackage(packageName: String) throws -> IINKContentPackage? {
+        // Create a new content package with name
+        var resultPackage: IINKContentPackage?
+        let fullPath = FileManager.default.pathForFile(inDocumentDirectory: packageName) + ".iink"
+        if let engine = (UIApplication.shared.delegate as? AppDelegate)?.engine {
+            resultPackage = try engine.createPackage(fullPath.decomposedStringWithCanonicalMapping)
+            
+            // Add a blank page type Text Document
+            if let part = try resultPackage?.createPart("Math") /* Options are : "Diagram", "Drawing", "Math", "Text Document", "Text" */ {
+                self.title = "Type: " + part.type
+            }
+        }
+        return resultPackage
     }
 }
 
