@@ -1,0 +1,13 @@
+CONFIGURATION_BUILD_DIR = ${PODS_CONFIGURATION_BUILD_DIR}/MyScriptInteractiveInk-Runtime
+ENABLE_BITCODE = NO
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/MyScriptInteractiveInk-Runtime" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/MyScriptInteractiveInk-Runtime"
+LIBRARY_SEARCH_PATHS = $(inherited) "$(PODS_ROOT)/MyScriptInteractiveInk-Runtime/"
+OTHER_LDFLAGS = $(inherited) -Wl,-u,_MyScript2D -Wl,-u,_MyScriptAnalyzer -Wl,-u,_MyScriptDocument -Wl,-u,_MyScriptEngine -Wl,-u,_MyScriptGesture -Wl,-u,_MyScriptInk -Wl,-u,_MyScriptMath -Wl,-u,_MyScriptPrediction -Wl,-u,_MyScriptShape -Wl,-u,_MyScriptText
+OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS -import-underlying-module -Xcc -fmodule-map-file="${SRCROOT}/${MODULEMAP_FILE}"
+PODS_BUILD_DIR = ${BUILD_DIR}
+PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_ROOT = ${SRCROOT}
+PODS_TARGET_SRCROOT = ${PODS_ROOT}/MyScriptInteractiveInk-Runtime
+PRODUCT_BUNDLE_IDENTIFIER = org.cocoapods.${PRODUCT_NAME:rfc1034identifier}
+SKIP_INSTALL = YES

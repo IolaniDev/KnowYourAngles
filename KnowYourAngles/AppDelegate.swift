@@ -63,6 +63,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return nil;
         }
         
+        do {
+            try engine.configuration.setString("numeric", forKey:"math.solver.options");
+        } catch {
+            print ("Failed to set the solver to numeric: " + error.localizedDescription)
+            return nil;
+        }
+        
         return engine
         
         

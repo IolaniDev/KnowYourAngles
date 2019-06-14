@@ -1,0 +1,1 @@
+../../../../../IInkUIReferenceImplementation/Classes/ViewControllers/SmartGuideViewController.h

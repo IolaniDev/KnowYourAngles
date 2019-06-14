@@ -4,3 +4,4 @@
 #import "MyCertificate.h"
 //#import <ATKMathWidget/MAWMathWidget.h>
 #import <IInkUIReferenceImplementation/IInkUIReferenceImplementation.h>
+#import <IInkUIReferenceImplementation/ImageDrawer.h>

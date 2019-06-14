@@ -27,7 +27,7 @@ class ViewController: UIViewController {
     //var certificateRegistered : Bool!;
 
     weak var editorViewController: EditorViewController!
-    
+    var result = "";
     //reference to the View that controls displaying the problems, number correct, number remaining, etc.
     @IBOutlet var correctingMarksView: MainView!
     
@@ -45,6 +45,62 @@ class ViewController: UIViewController {
     
     // load previously saved settings (if there are any)
     let savedSettings = UserDefaults.standard
+    
+    /***** START - for automatically changing user's writing into text and math symbols *****/
+    //create a timer
+    var beautifyTimer = Timer();
+    var statusCheckTimer = Timer();
+    var timerStarted = false;
+    
+    @objc func checkStatus(timer: Timer)
+    {
+        //var temp = editorViewController.inputView;
+        if editorViewController.inputView.timerOn && !timerStarted
+        {
+            startTimer();
+            timerStarted = true;
+        }
+        else if !editorViewController.inputView.timerOn
+        {
+            endTimer();
+            timerStarted = false;
+        }
+    }
+    
+    func startTimer(){
+        beautifyTimer = Timer.scheduledTimer(timeInterval: 0.6, target: self, selector: #selector(fireTimer(timer:)), userInfo: nil, repeats: true);
+    }
+    
+    func endTimer(){
+        beautifyTimer.invalidate();
+    }
+    
+    //when timer expires, if convertRequired == true, call Editor::convert() and set convertRequired = false
+    @objc func fireTimer(timer: Timer) {
+        if editorViewController.inputView.convertRequired
+        {
+            do {
+                //get all of the "blocks" written by the user
+                let supportedTargetStates = editorViewController.editor.getSupportedTargetConversionState(nil)
+                //convert the contents of the block to text?
+                try editorViewController.editor.convert(nil, targetState: supportedTargetStates[0].value)
+                //get all of the supported MIME Types that we can export the result as
+                let supportedMimeTypes = editorViewController.editor.getSupportedExportMimeTypes(nil);
+                
+                //get the result as string
+                result = try editorViewController.editor!.export_(nil, mimeType: supportedMimeTypes[0].value);
+                
+                /*let imgDrawer = ImageDrawer();
+                try editorViewController.editor!.export_(nil, mimeType: supportedMimeTypes[4].value);
+                imgDrawer.saveImage("answer.png");*/
+            } catch {
+                print("Error while converting : " + error.localizedDescription)
+            }
+            editorViewController.inputView.convertRequired = false;
+            //NSLog("Result: " + result);
+        }
+    }
+    /***** END - for automatically changing user's writing into text and math symbols *****/
     
     // for scratch paper component
     @IBOutlet weak var scratchPaperImageView: UIImageView!
@@ -65,7 +121,6 @@ class ViewController: UIViewController {
         //Setup Writing Recognition
         super.viewDidLoad();
         
-           
             /**********SET RIGHT OR LEFT HAND**********/
             //if the user has previously saved settings for left vs. right-hand mode, use their settings
             if (savedSettings.object(forKey: "isLeftHandMode") != nil)
@@ -847,9 +902,10 @@ class ViewController: UIViewController {
             print("Error while creating package : " + error.localizedDescription)
         }
         
-        //timerStarted = false;
-        //statusCheckTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(checkStatus(timer:)), userInfo: nil, repeats: true);
-        //beautifyTimer = Timer();
+        timerStarted = false;
+        //check once per second to see if 
+        statusCheckTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(checkStatus(timer:)), userInfo: nil, repeats: true);
+        beautifyTimer = Timer();
     }
     
     /*override func viewDidAppear(_ animated: Bool) {
@@ -870,18 +926,26 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //When the user hits "Submit"
     @IBAction func nextButtonPressed(_ sender: UIButton) {
-        // check if answer written is correct
-        //mathView.solve();
-        /*var result = "";
-        //var result = mathView.resultAsText();
+        //get the result
+        NSLog("Result: " + result);
         
-        if(!(result.isEmpty))
+        if(!result.isEmpty)
         {
             correctingMarksView.numRemaining.text = "\(Int(correctingMarksView.numRemaining.text!)!-1)";
+            
+            //get the result as an image
+            answerImg = UIGraphicsGetImageFromCurrentImageContext() ?? UIImage();
+            UIGraphicsEndImageContext();
+            
+            //the result string will either have an equals symbol, a simeq (or approx symbol), or will just have a value
+            //we'll need to strip away everything but the value
+        }
         
-            //correctAnswerImg = UIImage(named: problemSource.getCurrProblem().answerImageName)!;
-            answerImg = mathView.resultAsImage();
+        // check if answer written is correct
+        /*if(!(result.isEmpty))
+        {
             if(result?.contains("="))!
             {
                 result = String(result![result!.index(after: (result?.firstIndex(of: "=")!)!)...]);
@@ -952,7 +1016,7 @@ class ViewController: UIViewController {
     
     // function to clear the writing space where the user writes their answer
     @IBAction func clearMathView(_ sender: UIButton) {
-        //mathView.clear(false);
+        editorViewController.editor.clear();
     }
     
     /**********FUNCTIONS FOR SCRATCH PAPER**********/

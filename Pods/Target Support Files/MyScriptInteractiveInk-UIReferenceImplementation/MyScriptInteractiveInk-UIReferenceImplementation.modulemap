@@ -1,0 +1,6 @@
+framework module IInkUIReferenceImplementation {
+  umbrella header "MyScriptInteractiveInk-UIReferenceImplementation-umbrella.h"
+
+  export *
+  module * { export * }
+}
