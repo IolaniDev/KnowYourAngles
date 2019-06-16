@@ -70,6 +70,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return nil;
         }
         
+        do {
+            try engine.configuration.setNumber(5, forKey:"math.solver.fractional-part-digits");
+        } catch {
+            print ("Failed to set the number of decimal places to round to: " + error.localizedDescription);
+            return nil;
+        }
         return engine
         
         

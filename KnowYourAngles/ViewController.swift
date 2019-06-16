@@ -55,30 +55,34 @@ class ViewController: UIViewController {
     @objc func checkStatus(timer: Timer)
     {
         //var temp = editorViewController.inputView;
+        //NSLog("checking status");
         if editorViewController.inputView.timerOn && !timerStarted
         {
+            //NSLog("Turning on timer");
             startTimer();
-            timerStarted = true;
         }
-        else if !editorViewController.inputView.timerOn
+        else if !editorViewController.inputView.timerOn && timerStarted
         {
+            //NSLog("Turning off timer");
             endTimer();
-            timerStarted = false;
         }
     }
     
     func startTimer(){
-        beautifyTimer = Timer.scheduledTimer(timeInterval: 0.6, target: self, selector: #selector(fireTimer(timer:)), userInfo: nil, repeats: true);
+        beautifyTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(fireTimer(timer:)), userInfo: nil, repeats: true);
+        timerStarted = true;
     }
     
     func endTimer(){
         beautifyTimer.invalidate();
+        timerStarted = false;
     }
     
     //when timer expires, if convertRequired == true, call Editor::convert() and set convertRequired = false
     @objc func fireTimer(timer: Timer) {
-        if editorViewController.inputView.convertRequired
+        if (editorViewController.inputView.convertRequired && editorViewController.editor.idle)
         {
+            NSLog("conversion started");
             do {
                 //get all of the "blocks" written by the user
                 let supportedTargetStates = editorViewController.editor.getSupportedTargetConversionState(nil)
@@ -89,15 +93,13 @@ class ViewController: UIViewController {
                 
                 //get the result as string
                 result = try editorViewController.editor!.export_(nil, mimeType: supportedMimeTypes[0].value);
-                
-                /*let imgDrawer = ImageDrawer();
-                try editorViewController.editor!.export_(nil, mimeType: supportedMimeTypes[4].value);
-                imgDrawer.saveImage("answer.png");*/
+
             } catch {
                 print("Error while converting : " + error.localizedDescription)
             }
             editorViewController.inputView.convertRequired = false;
-            //NSLog("Result: " + result);
+            endTimer();
+            NSLog("Result: " + result);
         }
     }
     /***** END - for automatically changing user's writing into text and math symbols *****/
@@ -904,7 +906,7 @@ class ViewController: UIViewController {
         
         timerStarted = false;
         //check once per second to see if 
-        statusCheckTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(checkStatus(timer:)), userInfo: nil, repeats: true);
+        statusCheckTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(checkStatus(timer:)), userInfo: nil, repeats: true);
         beautifyTimer = Timer();
     }
     
@@ -941,16 +943,35 @@ class ViewController: UIViewController {
             
             //the result string will either have an equals symbol, a simeq (or approx symbol), or will just have a value
             //we'll need to strip away everything but the value
+            if(result.contains("="))
+            {
+                result = String(result[result.index(after: result.firstIndex(of: "=")!)...]);
+            }
+            else if(result.contains("simeq"))
+            {
+                result = String(result[result.index(after: result.lastIndex(of: " ")!)...]);
+            }
+            NSLog("Parsed Answer: %@", result);
+            
+            //check if the user's answer is correct
+            if(problemSource.isCorrect(result))
+            {
+                correctingMarksView.numCorrect.text = "\(Int(correctingMarksView.numCorrect.text!)!+1)";
+                correctingMarksView.drawRight();
+                markImg = UIImage(named: "Correct")!;
+                updateStatistics(isCorrect: true);
+            }
+            else
+            {
+                correctingMarksView.drawWrong();
+                markImg = UIImage(named: "Wrong")!;
+                updateStatistics(isCorrect: false);
+            }
         }
         
         // check if answer written is correct
         /*if(!(result.isEmpty))
         {
-            if(result?.contains("="))!
-            {
-                result = String(result![result!.index(after: (result?.firstIndex(of: "=")!)!)...]);
-            }
-            NSLog("Math Result: %@", result!);
             if(problemSource.isCorrect(result!))
             {
                 correctingMarksView.numCorrect.text = "\(Int(correctingMarksView.numCorrect.text!)!+1)";
