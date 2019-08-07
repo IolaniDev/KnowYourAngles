@@ -23,7 +23,7 @@ class ViewController: UIViewController {
     var markImg : UIImage = UIImage();
     
     // mathView holds the view where you can write answers
-    @IBOutlet var mathView: InputView!
+    @IBOutlet var mathView: UIView!
     //var certificateRegistered : Bool!;
 
     weak var editorViewController: EditorViewController!
@@ -923,6 +923,11 @@ class ViewController: UIViewController {
         }
     }*/
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated);
+        editorViewController.editor.part = nil;
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -937,6 +942,32 @@ class ViewController: UIViewController {
         {
             correctingMarksView.numRemaining.text = "\(Int(correctingMarksView.numRemaining.text!)!-1)";
             
+            //Get the transform to change from MyScript's mm to pixels
+            let transform = editorViewController.editor.renderer.viewTransform;
+            
+            //get the size of the screenshot we wantto take
+            let picWidthMm = editorViewController.editor.rootBlock!.box.width;
+            NSLog("picWidthMm: \(picWidthMm)");
+            let picHeightMm = editorViewController.editor.rootBlock!.box.height;
+            NSLog("picHeightMm: \(picHeightMm)");
+            
+            //apply the transform to the dimensions of the screenshot in mm to get pixels
+            let picDimensionsMm = CGPoint(x: picWidthMm,y: picHeightMm);
+            let picDimensions = picDimensionsMm.applying(transform);
+            
+            //set the screenshot size as the context
+            UIGraphicsBeginImageContext(CGSize(width: picDimensions.x, height: picDimensions.y));
+            
+            //Get the position of the converted writing
+            let picPositionMm = CGPoint(x: editorViewController.editor.rootBlock!.box.minX,y: editorViewController.editor.rootBlock!.box.minY);
+            //apply the transform to the position in mm to get pixels
+            let picPosition = picPositionMm.applying(transform);
+            NSLog("x: \(picPosition.x)");
+            NSLog("y: \(picPosition.y)");
+            
+            //use the contents of the mathView to draw in the context
+            mathView.drawHierarchy(in: CGRect(x: -picPosition.x, y: -picPosition.y, width: mathView.bounds.size.width, height: mathView.bounds.size.height), afterScreenUpdates: true);
+            
             //get the result as an image
             answerImg = UIGraphicsGetImageFromCurrentImageContext() ?? UIImage();
             UIGraphicsEndImageContext();
@@ -946,10 +977,12 @@ class ViewController: UIViewController {
             if(result.contains("="))
             {
                 result = String(result[result.index(after: result.firstIndex(of: "=")!)...]);
+                //answerImg = answerImg.resizableImage(withCapInsets: UIEdgeInsets(top: 100.0,left: 100.0,bottom: 100.0,right: 100.0), resizingMode: UIImage.ResizingMode.stretch);
             }
             else if(result.contains("simeq"))
             {
                 result = String(result[result.index(after: result.lastIndex(of: " ")!)...]);
+                //answerImg = answerImg.resizableImage(withCapInsets: UIEdgeInsets(top: 30.0,left: 30.0,bottom: 30.0,right: 30.0), resizingMode: UIImage.ResizingMode.stretch);
             }
             NSLog("Parsed Answer: %@", result);
             
@@ -967,25 +1000,7 @@ class ViewController: UIViewController {
                 markImg = UIImage(named: "Wrong")!;
                 updateStatistics(isCorrect: false);
             }
-        }
-        
-        // check if answer written is correct
-        /*if(!(result.isEmpty))
-        {
-            if(problemSource.isCorrect(result!))
-            {
-                correctingMarksView.numCorrect.text = "\(Int(correctingMarksView.numCorrect.text!)!+1)";
-                correctingMarksView.drawRight();
-                markImg = UIImage(named: "Correct")!;
-                updateStatistics(isCorrect: true);
-            }
-            else
-            {
-                correctingMarksView.drawWrong();
-                markImg = UIImage(named: "Wrong")!;
-                updateStatistics(isCorrect: false);
-            }
-        
+            
             //add images to the summary view on the finish screen
             summariesToSend.append(UIImage(named: problemSource.getCurrProblem().problemImageName)!);
             summariesToSend.append(UIImage(named: problemSource.getCurrProblem().answerImageName)!);
@@ -1002,12 +1017,13 @@ class ViewController: UIViewController {
             {
                 // set up a new problem
                 correctingMarksView.problemImage.image = UIImage(named: problemSource.getRandomProblem().problemImageName);
-
+                
                 // clear the field to write your answer
-                mathView.clear(false);
+                //mathView.clear(false);
+                editorViewController.editor.clear();
                 scratchPaperImageView.image = nil;
             }
-        }*/
+        }
     }
     
     // function to prepare data to send to the finish screen

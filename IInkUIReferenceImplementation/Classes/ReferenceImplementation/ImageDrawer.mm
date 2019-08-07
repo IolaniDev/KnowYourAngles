@@ -54,8 +54,8 @@
             break;
     }
     
-    NSError *e;
-    [imageData writeToFile:path options: NSDataWritingAtomic error: &e];
+    //NSError *e;
+    [imageData writeToFile:path atomically:YES];
     /*if (e) {
         NSLog(@"Error: %@", e.localizedDescription);
     }

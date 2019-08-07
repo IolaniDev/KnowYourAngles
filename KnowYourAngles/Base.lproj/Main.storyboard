@@ -1734,7 +1734,7 @@
                         <outlet property="clearWorkButtonLeadingConstraint" destination="77q-qS-Wnl" id="Ogg-Pb-4oB"/>
                         <outlet property="clearWorkButtonTrailingConstraint" destination="PR1-lh-0PQ" id="eiM-RQ-wj2"/>
                         <outlet property="correctingMarksView" destination="8bC-Xf-vdC" id="4kd-mA-6pO"/>
-                        <outlet property="mathView" destination="fZZ-Ja-u7v" id="3Cf-5C-w7V"/>
+                        <outlet property="mathView" destination="fZZ-Ja-u7v" id="bQg-YX-bX1"/>
                         <outlet property="scratchPaperImageView" destination="xMZ-ZX-WBq" id="Whp-42-o0S"/>
                         <outlet property="submitButtonLeadingConstraint" destination="bqR-u3-i61" id="FjS-AH-DVK"/>
                         <outlet property="submitButtonTrailingConstraint" destination="c2F-CR-CY4" id="pAy-Du-zT2"/>
@@ -1774,6 +1774,6 @@
         <image name="yourAnswer" width="122" height="122"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Wtc-7e-2hj"/>
+        <segue reference="vzy-ys-Z4H"/>
     </inferredMetricsTieBreakers>
 </document>
