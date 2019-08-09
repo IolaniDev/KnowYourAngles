@@ -72,7 +72,7 @@ open class FinishScreenViewController: UIViewController{
         summaryView.frame = CGRect(x: 0, y: 0, width: summaryView.contentSize.width, height: summaryView.contentSize.height)
         
         summaryView.drawHierarchy(in: CGRect(x: 0, y: scoreAndTimeView.frame.height, width: summaryView.contentSize.width, height: summaryView.contentSize.height), afterScreenUpdates: true);
-        //summaryView.layer.render(in: UIGraphicsGetCurrentContext()!)
+
         let image = UIGraphicsGetImageFromCurrentImageContext()
         
         summaryView.contentOffset = savedContentOffset

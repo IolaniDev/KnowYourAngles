@@ -1063,7 +1063,7 @@
                                 <rect key="frame" x="35" y="206.5" width="954" height="533.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="128" image="Cos0" translatesAutoresizingMaskIntoConstraints="NO" id="s1d-2T-1hx">
-                                        <rect key="frame" x="227" y="0.0" width="500.00000000000011" height="266.5"/>
+                                        <rect key="frame" x="227" y="0.0" width="500" height="266.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="s1d-2T-1hx" secondAttribute="height" multiplier="15:8" id="n9f-xO-8u7"/>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="500" id="pwd-So-OEY"/>
@@ -1101,7 +1101,6 @@
                                     <color key="titleColor" red="0.098039215690000001" green="0.49803921569999998" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="clearMathView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="17h-wz-Lip"/>
                                     <action selector="clearMathView:" destination="aWq-iI-Ere" eventType="touchUpInside" id="7w5-pq-48R"/>
                                 </connections>
                             </button>
@@ -1112,8 +1111,7 @@
                                     <color key="titleColor" red="0.098039215690000001" green="0.49803921569999998" blue="0.48627450979999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="nextButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9DC-9P-pQg"/>
-                                    <action selector="nextButtonPressed:" destination="aWq-iI-Ere" eventType="touchUpInside" id="OsW-zX-Pf1"/>
+                                    <action selector="nextButtonPressed:" destination="aWq-iI-Ere" eventType="touchUpInside" id="CVg-ee-OJu"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRQ-Co-m1p">
@@ -1123,7 +1121,6 @@
                                     <color key="titleColor" red="0.49803921569999998" green="1" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="clearScratchPaper:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LfV-No-uIt"/>
                                     <action selector="clearScratchPaper:" destination="aWq-iI-Ere" eventType="touchUpInside" id="gEs-Cy-kDu"/>
                                 </connections>
                             </button>
@@ -1652,7 +1649,7 @@
                                 <rect key="frame" x="35" y="325.5" width="954" height="533"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="128" image="Cos0" translatesAutoresizingMaskIntoConstraints="NO" id="cq9-Np-18c">
-                                        <rect key="frame" x="227" y="0.0" width="500.00000000000011" height="266.5"/>
+                                        <rect key="frame" x="227" y="0.0" width="500" height="266.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="500" id="SmK-jd-HJL"/>
                                             <constraint firstAttribute="width" secondItem="cq9-Np-18c" secondAttribute="height" multiplier="15:8" id="oZ9-4a-bzr"/>
@@ -1796,6 +1793,6 @@
         <image name="yourAnswer" width="122" height="122"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Wtc-7e-2hj"/>
+        <segue reference="pfy-VR-Ja2"/>
     </inferredMetricsTieBreakers>
 </document>

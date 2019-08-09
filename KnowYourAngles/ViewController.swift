@@ -910,19 +910,6 @@ class ViewController: UIViewController {
         beautifyTimer = Timer();
     }
     
-    /*override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated);
-        if(!(certificateRegistered))
-        {
-            let alertController = UIAlertController(title: "Invalid certificate", message: "Please use a valid certificate", preferredStyle: UIAlertController.Style.alert)
-            
-            let okAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil);
-            
-            alertController.addAction(okAction)
-            present(alertController, animated: true, completion: nil)
-        }
-    }*/
-    
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated);
         editorViewController.editor.part = nil;

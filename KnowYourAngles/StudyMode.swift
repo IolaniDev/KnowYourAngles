@@ -6,16 +6,17 @@
 //  Copyright © 2018 Iolani School. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class StudyMode : UIViewController{
     
     //reference to data related to the problems displayed
-    var problemSource : MainViewDataSource?;
+    var problemSource = MainViewDataSource.init();
     
     // mathView holds the view where you can write answers
     @IBOutlet var mathView: InputView!
+    weak var editorViewController: EditorViewController!
+    var result = "";
     var certificateRegistered : Bool!;
     
     //reference to the View that controls displaying the problems, number correct, number remaining, etc.
@@ -54,12 +55,68 @@ class StudyMode : UIViewController{
     
     var mainController : SummaryCollectionViewController?;
     
+    /***** START - for automatically changing user's writing into text and math symbols *****/
+    //create a timer
+    var beautifyTimer = Timer();
+    var statusCheckTimer = Timer();
+    var timerStarted = false;
+    
+    @objc func checkStatus(timer: Timer)
+    {
+        //var temp = editorViewController.inputView;
+        //NSLog("checking status");
+        if editorViewController.inputView.timerOn && !timerStarted
+        {
+            //NSLog("Turning on timer");
+            startTimer();
+        }
+        else if !editorViewController.inputView.timerOn && timerStarted
+        {
+            //NSLog("Turning off timer");
+            endTimer();
+        }
+    }
+    
+    func startTimer(){
+        beautifyTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(fireTimer(timer:)), userInfo: nil, repeats: true);
+        timerStarted = true;
+    }
+    
+    func endTimer(){
+        beautifyTimer.invalidate();
+        timerStarted = false;
+    }
+    
+    //when timer expires, if convertRequired == true, call Editor::convert() and set convertRequired = false
+    @objc func fireTimer(timer: Timer) {
+        if (editorViewController.inputView.convertRequired && editorViewController.editor.idle)
+        {
+            NSLog("conversion started");
+            do {
+                //get all of the "blocks" written by the user
+                let supportedTargetStates = editorViewController.editor.getSupportedTargetConversionState(nil)
+                //convert the contents of the block to text?
+                try editorViewController.editor.convert(nil, targetState: supportedTargetStates[0].value)
+                //get all of the supported MIME Types that we can export the result as
+                let supportedMimeTypes = editorViewController.editor.getSupportedExportMimeTypes(nil);
+                
+                //get the result as string
+                result = try editorViewController.editor!.export_(nil, mimeType: supportedMimeTypes[0].value);
+                
+            } catch {
+                print("Error while converting : " + error.localizedDescription)
+            }
+            editorViewController.inputView.convertRequired = false;
+            endTimer();
+            NSLog("Result: " + result);
+        }
+    }
+    /***** END - for automatically changing user's writing into text and math symbols *****/
+    
     // loading the view
     override func viewDidLoad() {
         //Setup Writing Recognition
         super.viewDidLoad();
-        
-        
         
         /**********SET RIGHT OR LEFT HAND**********/
         //if the user has previously saved settings for left vs. right-hand mode, use their settings
@@ -126,13 +183,13 @@ class StudyMode : UIViewController{
                     if(savedSettings.value(forKey: "radians") as! Bool)
                     {
                         //load sine quadrantal problems in radians
-                        problemSource?.loadSineRadiansQuadrantalProblems();
+                        problemSource.loadSineRadiansQuadrantalProblems();
                     }
                     //check if the user wants degrees
                     if(savedSettings.value(forKey: "degrees") as! Bool)
                     {
                         //load sine quadrantal problems in degrees
-                        problemSource?.loadSineDegreeQuadrantalProblems();
+                        problemSource.loadSineDegreeQuadrantalProblems();
                     }
                 }
                 //check if the user wants quadrant I
@@ -142,13 +199,13 @@ class StudyMode : UIViewController{
                     if(savedSettings.value(forKey: "radians") as! Bool)
                     {
                         //load sine problems from Quadrant I in radians
-                        problemSource?.loadSineRadiansQuadIProblems();
+                        problemSource.loadSineRadiansQuadIProblems();
                     }
                     //check if the user wants degrees
                     if(savedSettings.value(forKey: "degrees") as! Bool)
                     {
                         //load sine problems from Quadrant I in degrees
-                        problemSource?.loadSineDegreeQuadIProblems();
+                        problemSource.loadSineDegreeQuadIProblems();
                     }
                 }
                 //check if the user wants quadrant II
@@ -158,13 +215,13 @@ class StudyMode : UIViewController{
                     if(savedSettings.value(forKey: "radians") as! Bool)
                     {
                         //load sine problems from Quadrant II in radians
-                        problemSource?.loadSineRadiansQuadIIProblems();
+                        problemSource.loadSineRadiansQuadIIProblems();
                     }
                     //check if the user wants degrees
                     if(savedSettings.value(forKey: "degrees") as! Bool)
                     {
                         //load sine problems from Quadrant II in degrees
-                        problemSource?.loadSineDegreeQuadIIProblems();
+                        problemSource.loadSineDegreeQuadIIProblems();
                     }
                 }
                 //check if the user wants quadrant III
@@ -174,13 +231,13 @@ class StudyMode : UIViewController{
                     if(savedSettings.value(forKey: "radians") as! Bool)
                     {
                         //load sine problems from Quadrant III in radians
-                        problemSource?.loadSineRadiansQuadIIIProblems();
+                        problemSource.loadSineRadiansQuadIIIProblems();
                     }
                     //check if the user wants degrees
                     if(savedSettings.value(forKey: "degrees") as! Bool)
                     {
                         //load sine problems from Quadrant III in degrees
-                        problemSource?.loadSineDegreeQuadIIIProblems();
+                        problemSource.loadSineDegreeQuadIIIProblems();
                     }
                 }
                 //check if the user wants quadrant IV
@@ -190,13 +247,13 @@ class StudyMode : UIViewController{
                     if(savedSettings.value(forKey: "radians") as! Bool)
                     {
                         //load sine problems from Quadrant IV in radians
-                        problemSource?.loadSineRadiansQuadIVProblems();
+                        problemSource.loadSineRadiansQuadIVProblems();
                     }
                     //check if the user wants degrees
                     if(savedSettings.value(forKey: "degrees") as! Bool)
                     {
                         //load sine problems from Quadrant IV in degrees
-                        problemSource?.loadSineDegreeQuadIVProblems();
+                        problemSource.loadSineDegreeQuadIVProblems();
                     }
                 }
             }
@@ -204,11 +261,11 @@ class StudyMode : UIViewController{
             // if there are no previously saved settings, by default include the sine problems in degrees from quadrantals and all quadrants
         else
         {
-            problemSource?.loadSineDegreeQuadrantalProblems();
-            problemSource?.loadSineDegreeQuadIProblems();
-            problemSource?.loadSineDegreeQuadIIProblems();
-            problemSource?.loadSineDegreeQuadIIIProblems();
-            problemSource?.loadSineDegreeQuadIVProblems();
+            problemSource.loadSineDegreeQuadrantalProblems();
+            problemSource.loadSineDegreeQuadIProblems();
+            problemSource.loadSineDegreeQuadIIProblems();
+            problemSource.loadSineDegreeQuadIIIProblems();
+            problemSource.loadSineDegreeQuadIVProblems();
         }
         
         /**********LOAD COSINE PROBLEMS**********/
@@ -224,12 +281,12 @@ class StudyMode : UIViewController{
                     //check if the user wants radians
                     if(savedSettings.value(forKey: "radians") as! Bool)
                     {
-                        problemSource?.loadCosineRadiansQuadrantalProblems();
+                        problemSource.loadCosineRadiansQuadrantalProblems();
                     }
                     //check if the user wants degrees
                     if(savedSettings.value(forKey: "degrees") as! Bool)
                     {
-                        problemSource?.loadCosineDegreeQuadrantalProblems();
+                        problemSource.loadCosineDegreeQuadrantalProblems();
                     }
                 }
                 //check if the user wants problems from Quadrant I
@@ -238,12 +295,12 @@ class StudyMode : UIViewController{
                     //check if the user wants radians
                     if(savedSettings.value(forKey: "radians") as! Bool)
                     {
-                        problemSource?.loadCosineRadiansQuadIProblems();
+                        problemSource.loadCosineRadiansQuadIProblems();
                     }
                     //check if the user wants degrees
                     if(savedSettings.value(forKey: "degrees") as! Bool)
                     {
-                        problemSource?.loadCosineDegreeQuadIProblems();
+                        problemSource.loadCosineDegreeQuadIProblems();
                     }
                 }
                 //check if the user wants problems from Quadrant II
@@ -252,12 +309,12 @@ class StudyMode : UIViewController{
                     //check if the user wants radians
                     if(savedSettings.value(forKey: "radians") as! Bool)
                     {
-                        problemSource?.loadCosineRadiansQuadIIProblems();
+                        problemSource.loadCosineRadiansQuadIIProblems();
                     }
                     //check if the user wants degrees
                     if(savedSettings.value(forKey: "degrees") as! Bool)
                     {
-                        problemSource?.loadCosineDegreeQuadIIProblems();
+                        problemSource.loadCosineDegreeQuadIIProblems();
                     }
                 }
                 //check if the user wants problems from Quadrant III
@@ -266,12 +323,12 @@ class StudyMode : UIViewController{
                     //check if the user wants radians
                     if(savedSettings.value(forKey: "radians") as! Bool)
                     {
-                        problemSource?.loadCosineRadiansQuadIIIProblems();
+                        problemSource.loadCosineRadiansQuadIIIProblems();
                     }
                     //check if the user wants degrees
                     if(savedSettings.value(forKey: "degrees") as! Bool)
                     {
-                        problemSource?.loadCosineDegreeQuadIIIProblems();
+                        problemSource.loadCosineDegreeQuadIIIProblems();
                     }
                 }
                 //check if the user wants problems from Quadrant IV
@@ -280,12 +337,12 @@ class StudyMode : UIViewController{
                     //check if the user wants radians
                     if(savedSettings.value(forKey: "radians") as! Bool)
                     {
-                        problemSource?.loadCosineRadiansQuadIVProblems();
+                        problemSource.loadCosineRadiansQuadIVProblems();
                     }
                     //check if the user wants degrees
                     if(savedSettings.value(forKey: "degrees") as! Bool)
                     {
-                        problemSource?.loadCosineDegreeQuadIVProblems();
+                        problemSource.loadCosineDegreeQuadIVProblems();
                     }
                 }
             }
@@ -293,11 +350,11 @@ class StudyMode : UIViewController{
             // if there are no previously saved settings, by default, include the cosine problems in degrees from quadrantals and all quadrants
         else
         {
-            problemSource?.loadCosineDegreeQuadrantalProblems();
-            problemSource?.loadCosineDegreeQuadIProblems();
-            problemSource?.loadCosineDegreeQuadIIProblems();
-            problemSource?.loadCosineDegreeQuadIIIProblems();
-            problemSource?.loadCosineDegreeQuadIVProblems();
+            problemSource.loadCosineDegreeQuadrantalProblems();
+            problemSource.loadCosineDegreeQuadIProblems();
+            problemSource.loadCosineDegreeQuadIIProblems();
+            problemSource.loadCosineDegreeQuadIIIProblems();
+            problemSource.loadCosineDegreeQuadIVProblems();
         }
         
         /**********LOAD TANGENT PROBLEMS**********/
@@ -313,12 +370,12 @@ class StudyMode : UIViewController{
                     // check if the user wants radians
                     if(savedSettings.value(forKey: "radians") as! Bool)
                     {
-                        problemSource?.loadTangentRadiansQuadrantalProblems();
+                        problemSource.loadTangentRadiansQuadrantalProblems();
                     }
                     // check if the user wants degrees
                     if(savedSettings.value(forKey: "degrees") as! Bool)
                     {
-                        problemSource?.loadTangentDegreeQuadrantalProblems();
+                        problemSource.loadTangentDegreeQuadrantalProblems();
                     }
                 }
                 // check if the user wants problems from Quadrant I
@@ -327,12 +384,12 @@ class StudyMode : UIViewController{
                     // check if the user wants radians
                     if(savedSettings.value(forKey: "radians") as! Bool)
                     {
-                        problemSource?.loadTangentRadiansQuadIProblems();
+                        problemSource.loadTangentRadiansQuadIProblems();
                     }
                     // check if the user wants degrees
                     if(savedSettings.value(forKey: "degrees") as! Bool)
                     {
-                        problemSource?.loadTangentDegreeQuadIProblems();
+                        problemSource.loadTangentDegreeQuadIProblems();
                     }
                 }
                 // check if the user wants problems from Quadrant II
@@ -341,12 +398,12 @@ class StudyMode : UIViewController{
                     // check if the user wants radians
                     if(savedSettings.value(forKey: "radians") as! Bool)
                     {
-                        problemSource?.loadTangentRadiansQuadIIProblems();
+                        problemSource.loadTangentRadiansQuadIIProblems();
                     }
                     // check if the user wants degrees
                     if(savedSettings.value(forKey: "degrees") as! Bool)
                     {
-                        problemSource?.loadTangentDegreeQuadIIProblems();
+                        problemSource.loadTangentDegreeQuadIIProblems();
                     }
                 }
                 // check if the user wants problems from Quadrant III
@@ -355,12 +412,12 @@ class StudyMode : UIViewController{
                     // check if the user wants radians
                     if(savedSettings.value(forKey: "radians") as! Bool)
                     {
-                        problemSource?.loadTangentRadiansQuadIIIProblems();
+                        problemSource.loadTangentRadiansQuadIIIProblems();
                     }
                     // check if the user wants degrees
                     if(savedSettings.value(forKey: "degrees") as! Bool)
                     {
-                        problemSource?.loadTangentDegreeQuadIIIProblems();
+                        problemSource.loadTangentDegreeQuadIIIProblems();
                     }
                 }
                 // check if the user wants problems from Quadrant IV
@@ -369,12 +426,12 @@ class StudyMode : UIViewController{
                     // check if the user wants radians
                     if(savedSettings.value(forKey: "radians") as! Bool)
                     {
-                        problemSource?.loadTangentRadiansQuadIVProblems();
+                        problemSource.loadTangentRadiansQuadIVProblems();
                     }
                     // check if the user wants degrees
                     if(savedSettings.value(forKey: "degrees") as! Bool)
                     {
-                        problemSource?.loadTangentDegreeQuadIVProblems();
+                        problemSource.loadTangentDegreeQuadIVProblems();
                     }
                 }
             }
@@ -382,11 +439,11 @@ class StudyMode : UIViewController{
             // if there are no previously saved settings, by default, include the tanget problems in degrees from quadrantals and all quadrants
         else
         {
-            problemSource?.loadTangentDegreeQuadrantalProblems();
-            problemSource?.loadTangentDegreeQuadIProblems();
-            problemSource?.loadTangentDegreeQuadIIProblems();
-            problemSource?.loadTangentDegreeQuadIIIProblems();
-            problemSource?.loadTangentDegreeQuadIVProblems();
+            problemSource.loadTangentDegreeQuadrantalProblems();
+            problemSource.loadTangentDegreeQuadIProblems();
+            problemSource.loadTangentDegreeQuadIIProblems();
+            problemSource.loadTangentDegreeQuadIIIProblems();
+            problemSource.loadTangentDegreeQuadIVProblems();
         }
         
         /**********LOAD COSECANT PROBLEMS**********/
@@ -402,12 +459,12 @@ class StudyMode : UIViewController{
                     // check if the user wants radians
                     if(savedSettings.value(forKey: "radians") as! Bool)
                     {
-                        problemSource?.loadCosecantRadiansQuadrantalProblems();
+                        problemSource.loadCosecantRadiansQuadrantalProblems();
                     }
                     // check if the user wants degrees
                     if(savedSettings.value(forKey: "degrees") as! Bool)
                     {
-                        problemSource?.loadCosecantDegreeQuadrantalProblems();
+                        problemSource.loadCosecantDegreeQuadrantalProblems();
                     }
                 }
                 // check if user wants problems from Quadrant I
@@ -416,12 +473,12 @@ class StudyMode : UIViewController{
                     // check if the user wants radians
                     if(savedSettings.value(forKey: "radians") as! Bool)
                     {
-                        problemSource?.loadCosecantRadiansQuadIProblems();
+                        problemSource.loadCosecantRadiansQuadIProblems();
                     }
                     // check if the user wants degrees
                     if(savedSettings.value(forKey: "degrees") as! Bool)
                     {
-                        problemSource?.loadCosecantDegreeQuadIProblems();
+                        problemSource.loadCosecantDegreeQuadIProblems();
                     }
                 }
                 // check if user wants problems from Quadrant II
@@ -430,12 +487,12 @@ class StudyMode : UIViewController{
                     // check if the user wants radians
                     if(savedSettings.value(forKey: "radians") as! Bool)
                     {
-                        problemSource?.loadCosecantRadiansQuadIIProblems();
+                        problemSource.loadCosecantRadiansQuadIIProblems();
                     }
                     // check if the user wants degrees
                     if(savedSettings.value(forKey: "degrees") as! Bool)
                     {
-                        problemSource?.loadCosecantDegreeQuadIIProblems();
+                        problemSource.loadCosecantDegreeQuadIIProblems();
                     }
                 }
                 // check if user wants problems from Quadrant III
@@ -444,12 +501,12 @@ class StudyMode : UIViewController{
                     // check if the user wants radians
                     if(savedSettings.value(forKey: "radians") as! Bool)
                     {
-                        problemSource?.loadCosecantRadiansQuadIIIProblems();
+                        problemSource.loadCosecantRadiansQuadIIIProblems();
                     }
                     // check if the user wants degrees
                     if(savedSettings.value(forKey: "degrees") as! Bool)
                     {
-                        problemSource?.loadCosecantDegreeQuadIIIProblems();
+                        problemSource.loadCosecantDegreeQuadIIIProblems();
                     }
                 }
                 // check if user wants problems from Quadrant IV
@@ -458,12 +515,12 @@ class StudyMode : UIViewController{
                     // check if the user wants radians
                     if(savedSettings.value(forKey: "radians") as! Bool)
                     {
-                        problemSource?.loadCosecantRadiansQuadIVProblems();
+                        problemSource.loadCosecantRadiansQuadIVProblems();
                     }
                     // check if the user wants degrees
                     if(savedSettings.value(forKey: "degrees") as! Bool)
                     {
-                        problemSource?.loadCosecantDegreeQuadIVProblems();
+                        problemSource.loadCosecantDegreeQuadIVProblems();
                     }
                 }
             }
@@ -483,12 +540,12 @@ class StudyMode : UIViewController{
                     // check if the user wants radians
                     if(savedSettings.value(forKey: "radians") as! Bool)
                     {
-                        problemSource?.loadSecantRadiansQuadrantalProblems();
+                        problemSource.loadSecantRadiansQuadrantalProblems();
                     }
                     // check if the user wants degrees
                     if(savedSettings.value(forKey: "degrees") as! Bool)
                     {
-                        problemSource?.loadSecantDegreeQuadrantalProblems();
+                        problemSource.loadSecantDegreeQuadrantalProblems();
                     }
                 }
                 // check if user wants problems from Quadrant I
@@ -497,12 +554,12 @@ class StudyMode : UIViewController{
                     // check if the user wants radians
                     if(savedSettings.value(forKey: "radians") as! Bool)
                     {
-                        problemSource?.loadSecantRadiansQuadIProblems();
+                        problemSource.loadSecantRadiansQuadIProblems();
                     }
                     // check if the user wants degrees
                     if(savedSettings.value(forKey: "degrees") as! Bool)
                     {
-                        problemSource?.loadSecantDegreeQuadIProblems();
+                        problemSource.loadSecantDegreeQuadIProblems();
                     }
                 }
                 // check if user wants problems from Quadrant II
@@ -511,12 +568,12 @@ class StudyMode : UIViewController{
                     // check if the user wants radians
                     if(savedSettings.value(forKey: "radians") as! Bool)
                     {
-                        problemSource?.loadSecantRadiansQuadIIProblems();
+                        problemSource.loadSecantRadiansQuadIIProblems();
                     }
                     // check if the user wants degrees
                     if(savedSettings.value(forKey: "degrees") as! Bool)
                     {
-                        problemSource?.loadSecantDegreeQuadIIProblems();
+                        problemSource.loadSecantDegreeQuadIIProblems();
                     }
                 }
                 // check if user wants problems from Quadrant III
@@ -525,12 +582,12 @@ class StudyMode : UIViewController{
                     // check if the user wants radians
                     if(savedSettings.value(forKey: "radians") as! Bool)
                     {
-                        problemSource?.loadSecantRadiansQuadIIIProblems();
+                        problemSource.loadSecantRadiansQuadIIIProblems();
                     }
                     // check if the user wants degrees
                     if(savedSettings.value(forKey: "degrees") as! Bool)
                     {
-                        problemSource?.loadSecantDegreeQuadIIIProblems();
+                        problemSource.loadSecantDegreeQuadIIIProblems();
                     }
                 }
                 // check if user wants problems from Quadrant IV
@@ -539,12 +596,12 @@ class StudyMode : UIViewController{
                     // check if the user wants radians
                     if(savedSettings.value(forKey: "radians") as! Bool)
                     {
-                        problemSource?.loadSecantRadiansQuadIVProblems();
+                        problemSource.loadSecantRadiansQuadIVProblems();
                     }
                     // check if the user wants degrees
                     if(savedSettings.value(forKey: "degrees") as! Bool)
                     {
-                        problemSource?.loadSecantDegreeQuadIVProblems();
+                        problemSource.loadSecantDegreeQuadIVProblems();
                     }
                 }
             }
@@ -564,12 +621,12 @@ class StudyMode : UIViewController{
                     // check if the user wants radians
                     if(savedSettings.value(forKey: "radians") as! Bool)
                     {
-                        problemSource?.loadCotangentRadiansQuadrantalProblems();
+                        problemSource.loadCotangentRadiansQuadrantalProblems();
                     }
                     // check if the user wants degrees
                     if(savedSettings.value(forKey: "degrees") as! Bool)
                     {
-                        problemSource?.loadCotangentDegreeQuadrantalProblems();
+                        problemSource.loadCotangentDegreeQuadrantalProblems();
                     }
                 }
                 // check if user wants problems from Quadrant I
@@ -578,12 +635,12 @@ class StudyMode : UIViewController{
                     // check if the user wants radians
                     if(savedSettings.value(forKey: "radians") as! Bool)
                     {
-                        problemSource?.loadCotangentRadiansQuadIProblems();
+                        problemSource.loadCotangentRadiansQuadIProblems();
                     }
                     // check if the user wants degrees
                     if(savedSettings.value(forKey: "degrees") as! Bool)
                     {
-                        problemSource?.loadCotangentDegreeQuadIProblems();
+                        problemSource.loadCotangentDegreeQuadIProblems();
                     }
                 }
                 // check if user wants problems from Quadrant II
@@ -592,12 +649,12 @@ class StudyMode : UIViewController{
                     // check if the user wants radians
                     if(savedSettings.value(forKey: "radians") as! Bool)
                     {
-                        problemSource?.loadCotangentRadiansQuadIIProblems();
+                        problemSource.loadCotangentRadiansQuadIIProblems();
                     }
                     // check if the user wants degrees
                     if(savedSettings.value(forKey: "degrees") as! Bool)
                     {
-                        problemSource?.loadCotangentDegreeQuadIIProblems();
+                        problemSource.loadCotangentDegreeQuadIIProblems();
                     }
                 }
                 // check if user wants problems from Quadrant III
@@ -606,12 +663,12 @@ class StudyMode : UIViewController{
                     // check if the user wants radians
                     if(savedSettings.value(forKey: "radians") as! Bool)
                     {
-                        problemSource?.loadCotangentRadiansQuadIIIProblems();
+                        problemSource.loadCotangentRadiansQuadIIIProblems();
                     }
                     // check if the user wants degrees
                     if(savedSettings.value(forKey: "degrees") as! Bool)
                     {
-                        problemSource?.loadCotangentDegreeQuadIIIProblems();
+                        problemSource.loadCotangentDegreeQuadIIIProblems();
                     }
                 }
                 // check if user wants problems from Quadrant IV
@@ -620,12 +677,12 @@ class StudyMode : UIViewController{
                     // check if the user wants radians
                     if(savedSettings.value(forKey: "radians") as! Bool)
                     {
-                        problemSource?.loadCotangentRadiansQuadIVProblems();
+                        problemSource.loadCotangentRadiansQuadIVProblems();
                     }
                     // check if the user wants degrees
                     if(savedSettings.value(forKey: "degrees") as! Bool)
                     {
-                        problemSource?.loadCotangentDegreeQuadIVProblems();
+                        problemSource.loadCotangentDegreeQuadIVProblems();
                     }
                 }
             }
@@ -642,17 +699,17 @@ class StudyMode : UIViewController{
                 // check if user wants quadrantal problems
                 if(savedSettings.value(forKey: "quadrantals") as! Bool)
                 {
-                    problemSource?.loadArcsineQuadrantalProblems();
+                    problemSource.loadArcsineQuadrantalProblems();
                 }
                 // check if user wants problems from Quadrant I
                 if(savedSettings.value(forKey: "quadI") as! Bool)
                 {
-                    problemSource?.loadArcsineQuadIProblems();
+                    problemSource.loadArcsineQuadIProblems();
                 }
                 // check if user wants problems from Quadrant IV
                 if(savedSettings.value(forKey: "quadIV") as! Bool)
                 {
-                    problemSource?.loadArcsineQuadIVProblems();
+                    problemSource.loadArcsineQuadIVProblems();
                 }
             }
         }
@@ -668,17 +725,17 @@ class StudyMode : UIViewController{
                 // check if user wants quadrantal problems
                 if(savedSettings.value(forKey: "quadrantals") as! Bool)
                 {
-                    problemSource?.loadArccosineQuadrantalProblems();
+                    problemSource.loadArccosineQuadrantalProblems();
                 }
                 // check if user wants problems from Quadrant I
                 if(savedSettings.value(forKey: "quadI") as! Bool)
                 {
-                    problemSource?.loadArccosineQuadIProblems();
+                    problemSource.loadArccosineQuadIProblems();
                 }
                 // check if user wants problems from Quadrant II
                 if(savedSettings.value(forKey: "quadII") as! Bool)
                 {
-                    problemSource?.loadArccosineQuadIIProblems();
+                    problemSource.loadArccosineQuadIIProblems();
                 }
             }
         }
@@ -694,17 +751,17 @@ class StudyMode : UIViewController{
                 // check if user wants quadrantal problems
                 if(savedSettings.value(forKey: "quadrantals") as! Bool)
                 {
-                    problemSource?.loadArctangentQuadrantalProblems();
+                    problemSource.loadArctangentQuadrantalProblems();
                 }
                 // check if user wants problems from Quadrant I
                 if(savedSettings.value(forKey: "quadI") as! Bool)
                 {
-                    problemSource?.loadArctangentQuadIProblems();
+                    problemSource.loadArctangentQuadIProblems();
                 }
                 // check if user wants problems from Quadrant IV
                 if(savedSettings.value(forKey: "quadIV") as! Bool)
                 {
-                    problemSource?.loadArctangentQuadIVProblems();
+                    problemSource.loadArctangentQuadIVProblems();
                 }
             }
         }
@@ -720,17 +777,17 @@ class StudyMode : UIViewController{
                 // check if user wants quadrantal problems
                 if(savedSettings.value(forKey: "quadrantals") as! Bool)
                 {
-                    problemSource?.loadArccosecantQuadrantalProblems();
+                    problemSource.loadArccosecantQuadrantalProblems();
                 }
                 // check if user wants problems from Quadrant I
                 if(savedSettings.value(forKey: "quadI") as! Bool)
                 {
-                    problemSource?.loadArccosecantQuadIProblems();
+                    problemSource.loadArccosecantQuadIProblems();
                 }
                 // check if user wants problems from Quadrant IV
                 if(savedSettings.value(forKey: "quadIV") as! Bool)
                 {
-                    problemSource?.loadArccosecantQuadIVProblems();
+                    problemSource.loadArccosecantQuadIVProblems();
                 }
             }
         }
@@ -746,17 +803,17 @@ class StudyMode : UIViewController{
                 // check if user wants quadrantal problems
                 if(savedSettings.value(forKey: "quadrantals") as! Bool)
                 {
-                    problemSource?.loadArcsecantQuadrantalProblems();
+                    problemSource.loadArcsecantQuadrantalProblems();
                 }
                 // check if user wants problems from Quadrant I
                 if(savedSettings.value(forKey: "quadI") as! Bool)
                 {
-                    problemSource?.loadArcsecantQuadIProblems();
+                    problemSource.loadArcsecantQuadIProblems();
                 }
                 // check if user wants problems from Quadrant II
                 if(savedSettings.value(forKey: "quadII") as! Bool)
                 {
-                    problemSource?.loadArcsecantQuadIIProblems();
+                    problemSource.loadArcsecantQuadIIProblems();
                 }
             }
         }
@@ -772,98 +829,157 @@ class StudyMode : UIViewController{
                 // check if user wants quadrantal problems
                 if(savedSettings.value(forKey: "quadrantals") as! Bool)
                 {
-                    problemSource?.loadArccotangentQuadrantalProblems();
+                    problemSource.loadArccotangentQuadrantalProblems();
                 }
                 // check if user wants problems from Quadrant I
                 if(savedSettings.value(forKey: "quadI") as! Bool)
                 {
-                    problemSource?.loadArccotangentQuadIProblems();
+                    problemSource.loadArccotangentQuadIProblems();
                 }
                 // check if user wants problems from Quadrant II
                 if(savedSettings.value(forKey: "quadII") as! Bool)
                 {
-                    problemSource?.loadArccotangentQuadIIProblems();
+                    problemSource.loadArccotangentQuadIIProblems();
                 }
             }
-            
-            // if there are no previously saved settings then, by default, do not load arccotangent problems
-            
-            // setup image of first problem
-            studyView.problemImage.image = UIImage(named: (problemSource?.pickRandomProblem().problemImageName)!);
-            
-            //setup the immediate feedback
-            mainController = SummaryCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
-            self.addChild(mainController!);
-            
-            mainController?.summaryData = self.summaryData;
-            
-            immediateFeedback.dataSource = mainController;
-            immediateFeedback.delegate = mainController;
         }
+        // if there are no previously saved settings then, by default, do not load arccotangent problems
         
-        func viewDidAppear(_ animated: Bool) {
-            super.viewDidAppear(animated);
-            if(!(certificateRegistered))
+        // setup image of first problem
+        studyView.problemImage.image = UIImage(named: (problemSource.pickRandomProblem().problemImageName));
+        
+        //setup the immediate feedback
+        mainController = SummaryCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        self.addChild(mainController!);
+        
+        mainController?.summaryData = self.summaryData;
+        
+        immediateFeedback.dataSource = mainController;
+        immediateFeedback.delegate = mainController;
+        
+        /***** New Stuff 8-8-19*****/
+        editorViewController = (children.first as! EditorViewController)
+        
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            if (appDelegate.engine == nil)
             {
-                let alertController = UIAlertController(title: "Invalid certificate", message: "Please use a valid certificate", preferredStyle: UIAlertController.Style.alert)
-                
-                let okAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil);
-                
-                alertController.addAction(okAction)
-                present(alertController, animated: true, completion: nil)
+                let alert = UIAlertController(title: "Certificate error",
+                                              message: appDelegate.engineErrorMessage,
+                                              preferredStyle: UIAlertController.Style.alert)
+                alert.addAction(UIAlertAction(title: "OK",
+                                              style: UIAlertAction.Style.default,
+                                              handler: {(action: UIAlertAction) -> Void in
+                                                exit(1)
+                }))
+                self.present(alert, animated: true, completion: nil)
+                return
             }
+            editorViewController.engine = appDelegate.engine
         }
         
-        func didReceiveMemoryWarning() {
-            super.didReceiveMemoryWarning()
-            // Dispose of any resources that can be recreated.
+        editorViewController.inputMode = .forcePen  // We want the Pen mode for this GetStarted sample code. It lets the user use either its mouse or fingers to draw.
+        // If you have got an iPad Pro with an Apple Pencil, please set this value to InputModeAuto for a better experience.
+        
+        do {
+            if let package = try createPackage(packageName: "New") {
+                try editorViewController.editor.part = package.getPartAt(0)
+            }
+        } catch {
+            print("Error while creating package : " + error.localizedDescription)
         }
         
-        func nextButtonPressed(_ sender: UIButton) {
-            // check if answer written is correct
-            //mathView.solve();
-            /*var result = mathView.resultAsText();
+        timerStarted = false;
+        //check once per second to see if
+        statusCheckTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(checkStatus(timer:)), userInfo: nil, repeats: true);
+        beautifyTimer = Timer();
+    }
+    
+    /*func viewDidAppear(_ animated: Bool) {
+     super.viewDidAppear(animated);
+     if(!(certificateRegistered))
+     {
+     let alertController = UIAlertController(title: "Invalid certificate", message: "Please use a valid certificate", preferredStyle: UIAlertController.Style.alert)
+     
+     let okAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil);
+     
+     alertController.addAction(okAction)
+     present(alertController, animated: true, completion: nil)
+     }
+     }*/
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    //When the user hits "Submit"
+    @IBAction func nextButtonPressed(_ sender: UIButton) {
+        //get the result
+        NSLog("Result: " + result);
+        
+        if(!result.isEmpty)
+        {
+            //Get the transform to change from MyScript's mm to pixels
+            let transform = editorViewController.editor.renderer.viewTransform;
             
-            //If the user wrote an answer...
-            if(!(result?.isEmpty)!)
+            //get the size of the screenshot we wantto take
+            let picWidthMm = editorViewController.editor.rootBlock!.box.width;
+            NSLog("picWidthMm: \(picWidthMm)");
+            let picHeightMm = editorViewController.editor.rootBlock!.box.height;
+            NSLog("picHeightMm: \(picHeightMm)");
+            
+            //apply the transform to the dimensions of the screenshot in mm to get pixels
+            let picDimensionsMm = CGPoint(x: picWidthMm,y: picHeightMm);
+            let picDimensions = picDimensionsMm.applying(transform);
+            
+            //set the screenshot size as the context
+            UIGraphicsBeginImageContext(CGSize(width: picDimensions.x, height: picDimensions.y));
+            
+            //Get the position of the converted writing
+            let picPositionMm = CGPoint(x: editorViewController.editor.rootBlock!.box.minX,y: editorViewController.editor.rootBlock!.box.minY);
+            //apply the transform to the position in mm to get pixels
+            let picPosition = picPositionMm.applying(transform);
+            NSLog("x: \(picPosition.x)");
+            NSLog("y: \(picPosition.y)");
+            
+            //use the contents of the mathView to draw in the context
+            mathView.drawHierarchy(in: CGRect(x: -picPosition.x, y: -picPosition.y, width: mathView.bounds.size.width, height: mathView.bounds.size.height), afterScreenUpdates: true);
+            
+            //get the result as an image
+            answerImg = UIGraphicsGetImageFromCurrentImageContext() ?? UIImage();
+            UIGraphicsEndImageContext();
+            
+            //the result string will either have an equals symbol, a simeq (or approx symbol), or will just have a value
+            //we'll need to strip away everything but the value
+            if(result.contains("="))
             {
-                // get the image of the answer the user wrote
-                answerImg = mathView.resultAsImage();
-                
-                //if the user's answer has an equals symbol in it ...
-                if(result?.contains("="))!
-                {
-                    // then remove the part of the answer before and including the equals symbol
-                    result = String((result?[result!.index(after: (result?.firstIndex(of: "=")!)!)...])!)
-                }
-                
-                // if the user got the problem correct ...
-                if(problemSource?.isCorrect(result!))!
-                {
-                    //add 1 to the number of correctly answered problems
-                    studyView.numCorrect.text = "\(Int(studyView.numCorrect.text!)!+1)";
-                    //draw the green check mark for the user so they know they got the problem correct
-                    studyView.drawRight();
-                    
-                    markImg = UIImage(named: "Correct")!;
-                    updateStatistics(isCorrect: true);
-                }
-                    // if the user got the problem incorrect
-                else
-                {
-                    //add 1 to the number of incorrectly answered problems
-                    studyView.numIncorrect.text = "\(Int(studyView.numIncorrect.text!)!+1)";
-                    //draw the red x for the user so they know they got the problem incorrect
-                    studyView.drawWrong();
-                    
-                    markImg = UIImage(named: "Wrong")!;
-                    updateStatistics(isCorrect: false);
-                }
-            }*/
+                result = String(result[result.index(after: result.firstIndex(of: "=")!)...]);
+            }
+            else if(result.contains("simeq"))
+            {
+                result = String(result[result.index(after: result.lastIndex(of: " ")!)...]);
+            }
+            NSLog("Parsed Answer: %@", result);
+            
+            //check if the user's answer is correct
+            if(problemSource.isCorrect(result))
+            {
+                studyView.numCorrect.text = "\(Int(studyView.numCorrect.text!)!+1)";
+                studyView.drawRight();
+                markImg = UIImage(named: "Correct")!;
+                updateStatistics(isCorrect: true);
+            }
+            else
+            {
+                studyView.numIncorrect.text = "\(Int(studyView.numIncorrect.text!)!+1)";
+                studyView.drawWrong();
+                markImg = UIImage(named: "Wrong")!;
+                updateStatistics(isCorrect: false);
+            }
             
             //add images to the summary view on the finish screen
-            summaryData.append(UIImage(named: (problemSource?.getCurrProblem().problemImageName)!)!);
-            summaryData.append(UIImage(named: (problemSource?.getCurrProblem().answerImageName)!)!);
+            summaryData.append(UIImage(named: (problemSource.getCurrProblem().problemImageName))!);
+            summaryData.append(UIImage(named: (problemSource.getCurrProblem().answerImageName))!);
             summaryData.append(answerImg);
             summaryData.append(markImg);
             
@@ -873,95 +989,119 @@ class StudyMode : UIViewController{
             immediateFeedback.scrollToItem(at: IndexPath.init(item: immediateFeedback.numberOfItems(inSection: 0)-1, section: 0), at: UICollectionView.ScrollPosition.bottom, animated: true);
             
             // set up a new problem
-            studyView.problemImage.image = UIImage(named: (problemSource?.pickRandomProblem().problemImageName)!);
+            studyView.problemImage.image = UIImage(named: (problemSource.pickRandomProblem().problemImageName));
             
             // clear the field to write your answer
             //mathView.clear(false);
+            editorViewController.editor.clear();
             scratchPaperImageView.image = nil;
-        }
-        
-        func clearMathView(_ sender: UIButton) {
-            //mathView.clear(false);
-        }
-        
-        func updateStatistics(isCorrect : Bool)
-        {
-            if(isCorrect)
-            {
-                let newValue:Int = savedSettings.value(forKey: (problemSource?.getCurrProblem().typeOfProblem)! + "StatsNumCorrect") as! Int + 1;
-                savedSettings.setValue(newValue, forKey: (problemSource?.getCurrProblem().typeOfProblem)! + "StatsNumCorrect");
-            }
-            savedSettings.setValue(savedSettings.value(forKey: (problemSource?.getCurrProblem().typeOfProblem)! + "StatsNumTotal") as! Int + 1, forKey: (problemSource?.getCurrProblem().typeOfProblem)! + "StatsNumTotal");
-            if(problemSource?.getCurrProblem().unitsOfAngle == Problem.angleUnits.radians)
-            {
-                savedSettings.setValue(savedSettings.value(forKey: "radianStatsNumCorrect") as! Int + 1, forKey: "radianStatsNumCorrect");
-                savedSettings.setValue(savedSettings.value(forKey: "radianStatsNumTotal") as! Int + 1, forKey: "radianStatsNumTotal");
-            }
-            if(problemSource?.getCurrProblem().unitsOfAngle == Problem.angleUnits.degrees)
-            {
-                savedSettings.setValue(savedSettings.value(forKey: "degreeStatsNumCorrect") as! Int + 1, forKey: "degreeStatsNumCorrect");
-                savedSettings.setValue(savedSettings.value(forKey: "degreeStatsNumTotal") as! Int + 1, forKey: "degreeStatsNumTotal");
-            }
-            savedSettings.setValue(savedSettings.value(forKey: "radianAndDegreeStatsNumCorrect") as! Int + 1, forKey: "radianAndDegreeStatsNumCorrect");
-            savedSettings.setValue(savedSettings.value(forKey: "radianAndDegreeStatsNumTotal") as! Int + 1, forKey: "radianAndDegreeStatsNumTotal");
-        }
-        
-        /**********FUNCTIONS FOR SCRATCH PAPER**********/
-        func clearScratchPaper(_ sender: UIButton) {
-            scratchPaperImageView.image = nil;
-        }
-        
-        func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-            swiped = false
-            if let touch = touches.first {
-                lastPoint = touch.location(in: self.view)
-            }
-        }
-        
-        func drawLineFrom(_ fromPoint: CGPoint, toPoint: CGPoint) {
-            
-            // 1
-            UIGraphicsBeginImageContext(view.frame.size)
-            let context = UIGraphicsGetCurrentContext()
-            scratchPaperImageView.image?.draw(in: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
-            
-            // 2
-            context?.move(to: CGPoint(x: fromPoint.x, y: fromPoint.y))
-            context?.addLine(to: CGPoint(x: toPoint.x, y: toPoint.y))
-            
-            // 3
-            context?.setLineCap(CGLineCap.round);
-            context?.setLineWidth(brushWidth);
-            context?.setStrokeColor(red: 0, green: 0, blue: 0, alpha: 1.0);
-            context?.setBlendMode(CGBlendMode.normal);
-            
-            // 4
-            context?.strokePath()
-            
-            // 5
-            scratchPaperImageView.image = UIGraphicsGetImageFromCurrentImageContext()
-            scratchPaperImageView.alpha = opacity
-            UIGraphicsEndImageContext()
-            
-        }
-        
-        func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-            // 6
-            swiped = true
-            if let touch = touches.first {
-                let currentPoint = touch.location(in: view)
-                drawLineFrom(lastPoint, toPoint: currentPoint)
-                
-                // 7
-                lastPoint = currentPoint
-            }
-        }
-        
-        func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-            if !swiped {
-                // draw a single point
-                drawLineFrom(lastPoint, toPoint: lastPoint)
-            }
         }
     }
+    
+    
+    @IBAction func clearMathView(_ sender: UIButton) {
+        editorViewController.editor.clear();
+    }
+    
+    func updateStatistics(isCorrect : Bool)
+    {
+        if(isCorrect)
+        {
+            let newValue:Int = savedSettings.value(forKey: (problemSource.getCurrProblem().typeOfProblem) + "StatsNumCorrect") as! Int + 1;
+            savedSettings.setValue(newValue, forKey: (problemSource.getCurrProblem().typeOfProblem) + "StatsNumCorrect");
+        }
+        savedSettings.setValue(savedSettings.value(forKey: (problemSource.getCurrProblem().typeOfProblem) + "StatsNumTotal") as! Int + 1, forKey: (problemSource.getCurrProblem().typeOfProblem) + "StatsNumTotal");
+        if(problemSource.getCurrProblem().unitsOfAngle == Problem.angleUnits.radians)
+        {
+            savedSettings.setValue(savedSettings.value(forKey: "radianStatsNumCorrect") as! Int + 1, forKey: "radianStatsNumCorrect");
+            savedSettings.setValue(savedSettings.value(forKey: "radianStatsNumTotal") as! Int + 1, forKey: "radianStatsNumTotal");
+        }
+        if(problemSource.getCurrProblem().unitsOfAngle == Problem.angleUnits.degrees)
+        {
+            savedSettings.setValue(savedSettings.value(forKey: "degreeStatsNumCorrect") as! Int + 1, forKey: "degreeStatsNumCorrect");
+            savedSettings.setValue(savedSettings.value(forKey: "degreeStatsNumTotal") as! Int + 1, forKey: "degreeStatsNumTotal");
+        }
+        savedSettings.setValue(savedSettings.value(forKey: "radianAndDegreeStatsNumCorrect") as! Int + 1, forKey: "radianAndDegreeStatsNumCorrect");
+        savedSettings.setValue(savedSettings.value(forKey: "radianAndDegreeStatsNumTotal") as! Int + 1, forKey: "radianAndDegreeStatsNumTotal");
+    }
+    
+    /**********FUNCTIONS FOR SCRATCH PAPER**********/
+    @IBAction func clearScratchPaper(_ sender: UIButton) {
+        scratchPaperImageView.image = nil;
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        swiped = false
+        if let touch = touches.first {
+            lastPoint = touch.location(in: self.view)
+        }
+    }
+    
+    func drawLineFrom(_ fromPoint: CGPoint, toPoint: CGPoint) {
+        
+        // 1
+        UIGraphicsBeginImageContext(view.frame.size)
+        let context = UIGraphicsGetCurrentContext()
+        scratchPaperImageView.image?.draw(in: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
+        
+        // 2
+        context?.move(to: CGPoint(x: fromPoint.x, y: fromPoint.y))
+        context?.addLine(to: CGPoint(x: toPoint.x, y: toPoint.y))
+        
+        // 3
+        context?.setLineCap(CGLineCap.round);
+        context?.setLineWidth(brushWidth);
+        context?.setStrokeColor(red: 0, green: 0, blue: 0, alpha: 1.0);
+        context?.setBlendMode(CGBlendMode.normal);
+        
+        // 4
+        context?.strokePath()
+        
+        // 5
+        scratchPaperImageView.image = UIGraphicsGetImageFromCurrentImageContext()
+        scratchPaperImageView.alpha = opacity
+        UIGraphicsEndImageContext()
+        
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // 6
+        swiped = true
+        if let touch = touches.first {
+            let currentPoint = touch.location(in: view)
+            drawLineFrom(lastPoint, toPoint: currentPoint)
+            
+            // 7
+            lastPoint = currentPoint
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if !swiped {
+            // draw a single point
+            drawLineFrom(lastPoint, toPoint: lastPoint)
+        }
+    }
+    /**********END FUNCTIONS FOR SCRATCH PAPER**********/
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated);
+        editorViewController.editor.part = nil;
+    }
+    
+    func createPackage(packageName: String) throws -> IINKContentPackage? {
+        // Create a new content package with name
+        var resultPackage: IINKContentPackage?
+        let fullPath = FileManager.default.pathForFile(inDocumentDirectory: packageName) + ".iink"
+        if let engine = (UIApplication.shared.delegate as? AppDelegate)?.engine {
+            resultPackage = try engine.createPackage(fullPath.decomposedStringWithCanonicalMapping)
+            
+            // Add a blank page type Text Document
+            if let part = try resultPackage?.createPart("Math") /* Options are : "Diagram", "Drawing", "Math", "Text Document", "Text" */ {
+                self.title = "Type: " + part.type
+            }
+        }
+        return resultPackage
+    }
+    
 }
