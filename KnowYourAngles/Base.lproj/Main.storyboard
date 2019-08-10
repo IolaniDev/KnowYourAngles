@@ -456,7 +456,7 @@
                                 <color key="textColor" red="0.49803921569999998" green="1" blue="0.98039215690000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="center" axis="vertical" distribution="fillProportionally" alignment="center" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="Sz2-PR-8qw">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="Sz2-PR-8qw">
                                 <rect key="frame" x="0.0" y="297.5" width="1024" height="771"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="IN2-80-F7b" userLabel="Left Hand Mode and Angle Options">
@@ -482,7 +482,7 @@
                                                     <constraint firstAttribute="height" constant="43" id="QKZ-bH-JIP"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="center" distribution="fillProportionally" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Dm3-vx-kiq" userLabel="Angle Options">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Dm3-vx-kiq" userLabel="Angle Options">
                                                 <rect key="frame" x="0.0" y="68" width="440" height="43"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="k3g-rv-6dE" userLabel="Radians">
@@ -535,7 +535,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="2XO-T5-jDk" userLabel="Quadrant Options">
                                         <rect key="frame" x="153" y="220" width="718" height="111"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="center" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ynY-Kh-hG8" userLabel="Quadrantal">
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ynY-Kh-hG8" userLabel="Quadrantal">
                                                 <rect key="frame" x="235.5" y="0.0" width="247" height="43"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quadrantals" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NhO-se-UuE" userLabel="Quadrantals">
