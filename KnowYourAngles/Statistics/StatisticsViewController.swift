@@ -231,9 +231,9 @@ class StatisticsViewController : UIViewController {
         defaultSettings.setValue(0, forKey: "secantStatsNumTotal");
         secantPercentage.text = "0%";
         
-        defaultSettings.setValue(0, forKey: "tangentStatsNumCorrect");
-        defaultSettings.setValue(0, forKey: "tangentStatsNumTotal");
-        tangentPercentage.text = "0%";
+        defaultSettings.setValue(0, forKey: "cotangentStatsNumCorrect");
+        defaultSettings.setValue(0, forKey: "cotangentStatsNumTotal");
+        cotangentPercentage.text = "0%";
         
         defaultSettings.setValue(0, forKey: "arcsineStatsNumCorrect");
         defaultSettings.setValue(0, forKey: "arcsineStatsNumTotal");
