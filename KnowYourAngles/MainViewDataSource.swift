@@ -634,7 +634,7 @@ class MainViewDataSource : NSObject{
     
     func loadArccosineQuadIIProblems (){
         let arccosineQII : [InverseProblem] = [
-            InverseProblem.init(problemImageName: "ArccosNegativeRoot3Over2", correctAnswer: "2.61800", answerImageName: "FivePiOver6", otherCorrectAnswer: "150", otherAnswerImageName: "150deg", typeOfProblem: "arccosine", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.II),
+            InverseProblem.init(problemImageName: "ArccosNegativeRoot3Over2", correctAnswer: "2.61799", answerImageName: "FivePiOver6", otherCorrectAnswer: "150", otherAnswerImageName: "150deg", typeOfProblem: "arccosine", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.II),
             InverseProblem.init(problemImageName: "ArccosNegativeRoot2Over2", correctAnswer: "2.35619", answerImageName: "ThreePiOver4", otherCorrectAnswer: "135", otherAnswerImageName: "135deg", typeOfProblem: "arccosine", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.II),
             InverseProblem.init(problemImageName: "ArccosNegative1Over2", correctAnswer: "2.09440", answerImageName: "TwoPiOver3", otherCorrectAnswer: "120", otherAnswerImageName: "120deg", typeOfProblem: "arccosine", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.II)
         ]
@@ -717,7 +717,7 @@ class MainViewDataSource : NSObject{
             InverseProblem.init(problemImageName: "ArcsecNegative2", correctAnswer: "2.09440", answerImageName: "TwoPiOver3", otherCorrectAnswer: "120", otherAnswerImageName: "120deg", typeOfProblem: "Arcsecant", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.II),
             InverseProblem.init(problemImageName: "ArcsecNegativeRoot2", correctAnswer: "2.35619", answerImageName: "ThreePiOver4", otherCorrectAnswer: "135", otherAnswerImageName: "135deg", typeOfProblem: "arcsecant", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.II),
             //5 pi over 6
-            InverseProblem.init(problemImageName: "ArcsecNegative2Root3Over3", correctAnswer: "2.61800", answerImageName: "FivePiOver6", otherCorrectAnswer: "150", otherAnswerImageName: "150deg", typeOfProblem: "arcsecant", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.II)
+            InverseProblem.init(problemImageName: "ArcsecNegative2Root3Over3", correctAnswer: "2.61799", answerImageName: "FivePiOver6", otherCorrectAnswer: "150", otherAnswerImageName: "150deg", typeOfProblem: "arcsecant", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.II)
         ]
         libraryOfProblems.append(contentsOf: arcsecQuadII);
     }
@@ -743,7 +743,7 @@ class MainViewDataSource : NSObject{
         let arccotQuadII : [InverseProblem] = [
             InverseProblem.init(problemImageName: "ArccotNegativeRoot3Over3", correctAnswer: "2.09440", answerImageName: "TwoPiOver3", otherCorrectAnswer: "120", otherAnswerImageName: "120deg", typeOfProblem: "arccotangent", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.II),
             InverseProblem.init(problemImageName: "ArccotNegative1", correctAnswer: "2.35619", answerImageName: "ThreePiOver4", otherCorrectAnswer: "135", otherAnswerImageName: "135deg", typeOfProblem: "arccotangent", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.II),
-            InverseProblem.init(problemImageName: "ArccotNegativeRoot3", correctAnswer: "2.61800", answerImageName: "FivePiOver6", otherCorrectAnswer: "150", otherAnswerImageName: "150deg", typeOfProblem: "arccotangent", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.II)
+            InverseProblem.init(problemImageName: "ArccotNegativeRoot3", correctAnswer: "2.61799", answerImageName: "FivePiOver6", otherCorrectAnswer: "150", otherAnswerImageName: "150deg", typeOfProblem: "arccotangent", unitsOfAngle: Problem.angleUnits.radiansAndDegrees, problemQuadrant: Problem.quadrant.II)
         ]
         libraryOfProblems.append(contentsOf: arccotQuadII);
     }
