@@ -53,7 +53,7 @@
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <string key="content">Created by Ms. Nagoshi (enagoshi@iolani.org)  Handwriting Recognition implemented using MyScript's ATK 2.2  Navigation icons from icons8.com</string>
+                                        <string key="content">Created by Ms. Nagoshi (enagoshi@iolani.org)  Handwriting Recognition implemented using MyScript's Interactive Ink SDK 1.3  Navigation icons from icons8.com</string>
                                         <attributes>
                                             <color key="NSColor" red="0.15686274510000001" green="0.80000000000000004" blue="0.77647058820000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <font key="NSFont" size="48" name=".SFNSText"/>
@@ -1063,7 +1063,7 @@
                                 <rect key="frame" x="35" y="206.5" width="954" height="533.5"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="128" image="Cos0" translatesAutoresizingMaskIntoConstraints="NO" id="s1d-2T-1hx">
-                                        <rect key="frame" x="227" y="0.0" width="500" height="266.5"/>
+                                        <rect key="frame" x="227" y="0.0" width="500.00000000000011" height="266.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="s1d-2T-1hx" secondAttribute="height" multiplier="15:8" id="n9f-xO-8u7"/>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="500" id="pwd-So-OEY"/>
@@ -1311,7 +1311,7 @@
                                             <constraint firstItem="Uxi-AD-B3b" firstAttribute="top" secondItem="4vk-KG-IVH" secondAttribute="top" id="Fox-7n-pN2"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="center" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="QZ8-46-3Pq" userLabel="Timer On or Off">
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="QZ8-46-3Pq" userLabel="Timer On or Off">
                                         <rect key="frame" x="233.5" y="194" width="244.5" height="84"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMl-y6-VsV">
@@ -1649,7 +1649,7 @@
                                 <rect key="frame" x="35" y="325.5" width="954" height="533"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="240" placeholderIntrinsicHeight="128" image="Cos0" translatesAutoresizingMaskIntoConstraints="NO" id="cq9-Np-18c">
-                                        <rect key="frame" x="227" y="0.0" width="500" height="266.5"/>
+                                        <rect key="frame" x="227" y="0.0" width="500.00000000000011" height="266.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="500" id="SmK-jd-HJL"/>
                                             <constraint firstAttribute="width" secondItem="cq9-Np-18c" secondAttribute="height" multiplier="15:8" id="oZ9-4a-bzr"/>
