@@ -7,7 +7,6 @@
 //
 
 import UIKit
-//import Fabric
 import CoreData
 
 @UIApplicationMain
@@ -55,7 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return nil
         }
         
-        //turn solver on?
+        //turn solver on
         do {
             try engine.configuration.setBoolean(true, forKey: "math.solver.enable");
         } catch {
@@ -63,6 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return nil;
         }
         
+        //let the solver modify the structure of the expression to obtain something computable
         do {
             try engine.configuration.setString("numeric", forKey:"math.solver.options");
         } catch {
@@ -70,6 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return nil;
         }
         
+        //set result of solver to round to 5 decimal places if needed
         do {
             try engine.configuration.setNumber(5, forKey:"math.solver.fractional-part-digits");
         } catch {

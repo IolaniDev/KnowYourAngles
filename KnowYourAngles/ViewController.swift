@@ -13,6 +13,19 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    /*** START - Variables for overall setup ***/
+    // load previously saved settings (if there are any)
+    let savedSettings = UserDefaults.standard
+    
+    //reference to the View that controls displaying the problems, number correct, number remaining, etc.
+    @IBOutlet var correctingMarksView: MainView!
+    
+    // mathView holds the container view where the EditorViewController is embedded
+    @IBOutlet var mathView: UIView!
+    
+    //the EditorViewController manages ink input
+    weak var editorViewController: EditorViewController!
+    
     //reference to data related to the problems displayed
     var problemSource = MainViewDataSource.init();
     
@@ -20,17 +33,14 @@ class ViewController: UIViewController {
     var summariesToSend : [UIImage] = [];
     //image representing the user's answer
     var answerImg : UIImage = UIImage();
+    //image representing either a green checkmark or red x
     var markImg : UIImage = UIImage();
     
-    // mathView holds the view where you can write answers
-    @IBOutlet var mathView: UIView!
-    //var certificateRegistered : Bool!;
-
-    weak var editorViewController: EditorViewController!
+    //result is used to store the text version of the user's converted answer
     var result = "";
-    //reference to the View that controls displaying the problems, number correct, number remaining, etc.
-    @IBOutlet var correctingMarksView: MainView!
+    /*** END - Variables for overall setup ***/
     
+    /*** START - Variables for constraints on the clear answer, submit, and clear work buttons for shifting between right-hand and left-hand modes ***/
     //reference to the constraints on the clear answer button
     @IBOutlet weak var clearAnswerButtonLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var clearAnswerButtonTrailingConstraint: NSLayoutConstraint!
@@ -42,11 +52,9 @@ class ViewController: UIViewController {
     //reference to constraints on the Clear Work button
     @IBOutlet weak var clearWorkButtonLeadingConstraint: NSLayoutConstraint!
     @IBOutlet weak var clearWorkButtonTrailingConstraint: NSLayoutConstraint!
+    /*** End - Variables for constraints on the clear answer, submit, and clear work buttons for shifting between right-hand and left-hand modes ***/
     
-    // load previously saved settings (if there are any)
-    let savedSettings = UserDefaults.standard
-    
-    /***** START - for automatically changing user's writing into text and math symbols *****/
+    /***** START - variables and functions for automatically changing user's writing into text and math symbols *****/
     //create a timer
     var beautifyTimer = Timer();
     var statusCheckTimer = Timer();
@@ -54,16 +62,12 @@ class ViewController: UIViewController {
     
     @objc func checkStatus(timer: Timer)
     {
-        //var temp = editorViewController.inputView;
-        //NSLog("checking status");
         if editorViewController.inputView.timerOn && !timerStarted
         {
-            //NSLog("Turning on timer");
             startTimer();
         }
         else if !editorViewController.inputView.timerOn && timerStarted
         {
-            //NSLog("Turning off timer");
             endTimer();
         }
     }
@@ -90,10 +94,8 @@ class ViewController: UIViewController {
                 try editorViewController.editor.convert(nil, targetState: supportedTargetStates[0].value)
                 //get all of the supported MIME Types that we can export the result as
                 let supportedMimeTypes = editorViewController.editor.getSupportedExportMimeTypes(nil);
-                
                 //get the result as string
                 result = try editorViewController.editor!.export_(nil, mimeType: supportedMimeTypes[0].value);
-
             } catch {
                 print("Error while converting : " + error.localizedDescription)
             }
@@ -102,7 +104,7 @@ class ViewController: UIViewController {
             NSLog("Result: " + result);
         }
     }
-    /***** END - for automatically changing user's writing into text and math symbols *****/
+    /***** END - variables and functions for automatically changing user's writing into text and math symbols *****/
     
     // for scratch paper component
     @IBOutlet weak var scratchPaperImageView: UIImageView!

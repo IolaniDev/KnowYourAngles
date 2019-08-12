@@ -1789,10 +1789,10 @@
         <image name="icons8-settings-filled-50" width="50" height="50"/>
         <image name="problem" width="122" height="122"/>
         <image name="rightOrWrong" width="122" height="122"/>
-        <image name="tutorial" width="601" height="832"/>
+        <image name="tutorial" width="602" height="886"/>
         <image name="yourAnswer" width="122" height="122"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pfy-VR-Ja2"/>
+        <segue reference="vzy-ys-Z4H"/>
     </inferredMetricsTieBreakers>
 </document>
