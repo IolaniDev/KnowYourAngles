@@ -137,6 +137,16 @@
 			path = StudyMode;
 			sourceTree = "<group>";
 		};
+		360FE7B02302A0BB00D998A8 /* QuizMode */ = {
+			isa = PBXGroup;
+			children = (
+				36DD592920F183BD007248B7 /* QuizSetupViewController.swift */,
+				8429E11A1D2C481500920987 /* ViewController.swift */,
+				36DFEBE91DDCDDD200DF333D /* MainView.swift */,
+			);
+			path = QuizMode;
+			sourceTree = "<group>";
+		};
 		363BE51522AF23B8002BA369 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,7 +239,6 @@
 				366B07E920DC25210083B0C1 /* MyScriptCertificate */,
 				8429E1461D2C484E00920987 /* KnowYourAngles-Bridging-Header.h */,
 				8429E1181D2C481500920987 /* AppDelegate.swift */,
-				8429E11A1D2C481500920987 /* ViewController.swift */,
 				36D9AC4C22FD559200BE4DAD /* OverallController.swift */,
 				8429E11C1D2C481500920987 /* Main.storyboard */,
 				360FE7AF23029FE000D998A8 /* StudyMode */,
@@ -237,8 +246,7 @@
 				8429E1211D2C481500920987 /* LaunchScreen.storyboard */,
 				84461B4A1D308F1000BA997E /* FinishScreenViewController.swift */,
 				8422E9C11D35BF9500F33978 /* FirstViewController.swift */,
-				36DD592920F183BD007248B7 /* QuizSetupViewController.swift */,
-				36DFEBE91DDCDDD200DF333D /* MainView.swift */,
+				360FE7B02302A0BB00D998A8 /* QuizMode */,
 				36969D691DFD290F00F95635 /* MainViewDataSource.swift */,
 				36F5B09620E16C7C003AA258 /* Problem.swift */,
 			);
