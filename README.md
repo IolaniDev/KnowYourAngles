@@ -1,5 +1,5 @@
 # KnowYourAngles
-KnowYourAngles is designed to help students in Trigonometry learn the values of the Unit Circle. It selects a random problem and displays it. The user writes their answer in the given space. The answer is made beautiful using MyScript's Hand-Writing Recognition ATK, and the result can be used to check if the user's answer is correct.
+KnowYourAngles is designed to help students in Trigonometry learn the values of the Unit Circle. It selects a random problem and displays it. The user writes their answer in the given space. The answer is made beautiful using [MyScript's Interactive Ink SDK 1.3](https://developer.myscript.com/docs/interactive-ink/1.3/overview/about/) , and the result can be used to check if the user's answer is correct.
 
 ## Getting started
 To download some of the frameworks necessary to run KnowYourAngles, you will need [Git LFS](https://git-lfs.github.com/).  Detailed instructions are available from [GitHub Help](https://help.github.com/articles/installing-git-large-file-storage/).
@@ -18,3 +18,6 @@ Additionally, you will need to visit the [MyScript Developer site](https://devel
     -study mode allows users to practice with immediate feedback and the ability to look back at previously completed problems
     -settings now includes options for left-handed users and inverse trig functions
     -highscore is now statistics so users know which trig functions they need to work on
+- Version 5: Big Revision of Summer 2019 which includes
+    -switching to MyScript's latest version of Interactive Ink SDK
+    -"Save Screenshot" in Quiz Mode now saves the score, time used, and summary table as a picture in Photos
