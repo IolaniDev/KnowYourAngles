@@ -128,6 +128,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		360FE7AF23029FE000D998A8 /* StudyMode */ = {
+			isa = PBXGroup;
+			children = (
+				36B51E3A2112B8ED00AD4095 /* StudyMode.swift */,
+				36B51E3C2112BDD600AD4095 /* StudyView.swift */,
+			);
+			path = StudyMode;
+			sourceTree = "<group>";
+		};
 		363BE51522AF23B8002BA369 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,8 +232,7 @@
 				8429E11A1D2C481500920987 /* ViewController.swift */,
 				36D9AC4C22FD559200BE4DAD /* OverallController.swift */,
 				8429E11C1D2C481500920987 /* Main.storyboard */,
-				36B51E3A2112B8ED00AD4095 /* StudyMode.swift */,
-				36B51E3C2112BDD600AD4095 /* StudyView.swift */,
+				360FE7AF23029FE000D998A8 /* StudyMode */,
 				8429E11F1D2C481500920987 /* Assets.xcassets */,
 				8429E1211D2C481500920987 /* LaunchScreen.storyboard */,
 				84461B4A1D308F1000BA997E /* FinishScreenViewController.swift */,
