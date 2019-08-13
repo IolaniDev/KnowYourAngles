@@ -53,16 +53,7 @@
         default:
             break;
     }
-    
-    //NSError *e;
     [imageData writeToFile:path atomically:YES];
-    /*if (e) {
-        NSLog(@"Error: %@", e.localizedDescription);
-    }
-    else
-    {
-        NSLog(@"success?");
-    }*/
 }
 
 #pragma mark -  IINKIRenderTarget

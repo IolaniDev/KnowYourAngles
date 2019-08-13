@@ -79,10 +79,7 @@ open class FinishScreenViewController: UIViewController{
         summaryView.frame = savedFrame
         
         UIGraphicsEndImageContext()
-        //view.layer.render(in: UIGraphicsGetCurrentContext()!);
-        //summaryView.drawHierarchy(in: CGRect(x: 0, y: 0, width: summaryView.frame.width, height: summaryView.frame.height), afterScreenUpdates: true);
-        //let image = UIGraphicsGetImageFromCurrentImageContext();
-        //UIGraphicsEndImageContext();
+
         UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil);
     }
 }

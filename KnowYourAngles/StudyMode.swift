@@ -10,39 +10,21 @@ import UIKit
 
 class StudyMode : UIViewController{
     
-    //reference to data related to the problems displayed
-    var problemSource = MainViewDataSource.init();
-    
-    // mathView holds the view where you can write answers
-    @IBOutlet var mathView: InputView!
-    weak var editorViewController: EditorViewController!
-    var result = "";
-    var certificateRegistered : Bool!;
+    /*** START - Variables for overall setup ***/
+    // load previously saved settings (if there are any)
+    let savedSettings = UserDefaults.standard
     
     //reference to the View that controls displaying the problems, number correct, number remaining, etc.
     @IBOutlet var studyView: StudyView!
     
-    //reference to the constraints on the clear answer button
-    @IBOutlet weak var clearAnswerButtonLeadingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var clearAnswerButtonTrailingConstraint: NSLayoutConstraint!
+    // mathView holds the view where you can write answers
+    @IBOutlet var mathView: InputView!
     
-    //reference to the constraints on the submit button
-    @IBOutlet weak var submitButtonLeadingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var submitButtonTrailingConstraint: NSLayoutConstraint!
+    //the EditorViewController manages ink input
+    weak var editorViewController: EditorViewController!
     
-    //reference to constraints on the Clear Work button
-    @IBOutlet weak var clearWorkButtonLeadingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var clearWorkButtonTrailingConstraint: NSLayoutConstraint!
-    
-    // load previously saved settings (if there are any)
-    let savedSettings = UserDefaults.standard
-    
-    // for scratch paper component
-    @IBOutlet weak var scratchPaperImageView: UIImageView!
-    var lastPoint = CGPoint.zero;
-    var brushWidth: CGFloat = 5.0
-    var opacity: CGFloat = 1.0
-    var swiped = false
+    //reference to data related to the problems displayed
+    var problemSource = MainViewDataSource.init();
     
     //reference to the Summary View to display immediate feedback for the user
     @IBOutlet weak var immediateFeedback: UICollectionView!
@@ -55,7 +37,89 @@ class StudyMode : UIViewController{
     
     var mainController : SummaryCollectionViewController?;
     
-    /***** START - for automatically changing user's writing into text and math symbols *****/
+    //result is used to store the text version of the user's converted answer
+    var result = "";
+    /*** END - Variables for overall setup ***/
+    
+    /*** START - Variables for constraints on the clear answer, submit, and clear work buttons for shifting between right-hand and left-hand modes ***/
+    //reference to the constraints on the clear answer button
+    @IBOutlet weak var clearAnswerButtonLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var clearAnswerButtonTrailingConstraint: NSLayoutConstraint!
+    
+    //reference to the constraints on the submit button
+    @IBOutlet weak var submitButtonLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var submitButtonTrailingConstraint: NSLayoutConstraint!
+    
+    //reference to constraints on the Clear Work button
+    @IBOutlet weak var clearWorkButtonLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var clearWorkButtonTrailingConstraint: NSLayoutConstraint!
+    /*** End - Variables for constraints on the clear answer, submit, and clear work buttons for shifting between right-hand and left-hand modes ***/
+    
+    /***** START - for scratch paper component *****/
+    @IBOutlet weak var scratchPaperImageView: UIImageView!
+    var lastPoint = CGPoint.zero;
+    var brushWidth: CGFloat = 5.0
+    var opacity: CGFloat = 1.0
+    var swiped = false
+    @IBAction func clearScratchPaper(_ sender: UIButton) {
+        scratchPaperImageView.image = nil;
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        swiped = false
+        if let touch = touches.first {
+            lastPoint = touch.location(in: self.view)
+        }
+    }
+    
+    func drawLineFrom(_ fromPoint: CGPoint, toPoint: CGPoint) {
+        
+        // 1
+        UIGraphicsBeginImageContext(view.frame.size)
+        let context = UIGraphicsGetCurrentContext()
+        scratchPaperImageView.image?.draw(in: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
+        
+        // 2
+        context?.move(to: CGPoint(x: fromPoint.x, y: fromPoint.y))
+        context?.addLine(to: CGPoint(x: toPoint.x, y: toPoint.y))
+        
+        // 3
+        context?.setLineCap(CGLineCap.round);
+        context?.setLineWidth(brushWidth);
+        context?.setStrokeColor(red: 0, green: 0, blue: 0, alpha: 1.0);
+        context?.setBlendMode(CGBlendMode.normal);
+        
+        // 4
+        context?.strokePath()
+        
+        // 5
+        scratchPaperImageView.image = UIGraphicsGetImageFromCurrentImageContext()
+        scratchPaperImageView.alpha = opacity
+        UIGraphicsEndImageContext()
+        
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // 6
+        swiped = true
+        if let touch = touches.first {
+            let currentPoint = touch.location(in: view)
+            drawLineFrom(lastPoint, toPoint: currentPoint)
+            
+            // 7
+            lastPoint = currentPoint
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if !swiped {
+            // draw a single point
+            drawLineFrom(lastPoint, toPoint: lastPoint)
+        }
+    }
+    /***** END - for scratch paper component *****/
+    
+    /***** START - variables and functions for automatically changing user's writing into text and math symbols *****/
     //create a timer
     var beautifyTimer = Timer();
     var statusCheckTimer = Timer();
@@ -63,16 +127,12 @@ class StudyMode : UIViewController{
     
     @objc func checkStatus(timer: Timer)
     {
-        //var temp = editorViewController.inputView;
-        //NSLog("checking status");
         if editorViewController.inputView.timerOn && !timerStarted
         {
-            //NSLog("Turning on timer");
             startTimer();
         }
         else if !editorViewController.inputView.timerOn && timerStarted
         {
-            //NSLog("Turning off timer");
             endTimer();
         }
     }
@@ -91,7 +151,6 @@ class StudyMode : UIViewController{
     @objc func fireTimer(timer: Timer) {
         if (editorViewController.inputView.convertRequired && editorViewController.editor.idle)
         {
-            NSLog("conversion started");
             do {
                 //get all of the "blocks" written by the user
                 let supportedTargetStates = editorViewController.editor.getSupportedTargetConversionState(nil)
@@ -108,10 +167,10 @@ class StudyMode : UIViewController{
             }
             editorViewController.inputView.convertRequired = false;
             endTimer();
-            NSLog("Result: " + result);
+            //NSLog("Result: " + result);
         }
     }
-    /***** END - for automatically changing user's writing into text and math symbols *****/
+    /***** END - variables and functions for automatically changing user's writing into text and math symbols *****/
     
     // loading the view
     override func viewDidLoad() {
@@ -857,7 +916,7 @@ class StudyMode : UIViewController{
         immediateFeedback.dataSource = mainController;
         immediateFeedback.delegate = mainController;
         
-        /***** New Stuff 8-8-19*****/
+        /***** START - FOR IINK SDK 1.3: *****/
         editorViewController = (children.first as! EditorViewController)
         
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
@@ -887,26 +946,33 @@ class StudyMode : UIViewController{
         } catch {
             print("Error while creating package : " + error.localizedDescription)
         }
+        /***** END - FOR IINK SDK 1.3: *****/
         
         timerStarted = false;
-        //check once per second to see if
+        //check once per second to see if a conversion is needed
         statusCheckTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(checkStatus(timer:)), userInfo: nil, repeats: true);
         beautifyTimer = Timer();
     }
     
-    /*func viewDidAppear(_ animated: Bool) {
-     super.viewDidAppear(animated);
-     if(!(certificateRegistered))
-     {
-     let alertController = UIAlertController(title: "Invalid certificate", message: "Please use a valid certificate", preferredStyle: UIAlertController.Style.alert)
-     
-     let okAction = UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: nil);
-     
-     alertController.addAction(okAction)
-     present(alertController, animated: true, completion: nil)
-     }
-     }*/
+    func createPackage(packageName: String) throws -> IINKContentPackage? {
+        // Create a new content package with name
+        var resultPackage: IINKContentPackage?
+        let fullPath = FileManager.default.pathForFile(inDocumentDirectory: packageName) + ".iink"
+        if let engine = (UIApplication.shared.delegate as? AppDelegate)?.engine {
+            resultPackage = try engine.createPackage(fullPath.decomposedStringWithCanonicalMapping)
+            
+            // Add a blank page type Text Document
+            if let part = try resultPackage?.createPart("Math") /* Options are : "Diagram", "Drawing", "Math", "Text Document", "Text" */ {
+                self.title = "Type: " + part.type
+            }
+        }
+        return resultPackage
+    }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated);
+        editorViewController.editor.part = nil;
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -915,18 +981,16 @@ class StudyMode : UIViewController{
     //When the user hits "Submit"
     @IBAction func nextButtonPressed(_ sender: UIButton) {
         //get the result
-        NSLog("Result: " + result);
+        //NSLog("Result: " + result);
         
-        if(!result.isEmpty)
+        if(!result.isEmpty && !editorViewController.inputView.convertRequired && editorViewController.editor.idle)
         {
             //Get the transform to change from MyScript's mm to pixels
             let transform = editorViewController.editor.renderer.viewTransform;
             
-            //get the size of the screenshot we wantto take
+            //get the size of the screenshot we want to take
             let picWidthMm = editorViewController.editor.rootBlock!.box.width;
-            NSLog("picWidthMm: \(picWidthMm)");
             let picHeightMm = editorViewController.editor.rootBlock!.box.height;
-            NSLog("picHeightMm: \(picHeightMm)");
             
             //apply the transform to the dimensions of the screenshot in mm to get pixels
             let picDimensionsMm = CGPoint(x: picWidthMm,y: picHeightMm);
@@ -939,8 +1003,6 @@ class StudyMode : UIViewController{
             let picPositionMm = CGPoint(x: editorViewController.editor.rootBlock!.box.minX,y: editorViewController.editor.rootBlock!.box.minY);
             //apply the transform to the position in mm to get pixels
             let picPosition = picPositionMm.applying(transform);
-            NSLog("x: \(picPosition.x)");
-            NSLog("y: \(picPosition.y)");
             
             //use the contents of the mathView to draw in the context
             mathView.drawHierarchy(in: CGRect(x: -picPosition.x, y: -picPosition.y, width: mathView.bounds.size.width, height: mathView.bounds.size.height), afterScreenUpdates: true);
@@ -959,7 +1021,7 @@ class StudyMode : UIViewController{
             {
                 result = String(result[result.index(after: result.lastIndex(of: " ")!)...]);
             }
-            NSLog("Parsed Answer: %@", result);
+            //NSLog("Parsed Answer: %@", result);
             
             //check if the user's answer is correct
             if(problemSource.isCorrect(result))
@@ -976,15 +1038,15 @@ class StudyMode : UIViewController{
                 markImg = UIImage(named: "Wrong")!;
                 updateStatistics(isCorrect: false);
             }
-            
+        
             //add images to the summary view on the finish screen
             summaryData.append(UIImage(named: (problemSource.getCurrProblem().problemImageName))!);
             summaryData.append(UIImage(named: (problemSource.getCurrProblem().answerImageName))!);
             summaryData.append(answerImg);
             summaryData.append(markImg);
-            
             mainController?.summaryData = self.summaryData;
             immediateFeedback.reloadData();
+            
             //scroll down so the latest problem and answer are shown
             immediateFeedback.scrollToItem(at: IndexPath.init(item: immediateFeedback.numberOfItems(inSection: 0)-1, section: 0), at: UICollectionView.ScrollPosition.bottom, animated: true);
             
@@ -992,12 +1054,12 @@ class StudyMode : UIViewController{
             studyView.problemImage.image = UIImage(named: (problemSource.pickRandomProblem().problemImageName));
             
             // clear the field to write your answer
-            //mathView.clear(false);
             editorViewController.editor.clear();
             scratchPaperImageView.image = nil;
+            
+            result = "";
         }
     }
-    
     
     @IBAction func clearMathView(_ sender: UIButton) {
         editorViewController.editor.clear();
@@ -1025,83 +1087,5 @@ class StudyMode : UIViewController{
         savedSettings.setValue(savedSettings.value(forKey: "radianAndDegreeStatsNumTotal") as! Int + 1, forKey: "radianAndDegreeStatsNumTotal");
     }
     
-    /**********FUNCTIONS FOR SCRATCH PAPER**********/
-    @IBAction func clearScratchPaper(_ sender: UIButton) {
-        scratchPaperImageView.image = nil;
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        swiped = false
-        if let touch = touches.first {
-            lastPoint = touch.location(in: self.view)
-        }
-    }
-    
-    func drawLineFrom(_ fromPoint: CGPoint, toPoint: CGPoint) {
-        
-        // 1
-        UIGraphicsBeginImageContext(view.frame.size)
-        let context = UIGraphicsGetCurrentContext()
-        scratchPaperImageView.image?.draw(in: CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height))
-        
-        // 2
-        context?.move(to: CGPoint(x: fromPoint.x, y: fromPoint.y))
-        context?.addLine(to: CGPoint(x: toPoint.x, y: toPoint.y))
-        
-        // 3
-        context?.setLineCap(CGLineCap.round);
-        context?.setLineWidth(brushWidth);
-        context?.setStrokeColor(red: 0, green: 0, blue: 0, alpha: 1.0);
-        context?.setBlendMode(CGBlendMode.normal);
-        
-        // 4
-        context?.strokePath()
-        
-        // 5
-        scratchPaperImageView.image = UIGraphicsGetImageFromCurrentImageContext()
-        scratchPaperImageView.alpha = opacity
-        UIGraphicsEndImageContext()
-        
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // 6
-        swiped = true
-        if let touch = touches.first {
-            let currentPoint = touch.location(in: view)
-            drawLineFrom(lastPoint, toPoint: currentPoint)
-            
-            // 7
-            lastPoint = currentPoint
-        }
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if !swiped {
-            // draw a single point
-            drawLineFrom(lastPoint, toPoint: lastPoint)
-        }
-    }
-    /**********END FUNCTIONS FOR SCRATCH PAPER**********/
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated);
-        editorViewController.editor.part = nil;
-    }
-    
-    func createPackage(packageName: String) throws -> IINKContentPackage? {
-        // Create a new content package with name
-        var resultPackage: IINKContentPackage?
-        let fullPath = FileManager.default.pathForFile(inDocumentDirectory: packageName) + ".iink"
-        if let engine = (UIApplication.shared.delegate as? AppDelegate)?.engine {
-            resultPackage = try engine.createPackage(fullPath.decomposedStringWithCanonicalMapping)
-            
-            // Add a blank page type Text Document
-            if let part = try resultPackage?.createPart("Math") /* Options are : "Diagram", "Drawing", "Math", "Text Document", "Text" */ {
-                self.title = "Type: " + part.type
-            }
-        }
-        return resultPackage
-    }
     
 }

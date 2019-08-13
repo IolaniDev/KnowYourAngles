@@ -270,12 +270,6 @@
         [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[inputView]|" options:0 metrics:nil views:views]];
         [self.containerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[displayViewControllerView]|" options:0 metrics:nil views:views]];
         [self.containerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[displayViewControllerView]|" options:0 metrics:nil views:views]];
-        //[self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-100-[containerView]-100-|" options:0 metrics:nil views:views]];
-       // [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-200-[containerView]-200-|" options:0 metrics:nil views:views]];
-//        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-100-[inputView]-100-|" options:0 metrics:nil views:views]];
-//        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-200-[inputView]-200-|" options:0 metrics:nil views:views]];
-//        [self.containerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-100-[displayViewControllerView]-100-|" options:0 metrics:nil views:views]];
-//        [self.containerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-200-[displayViewControllerView]-200-|" options:0 metrics:nil views:views]];
     }
 }
 
