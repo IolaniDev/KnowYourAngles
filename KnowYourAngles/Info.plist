@@ -20,20 +20,6 @@
 	<string>????</string>
 	<key>CFBundleVersion</key>
 	<string>(auto-generated)</string>
-	<key>Fabric</key>
-	<dict>
-		<key>APIKey</key>
-		<string>47d7101d489472c35e317e555b6f5723128756a8</string>
-		<key>Kits</key>
-		<array>
-			<dict>
-				<key>KitInfo</key>
-				<dict/>
-				<key>KitName</key>
-				<string>Crashlytics</string>
-			</dict>
-		</array>
-	</dict>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSPhotoLibraryUsageDescription</key>
