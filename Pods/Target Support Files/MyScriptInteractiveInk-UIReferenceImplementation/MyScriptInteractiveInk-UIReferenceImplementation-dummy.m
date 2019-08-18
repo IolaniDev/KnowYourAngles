@@ -1,0 +1,5 @@
+#import <Foundation/Foundation.h>
+@interface PodsDummy_MyScriptInteractiveInk_UIReferenceImplementation : NSObject
+@end
+@implementation PodsDummy_MyScriptInteractiveInk_UIReferenceImplementation
+@end
