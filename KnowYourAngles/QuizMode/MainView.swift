@@ -37,7 +37,7 @@ class MainView: UIView {
     
     @IBOutlet weak var problemAndAnswerStackView: UIStackView!
     // reference the mathview for positioning of the correct and incorrect marks
-    @IBOutlet weak var workArea: MAWMathView!
+    @IBOutlet weak var workArea: InputView!
     // imageview to hold the red x (meaning incorrect)
     let wrongImageView = UIImageView(image: UIImage(named: "Wrong")!);
     // imageview to hold the green check (meaning correct)
@@ -147,7 +147,7 @@ class MainView: UIView {
         self.addSubview(wrongImageView);
         
         // make sure the red x is in front
-        self.bringSubview(toFront: wrongImageView);
+        self.bringSubviewToFront(wrongImageView);
     
         // animate the red x fading away
         self.wrongImageView.alpha = 255;
@@ -164,7 +164,7 @@ class MainView: UIView {
         
         // add the green check to the screen
         self.addSubview(correctImageView);
-        self.bringSubview(toFront: correctImageView);
+        self.bringSubviewToFront(correctImageView);
         
         // animate the green check fading away
         self.correctImageView.alpha = 255;

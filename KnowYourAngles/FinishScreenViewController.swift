@@ -32,7 +32,7 @@ open class FinishScreenViewController: UIViewController{
     override open func viewDidLoad() {
         super.viewDidLoad();
         let mainController = SummaryCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
-        self.addChildViewController(mainController);
+        self.addChild(mainController);
         
         mainController.summaryData = self.summaryData;
         // set the score results
@@ -54,12 +54,32 @@ open class FinishScreenViewController: UIViewController{
         summaryView.delegate = mainController;
     }
     
+    //reference to Score and Time Vertical Stack View
+    @IBOutlet weak var scoreAndTimeView: UIStackView!
+    
     // added functionality to a button component so the results after answering questions can be saved as a picture for sharing
     @IBAction func saveScreenshot(_ sender: UIButton) {
-        UIGraphicsBeginImageContext(view.frame.size);
-        view.layer.render(in: UIGraphicsGetCurrentContext()!);
-        let image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
+        UIGraphicsBeginImageContext(CGSize(width: summaryView.contentSize.width, height: summaryView.contentSize.height+250)); //UIGraphicsBeginImageContext(summaryView.contentSize);
+        
+        //grabs the score and time
+        scoreAndTimeView.layer.render(in: UIGraphicsGetCurrentContext()!);
+        
+        //code based on https://stackoverflow.com/questions/41920416/how-to-make-a-screenshot-of-all-the-content-of-a-scrollview/41921091
+        let savedContentOffset = summaryView.contentOffset
+        let savedFrame = summaryView.frame
+        
+        summaryView.contentOffset = CGPoint.zero
+        summaryView.frame = CGRect(x: 0, y: 0, width: summaryView.contentSize.width, height: summaryView.contentSize.height)
+        
+        summaryView.drawHierarchy(in: CGRect(x: 0, y: scoreAndTimeView.frame.height, width: summaryView.contentSize.width, height: summaryView.contentSize.height), afterScreenUpdates: true);
+
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        
+        summaryView.contentOffset = savedContentOffset
+        summaryView.frame = savedFrame
+        
+        UIGraphicsEndImageContext()
+
         UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil);
     }
 }
