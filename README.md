@@ -8,7 +8,7 @@ Additionally, you will need to visit the [MyScript Developer site](https://devel
 
 
 ## Branches
-- master: Includes Crashlytics, Fabric, and using "u" for the answer "undefined"
+- master: deployable, working version of the KnowYourAngles app
 - Version2: Includes a Launch Screen, Summary Page, and Scratch Paper
 - Version3: 
 - Version4: Big Revision of Summer 2018 which includes 
