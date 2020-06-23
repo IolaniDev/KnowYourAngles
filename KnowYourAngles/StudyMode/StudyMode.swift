@@ -1013,6 +1013,7 @@ class StudyMode : UIViewController{
             
             //the result string will either have an equals symbol, a simeq (or approx symbol), or will just have a value
             //we'll need to strip away everything but the value
+            //we also need to make sure that there are no spaces after the value
             if(result.contains("="))
             {
                 result = String(result[result.index(after: result.firstIndex(of: "=")!)...]);
@@ -1020,6 +1021,10 @@ class StudyMode : UIViewController{
             else if(result.contains("simeq"))
             {
                 result = String(result[result.index(after: result.lastIndex(of: " ")!)...]);
+            }
+            else if(result.contains(" "))
+            {
+                result = result.trimmingCharacters(in: .whitespacesAndNewlines);
             }
             //NSLog("Parsed Answer: %@", result);
             
