@@ -41,17 +41,30 @@ class ViewController: UIViewController {
     /*** END - Variables for overall setup ***/
     
     /*** START - Variables for constraints on the clear answer, submit, and clear work buttons for shifting between right-hand and left-hand modes ***/
-    //reference to the constraints on the clear answer button
-    @IBOutlet weak var clearAnswerButtonLeadingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var clearAnswerButtonTrailingConstraint: NSLayoutConstraint!
+    //reference to the right-hand mode constraints on the clear answer button
+    @IBOutlet weak var rightHandClearAnswerLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var rightHandClearAnswerTrailingConstraint: NSLayoutConstraint!
     
-    //reference to the constraints on the submit button
-    @IBOutlet weak var submitButtonLeadingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var submitButtonTrailingConstraint: NSLayoutConstraint!
+    //reference to the left-hand mode constraints on the clear answer button
+    @IBOutlet weak var leftHandClearAnswerLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var leftHandClearAnswerTrailingConstraint: NSLayoutConstraint!
     
-    //reference to constraints on the Clear Work button
-    @IBOutlet weak var clearWorkButtonLeadingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var clearWorkButtonTrailingConstraint: NSLayoutConstraint!
+    //reference to the right-hand mode constraints on the submit button
+    @IBOutlet weak var rightHandSubmitLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var rightHandSubmitTrailingConstraint: NSLayoutConstraint!
+    
+    //reference to the left-hand mode constraints on the submit button
+    @IBOutlet weak var leftHandSubmitLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var leftHandSubmitTrailingConstraint: NSLayoutConstraint!
+    
+    //reference to the right-hand mode constraints on the clear work button
+    @IBOutlet weak var rightHandClearWorkLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var rightHandClearWorkTrailingConstraint: NSLayoutConstraint!
+    
+    //reference to the left-hand mode constraints on the clear work button
+    @IBOutlet weak var leftHandClearWorkLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var leftHandClearWorkTrailingConstraint: NSLayoutConstraint!
+    
     /*** End - Variables for constraints on the clear answer, submit, and clear work buttons for shifting between right-hand and left-hand modes ***/
     
     /***** START - variables and functions for automatically changing user's writing into text and math symbols *****/
@@ -182,41 +195,60 @@ class ViewController: UIViewController {
         {
             if(savedSettings.value(forKey: "isLeftHandMode") as! Bool)
             {
-                //activate the trailing constraint
-                clearAnswerButtonTrailingConstraint.isActive = true;
-                submitButtonTrailingConstraint.isActive = true;
-                clearWorkButtonTrailingConstraint.isActive = true;
+                //activate the left-hand mode constraints
+                leftHandClearAnswerLeadingConstraint.isActive = true;
+                leftHandClearAnswerTrailingConstraint.isActive = true;
+                leftHandSubmitLeadingConstraint.isActive = true;
+                leftHandSubmitTrailingConstraint.isActive = true;
+                leftHandClearWorkLeadingConstraint.isActive = true;
+                leftHandClearWorkTrailingConstraint.isActive = true;
                 
-                //deactivate the leading constraint
-                clearAnswerButtonLeadingConstraint.isActive = false
-                submitButtonLeadingConstraint.isActive = false;
-                clearWorkButtonLeadingConstraint.isActive = false;
+                //deactivate the right-hand mode constraints
+                rightHandClearAnswerLeadingConstraint.isActive = false;
+                rightHandClearAnswerTrailingConstraint.isActive = false;
+                rightHandSubmitLeadingConstraint.isActive = false;
+                rightHandSubmitTrailingConstraint.isActive = false;
+                rightHandClearWorkLeadingConstraint.isActive = false;
+                rightHandClearWorkTrailingConstraint.isActive = false;
+                
             }
             else
             {
-                //deactivate the trailing constraint
-                clearAnswerButtonTrailingConstraint.isActive = false;
-                submitButtonTrailingConstraint.isActive = false;
-                clearWorkButtonTrailingConstraint.isActive = false;
+                //deactivate the left-hand mode constraints
+                leftHandClearAnswerLeadingConstraint.isActive = false;
+                leftHandClearAnswerTrailingConstraint.isActive = false;
+                leftHandSubmitLeadingConstraint.isActive = false;
+                leftHandSubmitTrailingConstraint.isActive = false;
+                leftHandClearWorkLeadingConstraint.isActive = false;
+                leftHandClearWorkTrailingConstraint.isActive = false;
                 
-                //activate the leading constraint
-                clearAnswerButtonLeadingConstraint.isActive = true;
-                submitButtonLeadingConstraint.isActive = true;
-                clearWorkButtonLeadingConstraint.isActive = true;
+                //activate the right-hand mode constraints
+                rightHandClearAnswerLeadingConstraint.isActive = true;
+                rightHandClearAnswerTrailingConstraint.isActive = true;
+                rightHandSubmitLeadingConstraint.isActive = true;
+                rightHandSubmitTrailingConstraint.isActive = true;
+                rightHandClearWorkLeadingConstraint.isActive = true;
+                rightHandClearWorkTrailingConstraint.isActive = true;
             }
         }
             //if the user does not have saved settings for left vs. right-hand mode, default to right-hand mode
         else
         {
-            //deactivate the trailing constraint
-            clearAnswerButtonTrailingConstraint.isActive = false;
-            submitButtonTrailingConstraint.isActive = false;
-            clearWorkButtonTrailingConstraint.isActive = false;
+            //deactivate the left-hand mode constraints
+            leftHandClearAnswerLeadingConstraint.isActive = false;
+            leftHandClearAnswerTrailingConstraint.isActive = false;
+            leftHandSubmitLeadingConstraint.isActive = false;
+            leftHandSubmitTrailingConstraint.isActive = false;
+            leftHandClearWorkLeadingConstraint.isActive = false;
+            leftHandClearWorkTrailingConstraint.isActive = false;
             
-            //activate the leading constraint
-            clearAnswerButtonLeadingConstraint.isActive = true;
-            submitButtonLeadingConstraint.isActive = true;
-            clearWorkButtonLeadingConstraint.isActive = true;
+            //activate the right-hand mode constraints
+            rightHandClearAnswerLeadingConstraint.isActive = true;
+            rightHandClearAnswerTrailingConstraint.isActive = true;
+            rightHandSubmitLeadingConstraint.isActive = true;
+            rightHandSubmitTrailingConstraint.isActive = true;
+            rightHandClearWorkLeadingConstraint.isActive = true;
+            rightHandClearWorkTrailingConstraint.isActive = true;
         }
         
         /**********LOAD NUMBER OF PROBLEMS**********/

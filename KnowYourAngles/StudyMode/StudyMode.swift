@@ -240,9 +240,18 @@ class StudyMode : UIViewController{
             //deactivate the constraints for left-hand mode
             leftHandClearAnswerLeadingConstraint.isActive = false;
             leftHandClearAnswerTrailingConstraint.isActive = false;
+            leftHandSubmitLeadingConstraint.isActive = false;
+            leftHandSubmitTrailingConstraint.isActive = false;
+            leftHandClearWorkLeadingConstraint.isActive = false;
+            leftHandClearWorkTrailingConstraint.isActive = false;
+            
             //activate the constraints for right-hand mode
             rightHandClearAnswerLeadingConstraint.isActive = true;
             rightHandClearAnswerTrailingConstraint.isActive = true;
+            rightHandSubmitLeadingConstraint.isActive = true;
+            rightHandSubmitTrailingConstraint.isActive = true;
+            rightHandClearWorkLeadingConstraint.isActive = true;
+            rightHandClearWorkTrailingConstraint.isActive = true;
         }
         
         //setup the number of correctly answered questions label
