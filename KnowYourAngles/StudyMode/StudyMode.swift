@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class StudyMode : UIViewController{
     
@@ -67,6 +68,9 @@ class StudyMode : UIViewController{
     @IBOutlet weak var leftHandClearWorkTrailingConstraint: NSLayoutConstraint!
     
     /*** End - Variables for the constraints on the clear answer, submit, and clear work buttons for shifting between right-hand and left-hand modes ***/
+    
+    //variable to track of number of handwriting conversions
+    var NumberOfConversions = 0;
     
     /***** START - for scratch paper component *****/
     @IBOutlet weak var scratchPaperImageView: UIImageView!
@@ -174,6 +178,9 @@ class StudyMode : UIViewController{
                 
                 //get the result as string
                 result = try editorViewController.editor!.export_(nil, mimeType: supportedMimeTypes[0].value);
+                
+                //add 1 to the total number of conversions that have been done so far
+                NumberOfConversions += 1;
                 
             } catch {
                 print("Error while converting : " + error.localizedDescription)
@@ -1006,6 +1013,10 @@ class StudyMode : UIViewController{
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated);
         editorViewController.editor.part = nil;
+        //start a trace to measure number of times handwriting is converted and to determine how long users study for
+        let trace = Performance.startTrace(name: "StudyModeHandWritingConversion");
+        trace?.setValue(Int64(NumberOfConversions), forMetric: "StudyModeNumberOfConversions")
+        trace?.stop();
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
