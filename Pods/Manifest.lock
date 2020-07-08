@@ -105,8 +105,6 @@ DEPENDENCIES:
   - MyScriptInteractiveInk-UIReferenceImplementation (from `.`)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - MyScriptInteractiveInk-Runtime
   trunk:
     - Firebase
     - FirebaseABTesting
@@ -122,6 +120,7 @@ SPEC REPOS:
     - GoogleToolboxForMac
     - GoogleUtilities
     - GTMSessionFetcher
+    - MyScriptInteractiveInk-Runtime
     - nanopb
     - PromisesObjC
     - Protobuf

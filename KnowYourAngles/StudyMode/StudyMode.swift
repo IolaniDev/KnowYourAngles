@@ -182,6 +182,8 @@ class StudyMode : UIViewController{
                 //add 1 to the total number of conversions that have been done so far
                 NumberOfConversions += 1;
                 
+                NSLog("StudyModeNumberOfConversions: \(NumberOfConversions)");
+                
             } catch {
                 print("Error while converting : " + error.localizedDescription)
             }

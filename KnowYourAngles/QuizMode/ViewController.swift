@@ -10,6 +10,7 @@
 //  https://www.raywenderlich.com/87899/make-simple-drawing-app-uikit-swift
 
 import UIKit
+import Firebase
 
 class ViewController: UIViewController {
     
@@ -67,6 +68,9 @@ class ViewController: UIViewController {
     
     /*** End - Variables for constraints on the clear answer, submit, and clear work buttons for shifting between right-hand and left-hand modes ***/
     
+    //variable to track of number of handwriting conversions
+    var NumberOfConversions = 0;
+    
     /***** START - variables and functions for automatically changing user's writing into text and math symbols *****/
     //create a timer
     var beautifyTimer = Timer();
@@ -109,6 +113,10 @@ class ViewController: UIViewController {
                 
                 //get the result as string
                 result = try editorViewController.editor!.export_(nil, mimeType: supportedMimeTypes[0].value);
+                
+                //add 1 to the total number of conversions that have been done so far
+                NumberOfConversions += 1;
+                NSLog("QuizModeNumberOfConversions: \(NumberOfConversions)");
             } catch {
                 print("Error while converting : " + error.localizedDescription)
             }
@@ -988,6 +996,8 @@ class ViewController: UIViewController {
         }
         /***** END - FOR IINK SDK 1.3: *****/
         
+        NumberOfConversions = 0;
+        
         timerStarted = false;
         //check once per second to see if a conversion is needed
         statusCheckTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(checkStatus(timer:)), userInfo: nil, repeats: true);
@@ -1012,6 +1022,10 @@ class ViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated);
         editorViewController.editor.part = nil;
+        //start a trace to measure number of times handwriting is converted and to determine how long users study for
+        let trace = Performance.startTrace(name: "QuizModeHandWritingConversion");
+        trace?.setValue(Int64(NumberOfConversions), forMetric: "QuizModeNumberOfConversions")
+        trace?.stop();
     }
     
     override func didReceiveMemoryWarning() {
