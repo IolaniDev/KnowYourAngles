@@ -1473,7 +1473,7 @@
                                             <color key="titleColor" red="0.49803921569999998" green="1" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Mu1-7X-idf" kind="show" id="Wtc-7e-2hj"/>
+                                            <segue destination="Mu1-7X-idf" kind="presentation" modalPresentationStyle="fullScreen" id="Wtc-7e-2hj"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bxN-Uz-eHe">
