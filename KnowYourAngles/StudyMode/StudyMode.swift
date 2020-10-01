@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Firebase
+//import Firebase
 
 class StudyMode : UIViewController{
     
@@ -1016,9 +1016,9 @@ class StudyMode : UIViewController{
         super.viewDidDisappear(animated);
         editorViewController.editor.part = nil;
         //start a trace to measure number of times handwriting is converted and to determine how long users study for
-        let trace = Performance.startTrace(name: "StudyModeHandWritingConversion");
-        trace?.setValue(Int64(NumberOfConversions), forMetric: "StudyModeNumberOfConversions")
-        trace?.stop();
+        //let trace = Performance.startTrace(name: "StudyModeHandWritingConversion");
+        //trace?.setValue(Int64(NumberOfConversions), forMetric: "StudyModeNumberOfConversions")
+        //trace?.stop();
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

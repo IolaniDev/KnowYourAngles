@@ -94,12 +94,23 @@ class MainView: UIView {
     }
     
     @objc func updateCountDown()
-    {
+    { 
+        //decrease the timer by one second
         numSec -= 1;
+        //if we've reached the end of a minute, subtract a minute and reset seconds to 59.
         if(numSec == -1 && numMin > 0)
         {
             numMin -= 1;
             numSec = 59;
+        }
+        //if we're in the final 10 seconds, change the color of the text to red
+        if(numMin == 0 && numSec <= 10)
+        {
+            countdownTimer.textColor = UIColor.init(red: 1, green: 0, blue: 0, alpha: 1);
+        }
+        else
+        {
+            countdownTimer.textColor = UIColor.init(red: 40/255, green: 204/255, blue: 198/255, alpha: 1);
         }
         countdownTimer.text = String(format:"%02d:%02d", numMin, numSec);
         if(numMin == 0 && numSec == 0)
@@ -116,7 +127,7 @@ class MainView: UIView {
     /*
      // Only override drawRect: if you perform custom drawing.
      // An empty implementation adversely affects performance during animation.*/
-    override func draw(_ rect: CGRect)
+    /*override func draw(_ rect: CGRect)
     {
         //if the timer should be on...
         if(isClockVisibile)
@@ -135,7 +146,7 @@ class MainView: UIView {
         else{
             countdownTimer.isHidden = true;
         }
-    }
+    }*/
     
     // function called when user answers incorrectly
     func drawWrong(){

@@ -10,7 +10,7 @@
 //  https://www.raywenderlich.com/87899/make-simple-drawing-app-uikit-swift
 
 import UIKit
-import Firebase
+//import Firebase
 
 class ViewController: UIViewController {
     
@@ -961,8 +961,21 @@ class ViewController: UIViewController {
         // setup image of first problem
         correctingMarksView.problemImage.image = UIImage(named: problemSource.getRandomProblem().problemImageName);
         
-        // add an observer for when the quiz timer runs out.
-        NotificationCenter.default.addObserver(self, selector: #selector(updateCountDown), name: NSNotification.Name(rawValue: "segueNow"), object: nil);
+        /**********SETTING UP THE COUNTDOWN TIMER**********/
+        //if there are previously saved settings for the timer ...
+        if(savedSettings.object(forKey: "isTimerOn") != nil)
+        {
+            //if the timer should be on...
+            if(savedSettings.object(forKey: "isTimerOn") as! Bool)
+            {
+                // add an observer for when the quiz timer runs out.
+                NotificationCenter.default.addObserver(self, selector: #selector(updateCountDown), name: NSNotification.Name(rawValue: "segueNow"), object: nil);
+            }
+            else
+            {
+                correctingMarksView.countdownTimer.text = "";
+            }
+        }
         
         /***** START - FOR IINK SDK 1.3: *****/
         editorViewController = (children.first as! EditorViewController)
@@ -1023,9 +1036,9 @@ class ViewController: UIViewController {
         super.viewDidDisappear(animated);
         editorViewController.editor.part = nil;
         //start a trace to measure number of times handwriting is converted and to determine how long users study for
-        let trace = Performance.startTrace(name: "QuizModeHandWritingConversion");
-        trace?.setValue(Int64(NumberOfConversions), forMetric: "QuizModeNumberOfConversions")
-        trace?.stop();
+        //let trace = Performance.startTrace(name: "QuizModeHandWritingConversion");
+        //trace?.setValue(Int64(NumberOfConversions), forMetric: "QuizModeNumberOfConversions")
+        //trace?.stop();
     }
     
     override func didReceiveMemoryWarning() {
@@ -1148,9 +1161,25 @@ class ViewController: UIViewController {
     {
         if(self.correctingMarksView.isOutOfTime)
         {
-            performSegue(withIdentifier: "toFinishScreen", sender: self);
+            beautifyTimer.invalidate();
+            statusCheckTimer.invalidate();
+            //code for getting the top most controller from https://stackoverflow.com/questions/26022756/warning-attempt-to-present-on-whose-view-is-not-in-the-window-hierarchy-s
+            let topVC = topMostController()
+            //let vcToPresent = self.storyboard!.instantiateViewController(withIdentifier: "YourVCStoryboardID") as! YourViewController
+            //topVC.present(vcToPresent, animated: true, completion: nil)
+            
+            topVC.performSegue(withIdentifier: "toFinishScreen", sender: self);
         }
     }
+    
+    //topMostController() function from: https://stackoverflow.com/questions/26022756/warning-attempt-to-present-on-whose-view-is-not-in-the-window-hierarchy-s
+    func topMostController() -> UIViewController {
+        var topController: UIViewController = UIApplication.shared.keyWindow!.rootViewController!
+            while (topController.presentedViewController != nil) {
+                topController = topController.presentedViewController!
+            }
+            return topController
+        }
     
     // function to clear the writing space where the user writes their answer
     @IBAction func clearMathView(_ sender: UIButton) {
