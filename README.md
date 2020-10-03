@@ -4,7 +4,7 @@ KnowYourAngles is designed to help students in Trigonometry learn the values of 
 ## Getting started
 To download some of the frameworks necessary to run KnowYourAngles, you will need [Git LFS](https://git-lfs.github.com/).  Detailed instructions are available from [GitHub Help](https://help.github.com/articles/installing-git-large-file-storage/).
 
-Additionally, you will need to visit the [MyScript Developer site](https://developer.myscript.com/get-started/ios) to obtain a certificate to use for development/testing purposes.
+Additionally, you will need to visit the [MyScript Developer site](https://developer.myscript.com/getting-started/ios) to obtain a certificate to use for development/testing purposes.  Other resources and documentation about the [MyScript APIs](https://developer.myscript.com/) is available.
 
 
 ## Branches
