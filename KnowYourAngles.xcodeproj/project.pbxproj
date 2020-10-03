@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		182E8EF729A5AFC343CBA792 /* libPods-KnowYourAngles.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40FF2CF1ABF5447993FC0B86 /* libPods-KnowYourAngles.a */; };
 		363BE51722AF29B4002BA369 /* INFO in Resources */ = {isa = PBXBuildFile; fileRef = 363BE51622AF29B4002BA369 /* INFO */; };
 		363BE51922AF29C7002BA369 /* recognition-assets in Resources */ = {isa = PBXBuildFile; fileRef = 363BE51822AF29C7002BA369 /* recognition-assets */; };
 		3661E5B91E0E1BD900601402 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3661E5B81E0E1BD900601402 /* CoreData.framework */; };
@@ -17,6 +16,7 @@
 		36969D6A1DFD290F00F95635 /* MainViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36969D691DFD290F00F95635 /* MainViewDataSource.swift */; };
 		36B51E3B2112B8ED00AD4095 /* StudyMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B51E3A2112B8ED00AD4095 /* StudyMode.swift */; };
 		36B51E3D2112BDD600AD4095 /* StudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B51E3C2112BDD600AD4095 /* StudyView.swift */; };
+		36C1851724A29BC900DE117E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C1851624A29BC900DE117E /* AboutViewController.swift */; };
 		36C426B620FD43C300061D8F /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C426B520FD43C300061D8F /* StatisticsViewController.swift */; };
 		36C69ECF1D80A5DE0072CFFA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8429E1491D2C494300920987 /* SystemConfiguration.framework */; };
 		36D9AC4D22FD559200BE4DAD /* OverallController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D9AC4C22FD559200BE4DAD /* OverallController.swift */; };
@@ -34,6 +34,7 @@
 		8429E1391D2C481600920987 /* KnowYourAnglesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429E1381D2C481600920987 /* KnowYourAnglesUITests.swift */; };
 		84461B4B1D308F1000BA997E /* FinishScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84461B4A1D308F1000BA997E /* FinishScreenViewController.swift */; };
 		84C3E8221D2DC75300750751 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C3E8211D2DC75300750751 /* SettingsViewController.swift */; };
+		E3A065ABC0C1E325751F83F0 /* libPods-KnowYourAngles.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F60615B28EA6C5D571DD704 /* libPods-KnowYourAngles.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,7 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0B42B7C875C421A44E725627 /* Pods-KnowYourAngles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnowYourAngles.release.xcconfig"; path = "Target Support Files/Pods-KnowYourAngles/Pods-KnowYourAngles.release.xcconfig"; sourceTree = "<group>"; };
+		29BAE113618DEB8747BEBC04 /* Pods-KnowYourAngles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnowYourAngles.release.xcconfig"; path = "Target Support Files/Pods-KnowYourAngles/Pods-KnowYourAngles.release.xcconfig"; sourceTree = "<group>"; };
+		2F60615B28EA6C5D571DD704 /* libPods-KnowYourAngles.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KnowYourAngles.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		363BE51622AF29B4002BA369 /* INFO */ = {isa = PBXFileReference; lastKnownFileType = folder; path = INFO; sourceTree = "<group>"; };
 		363BE51822AF29C7002BA369 /* recognition-assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "recognition-assets"; sourceTree = "<group>"; };
 		3661E5B81E0E1BD900601402 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -64,6 +66,7 @@
 		36969D691DFD290F00F95635 /* MainViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewDataSource.swift; sourceTree = "<group>"; };
 		36B51E3A2112B8ED00AD4095 /* StudyMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyMode.swift; sourceTree = "<group>"; };
 		36B51E3C2112BDD600AD4095 /* StudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyView.swift; sourceTree = "<group>"; };
+		36C1851624A29BC900DE117E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		36C426B520FD43C300061D8F /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		36D9AC4C22FD559200BE4DAD /* OverallController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverallController.swift; sourceTree = "<group>"; };
 		36DD592920F183BD007248B7 /* QuizSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizSetupViewController.swift; sourceTree = "<group>"; };
@@ -74,10 +77,7 @@
 		36E507A020E1E8CF0045D0CD /* STIXSizTwoSymBol.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = STIXSizTwoSymBol.otf; sourceTree = "<group>"; };
 		36F5B09620E16C7C003AA258 /* Problem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Problem.swift; sourceTree = "<group>"; };
 		36FE163A1E42C44600566F9E /* SummaryHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryHeaderView.swift; sourceTree = "<group>"; };
-		3FFCF7A9BE88E421344AC94C /* Pods_KnowYourAnglesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KnowYourAnglesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		40FF2CF1ABF5447993FC0B86 /* libPods-KnowYourAngles.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KnowYourAngles.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		45F91BD71E81C86500E26D3D /* org.iolani.inhouse.KnowYourAngles.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = org.iolani.inhouse.KnowYourAngles.c; sourceTree = "<group>"; };
-		5F32BE4E557A3B2C9EB2B3F4 /* Pods-KnowYourAngles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnowYourAngles.debug.xcconfig"; path = "Target Support Files/Pods-KnowYourAngles/Pods-KnowYourAngles.debug.xcconfig"; sourceTree = "<group>"; };
 		840180CA1D2C562400CB794B /* MyCertificate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCertificate.h; sourceTree = "<group>"; };
 		8422E9C11D35BF9500F33978 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		8429E1151D2C481500920987 /* KnowYourAngles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnowYourAngles.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,7 +97,7 @@
 		8429E1491D2C494300920987 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		84461B4A1D308F1000BA997E /* FinishScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishScreenViewController.swift; sourceTree = "<group>"; };
 		84C3E8211D2DC75300750751 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		93B41575A23EA5D1DB5A2634 /* Pods_KnowYourAnglesUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KnowYourAnglesUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BD61C04C9EF0A95C06AA4808 /* Pods-KnowYourAngles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnowYourAngles.debug.xcconfig"; path = "Target Support Files/Pods-KnowYourAngles/Pods-KnowYourAngles.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +107,7 @@
 			files = (
 				3661E5B91E0E1BD900601402 /* CoreData.framework in Frameworks */,
 				36C69ECF1D80A5DE0072CFFA /* SystemConfiguration.framework in Frameworks */,
-				182E8EF729A5AFC343CBA792 /* libPods-KnowYourAngles.a in Frameworks */,
+				E3A065ABC0C1E325751F83F0 /* libPods-KnowYourAngles.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,7 +213,7 @@
 				8429E1371D2C481600920987 /* KnowYourAnglesUITests */,
 				8429E1161D2C481500920987 /* Products */,
 				A84C561C0D9756B273D361DE /* Pods */,
-				FDE9A74D9794B2336D3C36B3 /* Frameworks */,
+				CE40A85F3124825B05A24AE4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -241,6 +241,7 @@
 				8429E1181D2C481500920987 /* AppDelegate.swift */,
 				36D9AC4C22FD559200BE4DAD /* OverallController.swift */,
 				8429E11C1D2C481500920987 /* Main.storyboard */,
+				36C1851624A29BC900DE117E /* AboutViewController.swift */,
 				360FE7AF23029FE000D998A8 /* StudyMode */,
 				8429E11F1D2C481500920987 /* Assets.xcassets */,
 				8429E1211D2C481500920987 /* LaunchScreen.storyboard */,
@@ -274,18 +275,16 @@
 		A84C561C0D9756B273D361DE /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				5F32BE4E557A3B2C9EB2B3F4 /* Pods-KnowYourAngles.debug.xcconfig */,
-				0B42B7C875C421A44E725627 /* Pods-KnowYourAngles.release.xcconfig */,
+				BD61C04C9EF0A95C06AA4808 /* Pods-KnowYourAngles.debug.xcconfig */,
+				29BAE113618DEB8747BEBC04 /* Pods-KnowYourAngles.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		FDE9A74D9794B2336D3C36B3 /* Frameworks */ = {
+		CE40A85F3124825B05A24AE4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3FFCF7A9BE88E421344AC94C /* Pods_KnowYourAnglesTests.framework */,
-				93B41575A23EA5D1DB5A2634 /* Pods_KnowYourAnglesUITests.framework */,
-				40FF2CF1ABF5447993FC0B86 /* libPods-KnowYourAngles.a */,
+				2F60615B28EA6C5D571DD704 /* libPods-KnowYourAngles.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -297,7 +296,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8429E13D1D2C481600920987 /* Build configuration list for PBXNativeTarget "KnowYourAngles" */;
 			buildPhases = (
-				C05A7F1C64432A47B9E3E575 /* [CP] Check Pods Manifest.lock */,
+				63F4CBFB616B4B644EE360D1 /* [CP] Check Pods Manifest.lock */,
 				8429E1111D2C481500920987 /* Sources */,
 				8429E1121D2C481500920987 /* Frameworks */,
 				8429E1131D2C481500920987 /* Resources */,
@@ -355,7 +354,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Iolani School";
 				TargetAttributes = {
 					8429E1141D2C481500920987 = {
@@ -438,7 +437,7 @@
 			shellPath = /bin/sh;
 			shellScript = "GIT_RELEASE_VERSION=$(git describe --tags --always --dirty)\nCOMMITS=$(git rev-list HEAD | wc -l)\nCOMMITS=$(($COMMITS))\ndefaults write \"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH%.*}\" \"CFBundleShortVersionString\" \"${GIT_RELEASE_VERSION#*v}\"\ndefaults write \"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH%.*}\" \"CFBundleVersion\" \"${COMMITS}\"\n";
 		};
-		C05A7F1C64432A47B9E3E575 /* [CP] Check Pods Manifest.lock */ = {
+		63F4CBFB616B4B644EE360D1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -476,6 +475,7 @@
 				36F5B09720E16C7C003AA258 /* Problem.swift in Sources */,
 				8429E1191D2C481500920987 /* AppDelegate.swift in Sources */,
 				36919FBD1E406478000A7647 /* SummaryCollectionViewController.swift in Sources */,
+				36C1851724A29BC900DE117E /* AboutViewController.swift in Sources */,
 				36919FBF1E406E6E000A7647 /* SummaryCollectionView.swift in Sources */,
 				36DD592A20F183BD007248B7 /* QuizSetupViewController.swift in Sources */,
 				36C426B620FD43C300061D8F /* StatisticsViewController.swift in Sources */,
@@ -561,6 +561,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -587,7 +588,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "$(inherited)";
@@ -623,6 +624,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -643,7 +645,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "";
@@ -658,7 +660,7 @@
 		};
 		8429E13E1D2C481600920987 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5F32BE4E557A3B2C9EB2B3F4 /* Pods-KnowYourAngles.debug.xcconfig */;
+			baseConfigurationReference = BD61C04C9EF0A95C06AA4808 /* Pods-KnowYourAngles.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -670,7 +672,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = KnowYourAngles/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -691,7 +693,7 @@
 		};
 		8429E13F1D2C481600920987 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0B42B7C875C421A44E725627 /* Pods-KnowYourAngles.release.xcconfig */;
+			baseConfigurationReference = 29BAE113618DEB8747BEBC04 /* Pods-KnowYourAngles.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -702,7 +704,7 @@
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = KnowYourAngles/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

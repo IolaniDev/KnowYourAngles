@@ -10,6 +10,7 @@
 //  https://www.raywenderlich.com/87899/make-simple-drawing-app-uikit-swift
 
 import UIKit
+//import Firebase
 
 class ViewController: UIViewController {
     
@@ -41,18 +42,34 @@ class ViewController: UIViewController {
     /*** END - Variables for overall setup ***/
     
     /*** START - Variables for constraints on the clear answer, submit, and clear work buttons for shifting between right-hand and left-hand modes ***/
-    //reference to the constraints on the clear answer button
-    @IBOutlet weak var clearAnswerButtonLeadingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var clearAnswerButtonTrailingConstraint: NSLayoutConstraint!
+    //reference to the right-hand mode constraints on the clear answer button
+    @IBOutlet weak var rightHandClearAnswerLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var rightHandClearAnswerTrailingConstraint: NSLayoutConstraint!
     
-    //reference to the constraints on the submit button
-    @IBOutlet weak var submitButtonLeadingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var submitButtonTrailingConstraint: NSLayoutConstraint!
+    //reference to the left-hand mode constraints on the clear answer button
+    @IBOutlet weak var leftHandClearAnswerLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var leftHandClearAnswerTrailingConstraint: NSLayoutConstraint!
     
-    //reference to constraints on the Clear Work button
-    @IBOutlet weak var clearWorkButtonLeadingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var clearWorkButtonTrailingConstraint: NSLayoutConstraint!
+    //reference to the right-hand mode constraints on the submit button
+    @IBOutlet weak var rightHandSubmitLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var rightHandSubmitTrailingConstraint: NSLayoutConstraint!
+    
+    //reference to the left-hand mode constraints on the submit button
+    @IBOutlet weak var leftHandSubmitLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var leftHandSubmitTrailingConstraint: NSLayoutConstraint!
+    
+    //reference to the right-hand mode constraints on the clear work button
+    @IBOutlet weak var rightHandClearWorkLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var rightHandClearWorkTrailingConstraint: NSLayoutConstraint!
+    
+    //reference to the left-hand mode constraints on the clear work button
+    @IBOutlet weak var leftHandClearWorkLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var leftHandClearWorkTrailingConstraint: NSLayoutConstraint!
+    
     /*** End - Variables for constraints on the clear answer, submit, and clear work buttons for shifting between right-hand and left-hand modes ***/
+    
+    //variable to track of number of handwriting conversions
+    var NumberOfConversions = 0;
     
     /***** START - variables and functions for automatically changing user's writing into text and math symbols *****/
     //create a timer
@@ -96,6 +113,10 @@ class ViewController: UIViewController {
                 
                 //get the result as string
                 result = try editorViewController.editor!.export_(nil, mimeType: supportedMimeTypes[0].value);
+                
+                //add 1 to the total number of conversions that have been done so far
+                NumberOfConversions += 1;
+                NSLog("QuizModeNumberOfConversions: \(NumberOfConversions)");
             } catch {
                 print("Error while converting : " + error.localizedDescription)
             }
@@ -182,41 +203,60 @@ class ViewController: UIViewController {
         {
             if(savedSettings.value(forKey: "isLeftHandMode") as! Bool)
             {
-                //activate the trailing constraint
-                clearAnswerButtonTrailingConstraint.isActive = true;
-                submitButtonTrailingConstraint.isActive = true;
-                clearWorkButtonTrailingConstraint.isActive = true;
+                //activate the left-hand mode constraints
+                leftHandClearAnswerLeadingConstraint.isActive = true;
+                leftHandClearAnswerTrailingConstraint.isActive = true;
+                leftHandSubmitLeadingConstraint.isActive = true;
+                leftHandSubmitTrailingConstraint.isActive = true;
+                leftHandClearWorkLeadingConstraint.isActive = true;
+                leftHandClearWorkTrailingConstraint.isActive = true;
                 
-                //deactivate the leading constraint
-                clearAnswerButtonLeadingConstraint.isActive = false
-                submitButtonLeadingConstraint.isActive = false;
-                clearWorkButtonLeadingConstraint.isActive = false;
+                //deactivate the right-hand mode constraints
+                rightHandClearAnswerLeadingConstraint.isActive = false;
+                rightHandClearAnswerTrailingConstraint.isActive = false;
+                rightHandSubmitLeadingConstraint.isActive = false;
+                rightHandSubmitTrailingConstraint.isActive = false;
+                rightHandClearWorkLeadingConstraint.isActive = false;
+                rightHandClearWorkTrailingConstraint.isActive = false;
+                
             }
             else
             {
-                //deactivate the trailing constraint
-                clearAnswerButtonTrailingConstraint.isActive = false;
-                submitButtonTrailingConstraint.isActive = false;
-                clearWorkButtonTrailingConstraint.isActive = false;
+                //deactivate the left-hand mode constraints
+                leftHandClearAnswerLeadingConstraint.isActive = false;
+                leftHandClearAnswerTrailingConstraint.isActive = false;
+                leftHandSubmitLeadingConstraint.isActive = false;
+                leftHandSubmitTrailingConstraint.isActive = false;
+                leftHandClearWorkLeadingConstraint.isActive = false;
+                leftHandClearWorkTrailingConstraint.isActive = false;
                 
-                //activate the leading constraint
-                clearAnswerButtonLeadingConstraint.isActive = true;
-                submitButtonLeadingConstraint.isActive = true;
-                clearWorkButtonLeadingConstraint.isActive = true;
+                //activate the right-hand mode constraints
+                rightHandClearAnswerLeadingConstraint.isActive = true;
+                rightHandClearAnswerTrailingConstraint.isActive = true;
+                rightHandSubmitLeadingConstraint.isActive = true;
+                rightHandSubmitTrailingConstraint.isActive = true;
+                rightHandClearWorkLeadingConstraint.isActive = true;
+                rightHandClearWorkTrailingConstraint.isActive = true;
             }
         }
             //if the user does not have saved settings for left vs. right-hand mode, default to right-hand mode
         else
         {
-            //deactivate the trailing constraint
-            clearAnswerButtonTrailingConstraint.isActive = false;
-            submitButtonTrailingConstraint.isActive = false;
-            clearWorkButtonTrailingConstraint.isActive = false;
+            //deactivate the left-hand mode constraints
+            leftHandClearAnswerLeadingConstraint.isActive = false;
+            leftHandClearAnswerTrailingConstraint.isActive = false;
+            leftHandSubmitLeadingConstraint.isActive = false;
+            leftHandSubmitTrailingConstraint.isActive = false;
+            leftHandClearWorkLeadingConstraint.isActive = false;
+            leftHandClearWorkTrailingConstraint.isActive = false;
             
-            //activate the leading constraint
-            clearAnswerButtonLeadingConstraint.isActive = true;
-            submitButtonLeadingConstraint.isActive = true;
-            clearWorkButtonLeadingConstraint.isActive = true;
+            //activate the right-hand mode constraints
+            rightHandClearAnswerLeadingConstraint.isActive = true;
+            rightHandClearAnswerTrailingConstraint.isActive = true;
+            rightHandSubmitLeadingConstraint.isActive = true;
+            rightHandSubmitTrailingConstraint.isActive = true;
+            rightHandClearWorkLeadingConstraint.isActive = true;
+            rightHandClearWorkTrailingConstraint.isActive = true;
         }
         
         /**********LOAD NUMBER OF PROBLEMS**********/
@@ -921,8 +961,21 @@ class ViewController: UIViewController {
         // setup image of first problem
         correctingMarksView.problemImage.image = UIImage(named: problemSource.getRandomProblem().problemImageName);
         
-        // add an observer for when the quiz timer runs out.
-        NotificationCenter.default.addObserver(self, selector: #selector(updateCountDown), name: NSNotification.Name(rawValue: "segueNow"), object: nil);
+        /**********SETTING UP THE COUNTDOWN TIMER**********/
+        //if there are previously saved settings for the timer ...
+        if(savedSettings.object(forKey: "isTimerOn") != nil)
+        {
+            //if the timer should be on...
+            if(savedSettings.object(forKey: "isTimerOn") as! Bool)
+            {
+                // add an observer for when the quiz timer runs out.
+                NotificationCenter.default.addObserver(self, selector: #selector(updateCountDown), name: NSNotification.Name(rawValue: "segueNow"), object: nil);
+            }
+            else
+            {
+                correctingMarksView.countdownTimer.text = "";
+            }
+        }
         
         /***** START - FOR IINK SDK 1.3: *****/
         editorViewController = (children.first as! EditorViewController)
@@ -956,6 +1009,8 @@ class ViewController: UIViewController {
         }
         /***** END - FOR IINK SDK 1.3: *****/
         
+        NumberOfConversions = 0;
+        
         timerStarted = false;
         //check once per second to see if a conversion is needed
         statusCheckTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(checkStatus(timer:)), userInfo: nil, repeats: true);
@@ -980,6 +1035,10 @@ class ViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated);
         editorViewController.editor.part = nil;
+        //start a trace to measure number of times handwriting is converted and to determine how long users study for
+        //let trace = Performance.startTrace(name: "QuizModeHandWritingConversion");
+        //trace?.setValue(Int64(NumberOfConversions), forMetric: "QuizModeNumberOfConversions")
+        //trace?.stop();
     }
     
     override func didReceiveMemoryWarning() {
@@ -1025,6 +1084,7 @@ class ViewController: UIViewController {
             
             //the result string will either have an equals symbol, a simeq (or approx symbol), or will just have a value
             //we'll need to strip away everything but the value
+            //we also need to make sure that there are no spaces after the value
             if(result.contains("="))
             {
                 result = String(result[result.index(after: result.firstIndex(of: "=")!)...]);
@@ -1032,6 +1092,10 @@ class ViewController: UIViewController {
             else if(result.contains("simeq"))
             {
                 result = String(result[result.index(after: result.lastIndex(of: " ")!)...]);
+            }
+            else if(result.contains(" "))
+            {
+                result = result.trimmingCharacters(in: .whitespacesAndNewlines);
             }
             //NSLog("Parsed Answer: %@", result);
             
@@ -1097,9 +1161,25 @@ class ViewController: UIViewController {
     {
         if(self.correctingMarksView.isOutOfTime)
         {
-            performSegue(withIdentifier: "toFinishScreen", sender: self);
+            beautifyTimer.invalidate();
+            statusCheckTimer.invalidate();
+            //code for getting the top most controller from https://stackoverflow.com/questions/26022756/warning-attempt-to-present-on-whose-view-is-not-in-the-window-hierarchy-s
+            let topVC = topMostController()
+            //let vcToPresent = self.storyboard!.instantiateViewController(withIdentifier: "YourVCStoryboardID") as! YourViewController
+            //topVC.present(vcToPresent, animated: true, completion: nil)
+            
+            topVC.performSegue(withIdentifier: "toFinishScreen", sender: self);
         }
     }
+    
+    //topMostController() function from: https://stackoverflow.com/questions/26022756/warning-attempt-to-present-on-whose-view-is-not-in-the-window-hierarchy-s
+    func topMostController() -> UIViewController {
+        var topController: UIViewController = UIApplication.shared.keyWindow!.rootViewController!
+            while (topController.presentedViewController != nil) {
+                topController = topController.presentedViewController!
+            }
+            return topController
+        }
     
     // function to clear the writing space where the user writes their answer
     @IBAction func clearMathView(_ sender: UIButton) {

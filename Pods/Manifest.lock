@@ -7,7 +7,7 @@ DEPENDENCIES:
   - MyScriptInteractiveInk-UIReferenceImplementation (from `.`)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - MyScriptInteractiveInk-Runtime
 
 EXTERNAL SOURCES:
@@ -16,8 +16,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   MyScriptInteractiveInk-Runtime: 7f9088accc7eedbedab5071a5d74d1b74bc3648f
-  MyScriptInteractiveInk-UIReferenceImplementation: fa0a1055dcb2c5cd9bc5c58b6ba4e6536a618f79
+  MyScriptInteractiveInk-UIReferenceImplementation: b160fd72d9930e56794e7ab933316d8fe0d10cb2
 
-PODFILE CHECKSUM: f216bd27af94eaf67203c3f373bacc2f8be8201c
+PODFILE CHECKSUM: 89b051ea23a6f28590a58802bf98ae6b6939620b
 
-COCOAPODS: 1.6.2
+COCOAPODS: 1.9.3

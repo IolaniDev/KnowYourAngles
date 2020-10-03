@@ -7,6 +7,7 @@
 //
 
 import UIKit
+//import Firebase
 
 class StudyMode : UIViewController{
     
@@ -41,19 +42,35 @@ class StudyMode : UIViewController{
     var result = "";
     /*** END - Variables for overall setup ***/
     
-    /*** START - Variables for constraints on the clear answer, submit, and clear work buttons for shifting between right-hand and left-hand modes ***/
-    //reference to the constraints on the clear answer button
-    @IBOutlet weak var clearAnswerButtonLeadingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var clearAnswerButtonTrailingConstraint: NSLayoutConstraint!
+    /*** START - Variables for the constraints on the clear answer, submit, and clear work buttons for shifting between right-hand and left-hand modes ***/
+    //reference to the right-hand mode constraints on the clear answer button
+    @IBOutlet weak var rightHandClearAnswerLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var rightHandClearAnswerTrailingConstraint: NSLayoutConstraint!
     
-    //reference to the constraints on the submit button
-    @IBOutlet weak var submitButtonLeadingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var submitButtonTrailingConstraint: NSLayoutConstraint!
+    //reference to the left-hand mode constraints on the clear answer button
+    @IBOutlet weak var leftHandClearAnswerLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var leftHandClearAnswerTrailingConstraint: NSLayoutConstraint!
     
-    //reference to constraints on the Clear Work button
-    @IBOutlet weak var clearWorkButtonLeadingConstraint: NSLayoutConstraint!
-    @IBOutlet weak var clearWorkButtonTrailingConstraint: NSLayoutConstraint!
-    /*** End - Variables for constraints on the clear answer, submit, and clear work buttons for shifting between right-hand and left-hand modes ***/
+    //reference to the right-hand mode constraints on the submit button
+    @IBOutlet weak var rightHandSubmitLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var rightHandSubmitTrailingConstraint: NSLayoutConstraint!
+    
+    //reference to the left-hand mode constraints on the submit button
+    @IBOutlet weak var leftHandSubmitLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var leftHandSubmitTrailingConstraint: NSLayoutConstraint!
+    
+    //reference to the right-hand mode constraints on the clear work button
+    @IBOutlet weak var rightHandClearWorkLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var rightHandClearWorkTrailingConstraint: NSLayoutConstraint!
+    
+    //reference to the left-hand mode constraints on the clear work button
+    @IBOutlet weak var leftHandClearWorkLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var leftHandClearWorkTrailingConstraint: NSLayoutConstraint!
+    
+    /*** End - Variables for the constraints on the clear answer, submit, and clear work buttons for shifting between right-hand and left-hand modes ***/
+    
+    //variable to track of number of handwriting conversions
+    var NumberOfConversions = 0;
     
     /***** START - for scratch paper component *****/
     @IBOutlet weak var scratchPaperImageView: UIImageView!
@@ -162,6 +179,11 @@ class StudyMode : UIViewController{
                 //get the result as string
                 result = try editorViewController.editor!.export_(nil, mimeType: supportedMimeTypes[0].value);
                 
+                //add 1 to the total number of conversions that have been done so far
+                NumberOfConversions += 1;
+                
+                NSLog("StudyModeNumberOfConversions: \(NumberOfConversions)");
+                
             } catch {
                 print("Error while converting : " + error.localizedDescription)
             }
@@ -183,41 +205,62 @@ class StudyMode : UIViewController{
         {
             if(savedSettings.value(forKey: "isLeftHandMode") as! Bool)
             {
-                //activate the trailing constraint
-                clearAnswerButtonTrailingConstraint.isActive = true;
-                submitButtonTrailingConstraint.isActive = true;
-                clearWorkButtonTrailingConstraint.isActive = true;
+                //if in left-handed mode...
+                //deactivate the constraints for right-hand mode
+                rightHandClearAnswerLeadingConstraint.isActive = false;
+                rightHandClearAnswerTrailingConstraint.isActive = false;
+                rightHandSubmitLeadingConstraint.isActive = false;
+                rightHandSubmitTrailingConstraint.isActive = false;
+                rightHandClearWorkLeadingConstraint.isActive = false;
+                rightHandClearWorkTrailingConstraint.isActive = false;
                 
-                //deactivate the leading constraint
-                clearAnswerButtonLeadingConstraint.isActive = false
-                submitButtonLeadingConstraint.isActive = false;
-                clearWorkButtonLeadingConstraint.isActive = false;
+                //activate the constraints for left-hand mode
+                leftHandClearAnswerLeadingConstraint.isActive = true;
+                leftHandClearAnswerTrailingConstraint.isActive = true;
+                leftHandSubmitLeadingConstraint.isActive = true;
+                leftHandSubmitTrailingConstraint.isActive = true;
+                leftHandClearWorkLeadingConstraint.isActive = true;
+                leftHandClearWorkTrailingConstraint.isActive = true;
             }
             else
             {
-                //deactivate the trailing constraint
-                clearAnswerButtonTrailingConstraint.isActive = false;
-                submitButtonTrailingConstraint.isActive = false;
-                clearWorkButtonTrailingConstraint.isActive = false;
+                //if in right-handed mode...
+                //deactivate the constraints for left-hand mode
+                leftHandClearAnswerLeadingConstraint.isActive = false;
+                leftHandClearAnswerTrailingConstraint.isActive = false;
+                leftHandSubmitLeadingConstraint.isActive = false;
+                leftHandSubmitTrailingConstraint.isActive = false;
+                leftHandClearWorkLeadingConstraint.isActive = false;
+                leftHandClearWorkTrailingConstraint.isActive = false;
                 
-                //activate the leading constraint
-                clearAnswerButtonLeadingConstraint.isActive = true;
-                submitButtonLeadingConstraint.isActive = true;
-                clearWorkButtonLeadingConstraint.isActive = true;
+                //activate the constraints for right-hand mode
+                rightHandClearAnswerLeadingConstraint.isActive = true;
+                rightHandClearAnswerTrailingConstraint.isActive = true;
+                rightHandSubmitLeadingConstraint.isActive = true;
+                rightHandSubmitTrailingConstraint.isActive = true;
+                rightHandClearWorkLeadingConstraint.isActive = true;
+                rightHandClearWorkTrailingConstraint.isActive = true;
             }
         }
             //if the user does not have saved settings for left vs. right-hand mode, default to right-hand mode
         else
         {
-            //deactivate the trailing constraint
-            clearAnswerButtonTrailingConstraint.isActive = false;
-            submitButtonTrailingConstraint.isActive = false;
-            clearWorkButtonTrailingConstraint.isActive = false;
+            //if in right-handed mode...
+            //deactivate the constraints for left-hand mode
+            leftHandClearAnswerLeadingConstraint.isActive = false;
+            leftHandClearAnswerTrailingConstraint.isActive = false;
+            leftHandSubmitLeadingConstraint.isActive = false;
+            leftHandSubmitTrailingConstraint.isActive = false;
+            leftHandClearWorkLeadingConstraint.isActive = false;
+            leftHandClearWorkTrailingConstraint.isActive = false;
             
-            //activate the leading constraint
-            clearAnswerButtonLeadingConstraint.isActive = true;
-            submitButtonLeadingConstraint.isActive = true;
-            clearWorkButtonLeadingConstraint.isActive = true;
+            //activate the constraints for right-hand mode
+            rightHandClearAnswerLeadingConstraint.isActive = true;
+            rightHandClearAnswerTrailingConstraint.isActive = true;
+            rightHandSubmitLeadingConstraint.isActive = true;
+            rightHandSubmitTrailingConstraint.isActive = true;
+            rightHandClearWorkLeadingConstraint.isActive = true;
+            rightHandClearWorkTrailingConstraint.isActive = true;
         }
         
         //setup the number of correctly answered questions label
@@ -972,6 +1015,10 @@ class StudyMode : UIViewController{
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated);
         editorViewController.editor.part = nil;
+        //start a trace to measure number of times handwriting is converted and to determine how long users study for
+        //let trace = Performance.startTrace(name: "StudyModeHandWritingConversion");
+        //trace?.setValue(Int64(NumberOfConversions), forMetric: "StudyModeNumberOfConversions")
+        //trace?.stop();
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -1001,6 +1048,7 @@ class StudyMode : UIViewController{
             
             //Get the position of the converted writing
             let picPositionMm = CGPoint(x: editorViewController.editor.rootBlock!.box.minX,y: editorViewController.editor.rootBlock!.box.minY);
+            
             //apply the transform to the position in mm to get pixels
             let picPosition = picPositionMm.applying(transform);
             
@@ -1013,6 +1061,7 @@ class StudyMode : UIViewController{
             
             //the result string will either have an equals symbol, a simeq (or approx symbol), or will just have a value
             //we'll need to strip away everything but the value
+            //we also need to make sure that there are no spaces after the value
             if(result.contains("="))
             {
                 result = String(result[result.index(after: result.firstIndex(of: "=")!)...]);
@@ -1020,6 +1069,10 @@ class StudyMode : UIViewController{
             else if(result.contains("simeq"))
             {
                 result = String(result[result.index(after: result.lastIndex(of: " ")!)...]);
+            }
+            else if(result.contains(" "))
+            {
+                result = result.trimmingCharacters(in: .whitespacesAndNewlines);
             }
             //NSLog("Parsed Answer: %@", result);
             
