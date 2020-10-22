@@ -23,8 +23,8 @@ open class AboutViewController: UIViewController
        override open func viewDidLoad() {
            //call on the super class viewDidLoad method
            super.viewDidLoad()
-        //trim extra stuff off of the appVersion name
-        let versionNumber = String(UIApplication.appVersion![..<(UIApplication.appVersion!.firstIndex(of: "-")!)]);
+        //get the version number or set the string to 0.0.0 if there's some kind of error.
+        let versionNumber:String = UIApplication.appVersion ?? "0.0.0";
         
         versionLabel.text = "Version: " + versionNumber;
     }
