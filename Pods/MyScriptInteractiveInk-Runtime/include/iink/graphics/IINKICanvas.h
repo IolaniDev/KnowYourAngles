@@ -1,4 +1,4 @@
-// Copyright MyScript. All right reserved.
+// Copyright @ MyScript. All rights reserved.
 
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
@@ -44,7 +44,34 @@ typedef NS_ENUM(NSUInteger, IINKFillRule) {
  */
 @protocol IINKICanvas <NSObject>
 
+@optional
+
+//==============================================================================
+#pragma mark - Drawing Session Management
+//==============================================================================
+
+/**
+ * Indicates that a drawing session starts, on a given area.
+ * Provided area must be cleared within this call.
+ *
+ * @param rect the drawing area.
+ *
+ * @since 1.4
+ */
+- (void)startDrawInRect:(CGRect)rect;
+
+/**
+ * Indicates that a drawing session ends.
+ *
+ * @since 1.4
+ */
+- (void)endDraw;
+
 @required
+
+//==============================================================================
+#pragma mark - View Properties
+//==============================================================================
 
 /**
  * The current transform.
@@ -239,5 +266,19 @@ typedef NS_ENUM(NSUInteger, IINKFillRule) {
  * @param rect extent of the rendered text.
  */
 - (void)drawText:(nonnull NSString *)label anchor:(CGPoint)origin region:(CGRect)rect;
+
+@optional
+
+/**
+ * Requests drawing of an offscreen surface (usually a bitmap).
+ *
+ * @param offscreenId the identifier of the surface.
+ * @param src the rectangle of the offscreen surface to draw.
+ * @param dest the rectangle where to draw the offscreen surface.
+ * @param color blend color to use (multiply blending operation, so opaque white color will not affect the bitmap).
+ *
+ * @since 1.4
+ */
+- (void)blendOffscreen:(uint32_t)offscreenId src:(CGRect)src dest:(CGRect)dest color:(uint32_t)color;
 
 @end

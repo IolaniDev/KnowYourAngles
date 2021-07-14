@@ -1,4 +1,4 @@
-// Copyright MyScript. All right reserved.
+// Copyright @ MyScript. All rights reserved.
 
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
@@ -163,6 +163,20 @@ IINKPointerEventMakeCancel(int pointerId)
 @property (strong, nonatomic, nullable) IINKContentPart *part;
 
 /**
+ * Sets the part managed by this editor.
+ *
+ * @param part the part.
+ * @param error the recipient for the error description object
+ *
+ *   * IINKErrorRuntime  when no `IFontMetricProvider` has been set,
+ *   via `setFontMetricsProvider()`.
+ *   * IINKErrorRuntime  when `part` is already bound.
+ *   * IINKErrorRuntime  when this editor cannot be configured.
+*/
+- (void)setPart:(nullable IINKContentPart*)part
+          error:(NSError * _Nullable * _Nullable)error;
+
+/**
  * The configuration associated with this editor.
  */
 @property (nonatomic, readonly, nonnull) IINKConfiguration *configuration;
@@ -309,7 +323,6 @@ IINKPointerEventMakeCancel(int pointerId)
  *
  * @param pointerId the id of the pointer.
  * @param error the recipient for the error description object
- *   * IINKErrorRuntime when `pointerDown()` has not been called before.
  * @return `YES` on success, otherwise `NO`.
  */
 - (BOOL)pointerCancel:(NSInteger)pointerId
@@ -393,6 +406,17 @@ IINKPointerEventMakeCancel(int pointerId)
 @property (nonatomic, strong, nonnull) NSString *theme;
 
 /**
+ * Changes the rendering theme style sheet, from a buffer containing
+ * CSS styling information.
+ *
+ * @param theme the style sheet, in CSS format.
+ * @param error the recipient for the error description object
+ *   * IINKErrorInvalidArgument when `theme` is invalid.
+ */
+- (void)setTheme:(nullable NSString *)theme
+           error:(NSError * _Nullable * _Nullable)error;
+
+/**
  * The style classes associated with new strokes.
  *
  * @note style properties `penStyle` may override the styling associated with
@@ -472,7 +496,7 @@ IINKPointerEventMakeCancel(int pointerId)
  * @param position the approximative position of the new block.
  * @param type the type of the new block.
  * @param error the recipient for the error description object
- *   * IINKErrorInvalidArgument when type is not supported by current part
+ *   * IINKErrorRuntime when type is not supported by current part
  *   type.
  *   * IINKErrorRuntime when editor is not associated with a part.
  *   * IINKErrorRuntime when a block already exists at this position,
@@ -521,6 +545,7 @@ IINKPointerEventMakeCancel(int pointerId)
  * @param position the approximative position of the new image.
  * @param file the image file to add.
  * @param mimeType the mime type that specifies the format of `inputFile`.
+ *   * IINKErrorInvalidArgument when `inputFile` does not exist.
  * @param error the recipient for the error description object
  *   * IINKErrorInvalidArgument when `mimeType` is not an image type.
  *   * IINKErrorRuntime when editor is not associated with a part.
@@ -551,7 +576,7 @@ IINKPointerEventMakeCancel(int pointerId)
           error:(NSError * _Nullable * _Nullable)error;
 
 /**
- * Return the block at the given position, or `nullptr` if there is no block
+ * Return the block at the given position, or `nil` if there is no block
  * at that position.
  *
  * @param position the hit position coordinates.
@@ -605,7 +630,7 @@ IINKPointerEventMakeCancel(int pointerId)
  * @note the method is named `export_` because the C++ standard defines
  * `export` as a keyword.
  *
- * @param block the block to export, `nullptr` means export full part.
+ * @param block the block to export, `nil` means export full part.
  * @param mimeType the mime type that specifies the output format.
  * @param error the recipient for the error description object
  *   * IINKErrorRuntime when editor is not associated with a part.
@@ -625,10 +650,10 @@ IINKPointerEventMakeCancel(int pointerId)
  * @note the method is named `export_` because the C++ standard defines
  * `export` as a keyword.
  *
- * @param block the block to export, `nullptr` means export full part.
+ * @param block the block to export, `nil` means export full part.
  * @param file the file to export to.
  * @param imageDrawer an image drawer that is required for some output
- *  formats. If you know that the specified output format doesn't require it you
+ *  formats. If you know that the specified output format does not require it you
  *  can leave it null.
  * @param error the recipient for the error description object
  *   * IINKErrorRuntime when editor is not associated with a part.
@@ -650,11 +675,11 @@ IINKPointerEventMakeCancel(int pointerId)
  * @note the method is named `export_` because the C++ standard defines
  * `export` as a keyword.
  *
- * @param block the block to export, `nullptr` means export full part.
+ * @param block the block to export, `nil` means export full part.
  * @param file the file to export to.
  * @param mimeType the mime type that specifies the output format.
  * @param imageDrawer an image drawer that is required for some output
- *  formats. If you know that the specified output format doesn't require it you
+ *  formats. If you know that the specified output format does not require it you
  *  can leave it null.
  * @param error the recipient for the error description object
  *   * IINKErrorRuntime when editor is not associated with a part.
@@ -678,7 +703,7 @@ IINKPointerEventMakeCancel(int pointerId)
  * @note the method is named `export_` because the C++ standard defines
  * `export` as a keyword.
  *
- * @param block the block to export, `nullptr` means export full part.
+ * @param block the block to export, `nil` means export full part.
  * @param mimeType the mime type that specifies the output format.
  * @param overrideConfiguration the extra configuration used when exporting.
  * @param error the recipient for the error description object
@@ -704,10 +729,10 @@ IINKPointerEventMakeCancel(int pointerId)
  * @note the method is named `export_` because the C++ standard defines
  * `export` as a keyword.
  *
- * @param block the block to export, `nullptr` means export full part.
+ * @param block the block to export, `nil` means export full part.
  * @param file the file to export to.
  * @param imageDrawer an image drawer that is required for some output
- *  formats. If you know that the specified output format doesn't require it you
+ *  formats. If you know that the specified output format does not require it you
  *  can leave it null.
  * @param overrideConfiguration the extra configuration used when exporting.
  * @param error the recipient for the error description object
@@ -735,11 +760,11 @@ overrideConfiguration:(nonnull IINKParameterSet *)overrideConfiguration
  * @note the method is named `export_` because the C++ standard defines
  * `export` as a keyword.
  *
- * @param block the block to export, `nullptr` means export full part.
+ * @param block the block to export, `nil` means export full part.
  * @param file the file to export to.
  * @param mimeType the mime type that specifies the output format.
  * @param imageDrawer an image drawer that is required for some output
- *  formats. If you know that the specified output format doesn't require it you
+ *  formats. If you know that the specified output format does not require it you
  *  can leave it null.
  * @param overrideConfiguration the extra configuration used when exporting.
  * @param error the recipient for the error description object
@@ -766,7 +791,7 @@ overrideConfiguration:(nonnull IINKParameterSet *)overrideConfiguration
 /**
  * Returns the supported import formats for specified content.
  *
- * @param block the block to request, `nullptr` means full part.
+ * @param block the block to request, `nil` means full part.
  * @return an array of the supported mime types.
  */
 - (nonnull NSArray<IINKMimeTypeValue *> *)getSupportedImportMimeTypes:(nullable IINKContentBlock *)block;
@@ -776,7 +801,7 @@ overrideConfiguration:(nonnull IINKParameterSet *)overrideConfiguration
  *
  * @param mimeType the mime type that specifies the format of `data`.
  * @param data the data to import.
- * @param block the target block, or `nullptr` to let editor detect the target.
+ * @param block the target block, or `nil` to let editor detect the target.
  * @param error the recipient for the error description object
  *   * IINKErrorRuntime when editor is not associated with a part.
  *   * IINKErrorRuntime when the specified mime type is not supported.
@@ -796,9 +821,10 @@ overrideConfiguration:(nonnull IINKParameterSet *)overrideConfiguration
 /**
  * Copies a block to the internal clipboard.
  *
- * @param block the block to copy, `nullptr` means full part.
+ * @param block the block to copy, `nil` means full part.
  * @param error the recipient for the error description object
  *   * IINKErrorRuntime when editor is not associated with a part.
+ *   * IINKErrorRuntime when block cannot be copied.
  * @return `YES` on success, otherwise `NO`.
  */
 - (BOOL)copy:(nonnull IINKContentBlock *)block
