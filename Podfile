@@ -5,7 +5,7 @@ target 'KnowYourAngles' do
 
   #use_frameworks!
 
-  pod 'MyScriptInteractiveInk-UIReferenceImplementation', :path => '.'
+  pod 'MyScriptInteractiveInk-UIReferenceImplementation', :path=> '.'
 
   # Pods for KnowYourAngles
 

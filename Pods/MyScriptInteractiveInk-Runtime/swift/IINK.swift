@@ -1,4 +1,4 @@
-// Copyright MyScript. All right reserved.
+// Copyright @ MyScript. All rights reserved.
 
 //
 // Refinements of the MyScript Interactive Ink Runtime API for Swift

@@ -12,6 +12,8 @@
 
 #import "iink/graphics/IINKICanvas.h"
 #import "iink/graphics/IINKIPath.h"
+#import "iink/graphics/IINKIStroker.h"
+#import "iink/graphics/IINKIStrokerFactory.h"
 #import "iink/graphics/IINKStyle.h"
 #import "iink/IINK.h"
 #import "iink/IINKConfiguration.h"
@@ -33,6 +35,7 @@
 #import "iink/text/IINKIFontMetricsProvider.h"
 #import "iink/text/IINKText.h"
 #import "iink/text/IINKTextSpan.h"
+#import "MyScriptInteractiveInk_Runtime/MyScriptInteractiveInk_Runtime.h"
 
 FOUNDATION_EXPORT double MyScriptInteractiveInk_RuntimeVersionNumber;
 FOUNDATION_EXPORT const unsigned char MyScriptInteractiveInk_RuntimeVersionString[];

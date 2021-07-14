@@ -1,4 +1,4 @@
-// Copyright MyScript. All right reserved.
+// Copyright @ MyScript. All rights reserved.
 
 #import <Foundation/Foundation.h>
 
@@ -186,6 +186,18 @@
  */
 - (nullable NSArray<NSString *> *)getStringArrayForKey:(nonnull NSString *)key
                                                  error:(NSError * _Nullable * _Nullable)error NS_SWIFT_NAME(stringArray(forKey:));
+
+/**
+ * Returns the string array value associated with `key`.
+ *
+ * @param key the key of the value to obtain.
+ * @param defaultValue the value to return when `key` is not present.
+ * @return the value.
+ *
+ * @since 1.4
+ */
+- (nonnull NSArray<NSString *> *)getStringArrayForKey:(nonnull NSString *)key
+                                         defaultValue:(nonnull NSArray<NSString *> *)defaultValue NS_SWIFT_NAME(stringArray(forKey:defaultValue:));
 
 /**
  * Sets the string array value associated with `key`.

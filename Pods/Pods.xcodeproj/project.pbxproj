@@ -7,86 +7,89 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04BC284BCB4EDE91C575E99293044296 /* MyScriptInteractiveInk_Runtime.h in Headers */ = {isa = PBXBuildFile; fileRef = 986F16C8478C335C407D557DC1AC10B4 /* MyScriptInteractiveInk_Runtime.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		065A3B6C5DD5AF2ABC88923E482C87F9 /* UIFont+Traits.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F4594624FDF59739219DE731541ED4 /* UIFont+Traits.m */; };
-		0A1EFFD09921A01C7D63E8BAC9615564 /* IINKEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E4D8BF7083E582A8D702C8661B23E24 /* IINKEngine.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		0A3AC4852273B7AC81CE046265A0E966 /* UIFont+Traits.h in Headers */ = {isa = PBXBuildFile; fileRef = 6AECF112B36D08046E399172F644C7A8 /* UIFont+Traits.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		0BBB8B66B90ED30E28013B924E1BD61A /* FontMetricsProvider.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0B51A63ED2990A6A92DB10B67CD73633 /* FontMetricsProvider.mm */; };
 		1102AA448AA0C7BB763F35B132A011EC /* NSFileManager+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = B1C527BAE40E1C699B2934053E8E272E /* NSFileManager+Additions.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		11D5265083C138461BAFD9A655A430C3 /* ImageDrawer.h in Headers */ = {isa = PBXBuildFile; fileRef = 9520E196122762A940D01039B3ADFBB6 /* ImageDrawer.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		1215DB81AF83F631B1DDCAC923CAD10D /* IINKIFontMetricsProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = D0B74CCAB4DB4F75C5E566B5860DAF78 /* IINKIFontMetricsProvider.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		13427DCC63B1E9BB7199293F333F68F6 /* IINKIFontMetricsProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = B1B1BE70DBC3F3B9B8400E137B85164F /* IINKIFontMetricsProvider.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		15CE8725438B062F5CE2B746B97F6C05 /* IINKIPath.h in Headers */ = {isa = PBXBuildFile; fileRef = 817D123ED21D5A7044E97A76360A5BA4 /* IINKIPath.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		19BC71FF165AFAC9493B7298EBB38FF2 /* IINK.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C88477C7977D2EEE23E4BC740EB19CD /* IINK.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		1A180732826D659DA5960435D50E9233 /* IINKError.h in Headers */ = {isa = PBXBuildFile; fileRef = 12B69340AEA0B2A5FB9377ECE7D52E3C /* IINKError.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		1A9B46CF95603F89A66365C66477EDDE /* ImageLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = E70C71E3A42B39EEDD93535AC1A70023 /* ImageLoader.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		1B1460EBF1E666CCE1745ADED7D03DBB /* DisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 83AAA046193F8EC355825AE853EA7AA1 /* DisplayViewController.m */; };
 		1B956AC145446C9FE641BAE655AEAC67 /* Helper.h in Headers */ = {isa = PBXBuildFile; fileRef = 01BE0117C01F09D35BBE08EF8BF87FEE /* Helper.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		1D660BDF4F4ABE681F6381920F0F7826 /* IINKIImageDrawer.h in Headers */ = {isa = PBXBuildFile; fileRef = 4BA18D14A784B60189EF92213AC18398 /* IINKIImageDrawer.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		221669DEC2ABEB7EA86E53F29D00FDDE /* Pods-KnowYourAngles-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3088C55C8822C40B41BE963043079AFE /* Pods-KnowYourAngles-dummy.m */; };
-		258AA2341B19CDDC0901748DBD8CBE47 /* IINKConfigurationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = C290B322711E776934BAE3B669E7E502 /* IINKConfigurationDelegate.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		236AA16B01CF1A59A963D5A0809D5403 /* IINKConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = EA9E6BA528B09EE03F0B6AB0BEE52DFB /* IINKConfiguration.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		23D6AF36C3180CD377E231A568C3E2EA /* IINKIRenderTarget.h in Headers */ = {isa = PBXBuildFile; fileRef = DF951F5F04374EE4831FEA7BB2941955 /* IINKIRenderTarget.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		259508ACE18F4C4D9F488DE7A60B9FEC /* IInkUIReferenceImplementation.h in Headers */ = {isa = PBXBuildFile; fileRef = 83538D26FBD83168DCBB1ABA1D124260 /* IInkUIReferenceImplementation.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		28EB6FF893D6D51A5B71CFFAD72FA7B5 /* NSAttributedString+Helper.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A93AE3638A15D104FD75948593E000B /* NSAttributedString+Helper.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2A7D5E0B809A1B11EAC0DBB5D4EE6CA0 /* IINKParameterSet.h in Headers */ = {isa = PBXBuildFile; fileRef = EF466938F7FAD2D599DC2C37CE798A43 /* IINKParameterSet.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2BDE16CFE77EAFECF7D83E17F58B6B6D /* IINKEditorDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = C6CCDFF8641A79ED4E69979978A562F5 /* IINKEditorDelegate.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		2C875C9790441A8C4B91ED639AB0F23C /* DisplayViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = AB5EAA22BA7B8838F6E1F9A36B0FFB58 /* DisplayViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		2D78EF63CD819AEB0A8E9338E675F910 /* IINKContentPackage.h in Headers */ = {isa = PBXBuildFile; fileRef = 8ED93869DE93C6FD7A3D3861B68C4FA3 /* IINKContentPackage.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		2DBFA9B39542195C8ACA9F5CF5CFCF70 /* IINKIRenderTarget.h in Headers */ = {isa = PBXBuildFile; fileRef = 45B09AD6A981DF3D17C31432281A38D3 /* IINKIRenderTarget.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		2E9C7402446D3246F7E50595B082595C /* IINKRecognitionAssetsBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = F0E7969939191A80109513DB9B9F9E72 /* IINKRecognitionAssetsBuilder.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		2FA27911216A5533A30CFF658E2F455C /* IINK.h in Headers */ = {isa = PBXBuildFile; fileRef = 049F961FAC2F29CE21B77F1246589C14 /* IINK.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		2FBCFE161370D89771E84713CA381177 /* IINKStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 720DBF62DF915C0CEA42D928F4961973 /* IINKStyle.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		361FE8E438F01D4396A5294651701E34 /* IINKContentBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = EBC188FD060D98503D9892E609C97995 /* IINKContentBlock.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		37ECA8894B37C634EF6184FAA0078D65 /* MyScriptInteractiveInk-Runtime-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F94543A5395A148C18A7D874FB4DF516 /* MyScriptInteractiveInk-Runtime-dummy.m */; };
+		2E412A2E394FE581D3AFE09DD91E8E89 /* IINKIImageDrawer.h in Headers */ = {isa = PBXBuildFile; fileRef = 6E153377DFB883EDFB2BF6FEB566A31A /* IINKIImageDrawer.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		34973FA74ABDDB982DAE9C2209A4A16C /* IINKIStroker.h in Headers */ = {isa = PBXBuildFile; fileRef = A5874D1352CB4C8627513300BC116D71 /* IINKIStroker.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		3A8E6D47B420C83F611BCE5AE53591BF /* IINKIStrokerFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 09A69477D7DFB2D0DD618901EF6A7CD5 /* IINKIStrokerFactory.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		3B9B852F331B62ED15E0A4F15A11A493 /* EditorViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 011E2BFEDC578F40FDE5736DDECE6014 /* EditorViewController.mm */; };
-		3C44AC1E2F395BA2AFB2D1B009CD6856 /* IINKEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EA0D083DDD2F59CED2E141AA4E5AC9F /* IINKEditor.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		4A36283DE0F7EA3A982D2EDA5DC82D69 /* IINKEditorDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 2C5B846AA14F5648397BE4FC0A604D3D /* IINKEditorDelegate.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		3F18C3637A34BDE23AA37E6E9DCD24D0 /* IINKEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 06466C2747F4C8F8022B3BB9FAA2EA89 /* IINKEngine.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		41600616F7EAC454DA8C544C5EC86A40 /* IINKContentBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = 79799996BC6C5BE53C7161D2CBA41D2B /* IINKContentBlock.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		4E01FAC86A240FBD1D55315CA7C27B09 /* NSAttributedString+Helper.mm in Sources */ = {isa = PBXBuildFile; fileRef = B22B286E849CF8D2E0997E979C8BE434 /* NSAttributedString+Helper.mm */; };
-		4F0867FB728290A0EDC516738F8208F7 /* IINKIPath.h in Headers */ = {isa = PBXBuildFile; fileRef = AF6C75E1E1CDC58F62C312BF55CC51CC /* IINKIPath.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		4EC71ABECA38E528148ECF5BA58AEF98 /* IINKConfigurationDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 521F5A8D1C33D1A7676715CB29319B22 /* IINKConfigurationDelegate.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		5217C85A427B6DA3CA0393A73FDC728D /* IInkUIRefImplUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = C127C7ADF9EB36B8E3DA60C3E677DF27 /* IInkUIRefImplUtils.m */; };
-		5444C146CC9C09A69B27E34374AA5795 /* IINKRendererDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FE72A0F1A29C3EA6D27376CE00026F5 /* IINKRendererDelegate.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		58E0312F0A213FD14D14C920DA70D6E8 /* IINKMimeType.h in Headers */ = {isa = PBXBuildFile; fileRef = 6688744488B49B9526A37398F9308EF6 /* IINKMimeType.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		58E81C3D570B57E5DE628F54114C05F7 /* Path.m in Sources */ = {isa = PBXBuildFile; fileRef = 98239888702CD1C5AE50475547C1C72C /* Path.m */; };
-		63B481A7CCFD56017CFCB10A34908CA9 /* IINKConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = C1B0B22E09348C14A73B4CE25E968FCB /* IINKConfiguration.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		5B22DFE88ACC65A63A01F1A1DB9831D8 /* IINKRendererDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 9364F669FB9EF388D1F716588D094E05 /* IINKRendererDelegate.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		68CCCC5113828406FD3791C4D70FE2BB /* IInkUIRefImplUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = E0234D307C8D2D6083DD9F90D2B778F2 /* IInkUIRefImplUtils.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		6F112B6E31542621C006686C3257EE2E /* IINKText.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A68233DB8C010565D8AF3FBB3B4B3E8 /* IINKText.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		7B7B1789ED135C9B867507AF734FBDE5 /* IINKRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D87B28E50EF8EC48F2E176464D68B87 /* IINKRenderer.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		80680A613BBEE8B3D4A5760B8020AA32 /* Pods-KnowYourAngles-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E1FE26254DAC638CF97FCA692CF52C27 /* Pods-KnowYourAngles-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		80B903A51358E3009A94045DE1EBB2B0 /* MyScriptInteractiveInk-Runtime-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 94EBB1C068F5206E57B6924DF0537E84 /* MyScriptInteractiveInk-Runtime-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		861216910B6FC92E8E7824C9FD63F5F7 /* IINKRecognitionAssetsBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 83F155F92CEC0E0A9F2EF0C5517CD370 /* IINKRecognitionAssetsBuilder.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		87C86FF9EC1599887C2933F57CF60CC0 /* Canvas.h in Headers */ = {isa = PBXBuildFile; fileRef = 0EB5BA3E4BA22809DCDFAC318EEF52CB /* Canvas.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		8A07186BDC06816C2EF7A270D77DDD76 /* IINKContentPart.h in Headers */ = {isa = PBXBuildFile; fileRef = 9720349AEC561B9EA4BF7201B616883B /* IINKContentPart.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		8ACA73CE3B567A6F2C24C75F2CCE84C5 /* Path.h in Headers */ = {isa = PBXBuildFile; fileRef = 21A8A2043DB96793E8F20FD10377DC7E /* Path.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		8D0C22149410C6206069A58BEE416E20 /* InputView.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F733DD98B698BFD56F5D6F581CD6964 /* InputView.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		9B70CC3C637289D2507D91C216C72971 /* IINKICanvas.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AC2668B83D24D50508E01B1F9841C93 /* IINKICanvas.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		9F64670510D289E698044DA91AAB5168 /* IINKTextSpan.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A4DE5B197E8E5D918521A41B4407687 /* IINKTextSpan.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		8E01A68D73AAF373D5387296A1601E2D /* IINK.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2C89A7ED6A3AFD39C06CEE3DD76C678 /* IINK.swift */; };
+		9CC7234E0B3A0ECC0B1F8402C7661582 /* IINKStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CE4E4D05AA77E5AF5AA2A07F8850892 /* IINKStyle.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		A0F0A992DBABCEDA0E3B4CDE6354EC82 /* UIfont+Helper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0A9F2D08AD6C4F4545060F1C32E5E5FD /* UIfont+Helper.mm */; };
 		AB14A73129F27998BA7742717941585D /* ImageLoader.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3A260EE12F95E9E72F8450476D34D1A2 /* ImageLoader.mm */; };
+		B0C02443BA3B9EB8CDC0CBA137DFF4C6 /* IINKRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CB62F6D3BA03EF1C0F8D4ED6E95F941 /* IINKRenderer.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B136F218D4590A5C62C91366BC253382 /* IINKEditor.h in Headers */ = {isa = PBXBuildFile; fileRef = CC6D47E664DD5E56BB640C27230D5D8C /* IINKEditor.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		B4F4A4E113CCA1165A5996E88FE20991 /* RenderView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 5FC97287489B57ADD6F299E938D58D32 /* RenderView.mm */; };
 		B6C49563FDE2AADB2C6D4313E9D8E8D5 /* MyScriptInteractiveInk-UIReferenceImplementation-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = C9C270411E4AF567F49A8DA16985BA9A /* MyScriptInteractiveInk-UIReferenceImplementation-dummy.m */; };
-		B93E99E9564260727197D639846D3BDA /* IINK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D4473EF308B6D505B4659DB034B5E2C /* IINK.swift */; };
+		B8000AF24A26C21E97A2A3B48F219922 /* IINKText.h in Headers */ = {isa = PBXBuildFile; fileRef = 223941388B1FE10A111FD81EAA251CD4 /* IINKText.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		BC18329338ABD822A6D95FFD7125985B /* Canvas.mm in Sources */ = {isa = PBXBuildFile; fileRef = 40DB5D3676978A6143CD080A7F808AB0 /* Canvas.mm */; };
 		BE0CE78FB44BBE73AEA8394F65564B45 /* SmartGuideViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 8A2BBF7741BFDA47544E71E56A3AB4C3 /* SmartGuideViewController.mm */; };
 		BE64BA87589AB9750588ACDA7A992B86 /* Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C6B197F3217A307A40D579EEAC2F8C8 /* Helper.m */; };
+		C36327168A5E32D813829EA617E209B9 /* IINKMimeType.h in Headers */ = {isa = PBXBuildFile; fileRef = 4598E699329C16F21D272D599C52E221 /* IINKMimeType.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C5692B6CA5647A084104145006D27CFE /* IINKContentPackage.h in Headers */ = {isa = PBXBuildFile; fileRef = BB3CC730A2FE0CA855035C2F70543788 /* IINKContentPackage.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		CE32D9023AF4DF989C47F042A48B24BC /* MyScriptInteractiveInk-Runtime-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 137000F2CEFA50558A31C32D536187C4 /* MyScriptInteractiveInk-Runtime-dummy.m */; };
 		CFD6545C993A1DB94FDA7582BFC4E628 /* UIfont+Helper.h in Headers */ = {isa = PBXBuildFile; fileRef = 35B9042E1ABF8633FE64A388A6260090 /* UIfont+Helper.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		D909A209C7D4C8378FA1C7B018C75CEF /* NSFileManager+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = F9882C173DB6917A80996C17112A659A /* NSFileManager+Additions.m */; };
+		DBBB53AA8C9678B54C6F148BEC63A368 /* IINKICanvas.h in Headers */ = {isa = PBXBuildFile; fileRef = 18DF9105518EA8715EA056DBA8C6955E /* IINKICanvas.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		DDBF802921F285F6EA10DF3A31278CC5 /* InputView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 83BFC7BC9BA12BBE889C925E378FDD69 /* InputView.mm */; };
-		E77A5908A468F5B5AF30AE7B74F9852D /* IINKParameterSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 8CC8D8AE05918465A4825AE049B69D9D /* IINKParameterSet.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		DDF1257FF919DC17B2E37C0C8B4F5D2C /* MyScriptInteractiveInk-Runtime-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9BAB87EB7766900D943BB542D3A73A59 /* MyScriptInteractiveInk-Runtime-umbrella.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		DF700D6CD999F13ED4E8015F23F01CF1 /* IINKTextSpan.h in Headers */ = {isa = PBXBuildFile; fileRef = FEF949673DE686BE9AB35BF4B95E06BC /* IINKTextSpan.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		E7CDDD704B8CF9A492DC94AED0A156A4 /* RenderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D4B425C9994F2AE8313949184A5E39D /* RenderView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		E9B91DD299907A696C3D6357D80FC071 /* ImageDrawer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 602E085441717AA826BFA6899F822773 /* ImageDrawer.mm */; };
 		EB514CEDC54EEF1003A8C5AEDE1318A7 /* EditorViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 27AA4A95D82FD52D361F9F7B7DB4B46B /* EditorViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		EEA56AF59A550D115FB6772256D48563 /* IINKContentPart.h in Headers */ = {isa = PBXBuildFile; fileRef = 839E8A3A07E73A97378FC9CDC95E9527 /* IINKContentPart.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		F5BC2478C7006A6610642995D5982785 /* FontMetricsProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = E3053637EC0FE67C7CA9CF81710346EE /* FontMetricsProvider.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		F7D8F5CDD00878DB8B9D7A1AC665F88C /* IINKError.h in Headers */ = {isa = PBXBuildFile; fileRef = A373997F7D326AFFD499B7ED275B9A3A /* IINKError.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		FABE7F6060E9DD75DCF8C1396ED16189 /* SmartGuideViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EF9BBBA9335FF79D1A88DD55D6EB004 /* SmartGuideViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B217DE517F39C1F57F4894423F404252 /* PBXContainerItemProxy */ = {
+		58826F3BADD85769CFDE9BB0A794F6EE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = CCE2E92344C7DCC3BE07872AC75F859B;
 			remoteInfo = "MyScriptInteractiveInk-UIReferenceImplementation";
 		};
-		C28FC3254F277840AE1A4C79F86E4272 /* PBXContainerItemProxy */ = {
+		7CF1D7AF795D65B35D736783BEB8F7B3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 8AE95DED2AC6DAD4F211E002996B1AAE;
 			remoteInfo = "MyScriptInteractiveInk-Runtime";
 		};
-		D62468D49C0C75C41193BC071D468F9D /* PBXContainerItemProxy */ = {
+		CAC0DB234DA10CB70F450512C48CF574 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
@@ -99,106 +102,109 @@
 		011E2BFEDC578F40FDE5736DDECE6014 /* EditorViewController.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; path = EditorViewController.mm; sourceTree = "<group>"; };
 		01BE0117C01F09D35BBE08EF8BF87FEE /* Helper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Helper.h; sourceTree = "<group>"; };
 		02D12D05EED78AE05A835D71951CA21A /* Pods-KnowYourAngles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KnowYourAngles.debug.xcconfig"; sourceTree = "<group>"; };
-		03882401AEF383418C99C1D0D22EEB77 /* libMyScript2D.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libMyScript2D.a; sourceTree = "<group>"; };
-		049F961FAC2F29CE21B77F1246589C14 /* IINK.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINK.h; path = include/iink/IINK.h; sourceTree = "<group>"; };
+		06466C2747F4C8F8022B3BB9FAA2EA89 /* IINKEngine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKEngine.h; path = include/iink/IINKEngine.h; sourceTree = "<group>"; };
+		09A69477D7DFB2D0DD618901EF6A7CD5 /* IINKIStrokerFactory.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKIStrokerFactory.h; path = include/iink/graphics/IINKIStrokerFactory.h; sourceTree = "<group>"; };
 		0A9F2D08AD6C4F4545060F1C32E5E5FD /* UIfont+Helper.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIfont+Helper.mm"; sourceTree = "<group>"; };
 		0B51A63ED2990A6A92DB10B67CD73633 /* FontMetricsProvider.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; path = FontMetricsProvider.mm; sourceTree = "<group>"; };
-		0E4D8BF7083E582A8D702C8661B23E24 /* IINKEngine.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKEngine.h; path = include/iink/IINKEngine.h; sourceTree = "<group>"; };
 		0EB5BA3E4BA22809DCDFAC318EEF52CB /* Canvas.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Canvas.h; sourceTree = "<group>"; };
 		127C50421B58C0BB296BDB9EEDC66203 /* libMyScriptInteractiveInk-UIReferenceImplementation.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libMyScriptInteractiveInk-UIReferenceImplementation.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		1743B759A18EE0ADC553667FC0078BA9 /* libMyScriptAnalyzer.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libMyScriptAnalyzer.a; sourceTree = "<group>"; };
-		18F75E191A13F49B84DB6823811AA545 /* libiink.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libiink.a; sourceTree = "<group>"; };
+		12B69340AEA0B2A5FB9377ECE7D52E3C /* IINKError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKError.h; path = include/iink/IINKError.h; sourceTree = "<group>"; };
+		137000F2CEFA50558A31C32D536187C4 /* MyScriptInteractiveInk-Runtime-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MyScriptInteractiveInk-Runtime-dummy.m"; sourceTree = "<group>"; };
+		18DF9105518EA8715EA056DBA8C6955E /* IINKICanvas.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKICanvas.h; path = include/iink/graphics/IINKICanvas.h; sourceTree = "<group>"; };
+		1CB62F6D3BA03EF1C0F8D4ED6E95F941 /* IINKRenderer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKRenderer.h; path = include/iink/IINKRenderer.h; sourceTree = "<group>"; };
 		21A8A2043DB96793E8F20FD10377DC7E /* Path.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = Path.h; sourceTree = "<group>"; };
-		22456D4859B5187981F2322650CAF1BA /* libMyScriptPrediction.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libMyScriptPrediction.a; sourceTree = "<group>"; };
-		2351E31BBAAD36B20A65CFB0B0296AC4 /* MyScriptInteractiveInk-Runtime.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "MyScriptInteractiveInk-Runtime.modulemap"; sourceTree = "<group>"; };
-		271333BC1B721AF5AD21A0F632E1B87C /* MyScriptInteractiveInk-Runtime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "MyScriptInteractiveInk-Runtime.release.xcconfig"; sourceTree = "<group>"; };
+		223941388B1FE10A111FD81EAA251CD4 /* IINKText.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKText.h; path = include/iink/text/IINKText.h; sourceTree = "<group>"; };
 		27AA4A95D82FD52D361F9F7B7DB4B46B /* EditorViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = EditorViewController.h; sourceTree = "<group>"; };
-		2A4DE5B197E8E5D918521A41B4407687 /* IINKTextSpan.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKTextSpan.h; path = include/iink/text/IINKTextSpan.h; sourceTree = "<group>"; };
-		2C5B846AA14F5648397BE4FC0A604D3D /* IINKEditorDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKEditorDelegate.h; path = include/iink/IINKEditorDelegate.h; sourceTree = "<group>"; };
-		2FE72A0F1A29C3EA6D27376CE00026F5 /* IINKRendererDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKRendererDelegate.h; path = include/iink/IINKRendererDelegate.h; sourceTree = "<group>"; };
+		2B6066A0F0B9A912C9E650BB2B49B0B6 /* libMyScriptShape.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libMyScriptShape.a; sourceTree = "<group>"; };
 		3088C55C8822C40B41BE963043079AFE /* Pods-KnowYourAngles-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-KnowYourAngles-dummy.m"; sourceTree = "<group>"; };
 		33F4594624FDF59739219DE731541ED4 /* UIFont+Traits.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Traits.m"; sourceTree = "<group>"; };
 		35B9042E1ABF8633FE64A388A6260090 /* UIfont+Helper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIfont+Helper.h"; sourceTree = "<group>"; };
 		3A260EE12F95E9E72F8450476D34D1A2 /* ImageLoader.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; path = ImageLoader.mm; sourceTree = "<group>"; };
 		3C2D6D5A207A333915BEF2B77A406344 /* MyScriptInteractiveInk-UIReferenceImplementation.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; path = "MyScriptInteractiveInk-UIReferenceImplementation.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		406129822DB8F5735BD55DE20E485D1E /* libMyScriptMath.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libMyScriptMath.a; sourceTree = "<group>"; };
 		40DB5D3676978A6143CD080A7F808AB0 /* Canvas.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; path = Canvas.mm; sourceTree = "<group>"; };
-		45B09AD6A981DF3D17C31432281A38D3 /* IINKIRenderTarget.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKIRenderTarget.h; path = include/iink/IINKIRenderTarget.h; sourceTree = "<group>"; };
+		436F7197BC307D89963580304FD4CD33 /* MyScriptInteractiveInk-Runtime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "MyScriptInteractiveInk-Runtime.debug.xcconfig"; sourceTree = "<group>"; };
+		4598E699329C16F21D272D599C52E221 /* IINKMimeType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKMimeType.h; path = include/iink/IINKMimeType.h; sourceTree = "<group>"; };
 		4619840A177F8171F5AF76673D431DF5 /* Pods-KnowYourAngles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-KnowYourAngles.release.xcconfig"; sourceTree = "<group>"; };
-		4BA18D14A784B60189EF92213AC18398 /* IINKIImageDrawer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKIImageDrawer.h; path = include/iink/IINKIImageDrawer.h; sourceTree = "<group>"; };
-		4EA0D083DDD2F59CED2E141AA4E5AC9F /* IINKEditor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKEditor.h; path = include/iink/IINKEditor.h; sourceTree = "<group>"; };
+		4B145A7379EC6CFD262B0532A68C9000 /* MyScriptInteractiveInk-Runtime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "MyScriptInteractiveInk-Runtime.release.xcconfig"; sourceTree = "<group>"; };
 		4EF9BBBA9335FF79D1A88DD55D6EB004 /* SmartGuideViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SmartGuideViewController.h; sourceTree = "<group>"; };
-		4F5D78AC73F46B3A5A6A34B26E92300C /* libMyScriptMath.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libMyScriptMath.a; sourceTree = "<group>"; };
-		50DECFB140253C85B810C793D8DB67E3 /* libMyScriptText.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libMyScriptText.a; sourceTree = "<group>"; };
-		56EC6FFA3F964D8077F6DF153E73C42B /* libMyScriptDocument.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libMyScriptDocument.a; sourceTree = "<group>"; };
+		521F5A8D1C33D1A7676715CB29319B22 /* IINKConfigurationDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKConfigurationDelegate.h; path = include/iink/IINKConfigurationDelegate.h; sourceTree = "<group>"; };
+		5587A7392E9157649FD998E5D8745F19 /* libMyScriptAnalyzer.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libMyScriptAnalyzer.a; sourceTree = "<group>"; };
 		56F7814CEAD7135BEA588EA7F8CFCF7A /* Pods-KnowYourAngles-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-KnowYourAngles-acknowledgements.markdown"; sourceTree = "<group>"; };
-		5D4473EF308B6D505B4659DB034B5E2C /* IINK.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IINK.swift; path = swift/IINK.swift; sourceTree = "<group>"; };
+		5C88477C7977D2EEE23E4BC740EB19CD /* IINK.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINK.h; path = include/iink/IINK.h; sourceTree = "<group>"; };
+		5CE4E4D05AA77E5AF5AA2A07F8850892 /* IINKStyle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKStyle.h; path = include/iink/graphics/IINKStyle.h; sourceTree = "<group>"; };
 		5F93F8B46EDF6161E18C594DC95F8E57 /* libMyScriptInteractiveInk-Runtime.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libMyScriptInteractiveInk-Runtime.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FC97287489B57ADD6F299E938D58D32 /* RenderView.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; path = RenderView.mm; sourceTree = "<group>"; };
 		602E085441717AA826BFA6899F822773 /* ImageDrawer.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; path = ImageDrawer.mm; sourceTree = "<group>"; };
-		6688744488B49B9526A37398F9308EF6 /* IINKMimeType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKMimeType.h; path = include/iink/IINKMimeType.h; sourceTree = "<group>"; };
 		6A93AE3638A15D104FD75948593E000B /* NSAttributedString+Helper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Helper.h"; sourceTree = "<group>"; };
 		6AECF112B36D08046E399172F644C7A8 /* UIFont+Traits.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIFont+Traits.h"; sourceTree = "<group>"; };
-		720DBF62DF915C0CEA42D928F4961973 /* IINKStyle.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKStyle.h; path = include/iink/graphics/IINKStyle.h; sourceTree = "<group>"; };
-		7A68233DB8C010565D8AF3FBB3B4B3E8 /* IINKText.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKText.h; path = include/iink/text/IINKText.h; sourceTree = "<group>"; };
-		7AC2668B83D24D50508E01B1F9841C93 /* IINKICanvas.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKICanvas.h; path = include/iink/graphics/IINKICanvas.h; sourceTree = "<group>"; };
-		7D87B28E50EF8EC48F2E176464D68B87 /* IINKRenderer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKRenderer.h; path = include/iink/IINKRenderer.h; sourceTree = "<group>"; };
+		6E153377DFB883EDFB2BF6FEB566A31A /* IINKIImageDrawer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKIImageDrawer.h; path = include/iink/IINKIImageDrawer.h; sourceTree = "<group>"; };
+		79799996BC6C5BE53C7161D2CBA41D2B /* IINKContentBlock.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKContentBlock.h; path = include/iink/IINKContentBlock.h; sourceTree = "<group>"; };
+		7B31C36E1C24523C8FDA05124EB4C1C0 /* libiink.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libiink.a; sourceTree = "<group>"; };
 		7D9D764406896A42D079747471031951 /* MyScriptInteractiveInk-UIReferenceImplementation-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MyScriptInteractiveInk-UIReferenceImplementation-prefix.pch"; sourceTree = "<group>"; };
 		7F733DD98B698BFD56F5D6F581CD6964 /* InputView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = InputView.h; sourceTree = "<group>"; };
+		817D123ED21D5A7044E97A76360A5BA4 /* IINKIPath.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKIPath.h; path = include/iink/graphics/IINKIPath.h; sourceTree = "<group>"; };
 		83538D26FBD83168DCBB1ABA1D124260 /* IInkUIReferenceImplementation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = IInkUIReferenceImplementation.h; sourceTree = "<group>"; };
+		839E8A3A07E73A97378FC9CDC95E9527 /* IINKContentPart.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKContentPart.h; path = include/iink/IINKContentPart.h; sourceTree = "<group>"; };
 		83AAA046193F8EC355825AE853EA7AA1 /* DisplayViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DisplayViewController.m; sourceTree = "<group>"; };
 		83BFC7BC9BA12BBE889C925E378FDD69 /* InputView.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; path = InputView.mm; sourceTree = "<group>"; };
+		83F155F92CEC0E0A9F2EF0C5517CD370 /* IINKRecognitionAssetsBuilder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKRecognitionAssetsBuilder.h; path = include/iink/IINKRecognitionAssetsBuilder.h; sourceTree = "<group>"; };
 		8A2BBF7741BFDA47544E71E56A3AB4C3 /* SmartGuideViewController.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; path = SmartGuideViewController.mm; sourceTree = "<group>"; };
 		8C6B197F3217A307A40D579EEAC2F8C8 /* Helper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Helper.m; sourceTree = "<group>"; };
-		8CC8D8AE05918465A4825AE049B69D9D /* IINKParameterSet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKParameterSet.h; path = include/iink/IINKParameterSet.h; sourceTree = "<group>"; };
 		8D4B425C9994F2AE8313949184A5E39D /* RenderView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = RenderView.h; sourceTree = "<group>"; };
-		8ED93869DE93C6FD7A3D3861B68C4FA3 /* IINKContentPackage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKContentPackage.h; path = include/iink/IINKContentPackage.h; sourceTree = "<group>"; };
 		8F7A05757658ED7E0F42943262424734 /* libPods-KnowYourAngles.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-KnowYourAngles.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		94EBB1C068F5206E57B6924DF0537E84 /* MyScriptInteractiveInk-Runtime-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MyScriptInteractiveInk-Runtime-umbrella.h"; sourceTree = "<group>"; };
+		9364F669FB9EF388D1F716588D094E05 /* IINKRendererDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKRendererDelegate.h; path = include/iink/IINKRendererDelegate.h; sourceTree = "<group>"; };
 		9520E196122762A940D01039B3ADFBB6 /* ImageDrawer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ImageDrawer.h; sourceTree = "<group>"; };
-		9720349AEC561B9EA4BF7201B616883B /* IINKContentPart.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKContentPart.h; path = include/iink/IINKContentPart.h; sourceTree = "<group>"; };
 		98239888702CD1C5AE50475547C1C72C /* Path.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = Path.m; sourceTree = "<group>"; };
+		986F16C8478C335C407D557DC1AC10B4 /* MyScriptInteractiveInk_Runtime.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MyScriptInteractiveInk_Runtime.h; path = include/MyScriptInteractiveInk_Runtime/MyScriptInteractiveInk_Runtime.h; sourceTree = "<group>"; };
+		9BAB87EB7766900D943BB542D3A73A59 /* MyScriptInteractiveInk-Runtime-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MyScriptInteractiveInk-Runtime-umbrella.h"; sourceTree = "<group>"; };
 		9BCBF386523B15D848478024955B69A7 /* MyScriptInteractiveInk-UIReferenceImplementation.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "MyScriptInteractiveInk-UIReferenceImplementation.release.xcconfig"; sourceTree = "<group>"; };
+		9D44C8C298C07059C24B2CDE31CF0811 /* libMyScriptInk.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libMyScriptInk.a; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		A18ADC2D113C05076BA16CA83C36D150 /* MyScriptInteractiveInk-Runtime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "MyScriptInteractiveInk-Runtime.debug.xcconfig"; sourceTree = "<group>"; };
-		A373997F7D326AFFD499B7ED275B9A3A /* IINKError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKError.h; path = include/iink/IINKError.h; sourceTree = "<group>"; };
+		A5874D1352CB4C8627513300BC116D71 /* IINKIStroker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKIStroker.h; path = include/iink/graphics/IINKIStroker.h; sourceTree = "<group>"; };
 		AB5EAA22BA7B8838F6E1F9A36B0FFB58 /* DisplayViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DisplayViewController.h; sourceTree = "<group>"; };
-		AF6C75E1E1CDC58F62C312BF55CC51CC /* IINKIPath.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKIPath.h; path = include/iink/graphics/IINKIPath.h; sourceTree = "<group>"; };
+		AC6D650F3CDC403A5B20E48314F4CF99 /* libMyScriptDocument.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libMyScriptDocument.a; sourceTree = "<group>"; };
+		B1B1BE70DBC3F3B9B8400E137B85164F /* IINKIFontMetricsProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKIFontMetricsProvider.h; path = include/iink/text/IINKIFontMetricsProvider.h; sourceTree = "<group>"; };
 		B1C527BAE40E1C699B2934053E8E272E /* NSFileManager+Additions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+Additions.h"; sourceTree = "<group>"; };
 		B22B286E849CF8D2E0997E979C8BE434 /* NSAttributedString+Helper.mm */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.cpp.objcpp; path = "NSAttributedString+Helper.mm"; sourceTree = "<group>"; };
-		B2F611E3268115700C9D21D648089267 /* MyScriptInteractiveInk-Runtime-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MyScriptInteractiveInk-Runtime-prefix.pch"; sourceTree = "<group>"; };
 		B5910904C9F71229E9183427EC1A607E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B5B2185E193FA7E4099767BC2B3640AB /* Pods-KnowYourAngles.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-KnowYourAngles.modulemap"; sourceTree = "<group>"; };
 		B8300812AFB83BF2F158BAA78F929F08 /* Pods-KnowYourAngles-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-KnowYourAngles-acknowledgements.plist"; sourceTree = "<group>"; };
+		BB3CC730A2FE0CA855035C2F70543788 /* IINKContentPackage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKContentPackage.h; path = include/iink/IINKContentPackage.h; sourceTree = "<group>"; };
 		C127C7ADF9EB36B8E3DA60C3E677DF27 /* IInkUIRefImplUtils.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = IInkUIRefImplUtils.m; sourceTree = "<group>"; };
-		C1B0B22E09348C14A73B4CE25E968FCB /* IINKConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKConfiguration.h; path = include/iink/IINKConfiguration.h; sourceTree = "<group>"; };
-		C290B322711E776934BAE3B669E7E502 /* IINKConfigurationDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKConfigurationDelegate.h; path = include/iink/IINKConfigurationDelegate.h; sourceTree = "<group>"; };
+		C6CCDFF8641A79ED4E69979978A562F5 /* IINKEditorDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKEditorDelegate.h; path = include/iink/IINKEditorDelegate.h; sourceTree = "<group>"; };
 		C9C270411E4AF567F49A8DA16985BA9A /* MyScriptInteractiveInk-UIReferenceImplementation-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MyScriptInteractiveInk-UIReferenceImplementation-dummy.m"; sourceTree = "<group>"; };
-		D0B74CCAB4DB4F75C5E566B5860DAF78 /* IINKIFontMetricsProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKIFontMetricsProvider.h; path = include/iink/text/IINKIFontMetricsProvider.h; sourceTree = "<group>"; };
-		D1E398840D33067DCA26DB6E4D1F8A40 /* libMyScriptGesture.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libMyScriptGesture.a; sourceTree = "<group>"; };
+		CAFCEA3FFFC84C548EB515AE7CAE659F /* libMyScriptGesture.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libMyScriptGesture.a; sourceTree = "<group>"; };
+		CC6D47E664DD5E56BB640C27230D5D8C /* IINKEditor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKEditor.h; path = include/iink/IINKEditor.h; sourceTree = "<group>"; };
+		D546B39BE3996499F4A81ECE38A34B37 /* MyScriptInteractiveInk-Runtime.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "MyScriptInteractiveInk-Runtime.modulemap"; sourceTree = "<group>"; };
+		DF951F5F04374EE4831FEA7BB2941955 /* IINKIRenderTarget.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKIRenderTarget.h; path = include/iink/IINKIRenderTarget.h; sourceTree = "<group>"; };
 		E0234D307C8D2D6083DD9F90D2B778F2 /* IInkUIRefImplUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = IInkUIRefImplUtils.h; sourceTree = "<group>"; };
 		E0AB3CF854128BD05B18726CA4A4DDBA /* MyScriptInteractiveInk-UIReferenceImplementation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "MyScriptInteractiveInk-UIReferenceImplementation.debug.xcconfig"; sourceTree = "<group>"; };
+		E1EEDACEB2A75E380D847A510DED21D2 /* MyScriptInteractiveInk-Runtime-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MyScriptInteractiveInk-Runtime-prefix.pch"; sourceTree = "<group>"; };
 		E1FE26254DAC638CF97FCA692CF52C27 /* Pods-KnowYourAngles-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-KnowYourAngles-umbrella.h"; sourceTree = "<group>"; };
+		E2C89A7ED6A3AFD39C06CEE3DD76C678 /* IINK.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = IINK.swift; path = swift/IINK.swift; sourceTree = "<group>"; };
+		E304670E25321DC963C917449268DFA3 /* libMyScriptEngine.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libMyScriptEngine.a; sourceTree = "<group>"; };
 		E3053637EC0FE67C7CA9CF81710346EE /* FontMetricsProvider.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = FontMetricsProvider.h; sourceTree = "<group>"; };
-		E3063FFFE7DA3AFD56B4AC43193AA41A /* libMyScriptEngine.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libMyScriptEngine.a; sourceTree = "<group>"; };
-		E69D673B0928CDF57D513D54243C2EB0 /* libMyScriptInk.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libMyScriptInk.a; sourceTree = "<group>"; };
 		E70C71E3A42B39EEDD93535AC1A70023 /* ImageLoader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ImageLoader.h; sourceTree = "<group>"; };
-		EBC188FD060D98503D9892E609C97995 /* IINKContentBlock.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKContentBlock.h; path = include/iink/IINKContentBlock.h; sourceTree = "<group>"; };
-		EC6039CC80C77CA2ABCF523A33AD2AB3 /* libMyScriptShape.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libMyScriptShape.a; sourceTree = "<group>"; };
-		F0E7969939191A80109513DB9B9F9E72 /* IINKRecognitionAssetsBuilder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKRecognitionAssetsBuilder.h; path = include/iink/IINKRecognitionAssetsBuilder.h; sourceTree = "<group>"; };
+		EA9E6BA528B09EE03F0B6AB0BEE52DFB /* IINKConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKConfiguration.h; path = include/iink/IINKConfiguration.h; sourceTree = "<group>"; };
+		EEC3E834693B64E04F2FF35CD80345BD /* libMyScriptText.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libMyScriptText.a; sourceTree = "<group>"; };
+		EF466938F7FAD2D599DC2C37CE798A43 /* IINKParameterSet.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKParameterSet.h; path = include/iink/IINKParameterSet.h; sourceTree = "<group>"; };
+		F060D6050A1C55BC37415A574045C7B1 /* libMyScriptPrediction.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libMyScriptPrediction.a; sourceTree = "<group>"; };
 		F181C570F4C270403464291F8D0DE582 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		F94543A5395A148C18A7D874FB4DF516 /* MyScriptInteractiveInk-Runtime-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MyScriptInteractiveInk-Runtime-dummy.m"; sourceTree = "<group>"; };
+		F6602F867372E2342193525DB5BE9A31 /* libMyScript2D.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; path = libMyScript2D.a; sourceTree = "<group>"; };
 		F9882C173DB6917A80996C17112A659A /* NSFileManager+Additions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+Additions.m"; sourceTree = "<group>"; };
+		FEF949673DE686BE9AB35BF4B95E06BC /* IINKTextSpan.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IINKTextSpan.h; path = include/iink/text/IINKTextSpan.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		274A57F8B3E5628DBB395DBCADE88DB7 /* Frameworks */ = {
+		24DC00B243A9D85839601A0964063D21 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5D506B80A8F076C9C28094C32A6ED20A /* Frameworks */ = {
+		274A57F8B3E5628DBB395DBCADE88DB7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -215,37 +221,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3004C560DD9426227F75185AE7577A7B /* MyScriptInteractiveInk-Runtime */ = {
+		3180B4B61B51E65F59E6E82F668A593F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				049F961FAC2F29CE21B77F1246589C14 /* IINK.h */,
-				5D4473EF308B6D505B4659DB034B5E2C /* IINK.swift */,
-				C1B0B22E09348C14A73B4CE25E968FCB /* IINKConfiguration.h */,
-				C290B322711E776934BAE3B669E7E502 /* IINKConfigurationDelegate.h */,
-				EBC188FD060D98503D9892E609C97995 /* IINKContentBlock.h */,
-				8ED93869DE93C6FD7A3D3861B68C4FA3 /* IINKContentPackage.h */,
-				9720349AEC561B9EA4BF7201B616883B /* IINKContentPart.h */,
-				4EA0D083DDD2F59CED2E141AA4E5AC9F /* IINKEditor.h */,
-				2C5B846AA14F5648397BE4FC0A604D3D /* IINKEditorDelegate.h */,
-				0E4D8BF7083E582A8D702C8661B23E24 /* IINKEngine.h */,
-				A373997F7D326AFFD499B7ED275B9A3A /* IINKError.h */,
-				7AC2668B83D24D50508E01B1F9841C93 /* IINKICanvas.h */,
-				D0B74CCAB4DB4F75C5E566B5860DAF78 /* IINKIFontMetricsProvider.h */,
-				4BA18D14A784B60189EF92213AC18398 /* IINKIImageDrawer.h */,
-				AF6C75E1E1CDC58F62C312BF55CC51CC /* IINKIPath.h */,
-				45B09AD6A981DF3D17C31432281A38D3 /* IINKIRenderTarget.h */,
-				6688744488B49B9526A37398F9308EF6 /* IINKMimeType.h */,
-				8CC8D8AE05918465A4825AE049B69D9D /* IINKParameterSet.h */,
-				F0E7969939191A80109513DB9B9F9E72 /* IINKRecognitionAssetsBuilder.h */,
-				7D87B28E50EF8EC48F2E176464D68B87 /* IINKRenderer.h */,
-				2FE72A0F1A29C3EA6D27376CE00026F5 /* IINKRendererDelegate.h */,
-				720DBF62DF915C0CEA42D928F4961973 /* IINKStyle.h */,
-				7A68233DB8C010565D8AF3FBB3B4B3E8 /* IINKText.h */,
-				2A4DE5B197E8E5D918521A41B4407687 /* IINKTextSpan.h */,
-				ABEB9FADADCC7A0D905C3DFFFB94ED36 /* Frameworks */,
-				7BAD2363B6D0F4E77B091376C14E73E6 /* Support Files */,
+				8AB1A2FAF9328F73668AC0E20739AE60 /* MyScriptInteractiveInk-Runtime */,
 			);
-			path = "MyScriptInteractiveInk-Runtime";
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		35EBBCE9B209345399C350943D7F5F9C /* Targets Support Files */ = {
@@ -310,20 +291,6 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		7BAD2363B6D0F4E77B091376C14E73E6 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				2351E31BBAAD36B20A65CFB0B0296AC4 /* MyScriptInteractiveInk-Runtime.modulemap */,
-				F94543A5395A148C18A7D874FB4DF516 /* MyScriptInteractiveInk-Runtime-dummy.m */,
-				B2F611E3268115700C9D21D648089267 /* MyScriptInteractiveInk-Runtime-prefix.pch */,
-				94EBB1C068F5206E57B6924DF0537E84 /* MyScriptInteractiveInk-Runtime-umbrella.h */,
-				A18ADC2D113C05076BA16CA83C36D150 /* MyScriptInteractiveInk-Runtime.debug.xcconfig */,
-				271333BC1B721AF5AD21A0F632E1B87C /* MyScriptInteractiveInk-Runtime.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/MyScriptInteractiveInk-Runtime";
-			sourceTree = "<group>";
-		};
 		827F51487FBA51BE1144FB1AAA25E1F0 /* Helpers&Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,6 +311,42 @@
 			path = "IInkUIReferenceImplementation/Classes/Helpers&Categories";
 			sourceTree = "<group>";
 		};
+		8AB1A2FAF9328F73668AC0E20739AE60 /* MyScriptInteractiveInk-Runtime */ = {
+			isa = PBXGroup;
+			children = (
+				5C88477C7977D2EEE23E4BC740EB19CD /* IINK.h */,
+				E2C89A7ED6A3AFD39C06CEE3DD76C678 /* IINK.swift */,
+				EA9E6BA528B09EE03F0B6AB0BEE52DFB /* IINKConfiguration.h */,
+				521F5A8D1C33D1A7676715CB29319B22 /* IINKConfigurationDelegate.h */,
+				79799996BC6C5BE53C7161D2CBA41D2B /* IINKContentBlock.h */,
+				BB3CC730A2FE0CA855035C2F70543788 /* IINKContentPackage.h */,
+				839E8A3A07E73A97378FC9CDC95E9527 /* IINKContentPart.h */,
+				CC6D47E664DD5E56BB640C27230D5D8C /* IINKEditor.h */,
+				C6CCDFF8641A79ED4E69979978A562F5 /* IINKEditorDelegate.h */,
+				06466C2747F4C8F8022B3BB9FAA2EA89 /* IINKEngine.h */,
+				12B69340AEA0B2A5FB9377ECE7D52E3C /* IINKError.h */,
+				18DF9105518EA8715EA056DBA8C6955E /* IINKICanvas.h */,
+				B1B1BE70DBC3F3B9B8400E137B85164F /* IINKIFontMetricsProvider.h */,
+				6E153377DFB883EDFB2BF6FEB566A31A /* IINKIImageDrawer.h */,
+				817D123ED21D5A7044E97A76360A5BA4 /* IINKIPath.h */,
+				DF951F5F04374EE4831FEA7BB2941955 /* IINKIRenderTarget.h */,
+				A5874D1352CB4C8627513300BC116D71 /* IINKIStroker.h */,
+				09A69477D7DFB2D0DD618901EF6A7CD5 /* IINKIStrokerFactory.h */,
+				4598E699329C16F21D272D599C52E221 /* IINKMimeType.h */,
+				EF466938F7FAD2D599DC2C37CE798A43 /* IINKParameterSet.h */,
+				83F155F92CEC0E0A9F2EF0C5517CD370 /* IINKRecognitionAssetsBuilder.h */,
+				1CB62F6D3BA03EF1C0F8D4ED6E95F941 /* IINKRenderer.h */,
+				9364F669FB9EF388D1F716588D094E05 /* IINKRendererDelegate.h */,
+				5CE4E4D05AA77E5AF5AA2A07F8850892 /* IINKStyle.h */,
+				223941388B1FE10A111FD81EAA251CD4 /* IINKText.h */,
+				FEF949673DE686BE9AB35BF4B95E06BC /* IINKTextSpan.h */,
+				986F16C8478C335C407D557DC1AC10B4 /* MyScriptInteractiveInk_Runtime.h */,
+				BB937FAFFDD21942F08E28B0D6E385A6 /* Frameworks */,
+				C5D94CBCD78CF794A3FA30174A2991F1 /* Support Files */,
+			);
+			path = "MyScriptInteractiveInk-Runtime";
+			sourceTree = "<group>";
+		};
 		A540B4EC4A1EA84385391CBD5D7401C4 /* ReferenceImplementation */ = {
 			isa = PBXGroup;
 			children = (
@@ -362,24 +365,6 @@
 			path = IInkUIReferenceImplementation/Classes/ReferenceImplementation;
 			sourceTree = "<group>";
 		};
-		ABEB9FADADCC7A0D905C3DFFFB94ED36 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				18F75E191A13F49B84DB6823811AA545 /* libiink.a */,
-				03882401AEF383418C99C1D0D22EEB77 /* libMyScript2D.a */,
-				1743B759A18EE0ADC553667FC0078BA9 /* libMyScriptAnalyzer.a */,
-				56EC6FFA3F964D8077F6DF153E73C42B /* libMyScriptDocument.a */,
-				E3063FFFE7DA3AFD56B4AC43193AA41A /* libMyScriptEngine.a */,
-				D1E398840D33067DCA26DB6E4D1F8A40 /* libMyScriptGesture.a */,
-				E69D673B0928CDF57D513D54243C2EB0 /* libMyScriptInk.a */,
-				4F5D78AC73F46B3A5A6A34B26E92300C /* libMyScriptMath.a */,
-				22456D4859B5187981F2322650CAF1BA /* libMyScriptPrediction.a */,
-				EC6039CC80C77CA2ABCF523A33AD2AB3 /* libMyScriptShape.a */,
-				50DECFB140253C85B810C793D8DB67E3 /* libMyScriptText.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		B577537D821F1BBA6CE8705ECEE12A5C /* Pods-KnowYourAngles */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,6 +378,38 @@
 			);
 			name = "Pods-KnowYourAngles";
 			path = "Target Support Files/Pods-KnowYourAngles";
+			sourceTree = "<group>";
+		};
+		BB937FAFFDD21942F08E28B0D6E385A6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7B31C36E1C24523C8FDA05124EB4C1C0 /* libiink.a */,
+				F6602F867372E2342193525DB5BE9A31 /* libMyScript2D.a */,
+				5587A7392E9157649FD998E5D8745F19 /* libMyScriptAnalyzer.a */,
+				AC6D650F3CDC403A5B20E48314F4CF99 /* libMyScriptDocument.a */,
+				E304670E25321DC963C917449268DFA3 /* libMyScriptEngine.a */,
+				CAFCEA3FFFC84C548EB515AE7CAE659F /* libMyScriptGesture.a */,
+				9D44C8C298C07059C24B2CDE31CF0811 /* libMyScriptInk.a */,
+				406129822DB8F5735BD55DE20E485D1E /* libMyScriptMath.a */,
+				F060D6050A1C55BC37415A574045C7B1 /* libMyScriptPrediction.a */,
+				2B6066A0F0B9A912C9E650BB2B49B0B6 /* libMyScriptShape.a */,
+				EEC3E834693B64E04F2FF35CD80345BD /* libMyScriptText.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C5D94CBCD78CF794A3FA30174A2991F1 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D546B39BE3996499F4A81ECE38A34B37 /* MyScriptInteractiveInk-Runtime.modulemap */,
+				137000F2CEFA50558A31C32D536187C4 /* MyScriptInteractiveInk-Runtime-dummy.m */,
+				E1EEDACEB2A75E380D847A510DED21D2 /* MyScriptInteractiveInk-Runtime-prefix.pch */,
+				9BAB87EB7766900D943BB542D3A73A59 /* MyScriptInteractiveInk-Runtime-umbrella.h */,
+				436F7197BC307D89963580304FD4CD33 /* MyScriptInteractiveInk-Runtime.debug.xcconfig */,
+				4B145A7379EC6CFD262B0532A68C9000 /* MyScriptInteractiveInk-Runtime.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/MyScriptInteractiveInk-Runtime";
 			sourceTree = "<group>";
 		};
 		CA9E6BE88AB37ADE97104401CEC4C834 /* Views */ = {
@@ -413,18 +430,10 @@
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				5B27C980ADC8BF18CAC760873E2A907E /* Development Pods */,
 				D89477F20FB1DE18A04690586D7808C4 /* Frameworks */,
-				D403C4DFDE67D58D9B85E757FFE1D57C /* Pods */,
+				3180B4B61B51E65F59E6E82F668A593F /* Pods */,
 				ED107911801F0AC68242BE7AEFB24B6F /* Products */,
 				35EBBCE9B209345399C350943D7F5F9C /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		D403C4DFDE67D58D9B85E757FFE1D57C /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				3004C560DD9426227F75185AE7577A7B /* MyScriptInteractiveInk-Runtime */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		D832234B112FC3C58C5DC326DFDFD111 /* ViewControllers */ = {
@@ -461,42 +470,45 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		1E152F800DDD65B5F47C7F0645B8002E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				19BC71FF165AFAC9493B7298EBB38FF2 /* IINK.h in Headers */,
+				236AA16B01CF1A59A963D5A0809D5403 /* IINKConfiguration.h in Headers */,
+				4EC71ABECA38E528148ECF5BA58AEF98 /* IINKConfigurationDelegate.h in Headers */,
+				41600616F7EAC454DA8C544C5EC86A40 /* IINKContentBlock.h in Headers */,
+				C5692B6CA5647A084104145006D27CFE /* IINKContentPackage.h in Headers */,
+				EEA56AF59A550D115FB6772256D48563 /* IINKContentPart.h in Headers */,
+				B136F218D4590A5C62C91366BC253382 /* IINKEditor.h in Headers */,
+				2BDE16CFE77EAFECF7D83E17F58B6B6D /* IINKEditorDelegate.h in Headers */,
+				3F18C3637A34BDE23AA37E6E9DCD24D0 /* IINKEngine.h in Headers */,
+				1A180732826D659DA5960435D50E9233 /* IINKError.h in Headers */,
+				DBBB53AA8C9678B54C6F148BEC63A368 /* IINKICanvas.h in Headers */,
+				13427DCC63B1E9BB7199293F333F68F6 /* IINKIFontMetricsProvider.h in Headers */,
+				2E412A2E394FE581D3AFE09DD91E8E89 /* IINKIImageDrawer.h in Headers */,
+				15CE8725438B062F5CE2B746B97F6C05 /* IINKIPath.h in Headers */,
+				23D6AF36C3180CD377E231A568C3E2EA /* IINKIRenderTarget.h in Headers */,
+				34973FA74ABDDB982DAE9C2209A4A16C /* IINKIStroker.h in Headers */,
+				3A8E6D47B420C83F611BCE5AE53591BF /* IINKIStrokerFactory.h in Headers */,
+				C36327168A5E32D813829EA617E209B9 /* IINKMimeType.h in Headers */,
+				2A7D5E0B809A1B11EAC0DBB5D4EE6CA0 /* IINKParameterSet.h in Headers */,
+				861216910B6FC92E8E7824C9FD63F5F7 /* IINKRecognitionAssetsBuilder.h in Headers */,
+				B0C02443BA3B9EB8CDC0CBA137DFF4C6 /* IINKRenderer.h in Headers */,
+				5B22DFE88ACC65A63A01F1A1DB9831D8 /* IINKRendererDelegate.h in Headers */,
+				9CC7234E0B3A0ECC0B1F8402C7661582 /* IINKStyle.h in Headers */,
+				B8000AF24A26C21E97A2A3B48F219922 /* IINKText.h in Headers */,
+				DF700D6CD999F13ED4E8015F23F01CF1 /* IINKTextSpan.h in Headers */,
+				DDF1257FF919DC17B2E37C0C8B4F5D2C /* MyScriptInteractiveInk-Runtime-umbrella.h in Headers */,
+				04BC284BCB4EDE91C575E99293044296 /* MyScriptInteractiveInk_Runtime.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		5E5B19731657A52BF2ECC0AA35B65273 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				80680A613BBEE8B3D4A5760B8020AA32 /* Pods-KnowYourAngles-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DBDEB393893579178D6FC3286F011B17 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2FA27911216A5533A30CFF658E2F455C /* IINK.h in Headers */,
-				63B481A7CCFD56017CFCB10A34908CA9 /* IINKConfiguration.h in Headers */,
-				258AA2341B19CDDC0901748DBD8CBE47 /* IINKConfigurationDelegate.h in Headers */,
-				361FE8E438F01D4396A5294651701E34 /* IINKContentBlock.h in Headers */,
-				2D78EF63CD819AEB0A8E9338E675F910 /* IINKContentPackage.h in Headers */,
-				8A07186BDC06816C2EF7A270D77DDD76 /* IINKContentPart.h in Headers */,
-				3C44AC1E2F395BA2AFB2D1B009CD6856 /* IINKEditor.h in Headers */,
-				4A36283DE0F7EA3A982D2EDA5DC82D69 /* IINKEditorDelegate.h in Headers */,
-				0A1EFFD09921A01C7D63E8BAC9615564 /* IINKEngine.h in Headers */,
-				F7D8F5CDD00878DB8B9D7A1AC665F88C /* IINKError.h in Headers */,
-				9B70CC3C637289D2507D91C216C72971 /* IINKICanvas.h in Headers */,
-				1215DB81AF83F631B1DDCAC923CAD10D /* IINKIFontMetricsProvider.h in Headers */,
-				1D660BDF4F4ABE681F6381920F0F7826 /* IINKIImageDrawer.h in Headers */,
-				4F0867FB728290A0EDC516738F8208F7 /* IINKIPath.h in Headers */,
-				2DBFA9B39542195C8ACA9F5CF5CFCF70 /* IINKIRenderTarget.h in Headers */,
-				58E0312F0A213FD14D14C920DA70D6E8 /* IINKMimeType.h in Headers */,
-				E77A5908A468F5B5AF30AE7B74F9852D /* IINKParameterSet.h in Headers */,
-				2E9C7402446D3246F7E50595B082595C /* IINKRecognitionAssetsBuilder.h in Headers */,
-				7B7B1789ED135C9B867507AF734FBDE5 /* IINKRenderer.h in Headers */,
-				5444C146CC9C09A69B27E34374AA5795 /* IINKRendererDelegate.h in Headers */,
-				2FBCFE161370D89771E84713CA381177 /* IINKStyle.h in Headers */,
-				6F112B6E31542621C006686C3257EE2E /* IINKText.h in Headers */,
-				9F64670510D289E698044DA91AAB5168 /* IINKTextSpan.h in Headers */,
-				80B903A51358E3009A94045DE1EBB2B0 /* MyScriptInteractiveInk-Runtime-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,8 +550,8 @@
 			buildRules = (
 			);
 			dependencies = (
-				E2BDC44EBA3697A95E899A9B72B6A407 /* PBXTargetDependency */,
-				24D2C578C8A3BB57D3F94ECC57D309B6 /* PBXTargetDependency */,
+				412A3758412EEC8546881CC55C0A237B /* PBXTargetDependency */,
+				0C2848C7EC7A81F0C5C6BE9478ED80B8 /* PBXTargetDependency */,
 			);
 			name = "Pods-KnowYourAngles";
 			productName = "Pods-KnowYourAngles";
@@ -548,12 +560,12 @@
 		};
 		8AE95DED2AC6DAD4F211E002996B1AAE /* MyScriptInteractiveInk-Runtime */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AADD46D7C958DBCDEAF147971250E1F1 /* Build configuration list for PBXNativeTarget "MyScriptInteractiveInk-Runtime" */;
+			buildConfigurationList = CA662B2FBFD1647171CE5A7C184889F8 /* Build configuration list for PBXNativeTarget "MyScriptInteractiveInk-Runtime" */;
 			buildPhases = (
-				DBDEB393893579178D6FC3286F011B17 /* Headers */,
-				CA495B3AF1E5E694D111CE87279B1789 /* Sources */,
-				5D506B80A8F076C9C28094C32A6ED20A /* Frameworks */,
-				D21477EDDDA6C9BFECD42BA4FE1A810A /* Copy generated compatibility header */,
+				1E152F800DDD65B5F47C7F0645B8002E /* Headers */,
+				7FAFE78063A20F9652A13E64613C0F14 /* Sources */,
+				24DC00B243A9D85839601A0964063D21 /* Frameworks */,
+				13FDAD8C36A77C63F7A70EB9716B6260 /* Copy generated compatibility header */,
 			);
 			buildRules = (
 			);
@@ -575,7 +587,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				56340C527D44C2C4175CE365E170C0E3 /* PBXTargetDependency */,
+				27C39A36A50B15A0AEFC0E5DF618C495 /* PBXTargetDependency */,
 			);
 			name = "MyScriptInteractiveInk-UIReferenceImplementation";
 			productName = "MyScriptInteractiveInk-UIReferenceImplementation";
@@ -589,10 +601,10 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1200;
+				LastUpgradeCheck = 1250;
 				TargetAttributes = {
 					8AE95DED2AC6DAD4F211E002996B1AAE = {
-						LastSwiftMigration = 1200;
+						LastSwiftMigration = 1250;
 					};
 				};
 			};
@@ -617,7 +629,7 @@
 /* End PBXProject section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		D21477EDDDA6C9BFECD42BA4FE1A810A /* Copy generated compatibility header */ = {
+		13FDAD8C36A77C63F7A70EB9716B6260 /* Copy generated compatibility header */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -668,12 +680,12 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CA495B3AF1E5E694D111CE87279B1789 /* Sources */ = {
+		7FAFE78063A20F9652A13E64613C0F14 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B93E99E9564260727197D639846D3BDA /* IINK.swift in Sources */,
-				37ECA8894B37C634EF6184FAA0078D65 /* MyScriptInteractiveInk-Runtime-dummy.m in Sources */,
+				8E01A68D73AAF373D5387296A1601E2D /* IINK.swift in Sources */,
+				CE32D9023AF4DF989C47F042A48B24BC /* MyScriptInteractiveInk-Runtime-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -688,52 +700,53 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		24D2C578C8A3BB57D3F94ECC57D309B6 /* PBXTargetDependency */ = {
+		0C2848C7EC7A81F0C5C6BE9478ED80B8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "MyScriptInteractiveInk-UIReferenceImplementation";
 			target = CCE2E92344C7DCC3BE07872AC75F859B /* MyScriptInteractiveInk-UIReferenceImplementation */;
-			targetProxy = B217DE517F39C1F57F4894423F404252 /* PBXContainerItemProxy */;
+			targetProxy = 58826F3BADD85769CFDE9BB0A794F6EE /* PBXContainerItemProxy */;
 		};
-		56340C527D44C2C4175CE365E170C0E3 /* PBXTargetDependency */ = {
+		27C39A36A50B15A0AEFC0E5DF618C495 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "MyScriptInteractiveInk-Runtime";
 			target = 8AE95DED2AC6DAD4F211E002996B1AAE /* MyScriptInteractiveInk-Runtime */;
-			targetProxy = C28FC3254F277840AE1A4C79F86E4272 /* PBXContainerItemProxy */;
+			targetProxy = CAC0DB234DA10CB70F450512C48CF574 /* PBXContainerItemProxy */;
 		};
-		E2BDC44EBA3697A95E899A9B72B6A407 /* PBXTargetDependency */ = {
+		412A3758412EEC8546881CC55C0A237B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "MyScriptInteractiveInk-Runtime";
 			target = 8AE95DED2AC6DAD4F211E002996B1AAE /* MyScriptInteractiveInk-Runtime */;
-			targetProxy = D62468D49C0C75C41193BC071D468F9D /* PBXContainerItemProxy */;
+			targetProxy = 7CF1D7AF795D65B35D736783BEB8F7B3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		14518EA91E08EB25107C66FB2CB1AE60 /* Debug */ = {
+		179A848673F56DF0C97340DCD9F39E0F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A18ADC2D113C05076BA16CA83C36D150 /* MyScriptInteractiveInk-Runtime.debug.xcconfig */;
+			baseConfigurationReference = 9BCBF386523B15D848478024955B69A7 /* MyScriptInteractiveInk-UIReferenceImplementation.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				GCC_PREFIX_HEADER = "Target Support Files/MyScriptInteractiveInk-Runtime/MyScriptInteractiveInk-Runtime-prefix.pch";
+				GCC_PREFIX_HEADER = "Target Support Files/MyScriptInteractiveInk-UIReferenceImplementation/MyScriptInteractiveInk-UIReferenceImplementation-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				MODULEMAP_FILE = "Headers/Public/MyScriptInteractiveInk_Runtime/MyScriptInteractiveInk-Runtime.modulemap";
+				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_MODULE_NAME = MyScriptInteractiveInk_Runtime;
-				PRODUCT_NAME = "MyScriptInteractiveInk-Runtime";
+				PRODUCT_MODULE_NAME = IInkUIReferenceImplementation;
+				PRODUCT_NAME = "MyScriptInteractiveInk-UIReferenceImplementation";
 				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
-			name = Debug;
+			name = Release;
 		};
-		173DFFEB5E1102FDB44E37AF2478CC14 /* Debug */ = {
+		1CFBA15982164E06CEF76DEBDE3D8EDF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E0AB3CF854128BD05B18726CA4A4DDBA /* MyScriptInteractiveInk-UIReferenceImplementation.debug.xcconfig */;
 			buildSettings = {
@@ -752,7 +765,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 3.2;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -779,30 +792,29 @@
 			};
 			name = Debug;
 		};
-		46A90825ED4033552FFBAD3AF4B2C983 /* Release */ = {
+		7D6D57F7AC53ACBF5AE7FFBDD34BAF8A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9BCBF386523B15D848478024955B69A7 /* MyScriptInteractiveInk-UIReferenceImplementation.release.xcconfig */;
+			baseConfigurationReference = 436F7197BC307D89963580304FD4CD33 /* MyScriptInteractiveInk-Runtime.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				GCC_PREFIX_HEADER = "Target Support Files/MyScriptInteractiveInk-UIReferenceImplementation/MyScriptInteractiveInk-UIReferenceImplementation-prefix.pch";
+				GCC_PREFIX_HEADER = "Target Support Files/MyScriptInteractiveInk-Runtime/MyScriptInteractiveInk-Runtime-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
-				OTHER_LDFLAGS = "";
+				MODULEMAP_FILE = "Headers/Public/MyScriptInteractiveInk_Runtime/MyScriptInteractiveInk-Runtime.modulemap";
 				OTHER_LIBTOOLFLAGS = "";
 				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_MODULE_NAME = IInkUIReferenceImplementation;
-				PRODUCT_NAME = "MyScriptInteractiveInk-UIReferenceImplementation";
+				PRODUCT_MODULE_NAME = MyScriptInteractiveInk_Runtime;
+				PRODUCT_NAME = "MyScriptInteractiveInk-Runtime";
 				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 3.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = Debug;
 		};
 		8B68D161A685D0E9906DF2B297857921 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -892,9 +904,9 @@
 			};
 			name = Release;
 		};
-		AE0836BB881354DF16B471FAA249D8DF /* Release */ = {
+		9A962CD14B761429ECC402004D925316 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 271333BC1B721AF5AD21A0F632E1B87C /* MyScriptInteractiveInk-Runtime.release.xcconfig */;
+			baseConfigurationReference = 4B145A7379EC6CFD262B0532A68C9000 /* MyScriptInteractiveInk-Runtime.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -1001,17 +1013,17 @@
 		8B9E61A1608EFACE9E42F10A9C14C296 /* Build configuration list for PBXNativeTarget "MyScriptInteractiveInk-UIReferenceImplementation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				173DFFEB5E1102FDB44E37AF2478CC14 /* Debug */,
-				46A90825ED4033552FFBAD3AF4B2C983 /* Release */,
+				1CFBA15982164E06CEF76DEBDE3D8EDF /* Debug */,
+				179A848673F56DF0C97340DCD9F39E0F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AADD46D7C958DBCDEAF147971250E1F1 /* Build configuration list for PBXNativeTarget "MyScriptInteractiveInk-Runtime" */ = {
+		CA662B2FBFD1647171CE5A7C184889F8 /* Build configuration list for PBXNativeTarget "MyScriptInteractiveInk-Runtime" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				14518EA91E08EB25107C66FB2CB1AE60 /* Debug */,
-				AE0836BB881354DF16B471FAA249D8DF /* Release */,
+				7D6D57F7AC53ACBF5AE7FFBDD34BAF8A /* Debug */,
+				9A962CD14B761429ECC402004D925316 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

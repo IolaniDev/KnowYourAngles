@@ -1,4 +1,4 @@
-// Copyright MyScript. All right reserved.
+// Copyright @ MyScript. All rights reserved.
 
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
@@ -107,5 +107,12 @@ typedef NS_OPTIONS(NSUInteger, IINKConversionState)
  * @since 1.1
  */
 @property (nonatomic, readonly, nonnull) NSString *attributes;
+
+/**
+ * The parent of this block, or `nil` if this block is the root block.
+ *
+ * @since 1.4
+ */
+@property (nonatomic, readonly, nullable) IINKContentBlock *parent;
 
 @end

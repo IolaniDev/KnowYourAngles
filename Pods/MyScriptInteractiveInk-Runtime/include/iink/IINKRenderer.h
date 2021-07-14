@@ -1,10 +1,11 @@
-// Copyright MyScript. All right reserved.
+// Copyright @ MyScript. All rights reserved.
 
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
 #import <iink/IINKIRenderTarget.h>
 #import <iink/IINKRendererDelegate.h>
 #import <iink/graphics/IINKICanvas.h>
+#import <iink/graphics/IINKIStrokerFactory.h>
 
 /**
  * The renderer triggers display updates to a `IINKIRenderTarget` and implements
@@ -133,15 +134,6 @@
 - (void)commitModelDraw:(uint64_t)identifier;
 
 /**
- * Requests drawing of a region of the Background layer.
- *
- * @param region region of the part to draw.
- * @param canvas target canvas.
- * @return `YES` on success, otherwise `NO`.
- */
-- (BOOL)drawBackground:(CGRect)region canvas:(nonnull id<IINKICanvas>)canvas;
-
-/**
  * Requests drawing of a region of the Model layer.
  *
  * @param region region of the part to draw.
@@ -151,15 +143,6 @@
 - (BOOL)drawModel:(CGRect)region canvas:(nonnull id<IINKICanvas>)canvas;
 
 /**
- * Requests drawing of a region of the Temporary layer.
- *
- * @param region region of the part to draw.
- * @param canvas target canvas.
- * @return `YES` on success, otherwise `NO`.
- */
-- (BOOL)drawTemporaryItems:(CGRect)region canvas:(nonnull id<IINKICanvas>)canvas;
-
-/**
  * Requests drawing of a region of the Capture layer.
  *
  * @param region region of the part to draw.
@@ -167,5 +150,58 @@
  * @return `YES` on success, otherwise `NO`.
  */
 - (BOOL)drawCaptureStrokes:(CGRect)region canvas:(nonnull id<IINKICanvas>)canvas;
+
+//==============================================================================
+#pragma mark - Deprecated Draw Commands
+//==============================================================================
+
+/**
+ * Requests drawing of a region of the Background layer.
+ *
+ * @param region region of the part to draw.
+ * @param canvas target canvas.
+ * @return `YES` on success, otherwise `NO`.
+ *
+ * @deprecated as of 1.4
+ */
+- (BOOL)drawBackground:(CGRect)region canvas:(nonnull id<IINKICanvas>)canvas
+    DEPRECATED_MSG_ATTRIBUTE("Deprecated as of 1.4");
+
+/**
+ * Requests drawing of a region of the Temporary layer.
+ *
+ * @param region region of the part to draw.
+ * @param canvas target canvas.
+ * @return `YES` on success, otherwise `NO`.
+ *
+ * @deprecated as of 1.4
+ */
+- (BOOL)drawTemporaryItems:(CGRect)region canvas:(nonnull id<IINKICanvas>)canvas
+    DEPRECATED_MSG_ATTRIBUTE("Deprecated as of 1.4");
+
+
+//==============================================================================
+#pragma mark - Stroker
+//==============================================================================
+
+/**
+ * Registers a custom stroker factory.
+ *
+ * @param name the value of the -myscript-pen-brush css property that selects
+ *   this stroker.
+ * @param factory the user provided stroker factory.
+ * @param error the recipient for the error description object.
+ * @return `YES` on success, otherwise `NO`.
+ */
+- (BOOL)registerStroker:(nonnull NSString *)name
+                factory:(_Nullable id<IINKIStrokerFactory>)factory
+                  error:(NSError * _Nullable * _Nullable)error;
+
+/**
+ * Unregister custom stroker factory.
+ *
+ * @param name the stroker factory.
+ */
+- (void)unregisterStroker:(nonnull NSString *)name;
 
 @end
