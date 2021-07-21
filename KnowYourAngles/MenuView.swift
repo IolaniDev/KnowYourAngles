@@ -10,8 +10,10 @@ import SwiftUI
 
 struct MenuView: View {
     @State private var showAboutView = false
+    @State private var showPlayView = false
     
     var body: some View {
+        NavigationView {
             ZStack {
                 BackgroundColor()
                 VStack{
@@ -19,9 +21,24 @@ struct MenuView: View {
                         .font(.system(size: 80, weight: .heavy, design: .serif))
                         .foregroundColor(Color(red: 127.0/255, green: 255.0/255, blue: 250.0/255, opacity: 1.0))
                     HStack{
-                        Image("KYA_Start_Icon")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
+                        //                        if showPlayView
+                        //                        {
+                        //                            PlayView()
+                        //                        }
+                        //                        else {
+                        //                            Button (action: {showPlayView = true})
+                        //                            {
+                        //                                Image("KYA_Start_Icon")
+                        //                                    .resizable()
+                        //                                    .aspectRatio(contentMode: .fit)
+                        //                            }
+                        //                        }
+                        NavigationLink(destination: PlayView()) {
+                            Image("KYA_Start_Icon")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                        }.navigationBarHidden(true)
+                        
                         Image("KYA_Settings_Icon")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
@@ -39,14 +56,16 @@ struct MenuView: View {
                                 .aspectRatio(contentMode: .fit)
                         }.sheet(isPresented: $showAboutView, content: {
                             AboutView()
+                                .animation(.easeInOut)
                         })
                     }
-                    
                 }
                 .frame(width: 800, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
             }
             .padding()
             .frame(minWidth: 800, maxWidth: .infinity, minHeight: 1000, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 }
 
