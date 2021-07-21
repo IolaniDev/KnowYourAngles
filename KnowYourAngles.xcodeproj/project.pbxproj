@@ -36,6 +36,7 @@
 		84C3E8221D2DC75300750751 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C3E8211D2DC75300750751 /* SettingsViewController.swift */; };
 		E3501E4126A76FEF0058BF10 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3501E4026A76FEF0058BF10 /* AboutView.swift */; };
 		E3501E4326A77FAE0058BF10 /* BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3501E4226A77FAE0058BF10 /* BackgroundColor.swift */; };
+		E35BF86926A8AAE000D82817 /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35BF86826A8AAE000D82817 /* PlayView.swift */; };
 		E3A065ABC0C1E325751F83F0 /* libPods-KnowYourAngles.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F60615B28EA6C5D571DD704 /* libPods-KnowYourAngles.a */; };
 		E3EEA04826A55220002AFFF2 /* KnowYourAnglesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EEA04726A55220002AFFF2 /* KnowYourAnglesApp.swift */; };
 		E3EEA04A26A55498002AFFF2 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EEA04926A55498002AFFF2 /* MenuView.swift */; };
@@ -104,6 +105,7 @@
 		BD61C04C9EF0A95C06AA4808 /* Pods-KnowYourAngles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnowYourAngles.debug.xcconfig"; path = "Target Support Files/Pods-KnowYourAngles/Pods-KnowYourAngles.debug.xcconfig"; sourceTree = "<group>"; };
 		E3501E4026A76FEF0058BF10 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		E3501E4226A77FAE0058BF10 /* BackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColor.swift; sourceTree = "<group>"; };
+		E35BF86826A8AAE000D82817 /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
 		E3EEA04726A55220002AFFF2 /* KnowYourAnglesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnowYourAnglesApp.swift; sourceTree = "<group>"; };
 		E3EEA04926A55498002AFFF2 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -262,6 +264,7 @@
 				E3EEA04926A55498002AFFF2 /* MenuView.swift */,
 				E3501E4026A76FEF0058BF10 /* AboutView.swift */,
 				E3501E4226A77FAE0058BF10 /* BackgroundColor.swift */,
+				E35BF86826A8AAE000D82817 /* PlayView.swift */,
 			);
 			path = KnowYourAngles;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 				36C426B620FD43C300061D8F /* StatisticsViewController.swift in Sources */,
 				E3501E4326A77FAE0058BF10 /* BackgroundColor.swift in Sources */,
 				84461B4B1D308F1000BA997E /* FinishScreenViewController.swift in Sources */,
+				E35BF86926A8AAE000D82817 /* PlayView.swift in Sources */,
 				36D9AC4D22FD559200BE4DAD /* OverallController.swift in Sources */,
 				84C3E8221D2DC75300750751 /* SettingsViewController.swift in Sources */,
 				36969D6A1DFD290F00F95635 /* MainViewDataSource.swift in Sources */,

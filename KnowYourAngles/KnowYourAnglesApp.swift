@@ -14,9 +14,7 @@ import SwiftUI
 struct KnowYourAnglesApp: App {
     var body: some Scene {
         WindowGroup {
-            //NavigationView {
-                MenuView()
-            //}
+            MenuView()
         }
     }
 }
