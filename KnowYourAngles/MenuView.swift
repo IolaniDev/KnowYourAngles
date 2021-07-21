@@ -9,10 +9,11 @@
 import SwiftUI
 
 struct MenuView: View {
+    @State private var showAboutView = false
+    
     var body: some View {
-        Color(red: 25.0/255, green: 127.0/255, blue: 124.0/255)
-            .edgesIgnoringSafeArea(.all)
-            .overlay(
+            ZStack {
+                BackgroundColor()
                 VStack{
                     Text("Know Your Angles")
                         .font(.system(size: 80, weight: .heavy, design: .serif))
@@ -30,19 +31,26 @@ struct MenuView: View {
                         Image("KYA_Statistics_Icon")
                             .resizable()
                             .aspectRatio(contentMode: .fit)
-                        Image("KYA_About_Icon")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
+                        
+                        Button(action: {showAboutView = true})
+                        {
+                            Image("KYA_About_Icon")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                        }.sheet(isPresented: $showAboutView, content: {
+                            AboutView()
+                        })
                     }
-                    .frame(width: 800, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    
                 }
-                .padding()
-                .frame(minWidth: 800, maxWidth: .infinity, minHeight: 1000, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                //.listRowInsets(EdgeInsets())
-                
-            )
+                .frame(width: 800, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+            }
+            .padding()
+            .frame(minWidth: 800, maxWidth: .infinity, minHeight: 1000, maxHeight: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
     }
 }
+
+
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
