@@ -25,7 +25,7 @@ class ViewController: UIViewController {
     @IBOutlet var mathView: UIView!
     
     //the EditorViewController manages ink input
-    weak var editorViewController: EditorViewController!
+    var editorViewController: EditorViewController!
     
     //reference to data related to the problems displayed
     var problemSource = MainViewDataSource.init();
@@ -76,7 +76,7 @@ class ViewController: UIViewController {
     var beautifyTimer = Timer();
     var statusCheckTimer = Timer();
     var timerStarted = false;
-    
+    /*
     @objc func checkStatus(timer: Timer)
     {
         if editorViewController.inputView.timerOn && !timerStarted
@@ -191,14 +191,15 @@ class ViewController: UIViewController {
         }
     }
     /***** END - for scratch paper component *****/
-    
+    */
     // loading the view
     override func viewDidLoad() {
         //Setup Writing Recognition
         super.viewDidLoad();
-        
+
         /**********SET RIGHT OR LEFT HAND**********/
         //if the user has previously saved settings for left vs. right-hand mode, use their settings
+        /*
         if (savedSettings.object(forKey: "isLeftHandMode") != nil)
         {
             if(savedSettings.value(forKey: "isLeftHandMode") as! Bool)
@@ -976,9 +977,10 @@ class ViewController: UIViewController {
                 correctingMarksView.countdownTimer.text = "";
             }
         }
-        
+*/
         /***** START - FOR IINK SDK 1.3: *****/
-        editorViewController = (children.first as! EditorViewController)
+        editorViewController = EditorViewController()
+        self.addChild(editorViewController)
         
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
             if (appDelegate.engine == nil)
@@ -1013,7 +1015,7 @@ class ViewController: UIViewController {
         
         timerStarted = false;
         //check once per second to see if a conversion is needed
-        statusCheckTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(checkStatus(timer:)), userInfo: nil, repeats: true);
+        //statusCheckTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(checkStatus(timer:)), userInfo: nil, repeats: true);
         beautifyTimer = Timer();
     }
     
@@ -1133,7 +1135,7 @@ class ViewController: UIViewController {
                 
                 // clear the field to write your answer
                 editorViewController.editor.clear();
-                scratchPaperImageView.image = nil;
+                //scratchPaperImageView.image = nil;
             }
             
             result = "";

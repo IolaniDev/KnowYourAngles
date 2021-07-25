@@ -12,9 +12,13 @@ import SwiftUI
 //@main identifies the app's entry point (i.e. first scene)
 
 struct KnowYourAnglesApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     var body: some Scene {
         WindowGroup {
             MenuView()
+                .environmentObject(appDelegate)
         }
     }
+    
 }
