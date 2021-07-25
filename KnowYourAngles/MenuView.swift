@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct MenuView: View {
+    @EnvironmentObject var menuViewDelegate : AppDelegate
     @State private var showAboutView = false
     @State private var showPlayView = false
     
@@ -73,6 +74,6 @@ struct MenuView: View {
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuView()
+        MenuView().environmentObject(AppDelegate())
     }
 }
