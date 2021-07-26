@@ -12,12 +12,12 @@ import UIKit
 struct PlayViewController: UIViewControllerRepresentable {
     
     @EnvironmentObject var playViewDelegate : AppDelegate
-    //typealias UIViewControllerType = UIPlayViewController
     typealias UIViewControllerType = UIPlayViewController
+    var editorViewController = EditorViewController()
     
     func makeUIViewController(context: Context) -> UIPlayViewController {
         let playViewController = UIPlayViewController()
-        let editorViewController = EditorViewController()
+        
         playViewController.addChild(editorViewController)
         playViewController.view.addSubview(editorViewController.view)
         editorViewController.view.frame = playViewController.view.bounds
@@ -64,11 +64,11 @@ struct PlayViewController: UIViewControllerRepresentable {
         } catch {
             print("Error while creating package : " + error.localizedDescription)
         }
-        
         return playViewController
     }
     
     func updateUIViewController(_ uiViewController: UIPlayViewController, context: Context) {
+        print("updateUIViewController")
         
     }
 }
