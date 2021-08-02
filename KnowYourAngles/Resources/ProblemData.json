@@ -1,0 +1,2402 @@
+[
+    {
+        "id" : "Sin0",
+        "correctAnswer" : "0",
+        "answerImageName" : "Zero",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "sine",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "Sin90",
+        "correctAnswer" : "1",
+        "answerImageName" : "One",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "sine",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "Sin180",
+        "correctAnswer" : "0",
+        "answerImageName" : "Zero",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "sine",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "Sin270",
+        "correctAnswer" : "-1",
+        "answerImageName" : "Negative1",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "sine",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "Sin30",
+        "correctAnswer" : "0.5",
+        "answerImageName" : "OneOverTwo",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "sine",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "Sin45",
+        "correctAnswer" : "0.70711",
+        "answerImageName" : "Root2Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "sine",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "Sin60",
+        "correctAnswer" : "0.86603",
+        "answerImageName" : "Root3Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "sine",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "Sin120",
+        "correctAnswer" : "0.86603",
+        "answerImageName" : "Root3Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "sine",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "Sin135",
+        "correctAnswer" : "0.70711",
+        "answerImageName" : "Root2Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "sine",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "Sin150",
+        "correctAnswer" : "0.5",
+        "answerImageName" : "OneOverTwo",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "sine",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "Sin210",
+        "correctAnswer" : "-0.5",
+        "answerImageName" : "Negative1Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "sine",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "Sin225",
+        "correctAnswer" : "-0.70711",
+        "answerImageName" : "NegativeRoot2Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "sine",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "Sin240",
+        "correctAnswer" : "-0.86603",
+        "answerImageName" : "NegativeRoot3Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "sine",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "Sin300",
+        "correctAnswer" : "-0.86603",
+        "answerImageName" : "NegativeRoot3Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "sine",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "Sin315",
+        "correctAnswer" : "-0.70711",
+        "answerImageName" : "NegativeRoot2Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "sine",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "Sin330",
+        "correctAnswer" : "-0.5",
+        "answerImageName" : "Negative1Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "sine",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "Sin0rads",
+        "correctAnswer" : "0",
+        "answerImageName" : "Zero",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "sine",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "SinPiOver2",
+        "correctAnswer" : "1",
+        "answerImageName" : "One",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "sine",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "SinPi",
+        "correctAnswer" : "0",
+        "answerImageName" : "Zero",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "sine",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "Sin3PiOver2",
+        "correctAnswer" : "-1",
+        "answerImageName" : "Negative1",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "sine",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "SinPiOver6",
+        "correctAnswer" : "0.5",
+        "answerImageName" : "OneOverTwo",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "sine",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "SinPiOver4",
+        "correctAnswer" : "0.70711",
+        "answerImageName" : "Root2Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "sine",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "SinPiOver3",
+        "correctAnswer" : "0.86603",
+        "answerImageName" : "Root3Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "sine",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "Sin2PiOver3",
+        "correctAnswer" : "0.86603",
+        "answerImageName" : "Root3Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "sine",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "Sin3PiOver4",
+        "correctAnswer" : "0.70711",
+        "answerImageName" : "Root2Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "sine",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "Sin5PiOver6",
+        "correctAnswer" : "0.5",
+        "answerImageName" : "OneOverTwo",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "sine",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "Sin7PiOver6",
+        "correctAnswer" : "-0.5",
+        "answerImageName" : "Negative1Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "sine",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "Sin5PiOver4",
+        "correctAnswer" : "-0.70711",
+        "answerImageName" : "NegativeRoot2Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "sine",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "Sin4PiOver3",
+        "correctAnswer" : "-0.86603",
+        "answerImageName" : "NegativeRoot3Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "sine",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "Sin5PiOver3",
+        "correctAnswer" : "-0.86603",
+        "answerImageName" : "NegativeRoot3Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "sine",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "Sin7PiOver4",
+        "correctAnswer" : "-0.70711",
+        "answerImageName" : "NegativeRoot2Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "sine",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "Sin11PiOver6",
+        "correctAnswer" : "-0.5",
+        "answerImageName" : "Negative1Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "sine",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "Cos0",
+        "correctAnswer" : "1",
+        "answerImageName" : "One",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosine",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "Cos90",
+        "correctAnswer" : "0",
+        "answerImageName" : "Zero",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosine",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "Cos180",
+        "correctAnswer" : "-1",
+        "answerImageName" : "Negative1",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosine",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "Cos270",
+        "correctAnswer" : "0",
+        "answerImageName" : "Zero",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosine",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "Cos30",
+        "correctAnswer" : "0.86603",
+        "answerImageName" : "Root3Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosine",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "Cos45",
+        "correctAnswer" : "0.70711",
+        "answerImageName" : "Root2Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosine",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "Cos60",
+        "correctAnswer" : "0.5",
+        "answerImageName" : "OneOverTwo",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosine",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "Cos120",
+        "correctAnswer" : "-0.5",
+        "answerImageName" : "Negative1Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosine",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "Cos135",
+        "correctAnswer" : "-0.70711",
+        "answerImageName" : "NegativeRoot2Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosine",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "Cos150",
+        "correctAnswer" : "-0.86603",
+        "answerImageName" : "NegativeRoot3Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosine",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "Cos210",
+        "correctAnswer" : "-0.86603",
+        "answerImageName" : "NegativeRoot3Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosine",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "Cos225",
+        "correctAnswer" : "-0.70711",
+        "answerImageName" : "NegativeRoot2Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosine",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "Cos240",
+        "correctAnswer" : "-0.5",
+        "answerImageName" : "Negative1Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosine",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "Cos300",
+        "correctAnswer" : "0.5",
+        "answerImageName" : "OneOverTwo",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosine",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "Cos315",
+        "correctAnswer" : "0.70711",
+        "answerImageName" : "Root2Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosine",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "Cos330",
+        "correctAnswer" : "0.86603",
+        "answerImageName" : "Root3Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosine",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "Cos0rads",
+        "correctAnswer" : "1",
+        "answerImageName" : "One",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosine",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "CosPiOver2",
+        "correctAnswer" : "0",
+        "answerImageName" : "Zero",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosine",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "CosPi",
+        "correctAnswer" : "-1",
+        "answerImageName" : "Negative1",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosine",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "Cos3PiOver2",
+        "correctAnswer" : "0",
+        "answerImageName" : "Zero",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosine",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "CosPiOver6",
+        "correctAnswer" : "0.86603",
+        "answerImageName" : "Root3Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosine",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "CosPiOver4",
+        "correctAnswer" : "0.70711",
+        "answerImageName" : "Root2Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosine",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "CosPiOver3",
+        "correctAnswer" : "0.5",
+        "answerImageName" : "OneOverTwo",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosine",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "Cos2PiOver3",
+        "correctAnswer" : "-0.5",
+        "answerImageName" : "Negative1Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosine",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "Cos3PiOver4",
+        "correctAnswer" : "-0.70711",
+        "answerImageName" : "NegativeRoot2Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosine",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "Cos5PiOver6",
+        "correctAnswer" : "-0.86603",
+        "answerImageName" : "NegativeRoot3Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosine",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "Cos7PiOver6",
+        "correctAnswer" : "-0.86603",
+        "answerImageName" : "NegativeRoot3Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosine",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "Cos5PiOver4",
+        "correctAnswer" : "-0.70711",
+        "answerImageName" : "NegativeRoot2Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosine",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "Cos4PiOver3",
+        "correctAnswer" : "-0.5",
+        "answerImageName" : "Negative1Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosine",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "Cos5PiOver3",
+        "correctAnswer" : "0.5",
+        "answerImageName" : "OneOverTwo",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosine",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "Cos7PiOver4",
+        "correctAnswer" : "0.70711",
+        "answerImageName" : "Root2Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosine",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "Cos11PiOver6",
+        "correctAnswer" : "0.86603",
+        "answerImageName" : "Root3Over2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosine",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "tan0",
+        "correctAnswer" : "0",
+        "answerImageName" : "Zero",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "tangent",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "tan90",
+        "correctAnswer" : "u",
+        "answerImageName" : "U",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "tangent",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "tan180",
+        "correctAnswer" : "0",
+        "answerImageName" : "Zero",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "tangent",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "tan360",
+        "correctAnswer" : "u",
+        "answerImageName" : "U",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "tangent",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "tan30",
+        "correctAnswer" : "0.57735",
+        "answerImageName" : "Root3Over3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "tangent",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "tan45",
+        "correctAnswer" : "1",
+        "answerImageName" : "One",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "tangent",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "I",
+    },
+    {
+        "id" : "tan60",
+        "correctAnswer" : "1.73205",
+        "answerImageName" : "Root3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "tangent",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "tan120",
+        "correctAnswer" : "-1.73205",
+        "answerImageName" : "NegativeRoot3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "tangent",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "tan135",
+        "correctAnswer" : "-1",
+        "answerImageName" : "Negative1",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "tangent",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "tan150",
+        "correctAnswer" : "-0.57735",
+        "answerImageName" : "NegativeRoot3Over3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "tangent",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "tan210",
+        "correctAnswer" : "0.57735",
+        "answerImageName" : "Root3Over3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "tangent",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "tan225",
+        "correctAnswer" : "1",
+        "answerImageName" : "One",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "tangent",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "tan240",
+        "correctAnswer" : "1.73205",
+        "answerImageName" : "Root3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "tangent",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "tan300",
+        "correctAnswer" : "-1.73205",
+        "answerImageName" : "NegativeRoot3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "tangent",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "tan315",
+        "correctAnswer" : "-1",
+        "answerImageName" : "Negative1",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "tangent",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "tan330",
+        "correctAnswer" : "-0.57735",
+        "answerImageName" : "NegativeRoot3Over3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "tangent",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "tan0rads",
+        "correctAnswer" : "0",
+        "answerImageName" : "Zero",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "tangent",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "TanPiOver2",
+        "correctAnswer" : "u",
+        "answerImageName" : "U",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "tangent",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "TanPi",
+        "correctAnswer" : "0",
+        "answerImageName" : "Zero",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "tangent",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "Tan3PiOver2",
+        "correctAnswer" : "u",
+        "answerImageName" : "U",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "tangent",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "TanPiOver6",
+        "correctAnswer" : "0.57735",
+        "answerImageName" : "Root3Over3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "tangent",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "TanPiOver4",
+        "correctAnswer" : "1",
+        "answerImageName" : "One",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "tangent",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "TanPiOver3",
+        "correctAnswer" : "1.73205",
+        "answerImageName" : "Root3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "tangent",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "Tan2PiOver3",
+        "correctAnswer" : "-1.73205",
+        "answerImageName" : "NegativeRoot3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "tangent",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "Tan3PiOver4",
+        "correctAnswer" : "-1",
+        "answerImageName" : "Negative1",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "tangent",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "Tan5PiOver6",
+        "correctAnswer" : "-0.57735",
+        "answerImageName" : "NegativeRoot3Over3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "tangent",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "Tan7PiOver6",
+        "correctAnswer" : "0.57735",
+        "answerImageName" : "Root3Over3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "tangent",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "Tan5PiOver4",
+        "correctAnswer" : "1",
+        "answerImageName" : "One",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "tangent",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "Tan4PiOver3",
+        "correctAnswer" : "1.73205",
+        "answerImageName" : "Root3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "tangent",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "Tan5PiOver3",
+        "correctAnswer" : "-1.73205",
+        "answerImageName" : "NegativeRoot3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "tangent",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "Tan7PiOver4",
+        "correctAnswer" : "-1",
+        "answerImageName" : "Negative1",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "tangent",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "Tan11PiOver6",
+        "correctAnswer" : "-0.57735",
+        "answerImageName" : "NegativeRoot3Over3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "tangent",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "Csc0",
+        "correctAnswer" : "u",
+        "answerImageName" : "U",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosecant",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "Csc90",
+        "correctAnswer" : "1",
+        "answerImageName" : "One",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosecant",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "Csc180",
+        "correctAnswer" : "u",
+        "answerImageName" : "U",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosecant",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "Csc270",
+        "correctAnswer" : "-1",
+        "answerImageName" : "Negative1",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosecant",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "Csc30",
+        "correctAnswer" : "2",
+        "answerImageName" : "Two",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosecant",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "Csc45",
+        "correctAnswer" : "1.41421",
+        "answerImageName" : "Root2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosecant",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "Csc60",
+        "correctAnswer" : "1.15470",
+        "answerImageName" : "TwoRoot3Over3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosecant",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "Csc120",
+        "correctAnswer" : "1.15470",
+        "answerImageName" : "TwoRoot3Over3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosecant",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "Csc135",
+        "correctAnswer" : "1.41421",
+        "answerImageName" : "Root2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosecant",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "Csc150",
+        "correctAnswer" : "2",
+        "answerImageName" : "Two",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosecant",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "Csc210",
+        "correctAnswer" : "-2",
+        "answerImageName" : "Negative2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosecant",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "Csc225",
+        "correctAnswer" : "-1.41421",
+        "answerImageName" : "NegativeRoot2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosecant",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "Csc240",
+        "correctAnswer" : "-1.15470",
+        "answerImageName" : "Negative2Root3Over3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosecant",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "Csc300",
+        "correctAnswer" : "-1.15470",
+        "answerImageName" : "Negative2Root3Over3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosecant",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "Csc315",
+        "correctAnswer" : "-1.41421",
+        "answerImageName" : "NegativeRoot2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosecant",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "Csc330",
+        "correctAnswer" : "-2",
+        "answerImageName" : "Negative2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosecant",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "Csc0rads",
+        "correctAnswer" : "u",
+        "answerImageName" : "U",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosecant",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "CscPiOver2",
+        "correctAnswer" : "1",
+        "answerImageName" : "One",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosecant",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "CscPi",
+        "correctAnswer" : "u",
+        "answerImageName" : "U",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosecant",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "Csc3PiOver2",
+        "correctAnswer" : "-1",
+        "answerImageName" : "Negative1",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosecant",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "CscPiOver6",
+        "correctAnswer" : "2",
+        "answerImageName" : "Two",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosecant",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "CscPiOver4",
+        "correctAnswer" : "1.41421",
+        "answerImageName" : "Root2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosecant",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "CscPiOver3",
+        "correctAnswer" : "1.15470",
+        "answerImageName" : "TwoRoot3Over3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosecant",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "Csc2PiOver3",
+        "correctAnswer" : "1.15470",
+        "answerImageName" : "TwoRoot3Over3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosecant",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "Csc3PiOver4",
+        "correctAnswer" : "1.41421",
+        "answerImageName" : "Root2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosecant",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "Csc5PiOver6",
+        "correctAnswer" : "2",
+        "answerImageName" : "Two",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosecant",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "Csc7PiOver6",
+        "correctAnswer" : "-2",
+        "answerImageName" : "Negative2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosecant",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "Csc5PiOver4",
+        "correctAnswer" : "-1.41421",
+        "answerImageName" : "NegativeRoot2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosecant",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "Csc4PiOver3",
+        "correctAnswer" : "-1.15470",
+        "answerImageName" : "Negative2Root3Over3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosecant",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "Csc5PiOver3",
+        "correctAnswer" : "-1.15470",
+        "answerImageName" : "Negative2Root3Over3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosecant",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "Csc7PiOver4",
+        "correctAnswer" : "-1.41421",
+        "answerImageName" : "NegativeRoot2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosecant",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "Csc11PiOver6",
+        "correctAnswer" : "-2",
+        "answerImageName" : "Negative2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cosecant",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "Sec0",
+        "correctAnswer" : "1",
+        "answerImageName" : "One",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "secant",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "Sec90",
+        "correctAnswer" : "u",
+        "answerImageName" : "U",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "secant",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "Sec180",
+        "correctAnswer" : "-1",
+        "answerImageName" : "Negative1",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "secant",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "Sec270",
+        "correctAnswer" : "u",
+        "answerImageName" : "U",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "secant",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "Sec30",
+        "correctAnswer" : "1.15470",
+        "answerImageName" : "TwoRoot3Over3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "secant",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "Sec45",
+        "correctAnswer" : "1.41421",
+        "answerImageName" : "Root2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "secant",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "Sec60",
+        "correctAnswer" : "2",
+        "answerImageName" : "Two",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "secant",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "Sec120",
+        "correctAnswer" : "-2",
+        "answerImageName" : "Negative2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "secant",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "Sec135",
+        "correctAnswer" : "-1.41421",
+        "answerImageName" : "NegativeRoot2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "secant",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "Sec150",
+        "correctAnswer" : "-1.15470",
+        "answerImageName" : "Negative2Root3Over3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "secant",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "Sec210",
+        "correctAnswer" : "-1.15470",
+        "answerImageName" : "Negative2Root3Over3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "secant",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "Sec225",
+        "correctAnswer" : "-1.41421",
+        "answerImageName" : "NegativeRoot2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "secant",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "Sec240",
+        "correctAnswer" : "-2",
+        "answerImageName" : "Negative2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "secant",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "Sec300",
+        "correctAnswer" : "2",
+        "answerImageName" : "Two",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "secant",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "Sec315",
+        "correctAnswer" : "1.41421",
+        "answerImageName" : "Root2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "secant",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "Sec330",
+        "correctAnswer" : "1.15470",
+        "answerImageName" : "TwoRoot3Over3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "secant",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "Sec0rads",
+        "correctAnswer" : "1",
+        "answerImageName" : "One",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "secant",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "SecPiOver2",
+        "correctAnswer" : "u",
+        "answerImageName" : "U",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "secant",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "SecPi",
+        "correctAnswer" : "-1",
+        "answerImageName" : "Negative1",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "secant",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "Sec3PiOver2",
+        "correctAnswer" : "u",
+        "answerImageName" : "U",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "secant",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "SecPiOver6",
+        "correctAnswer" : "1.15470",
+        "answerImageName" : "TwoRoot3Over3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "secant",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "SecPiOver4",
+        "correctAnswer" : "1.41421",
+        "answerImageName" : "Root2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "secant",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "SecPiOver3",
+        "correctAnswer" : "2",
+        "answerImageName" : "Two",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "secant",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "Sec2PiOver3",
+        "correctAnswer" : "-2",
+        "answerImageName" : "Negative2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "secant",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "Sec3PiOver4",
+        "correctAnswer" : "-1.41421",
+        "answerImageName" : "NegativeRoot2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "secant",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "Sec5PiOver6",
+        "correctAnswer" : "-1.15470",
+        "answerImageName" : "Negative2Root3Over3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "secant",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "Sec7PiOver6",
+        "correctAnswer" : "-1.15470",
+        "answerImageName" : "Negative2Root3Over3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "secant",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "Sec5PiOver4",
+        "correctAnswer" : "-1.41421",
+        "answerImageName" : "NegativeRoot2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "secant",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "Sec4PiOver3",
+        "correctAnswer" : "-2",
+        "answerImageName" : "Negative2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "secant",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "Sec5PiOver3",
+        "correctAnswer" : "2",
+        "answerImageName" : "Two",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "secant",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "Sec7PiOver4",
+        "correctAnswer" : "1.41421",
+        "answerImageName" : "Root2",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "secant",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "Sec11PiOver6",
+        "correctAnswer" : "1.15470",
+        "answerImageName" : "TwoRoot3Over3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "secant",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "Cot0",
+        "correctAnswer" : "u",
+        "answerImageName" : "U",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cotangent",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "Cot90",
+        "correctAnswer" : "0",
+        "answerImageName" : "Zero",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cotangent",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "Cot180",
+        "correctAnswer" : "u",
+        "answerImageName" : "U",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cotangent",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "Cot270",
+        "correctAnswer" : "0",
+        "answerImageName" : "Zero",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cotangent",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "Cot30",
+        "correctAnswer" : "1.73205",
+        "answerImageName" : "Root3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cotangent",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "Cot45",
+        "correctAnswer" : "1",
+        "answerImageName" : "One",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cotangent",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "Cot60",
+        "correctAnswer" : "0.57735",
+        "answerImageName" : "Root3Over3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cotangent",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "Cot120",
+        "correctAnswer" : "-0.57735",
+        "answerImageName" : "NegativeRoot3Over3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cotangent",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "Cot135",
+        "correctAnswer" : "-1",
+        "answerImageName" : "Negative1",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cotangent",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "Cot150",
+        "correctAnswer" : "-1.73205",
+        "answerImageName" : "NegativeRoot3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cotangent",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "Cot210",
+        "correctAnswer" : "1.73205",
+        "answerImageName" : "Root3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cotangent",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "Cot225",
+        "correctAnswer" : "1",
+        "answerImageName" : "One",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cotangent",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "Cot240",
+        "correctAnswer" : "0.57735",
+        "answerImageName" : "Root3Over3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cotangent",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "Cot300",
+        "correctAnswer" : "-0.57735",
+        "answerImageName" : "NegativeRoot3Over3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cotangent",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "Cot315",
+        "correctAnswer" : "-1",
+        "answerImageName" : "Negative1",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cotangent",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "Cot330",
+        "correctAnswer" : "-1.73205",
+        "answerImageName" : "NegativeRoot3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cotangent",
+        "unitsOfAngle" : "degrees",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "Cot0rads",
+        "correctAnswer" : "u",
+        "answerImageName" : "U",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cotangent",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "CotPiOver2",
+        "correctAnswer" : "0",
+        "answerImageName" : "Zero",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cotangent",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "CotPi",
+        "correctAnswer" : "u",
+        "answerImageName" : "U",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cotangent",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "Cot3PiOver2",
+        "correctAnswer" : "0",
+        "answerImageName" : "Zero",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cotangent",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "CotPiOver6",
+        "correctAnswer" : "1.73205",
+        "answerImageName" : "Root3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cotangent",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "CotPiOver4",
+        "correctAnswer" : "1",
+        "answerImageName" : "One",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cotangent",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "CotPiOver3",
+        "correctAnswer" : "0.57735",
+        "answerImageName" : "Root3Over3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cotangent",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "Cot2PiOver3",
+        "correctAnswer" : "-0.57735",
+        "answerImageName" : "NegativeRoot3Over3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cotangent",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "Cot3PiOver4",
+        "correctAnswer" : "-1",
+        "answerImageName" : "Negative1",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cotangent",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "Cot5PiOver6",
+        "correctAnswer" : "-1.73205",
+        "answerImageName" : "NegativeRoot3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cotangent",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "Cot7PiOver6",
+        "correctAnswer" : "1.73205",
+        "answerImageName" : "Root3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cotangent",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "Cot5PiOver4",
+        "correctAnswer" : "1",
+        "answerImageName" : "One",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cotangent",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "Cot4PiOver3",
+        "correctAnswer" : "0.57735",
+        "answerImageName" : "Root3Over3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cotangent",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "III"
+    },
+    {
+        "id" : "Cot5PiOver3",
+        "correctAnswer" : "-0.57735",
+        "answerImageName" : "NegativeRoot3Over3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cotangent",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "Cot7PiOver4",
+        "correctAnswer" : "-1",
+        "answerImageName" : "Negative1",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cotangent",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "Cot11PiOver6",
+        "correctAnswer" : "-1.73205",
+        "answerImageName" : "NegativeRoot3",
+        "otherCorrectAnswer" : "",
+        "otherAnswerImageName" : "",
+        "typeOfProblem" : "cotangent",
+        "unitsOfAngle" : "radians",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "ArcsinNegative1",
+        "correctAnswer" : "-1.57080",
+        "answerImageName" : "NegativePiOver2",
+        "otherCorrectAnswer" : "-90",
+        "otherAnswerImageName" : "Negative90deg",
+        "typeOfProblem" : "arcsine",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "Arcsin0",
+        "correctAnswer" : "0",
+        "answerImageName" : "0rads",
+        "otherCorrectAnswer" : "0",
+        "otherAnswerImageName" : "0deg",
+        "typeOfProblem" : "arcsine",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "Arcsin1",
+        "correctAnswer" : "1.57080",
+        "answerImageName" : "PiOver2",
+        "otherCorrectAnswer" : "90",
+        "otherAnswerImageName" : "90deg",
+        "typeOfProblem" : "arcsine",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "Arcsin1Over2",
+        "correctAnswer" : "0.52360",
+        "answerImageName" : "PiOver6",
+        "otherCorrectAnswer" : "30",
+        "otherAnswerImageName" : "30deg",
+        "typeOfProblem" : "arcsine",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "ArcsinRoot2Over2",
+        "correctAnswer" : "0.78540",
+        "answerImageName" : "PiOver4",
+        "otherCorrectAnswer" : "45",
+        "otherAnswerImageName" : "45deg",
+        "typeOfProblem" : "arcsine",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "ArcsinRoot3Over2",
+        "correctAnswer" : "1.04720",
+        "answerImageName" : "PiOver3",
+        "otherCorrectAnswer" : "60",
+        "otherAnswerImageName" : "60deg",
+        "typeOfProblem" : "arcsine",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "ArcsinNegativeRoot3Over2",
+        "correctAnswer" : "-1.04720",
+        "answerImageName" : "NegativePiOver3",
+        "otherCorrectAnswer" : "-60",
+        "otherAnswerImageName" : "Negative60deg",
+        "typeOfProblem" : "arcsine",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "ArcsinNegativeRoot2Over2",
+        "correctAnswer" : "-0.78540",
+        "answerImageName" : "NegativePiOver4",
+        "otherCorrectAnswer" : "-45",
+        "otherAnswerImageName" : "Negative45deg",
+        "typeOfProblem" : "arcsine",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "ArcsinNegative1Over2",
+        "correctAnswer" : "-0.52360",
+        "answerImageName" : "NegativePiOver6",
+        "otherCorrectAnswer" : "-30",
+        "otherAnswerImageName" : "Negative30deg",
+        "typeOfProblem" : "arcsine",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "ArccosNegative1",
+        "correctAnswer" : "\\pi",
+        "answerImageName" : "Pi",
+        "otherCorrectAnswer" : "180",
+        "otherAnswerImageName" : "180deg",
+        "typeOfProblem" : "arccosine",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "Arccos0",
+        "correctAnswer" : "1.57080",
+        "answerImageName" : "PiOver2",
+        "otherCorrectAnswer" : "90",
+        "otherAnswerImageName" : "90deg",
+        "typeOfProblem" : "arccosine",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "Arccos1",
+        "correctAnswer" : "0",
+        "answerImageName" : "0rads",
+        "otherCorrectAnswer" : "0",
+        "otherAnswerImageName" : "0deg",
+        "typeOfProblem" : "arccosine",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "Arccos1Over2",
+        "correctAnswer" : "1.04720",
+        "answerImageName" : "PiOver3",
+        "otherCorrectAnswer" : "60",
+        "otherAnswerImageName" : "60deg",
+        "typeOfProblem" : "arccosine",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "ArccosRoot2Over2",
+        "correctAnswer" : "0.78540",
+        "answerImageName" : "PiOver4",
+        "otherCorrectAnswer" : "45",
+        "otherAnswerImageName" : "45deg",
+        "typeOfProblem" : "arccosine",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "ArccosRoot3Over2",
+        "correctAnswer" : "0.52360",
+        "answerImageName" : "PiOver6",
+        "otherCorrectAnswer" : "30",
+        "otherAnswerImageName" : "30deg",
+        "typeOfProblem" : "arccosine",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "ArccosNegativeRoot3Over2",
+        "correctAnswer" : "2.61799",
+        "answerImageName" : "FivePiOver6",
+        "otherCorrectAnswer" : "150",
+        "otherAnswerImageName" : "150deg",
+        "typeOfProblem" : "arccosine",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "ArccosNegativeRoot2Over2",
+        "correctAnswer" : "2.35619",
+        "answerImageName" : "ThreePiOver4",
+        "otherCorrectAnswer" : "135",
+        "otherAnswerImageName" : "135deg",
+        "typeOfProblem" : "arccosine",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "ArccosNegative1Over2",
+        "correctAnswer" : "2.09440",
+        "answerImageName" : "TwoPiOver3",
+        "otherCorrectAnswer" : "120",
+        "otherAnswerImageName" : "120deg",
+        "typeOfProblem" : "arccosine",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "Arctan0",
+        "correctAnswer" : "0",
+        "answerImageName" : "0rads",
+        "otherCorrectAnswer" : "0",
+        "otherAnswerImageName" : "0deg",
+        "typeOfProblem" : "arctangent",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "ArctanRoot3Over3",
+        "correctAnswer" : "0.52360",
+        "answerImageName" : "PiOver6",
+        "otherCorrectAnswer" : "30",
+        "otherAnswerImageName" : "30deg",
+        "typeOfProblem" : "arctangent",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "Arctan1",
+        "correctAnswer" : "0.78540",
+        "answerImageName" : "PiOver4",
+        "otherCorrectAnswer" : "45",
+        "otherAnswerImageName" : "45deg",
+        "typeOfProblem" : "arctangent",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "ArctanRoot3",
+        "correctAnswer" : "1.04720",
+        "answerImageName" : "PiOver3",
+        "otherCorrectAnswer" : "60",
+        "otherAnswerImageName" : "60deg",
+        "typeOfProblem" : "arctangent",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "ArctanNegativeRoot3Over3",
+        "correctAnswer" : "-0.52360",
+        "answerImageName" : "NegativePiOver6",
+        "otherCorrectAnswer" : "-30",
+        "otherAnswerImageName" : "Negative30deg",
+        "typeOfProblem" : "arctangent",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "ArctanNegative1",
+        "correctAnswer" : "-0.78540",
+        "answerImageName" : "NegativePiOver4",
+        "otherCorrectAnswer" : "-45",
+        "otherAnswerImageName" : "Negative45deg",
+        "typeOfProblem" : "arctangent",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "ArctanNegativeRoot3",
+        "correctAnswer" : "-1.04720",
+        "answerImageName" : "NegativePiOver3",
+        "otherCorrectAnswer" : "-60",
+        "otherAnswerImageName" : "Negative60deg",
+        "typeOfProblem" : "arctangent",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "ArccscNegative1",
+        "correctAnswer" : "-1.57080",
+        "answerImageName" : "NegativePiOver2",
+        "otherCorrectAnswer" : "-90",
+        "otherAnswerImageName" : "Negative90deg",
+        "typeOfProblem" : "arccosecant",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "Arccsc1",
+        "correctAnswer" : "1.57080",
+        "answerImageName" : "PiOver2",
+        "otherCorrectAnswer" : "90",
+        "otherAnswerImageName" : "90deg",
+        "typeOfProblem" : "arccosecant",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "Arccsc2",
+        "correctAnswer" : "0.52360",
+        "answerImageName" : "PiOver6",
+        "otherCorrectAnswer" : "30",
+        "otherAnswerImageName" : "30deg",
+        "typeOfProblem" : "arccosecant",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "ArccscRoot2",
+        "correctAnswer" : "0.78540",
+        "answerImageName" : "PiOver4",
+        "otherCorrectAnswer" : "45",
+        "otherAnswerImageName" : "45deg",
+        "typeOfProblem" : "arccosecant",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "Arccsc2Root3Over3",
+        "correctAnswer" : "1.04720",
+        "answerImageName" : "PiOver3",
+        "otherCorrectAnswer" : "60",
+        "otherAnswerImageName" : "60deg",
+        "typeOfProblem" : "arccosecant",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "ArccscNegative2",
+        "correctAnswer" : "-0.52360",
+        "answerImageName" : "NegativePiOver6",
+        "otherCorrectAnswer" : "-30",
+        "otherAnswerImageName" : "Negative30deg",
+        "typeOfProblem" : "arccosecant",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "ArccscNegativeRoot2",
+        "correctAnswer" : "-0.78540",
+        "answerImageName" : "NegativePiOver4",
+        "otherCorrectAnswer" : "-45",
+        "otherAnswerImageName" : "Negative45deg",
+        "typeOfProblem" : "arccosecant",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "ArccscNegative2Root3Over3",
+        "correctAnswer" : "-1.04720",
+        "answerImageName" : "NegativePiOver3",
+        "otherCorrectAnswer" : "-60",
+        "otherAnswerImageName" : "Negative60deg",
+        "typeOfProblem" : "arccosecant",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "IV"
+    },
+    {
+        "id" : "Arcsec1",
+        "correctAnswer" : "0",
+        "answerImageName" : "0rads",
+        "otherCorrectAnswer" : "0",
+        "otherAnswerImageName" : "0deg",
+        "typeOfProblem" : "arcsecant",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "ArcsecNegative1",
+        "correctAnswer" : "\\pi",
+        "answerImageName" : "Pi",
+        "otherCorrectAnswer" : "180",
+        "otherAnswerImageName" : "180deg",
+        "typeOfProblem" : "arcsecant",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "Arcsec2Root3Over3",
+        "correctAnswer" : "0.52360",
+        "answerImageName" : "PiOver6",
+        "otherCorrectAnswer" : "30",
+        "otherAnswerImageName" : "30deg",
+        "typeOfProblem" : "arcsecant",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "ArcsecRoot2",
+        "correctAnswer" : "0.78540",
+        "answerImageName" : "PiOver4",
+        "otherCorrectAnswer" : "45",
+        "otherAnswerImageName" : "45deg",
+        "typeOfProblem" : "arcsecant",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "Arcsec2",
+        "correctAnswer" : "1.04720",
+        "answerImageName" : "PiOver3",
+        "otherCorrectAnswer" : "60",
+        "otherAnswerImageName" : "60deg",
+        "typeOfProblem" : "arcsecant",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "ArcsecNegative2",
+        "correctAnswer" : "2.09440",
+        "answerImageName" : "TwoPiOver3",
+        "otherCorrectAnswer" : "120",
+        "otherAnswerImageName" : "120deg",
+        "typeOfProblem" : "arcsecant",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "ArcsecNegativeRoot2",
+        "correctAnswer" : "2.35619",
+        "answerImageName" : "ThreePiOver4",
+        "otherCorrectAnswer" : "135",
+        "otherAnswerImageName" : "135deg",
+        "typeOfProblem" : "arcsecant",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "ArcsecNegative2Root3Over3",
+        "correctAnswer" : "2.61799",
+        "answerImageName" : "FivePiOver6",
+        "otherCorrectAnswer" : "150",
+        "otherAnswerImageName" : "150deg",
+        "typeOfProblem" : "arcsecant",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "Arccot0",
+        "correctAnswer" : "1.57080",
+        "answerImageName" : "PiOver2",
+        "otherCorrectAnswer" : "90",
+        "otherAnswerImageName" : "90deg",
+        "typeOfProblem" : "arccotangent",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "quadrantal"
+    },
+    {
+        "id" : "ArccotRoot3",
+        "correctAnswer" : "0.52360",
+        "answerImageName" : "PiOver6",
+        "otherCorrectAnswer" : "30",
+        "otherAnswerImageName" : "30deg",
+        "typeOfProblem" : "arccotangent",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "Arccot1",
+        "correctAnswer" : "0.78540",
+        "answerImageName" : "PiOver4",
+        "otherCorrectAnswer" : "45",
+        "otherAnswerImageName" : "45deg",
+        "typeOfProblem" : "arccotangent",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "ArccotRoot3Over3",
+        "correctAnswer" : "1.04720",
+        "answerImageName" : "PiOver3",
+        "otherCorrectAnswer" : "60",
+        "otherAnswerImageName" : "60deg",
+        "typeOfProblem" : "arccotangent",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "I"
+    },
+    {
+        "id" : "ArccotNegativeRoot3Over3",
+        "correctAnswer" : "2.09440",
+        "answerImageName" : "TwoPiOver3",
+        "otherCorrectAnswer" : "120",
+        "otherAnswerImageName" : "120deg",
+        "typeOfProblem" : "arccotangent",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "ArccotNegative1",
+        "correctAnswer" : "2.35619",
+        "answerImageName" : "ThreePiOver4",
+        "otherCorrectAnswer" : "135",
+        "otherAnswerImageName" : "135deg",
+        "typeOfProblem" : "arccotangent",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "II"
+    },
+    {
+        "id" : "ArccotNegativeRoot3",
+        "correctAnswer" : "2.61799",
+        "answerImageName" : "FivePiOver6",
+        "otherCorrectAnswer" : "150",
+        "otherAnswerImageName" : "150deg",
+        "typeOfProblem" : "arccotangent",
+        "unitsOfAngle" : "radiansAndDegrees",
+        "problemQuadrant" : "II"
+    }
+]
