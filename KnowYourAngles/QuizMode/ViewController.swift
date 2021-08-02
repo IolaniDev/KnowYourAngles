@@ -8,7 +8,7 @@
 //  Scratch Paper Components are based on the tutorial
 //  How To Make A Simple Drawing App with UIKit and Swift by Jean-Pierre Distler
 //  https://www.raywenderlich.com/87899/make-simple-drawing-app-uikit-swift
-
+/*
 import UIKit
 //import Firebase
 
@@ -1210,3 +1210,4 @@ class ViewController: UIViewController {
         savedSettings.setValue(savedSettings.value(forKey: "radianAndDegreeStatsNumTotal") as! Int + 1, forKey: "radianAndDegreeStatsNumTotal");
     }
 }
+*/

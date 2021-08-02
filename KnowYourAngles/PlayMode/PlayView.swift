@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct PlayView: View {
-    
+    @EnvironmentObject var modelData : ModelData
     var body: some View {
         ZStack {
             BackgroundColor()
@@ -25,8 +25,8 @@ struct PlayView: View {
                 
                 Divider()
                 
-                Image("Cos0")
-                
+                Image(modelData.allProblems[0].id)
+                Text(String(modelData.allProblems.count))
                 ZStack {
                     Image("graphPattern")
                         .frame(width: 500, height: 300)
@@ -46,6 +46,8 @@ struct PlayView: View {
 
 struct PlayView_Previews: PreviewProvider {
     static var previews: some View {
-        PlayView().environmentObject(AppDelegate())
+        PlayView()
+            .environmentObject(AppDelegate())
+            .environmentObject(ModelData())
     }
 }

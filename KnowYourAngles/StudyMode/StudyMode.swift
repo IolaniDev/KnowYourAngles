@@ -8,7 +8,7 @@
 
 import UIKit
 //import Firebase
-
+/*
 class StudyMode : UIViewController{
     
     /*** START - Variables for overall setup ***/
@@ -1142,3 +1142,4 @@ class StudyMode : UIViewController{
     
     
 }
+*/

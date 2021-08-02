@@ -9,7 +9,7 @@
 import Foundation
 
 class MainViewDataSource : NSObject{
-    
+   /*
     //empty array to hold the problems to choose from depending on the user's settings.
     fileprivate var libraryOfProblems : [Problem];
     
@@ -792,5 +792,6 @@ class MainViewDataSource : NSObject{
     func getCurrProblem() -> Problem
     {
         return currProblem!;
-    }
+    }*/
 }
+
