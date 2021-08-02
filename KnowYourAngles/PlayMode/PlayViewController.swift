@@ -10,7 +10,6 @@ import SwiftUI
 import UIKit
 
 struct PlayViewController: UIViewControllerRepresentable {
-    
     @EnvironmentObject var playViewDelegate : AppDelegate
     typealias UIViewControllerType = UIPlayViewController
     var editorViewController = EditorViewController()
