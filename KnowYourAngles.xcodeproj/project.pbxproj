@@ -36,6 +36,7 @@
 		84C3E8221D2DC75300750751 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C3E8211D2DC75300750751 /* SettingsViewController.swift */; };
 		E31470BD26A8FB7B00CAE97B /* ProgressSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31470BC26A8FB7B00CAE97B /* ProgressSymbol.swift */; };
 		E31CBDC426AB818600AD6699 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31CBDC326AB818600AD6699 /* PlayViewController.swift */; };
+		E335E9F526B8982700B14685 /* ProblemSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = E335E9F426B8982700B14685 /* ProblemSet.swift */; };
 		E3414B1F26AB8F9400273415 /* UIPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3414B1E26AB8F9400273415 /* UIPlayViewController.swift */; };
 		E34B169E26AFD7F800347517 /* ProblemData.json in Resources */ = {isa = PBXBuildFile; fileRef = E34B169D26AFD7F800347517 /* ProblemData.json */; };
 		E3501E4126A76FEF0058BF10 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3501E4026A76FEF0058BF10 /* AboutView.swift */; };
@@ -110,6 +111,7 @@
 		BD61C04C9EF0A95C06AA4808 /* Pods-KnowYourAngles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnowYourAngles.debug.xcconfig"; path = "Target Support Files/Pods-KnowYourAngles/Pods-KnowYourAngles.debug.xcconfig"; sourceTree = "<group>"; };
 		E31470BC26A8FB7B00CAE97B /* ProgressSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressSymbol.swift; sourceTree = "<group>"; };
 		E31CBDC326AB818600AD6699 /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
+		E335E9F426B8982700B14685 /* ProblemSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblemSet.swift; sourceTree = "<group>"; };
 		E3414B1E26AB8F9400273415 /* UIPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPlayViewController.swift; sourceTree = "<group>"; };
 		E34B169D26AFD7F800347517 /* ProblemData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ProblemData.json; sourceTree = "<group>"; };
 		E3501E4026A76FEF0058BF10 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 				E31CBDC326AB818600AD6699 /* PlayViewController.swift */,
 				E35BF86826A8AAE000D82817 /* PlayView.swift */,
 				E3414B1E26AB8F9400273415 /* UIPlayViewController.swift */,
+				E335E9F426B8982700B14685 /* ProblemSet.swift */,
 			);
 			path = PlayMode;
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 				E3501E4126A76FEF0058BF10 /* AboutView.swift in Sources */,
 				45F91BD81E81C86500E26D3D /* org.iolani.inhouse.KnowYourAngles.c in Sources */,
 				E3EEA04826A55220002AFFF2 /* KnowYourAnglesApp.swift in Sources */,
+				E335E9F526B8982700B14685 /* ProblemSet.swift in Sources */,
 				36919FBB1E405B43000A7647 /* SummaryCell.swift in Sources */,
 				36DFEBEA1DDCDDD200DF333D /* MainView.swift in Sources */,
 				36B51E3D2112BDD600AD4095 /* StudyView.swift in Sources */,

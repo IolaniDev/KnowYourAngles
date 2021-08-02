@@ -10,6 +10,7 @@ import SwiftUI
 
 struct MenuView: View {
     @EnvironmentObject var menuViewDelegate : AppDelegate
+    @EnvironmentObject var modelData : ModelData
     @State private var showAboutView = false
     @State private var showPlayView = false
     
@@ -34,7 +35,7 @@ struct MenuView: View {
                         //                                    .aspectRatio(contentMode: .fit)
                         //                            }
                         //                        }
-                        NavigationLink(destination: PlayView()) {
+                        NavigationLink(destination: PlayView(currentProblemSet: ProblemSet(setOfProblems: modelData.allProblems))) {
                             Image("KYA_Start_Icon")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
