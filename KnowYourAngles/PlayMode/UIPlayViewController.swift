@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import SwiftUI
 
 class UIPlayViewController : UIViewController {
     
+    @EnvironmentObject var playViewDelegate : AppDelegate
     //result is used to store the text version of the user's converted answer
-    var result = "";
+    //@objc dynamic var initialResult = "";
+    //var editorViewController = EditorViewController()
+    var initialResult = ""
     
     /***** START - variables and functions for automatically changing user's writing into text and math symbols *****/
     //create a timer
@@ -56,7 +60,7 @@ class UIPlayViewController : UIViewController {
                 let supportedMimeTypes = editorViewController.editor.getSupportedExportMimeTypes(nil);
                 
                 //get the result as string
-                result = try editorViewController.editor!.export_(nil, mimeType: supportedMimeTypes[0].value);
+                initialResult = try editorViewController.editor!.export_(nil, mimeType: supportedMimeTypes[0].value);
                 
                 //add 1 to the total number of conversions that have been done so far
                 //NumberOfConversions += 1;
@@ -67,8 +71,6 @@ class UIPlayViewController : UIViewController {
             editorViewController.inputView.convertRequired = false;
             endTimer();
             //NSLog("Result: " + result);
-            
-            
         }
     }
     /***** END - variables and functions for automatically changing user's writing into text and math symbols *****/

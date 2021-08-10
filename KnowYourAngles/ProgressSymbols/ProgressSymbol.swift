@@ -20,6 +20,6 @@ struct ProgressSymbol: View {
 struct SwiftUIView_Previews: PreviewProvider {
     static var previews: some View {
         ProgressSymbol(name: "KYA_Star_Icon")
-        ProgressSymbol(name: "Correct")
+        //ProgressSymbol(name: "Correct")
     }
 }

@@ -35,7 +35,7 @@ struct MenuView: View {
                         //                                    .aspectRatio(contentMode: .fit)
                         //                            }
                         //                        }
-                        NavigationLink(destination: PlayView(currentProblemSet: ProblemSet(setOfProblems: modelData.allProblems))) {
+                        NavigationLink(destination: PlayView().environmentObject(modelData)) {
                             Image("KYA_Start_Icon")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
@@ -75,6 +75,8 @@ struct MenuView: View {
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuView().environmentObject(AppDelegate())
+        MenuView()
+            .environmentObject(AppDelegate())
+            .environmentObject(ModelData())
     }
 }
