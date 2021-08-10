@@ -10,6 +10,7 @@ import SwiftUI
 import UIKit
 
 struct PlayViewController: UIViewControllerRepresentable {
+    
     @EnvironmentObject var playViewDelegate : AppDelegate
     typealias UIViewControllerType = UIPlayViewController
     var editorViewController = EditorViewController()
@@ -63,11 +64,11 @@ struct PlayViewController: UIViewControllerRepresentable {
         } catch {
             print("Error while creating package : " + error.localizedDescription)
         }
+
         return playViewController
     }
     
     func updateUIViewController(_ uiViewController: UIPlayViewController, context: Context) {
-        print("updateUIViewController")
-        
+        print("updateUIViewController: ")
     }
 }

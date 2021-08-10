@@ -10,7 +10,7 @@ import Foundation
 import Combine
 
 final class ModelData : ObservableObject {
-    @Published var allProblems : [Problem] = load("ProblemData.json")
+    @Published var allProblems : [Problem] = (load("ProblemData.json") as [Problem]).shuffled()
     
     var categories: [String: [Problem]] {
         Dictionary(

@@ -13,6 +13,8 @@ struct Problem : Hashable, Codable, Identifiable{
     var id : String;
     var correctAnswer : String;
     var answerImageName : String;
+    var otherCorrectAnswer : String;
+    var otherAnswerImageName : String;
     var typeOfProblem : String;
     var unitsOfAngle : angleUnits;
     var problemQuadrant : quadrant;
@@ -31,6 +33,28 @@ struct Problem : Hashable, Codable, Identifiable{
         case quadrantal = "quadrantal"
     }
     
+    init()
+    {
+        self.id = ""
+        self.correctAnswer = ""
+        self.answerImageName = ""
+        self.otherCorrectAnswer = ""
+        self.otherAnswerImageName = ""
+        self.typeOfProblem = ""
+        self.unitsOfAngle = angleUnits.radians
+        self.problemQuadrant = quadrant.quadrantal
+    }
+    
+    init(id : String, correctAnswer : String, answerImageName : String, otherCorrectAnswer : String, otherAnswerImageName : String, typeOfProblem:String, unitsOfAngle:angleUnits, problemQuadrant:quadrant) {
+        self.id = id
+        self.correctAnswer = correctAnswer
+        self.answerImageName = answerImageName
+        self.otherCorrectAnswer = otherCorrectAnswer
+        self.otherAnswerImageName = otherAnswerImageName
+        self.typeOfProblem = typeOfProblem
+        self.unitsOfAngle = unitsOfAngle
+        self.problemQuadrant = problemQuadrant
+    }
     /*init(problemImageName : String, correctAnswer : String, answerImageName : String, typeOfProblem : String, unitsOfAngle : angleUnits, problemQuadrant : quadrant) {
         self.problemImageName = problemImageName;
         self.correctAnswer = correctAnswer;
