@@ -86,7 +86,6 @@ struct PlayView: View {
                                 var result : String = ""
                                 if(!playViewController.editorViewController.editor.isEmpty(playViewController.editorViewController.editor.rootBlock!) && !playViewController.editorViewController.inputView.convertRequired && playViewController.editorViewController.editor.idle)
                                 {
-                                    //TODO: add 1 to the progress badge for increasing the number correct
                                     
                                     //Get the transform to change from MyScript's mm to pixels
                                     let transform = playViewController.editorViewController.editor.renderer.viewTransform;
@@ -152,22 +151,9 @@ struct PlayView: View {
                                         numberCorrect += 1
                                         print("Number Correct \(numberCorrect)")
                                         feedbackSymbol = 0
-                                        /*TODO: correctingMarksView.drawRight();
-                                         markImg = UIImage(named: "Correct")!;
-                                         updateStatistics(isCorrect: true);*/
-                                        
-                                        /*UIView.animate(withDuration: 0.5, animations: {
-                                         self.correctImageView.alpha = 0
-                                         })
-                                         */
-                                        //Image("Correct").transition(.opacity)
                                     }
                                     else {
                                         feedbackSymbol = 1
-                                        /*correctingMarksView.drawWrong();
-                                         markImg = UIImage(named: "Wrong")!;
-                                         updateStatistics(isCorrect: false);*/
-                                        //Image("Wrong").transition(.opacity)
                                     }
                                     
                                     /*//add images to the summary view on the finish screen
