@@ -35,6 +35,8 @@
 		84461B4B1D308F1000BA997E /* FinishScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84461B4A1D308F1000BA997E /* FinishScreenViewController.swift */; };
 		84C3E8221D2DC75300750751 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C3E8211D2DC75300750751 /* SettingsViewController.swift */; };
 		E31470BD26A8FB7B00CAE97B /* ProgressSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31470BC26A8FB7B00CAE97B /* ProgressSymbol.swift */; };
+		E314D3EF26C252F600661A26 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E314D3EE26C252F600661A26 /* UserSettings.swift */; };
+		E314D3F126C2558400661A26 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E314D3F026C2558400661A26 /* SettingsView.swift */; };
 		E31CBDC426AB818600AD6699 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31CBDC326AB818600AD6699 /* PlayViewController.swift */; };
 		E3414B1F26AB8F9400273415 /* UIPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3414B1E26AB8F9400273415 /* UIPlayViewController.swift */; };
 		E34B169E26AFD7F800347517 /* ProblemData.json in Resources */ = {isa = PBXBuildFile; fileRef = E34B169D26AFD7F800347517 /* ProblemData.json */; };
@@ -109,6 +111,8 @@
 		84C3E8211D2DC75300750751 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		BD61C04C9EF0A95C06AA4808 /* Pods-KnowYourAngles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnowYourAngles.debug.xcconfig"; path = "Target Support Files/Pods-KnowYourAngles/Pods-KnowYourAngles.debug.xcconfig"; sourceTree = "<group>"; };
 		E31470BC26A8FB7B00CAE97B /* ProgressSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressSymbol.swift; sourceTree = "<group>"; };
+		E314D3EE26C252F600661A26 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		E314D3F026C2558400661A26 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		E31CBDC326AB818600AD6699 /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
 		E3414B1E26AB8F9400273415 /* UIPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPlayViewController.swift; sourceTree = "<group>"; };
 		E34B169D26AFD7F800347517 /* ProblemData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ProblemData.json; sourceTree = "<group>"; };
@@ -277,6 +281,7 @@
 				E3EEA04926A55498002AFFF2 /* MenuView.swift */,
 				E3501E4026A76FEF0058BF10 /* AboutView.swift */,
 				E3501E4226A77FAE0058BF10 /* BackgroundColor.swift */,
+				E314D3F026C2558400661A26 /* SettingsView.swift */,
 			);
 			path = KnowYourAngles;
 			sourceTree = "<group>";
@@ -339,6 +344,7 @@
 			children = (
 				36F5B09620E16C7C003AA258 /* Problem.swift */,
 				E3BA866926B12BD30050A4B8 /* ModelData.swift */,
+				E314D3EE26C252F600661A26 /* UserSettings.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -531,10 +537,12 @@
 				36DFEBEA1DDCDDD200DF333D /* MainView.swift in Sources */,
 				36B51E3D2112BDD600AD4095 /* StudyView.swift in Sources */,
 				E3EEA04A26A55498002AFFF2 /* MenuView.swift in Sources */,
+				E314D3EF26C252F600661A26 /* UserSettings.swift in Sources */,
 				36F5B09720E16C7C003AA258 /* Problem.swift in Sources */,
 				8429E1191D2C481500920987 /* AppDelegate.swift in Sources */,
 				36919FBD1E406478000A7647 /* SummaryCollectionViewController.swift in Sources */,
 				E3BA866A26B12BD30050A4B8 /* ModelData.swift in Sources */,
+				E314D3F126C2558400661A26 /* SettingsView.swift in Sources */,
 				36C1851724A29BC900DE117E /* AboutViewController.swift in Sources */,
 				36919FBF1E406E6E000A7647 /* SummaryCollectionView.swift in Sources */,
 				36DD592A20F183BD007248B7 /* QuizSetupViewController.swift in Sources */,
