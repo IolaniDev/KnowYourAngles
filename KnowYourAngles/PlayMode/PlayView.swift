@@ -10,6 +10,7 @@ import SwiftUI
 
 struct PlayView: View {
     @EnvironmentObject var modelData : ModelData
+    //@ObservedObject var userSettings = UserSettings()
     @State var problemImageName = ""
     @State var numberCorrect = 0
     @State var i=0

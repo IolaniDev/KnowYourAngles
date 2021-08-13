@@ -11,6 +11,7 @@ import SwiftUI
 struct MenuView: View {
     @EnvironmentObject var menuViewDelegate : AppDelegate
     @EnvironmentObject var modelData : ModelData
+
     @State private var showAboutView = false
     @State private var showPlayView = false
     @State private var showSettingsView = false
