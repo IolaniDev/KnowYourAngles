@@ -72,7 +72,7 @@ struct SettingsView: View {
                             Text("Quadrantals")
                         }
                         .onChange(of: userSettings.quadrantals, perform: { _ in
-                            if (!userSettings.quadrantals && !userSettings.quadI && !userSettings.quadII && !userSettings.quadIII && !userSettings.quadIV)
+                            if (areNoQuadrantsSelected())
                             {
                                 userSettings.quadI.toggle()
                             }
@@ -82,7 +82,7 @@ struct SettingsView: View {
                             Text("Quadrant I")
                         }
                         .onChange(of: userSettings.quadI, perform: { _ in
-                            if (!userSettings.quadrantals && !userSettings.quadI && !userSettings.quadII && !userSettings.quadIII && !userSettings.quadIV)
+                            if (areNoQuadrantsSelected())
                             {
                                 userSettings.quadII.toggle()
                             }
@@ -92,7 +92,7 @@ struct SettingsView: View {
                             Text("Quadrant II")
                         }
                         .onChange(of: userSettings.quadII, perform: { _ in
-                            if (!userSettings.quadrantals && !userSettings.quadI && !userSettings.quadII && !userSettings.quadIII && !userSettings.quadIV)
+                            if (areNoQuadrantsSelected())
                             {
                                 userSettings.quadIII.toggle()
                             }
@@ -102,7 +102,7 @@ struct SettingsView: View {
                             Text("Quadrant III")
                         }
                         .onChange(of: userSettings.quadIII, perform: { _ in
-                            if (!userSettings.quadrantals && !userSettings.quadI && !userSettings.quadII && !userSettings.quadIII && !userSettings.quadIV)
+                            if (areNoQuadrantsSelected())
                             {
                                 userSettings.quadIV.toggle()
                             }
@@ -112,7 +112,7 @@ struct SettingsView: View {
                             Text("Quadrant IV")
                         }
                         .onChange(of: userSettings.quadIV, perform: { _ in
-                            if (!userSettings.quadrantals && !userSettings.quadI && !userSettings.quadII && !userSettings.quadIII && !userSettings.quadIV)
+                            if (areNoQuadrantsSelected())
                             {
                                 userSettings.quadrantals.toggle()
                             }
@@ -124,32 +124,71 @@ struct SettingsView: View {
                     .toggleStyle(SwitchStyle())
                 }
                 
+                /* Settings for Trig Functions
+                 * At least one trig function must be selected
+                 */
                 Section(header: Text("Trig Functions")) {
                     Group {
                         Toggle(isOn: $userSettings.sine) {
                             Text("sine")
                         }
+                        .onChange(of: userSettings.sine, perform: { _ in
+                            if (areNoFunctionsSelected())
+                            {
+                                userSettings.cosine.toggle()
+                            }
+                        })
                         
                         Toggle(isOn: $userSettings.cosine) {
                             Text("cosine")
                         }
+                        .onChange(of: userSettings.cosine, perform: { _ in
+                            if (areNoFunctionsSelected())
+                            {
+                                userSettings.tangent.toggle()
+                            }
+                        })
                         
                         
                         Toggle(isOn: $userSettings.tangent) {
                             Text("tangent")
                         }
+                        .onChange(of: userSettings.tangent, perform: { _ in
+                            if (areNoFunctionsSelected())
+                            {
+                                userSettings.cosecant.toggle()
+                            }
+                        })
                         
                         Toggle(isOn: $userSettings.cosecant) {
                             Text("cosecant")
                         }
+                        .onChange(of: userSettings.cosecant, perform: { _ in
+                            if (areNoFunctionsSelected())
+                            {
+                                userSettings.secant.toggle()
+                            }
+                        })
                         
                         Toggle(isOn: $userSettings.secant) {
                             Text("secant")
                         }
+                        .onChange(of: userSettings.secant, perform: { _ in
+                            if (areNoFunctionsSelected())
+                            {
+                                userSettings.cotangent.toggle()
+                            }
+                        })
                         
                         Toggle(isOn: $userSettings.cotangent) {
                             Text("cotangent")
                         }
+                        .onChange(of: userSettings.cotangent, perform: { _ in
+                            if (areNoFunctionsSelected())
+                            {
+                                userSettings.arcsine.toggle()
+                            }
+                        })
                     }
                     .font(.system(size: 36, weight: .regular, design: .serif))
                     .foregroundColor(Color(red: 40.0/255, green: 204.0/255, blue: 198.0/255))
@@ -164,26 +203,62 @@ struct SettingsView: View {
                         Toggle(isOn: $userSettings.arcsine) {
                             Text("arcsine")
                         }
+                        .onChange(of: userSettings.arcsine, perform: { _ in
+                            if (areNoFunctionsSelected())
+                            {
+                                userSettings.arccosine.toggle()
+                            }
+                        })
                         
                         Toggle(isOn: $userSettings.arccosine) {
                             Text("arccosine")
                         }
+                        .onChange(of: userSettings.arccosine, perform: { _ in
+                            if (areNoFunctionsSelected())
+                            {
+                                userSettings.arctangent.toggle()
+                            }
+                        })
                         
                         Toggle(isOn: $userSettings.arctangent) {
                             Text("arctangent")
                         }
+                        .onChange(of: userSettings.arctangent, perform: { _ in
+                            if (areNoFunctionsSelected())
+                            {
+                                userSettings.arccosecant.toggle()
+                            }
+                        })
                         
                         Toggle(isOn: $userSettings.arccosecant) {
                             Text("arccosecant")
                         }
+                        .onChange(of: userSettings.arccosecant, perform: { _ in
+                            if (areNoFunctionsSelected())
+                            {
+                                userSettings.arcsecant.toggle()
+                            }
+                        })
                         
                         Toggle(isOn: $userSettings.arcsecant) {
                             Text("arcsecant")
                         }
+                        .onChange(of: userSettings.arcsecant, perform: { _ in
+                            if (areNoFunctionsSelected())
+                            {
+                                userSettings.arccotangent.toggle()
+                            }
+                        })
                         
                         Toggle(isOn: $userSettings.arccotangent) {
                             Text("arccotangent")
                         }
+                        .onChange(of: userSettings.arccotangent, perform: { _ in
+                            if (areNoFunctionsSelected())
+                            {
+                                userSettings.sine.toggle()
+                            }
+                        })
                     }
                     .font(.system(size: 36, weight: .regular, design: .serif))
                     .foregroundColor(Color(red: 40.0/255, green: 204.0/255, blue: 198.0/255))
@@ -200,6 +275,14 @@ struct SettingsView: View {
         }//end Form
         .background(Color(red: 25.0/255, green: 127.0/255, blue: 124.0/255))
     } //end View
+    
+    func areNoQuadrantsSelected() -> Bool {
+        return !userSettings.quadrantals && !userSettings.quadI && !userSettings.quadII && !userSettings.quadIII && !userSettings.quadIV
+    }
+    
+    func areNoFunctionsSelected() -> Bool {
+        return !userSettings.sine && !userSettings.cosine && !userSettings.tangent && !userSettings.cosecant && !userSettings.secant && !userSettings.cotangent && !userSettings.arcsine && !userSettings.arccosine && !userSettings.arctangent && !userSettings.arccosecant && !userSettings.arcsecant && !userSettings.arccotangent
+    }
 } //end Struct
 
 struct SwitchStyle: ToggleStyle {
