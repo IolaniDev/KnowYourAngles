@@ -32,6 +32,9 @@ struct SettingsView: View {
                     .toggleStyle(SwitchStyle())
                 }
                 
+                /* Settings for Angle Units
+                 * At least one angle unit must be selected
+                 */
                 Section(header: Text("Angle Units:")) {
                     Group {
                         Toggle(isOn: $userSettings.degrees) {
@@ -60,29 +63,60 @@ struct SettingsView: View {
                     .toggleStyle(SwitchStyle())
                 }
                 
-                
+                /* Settings for Quadrants
+                 * At least one quadrant must be selected
+                 */
                 Section(header: Text("Quadrants:")) {
                     Group {
                         Toggle(isOn: $userSettings.quadrantals) {
                             Text("Quadrantals")
                         }
+                        .onChange(of: userSettings.quadrantals, perform: { _ in
+                            if (!userSettings.quadrantals && !userSettings.quadI && !userSettings.quadII && !userSettings.quadIII && !userSettings.quadIV)
+                            {
+                                userSettings.quadI.toggle()
+                            }
+                        })
                         
                         Toggle(isOn: $userSettings.quadI) {
                             Text("Quadrant I")
                         }
+                        .onChange(of: userSettings.quadI, perform: { _ in
+                            if (!userSettings.quadrantals && !userSettings.quadI && !userSettings.quadII && !userSettings.quadIII && !userSettings.quadIV)
+                            {
+                                userSettings.quadII.toggle()
+                            }
+                        })
                         
                         Toggle(isOn: $userSettings.quadII) {
                             Text("Quadrant II")
                         }
-                        
+                        .onChange(of: userSettings.quadII, perform: { _ in
+                            if (!userSettings.quadrantals && !userSettings.quadI && !userSettings.quadII && !userSettings.quadIII && !userSettings.quadIV)
+                            {
+                                userSettings.quadIII.toggle()
+                            }
+                        })
                         
                         Toggle(isOn: $userSettings.quadIII) {
                             Text("Quadrant III")
                         }
+                        .onChange(of: userSettings.quadIII, perform: { _ in
+                            if (!userSettings.quadrantals && !userSettings.quadI && !userSettings.quadII && !userSettings.quadIII && !userSettings.quadIV)
+                            {
+                                userSettings.quadIV.toggle()
+                            }
+                        })
                         
                         Toggle(isOn: $userSettings.quadIV) {
                             Text("Quadrant IV")
                         }
+                        .onChange(of: userSettings.quadIV, perform: { _ in
+                            if (!userSettings.quadrantals && !userSettings.quadI && !userSettings.quadII && !userSettings.quadIII && !userSettings.quadIV)
+                            {
+                                userSettings.quadrantals.toggle()
+                            }
+                        })
                     }
                     .font(.system(size: 36, weight: .regular, design: .serif))
                     .foregroundColor(Color(red: 40.0/255, green: 204.0/255, blue: 198.0/255))
