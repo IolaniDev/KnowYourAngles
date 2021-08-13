@@ -37,10 +37,22 @@ struct SettingsView: View {
                         Toggle(isOn: $userSettings.degrees) {
                             Text("Degrees")
                         }
+                        .onChange(of: userSettings.degrees, perform: { _ in
+                            if (!userSettings.degrees && !userSettings.radians)
+                            {
+                                userSettings.radians.toggle()
+                            }
+                        })
                         
                         Toggle(isOn: $userSettings.radians) {
                             Text("Radians")
                         }
+                        .onChange(of: userSettings.radians, perform: { _ in
+                            if (!userSettings.degrees && !userSettings.radians)
+                            {
+                                userSettings.degrees.toggle()
+                            }
+                        })
                     }
                     .font(.system(size: 36, weight: .regular, design: .serif))
                     .foregroundColor(Color(red: 40.0/255, green: 204.0/255, blue: 198.0/255))
