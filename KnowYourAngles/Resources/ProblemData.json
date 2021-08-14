@@ -800,7 +800,7 @@
         "problemQuadrant" : "IV"
     },
     {
-        "id" : "tan0rads",
+        "id" : "Tan0rads",
         "correctAnswer" : "0",
         "answerImageName" : "Zero",
         "otherCorrectAnswer" : "",
