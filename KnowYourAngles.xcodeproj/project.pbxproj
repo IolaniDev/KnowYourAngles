@@ -34,6 +34,7 @@
 		8429E1391D2C481600920987 /* KnowYourAnglesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429E1381D2C481600920987 /* KnowYourAnglesUITests.swift */; };
 		84461B4B1D308F1000BA997E /* FinishScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84461B4A1D308F1000BA997E /* FinishScreenViewController.swift */; };
 		84C3E8221D2DC75300750751 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C3E8211D2DC75300750751 /* SettingsViewController.swift */; };
+		E310934526C9B2680010257C /* UIPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E310934426C9B2680010257C /* UIPlayView.swift */; };
 		E31470BD26A8FB7B00CAE97B /* ProgressSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31470BC26A8FB7B00CAE97B /* ProgressSymbol.swift */; };
 		E314D3EF26C252F600661A26 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E314D3EE26C252F600661A26 /* UserSettings.swift */; };
 		E314D3F126C2558400661A26 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E314D3F026C2558400661A26 /* SettingsView.swift */; };
@@ -42,6 +43,7 @@
 		E34B169E26AFD7F800347517 /* ProblemData.json in Resources */ = {isa = PBXBuildFile; fileRef = E34B169D26AFD7F800347517 /* ProblemData.json */; };
 		E3501E4126A76FEF0058BF10 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3501E4026A76FEF0058BF10 /* AboutView.swift */; };
 		E3501E4326A77FAE0058BF10 /* BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3501E4226A77FAE0058BF10 /* BackgroundColor.swift */; };
+		E3591C9F26C8F93D00000C4C /* SwiftUIEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3591C9E26C8F93D00000C4C /* SwiftUIEditorViewController.swift */; };
 		E35BF86926A8AAE000D82817 /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35BF86826A8AAE000D82817 /* PlayView.swift */; };
 		E3A065ABC0C1E325751F83F0 /* libPods-KnowYourAngles.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F60615B28EA6C5D571DD704 /* libPods-KnowYourAngles.a */; };
 		E3BA866A26B12BD30050A4B8 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BA866926B12BD30050A4B8 /* ModelData.swift */; };
@@ -110,6 +112,7 @@
 		84461B4A1D308F1000BA997E /* FinishScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishScreenViewController.swift; sourceTree = "<group>"; };
 		84C3E8211D2DC75300750751 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		BD61C04C9EF0A95C06AA4808 /* Pods-KnowYourAngles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnowYourAngles.debug.xcconfig"; path = "Target Support Files/Pods-KnowYourAngles/Pods-KnowYourAngles.debug.xcconfig"; sourceTree = "<group>"; };
+		E310934426C9B2680010257C /* UIPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPlayView.swift; sourceTree = "<group>"; };
 		E31470BC26A8FB7B00CAE97B /* ProgressSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressSymbol.swift; sourceTree = "<group>"; };
 		E314D3EE26C252F600661A26 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
 		E314D3F026C2558400661A26 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -118,6 +121,7 @@
 		E34B169D26AFD7F800347517 /* ProblemData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ProblemData.json; sourceTree = "<group>"; };
 		E3501E4026A76FEF0058BF10 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		E3501E4226A77FAE0058BF10 /* BackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColor.swift; sourceTree = "<group>"; };
+		E3591C9E26C8F93D00000C4C /* SwiftUIEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIEditorViewController.swift; sourceTree = "<group>"; };
 		E35BF86826A8AAE000D82817 /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
 		E3BA866926B12BD30050A4B8 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		E3EEA04726A55220002AFFF2 /* KnowYourAnglesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnowYourAnglesApp.swift; sourceTree = "<group>"; };
@@ -335,6 +339,8 @@
 				E31CBDC326AB818600AD6699 /* PlayViewController.swift */,
 				E35BF86826A8AAE000D82817 /* PlayView.swift */,
 				E3414B1E26AB8F9400273415 /* UIPlayViewController.swift */,
+				E3591C9E26C8F93D00000C4C /* SwiftUIEditorViewController.swift */,
+				E310934426C9B2680010257C /* UIPlayView.swift */,
 			);
 			path = PlayMode;
 			sourceTree = "<group>";
@@ -551,7 +557,9 @@
 				84461B4B1D308F1000BA997E /* FinishScreenViewController.swift in Sources */,
 				E3414B1F26AB8F9400273415 /* UIPlayViewController.swift in Sources */,
 				E35BF86926A8AAE000D82817 /* PlayView.swift in Sources */,
+				E3591C9F26C8F93D00000C4C /* SwiftUIEditorViewController.swift in Sources */,
 				E31470BD26A8FB7B00CAE97B /* ProgressSymbol.swift in Sources */,
+				E310934526C9B2680010257C /* UIPlayView.swift in Sources */,
 				36D9AC4D22FD559200BE4DAD /* OverallController.swift in Sources */,
 				84C3E8221D2DC75300750751 /* SettingsViewController.swift in Sources */,
 				36969D6A1DFD290F00F95635 /* MainViewDataSource.swift in Sources */,

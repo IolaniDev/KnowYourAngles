@@ -35,7 +35,7 @@ final class ModelData : ObservableObject {
         )
     }
     
-    func compileProblems() -> [Problem]{
+    func compileProblems(){
         //if the user doesn't want radians, filter out the radian problems
         if (!userSettings.radians)
         {
@@ -158,8 +158,6 @@ final class ModelData : ObservableObject {
             allProblems = allProblems.filter {
                 problem in (problem.typeOfProblem != "arccotangent")}
         }
-        
-        return allProblems
     }
     
     func resetLoadedProblems() {

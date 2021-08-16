@@ -74,21 +74,36 @@ class UIPlayViewController : UIViewController {
         }
     }
     /***** END - variables and functions for automatically changing user's writing into text and math symbols *****/
-    override func viewDidLoad() {
-        //Setup Writing Recognition
-        super.viewDidLoad();
-        
+    
+    override func viewDidAppear(_ animated: Bool) {
         if self.children.count > 0
         {
-            timerStarted = false;
-            //check once per second to see if a conversion is needed
-            statusCheckTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(checkStatus(timer:)), userInfo: nil, repeats: true);
-            beautifyTimer = Timer();
-            print("Timer Started")
+            startTimers()
         }
         else
         {
             print("An Error Occurred")
         }
+    }
+    override func viewDidLoad() {
+        //Setup Writing Recognition
+        super.viewDidLoad();
+    }
+    
+    func clearButtonPressed() {
+        let editorViewController = self.children[0] as! EditorViewController
+        editorViewController.editor.clear()
+    }
+    
+    func nextButtonPressed() {
+        print("initial result: " + initialResult)
+    }
+    
+    func startTimers() {
+        timerStarted = false;
+        //check once per second to see if a conversion is needed
+        statusCheckTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(checkStatus(timer:)), userInfo: nil, repeats: true);
+        beautifyTimer = Timer();
+        print("Timer Started")
     }
 }
