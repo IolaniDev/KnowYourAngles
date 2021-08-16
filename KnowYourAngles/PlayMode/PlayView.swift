@@ -14,18 +14,17 @@ struct PlayView: View {
     @State var problemImageName = ""
     @State var numberCorrect = 0
     @State var i=0
-    var playViewController : PlayViewController
-    var currentProblemSet : [Problem] {
-        modelData.allProblems.filter {
-            problem in (problem.typeOfProblem=="sine")
-        }
-    }
-    @State private var feedbackSymbol : Int
+    @State var clearWritingSpace = false
+    //var playViewController = PlayViewController()
+    /*var currentProblemSet : [Problem] {
+        modelData.allProblems
+    }*/
+    @State private var feedbackSymbol = 2
     
     init()
     {
-        playViewController = PlayViewController()
-        feedbackSymbol = 2
+        //playViewController = PlayViewController()
+        //feedbackSymbol = 2
     }
     
     @ViewBuilder
@@ -56,7 +55,8 @@ struct PlayView: View {
                 
                 Divider()
                 
-                Image(currentProblemSet[i%currentProblemSet.count].id)
+                //Image(currentProblemSet[i%currentProblemSet.count].id)
+                Image(modelData.allProblems[i].id)
                     .resizable()
                     .scaledToFit()
                     .frame(idealWidth: 500, maxHeight: 300, alignment: .center)
@@ -66,14 +66,18 @@ struct PlayView: View {
                     //ZStack to hold the writing space, clear button, and submit button
                     ZStack (alignment: Alignment(horizontal: .trailing, vertical: .center)) {
                         
-                        playViewController
+                        //playViewController
+                        //if(showPlayView)
+                        //{
+                        PlayViewController(runClearButton: $clearWritingSpace)
                             .frame(width: 500, height: 300, alignment: .center)
-                        
+                        //}
                         VStack(alignment: .trailing)
                         {
                             //When the Clear button is pressed...
                             Button(action: {
-                                playViewController.editorViewController.editor.clear()
+                               /* playViewController.editorViewController.editor.clear()*/
+                                clearWritingSpace = true
                             })
                             {
                                 Text("Clear")
@@ -84,7 +88,7 @@ struct PlayView: View {
                             //When the user hits "Submit"
                             Button(action: {
                                 //if the result is not empty, a conversion is not required (should've been done after the user finished writing), and the user is finished writing
-                                var result : String = ""
+                                /*var result : String = ""
                                 if(!playViewController.editorViewController.editor.isEmpty(playViewController.editorViewController.editor.rootBlock!) && !playViewController.editorViewController.inputView.convertRequired && playViewController.editorViewController.editor.idle)
                                 {
                                     
@@ -146,7 +150,8 @@ struct PlayView: View {
                                     }
                                     
                                     //check if the user's answer is correct
-                                    if(checkAnswer(currentProblem: currentProblemSet[i%currentProblemSet.count], submittedAnswer: result))
+                                    //if(checkAnswer(currentProblem: currentProblemSet[i%currentProblemSet.count], submittedAnswer: result))
+                                    if(checkAnswer(currentProblem: modelData.allProblems[i], submittedAnswer: result))
                                     {
                                         //TODO: Add 1 to the progress symbol
                                         numberCorrect += 1
@@ -184,7 +189,7 @@ struct PlayView: View {
                                     i = i + 1
                                     playViewController.editorViewController.editor.clear()
                                     //scratchPaperImageView.image = nil;
-                                }
+                                }*/
                             })
                             {
                                 Text("Submit")
@@ -192,6 +197,9 @@ struct PlayView: View {
                         }.font(.system(size: 36, weight: .regular, design: .serif))
                         .foregroundColor(Color(red: 25.0/255, green: 127.0/255, blue: 124.0/255, opacity: 1.0))
                         .padding()
+                        .onChange(of: clearWritingSpace, perform: { value in
+                            clearWritingSpace = false
+                        })
                         
                         if(feedbackSymbol==0){
                             Image("Correct")
@@ -224,6 +232,11 @@ struct PlayView: View {
             .frame(width: 500, alignment: .center)
             .padding()
         }//end Zstack
+        .onAppear {
+            modelData.compileProblems()
+        }
+        .onDisappear() {
+        }
     }//end View
     
     func checkAnswer(currentProblem: Problem, submittedAnswer: String)->Bool {

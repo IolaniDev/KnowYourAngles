@@ -11,7 +11,7 @@ import SwiftUI
 struct MenuView: View {
     @EnvironmentObject var menuViewDelegate : AppDelegate
     @EnvironmentObject var modelData : ModelData
-
+    
     @State private var showAboutView = false
     @State private var showPlayView = false
     @State private var showSettingsView = false
@@ -25,7 +25,8 @@ struct MenuView: View {
                         .font(.system(size: 80, weight: .heavy, design: .serif))
                         .foregroundColor(Color(red: 127.0/255, green: 255.0/255, blue: 250.0/255, opacity: 1.0))
                     HStack{
-                        NavigationLink(destination: PlayView().environmentObject(modelData)) {
+                        NavigationLink(destination:
+                                        PlayView().environmentObject(modelData)) {
                             Image("KYA_Start_Icon")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
