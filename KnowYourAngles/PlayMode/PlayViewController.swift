@@ -12,9 +12,11 @@ import UIKit
 struct PlayViewController: UIViewControllerRepresentable {
     
     @EnvironmentObject var playViewDelegate : AppDelegate
+    @EnvironmentObject var modelData : ModelData
     typealias UIViewControllerType = UIPlayViewController
     var editorViewController = EditorViewController()
     @Binding var runClearButton : Bool
+    @Binding var submitAnswer : Bool
     
     func makeUIViewController(context: Context) -> UIPlayViewController {
         let playViewController = UIPlayViewController()
@@ -71,6 +73,37 @@ struct PlayViewController: UIViewControllerRepresentable {
     
     func updateUIViewController(_ uiViewController: UIPlayViewController, context: Context) {
         print("updateUIViewController: ")
+        if(submitAnswer)
+        {
+            let feedbackImageView : UIImageView
+            if(modelData.checkAnswer(submittedAnswer: uiViewController.submitButtonPressed()))
+            {
+                // imageview to hold the green check (meaning correct)
+                feedbackImageView = UIImageView(image: UIImage(named: "Correct")!);
+            }
+            else
+            {
+                //imageview to hold the red x (meaning incorrect)
+                feedbackImageView = UIImageView(image: UIImage(named: "Wrong"))
+            }
+            
+            // sets the position of the feedback image
+            feedbackImageView.center.x = uiViewController.view.frame.midX;
+            feedbackImageView.center.y = uiViewController.view.frame.midY;
+            
+            // add the feedback image to the screen
+            uiViewController.view.addSubview(feedbackImageView);
+            uiViewController.view.bringSubviewToFront(feedbackImageView);
+            
+            // animate the feedback image fading away
+            feedbackImageView.alpha = 255;
+            UIView.animate(withDuration: 0.5, animations: {
+                feedbackImageView.alpha = 0
+            })
+            
+            //set up the next problem
+            modelData.getNextProblem()
+        }
         if(runClearButton)
         {
             uiViewController.clearButtonPressed()

@@ -11,160 +11,74 @@ import Combine
 import SwiftUI
 
 final class ModelData : ObservableObject {
+    //array of Problems loaded from a json file
     @Published var allProblems : [Problem] = (load("ProblemData.json") as [Problem]).shuffled()
-    @ObservedObject var userSettings = UserSettings()
     
-    var categories: [String: [Problem]] {
-        Dictionary(
-            grouping: allProblems,
-            by: { $0.typeOfProblem}
-        )
-    }
+    //set the current problem to a dummy
+    var currentProblem : Problem = Problem()
+    //index indicates which problem is currently being displayed from the allProblems array
+    var index = 0
+    //finished indicates whether all of the problems selected have been answered
+    var finished = false
+    var numberOfCorrectAnswers = 0
     
-    var angleTypes : [String: [Problem]] {
-        Dictionary(
-            grouping: allProblems,
-            by: { $0.unitsOfAngle.rawValue }
-        )
-    }
-    
-    var quadrants : [String : [Problem]] {
-        Dictionary(
-            grouping: allProblems,
-            by: { $0.problemQuadrant.rawValue }
-        )
-    }
-    
-    func compileProblems(){
-        //if the user doesn't want radians, filter out the radian problems
-        if (!userSettings.radians)
-        {
-            allProblems = allProblems.filter {
-                problem in (problem.unitsOfAngle != .radians)
-            }
-        }
-        
-        //if the user doesn't want degrees, filter out the degree problems
-        if (!userSettings.degrees)
-        {
-            allProblems = allProblems.filter {
-                problem in (problem.unitsOfAngle != .degrees)
-            }
-        }
-        
-        if(!userSettings.quadrantals)
-        {
-            allProblems = allProblems.filter {
-                problem in (problem.problemQuadrant != .quadrantal)
-            }
-        }
-        
-        if(!userSettings.quadI)
-        {
-            allProblems = allProblems.filter {
-                problem in (problem.problemQuadrant != .I)
-            }
-        }
-        
-        if(!userSettings.quadII)
-        {
-            allProblems = allProblems.filter {
-                problem in (problem.problemQuadrant != .II)
-            }
-        }
-        
-        if(!userSettings.quadIII)
-        {
-            allProblems = allProblems.filter {
-                problem in (problem.problemQuadrant != .III)
-            }
-        }
-        
-        if(!userSettings.quadIV)
-        {
-            allProblems = allProblems.filter {
-                problem in (problem.problemQuadrant != .IV)
-            }
-        }
-        
-        if(!userSettings.sine)
-        {
-            allProblems = allProblems.filter {
-                problem in (problem.typeOfProblem != "sine")}
-        }
-        
-        if(!userSettings.cosine)
-        {
-            allProblems = allProblems.filter {
-                problem in (problem.typeOfProblem != "cosine")}
-        }
-        
-        if(!userSettings.tangent)
-        {
-            allProblems = allProblems.filter {
-                problem in (problem.typeOfProblem != "tangent")}
-        }
-        
-        if(!userSettings.cosecant)
-        {
-            allProblems = allProblems.filter {
-                problem in (problem.typeOfProblem != "cosecant")}
-        }
-        
-        if(!userSettings.secant)
-        {
-            allProblems = allProblems.filter {
-                problem in (problem.typeOfProblem != "secant")}
-        }
-        
-        if(!userSettings.cotangent)
-        {
-            allProblems = allProblems.filter {
-                problem in (problem.typeOfProblem != "cotangent")}
-        }
-        
-        if(!userSettings.arcsine)
-        {
-            allProblems = allProblems.filter {
-                problem in (problem.typeOfProblem != "arcsine")}
-        }
-        
-        if(!userSettings.arccosine)
-        {
-            allProblems = allProblems.filter {
-                problem in (problem.typeOfProblem != "arccosine")}
-        }
-        
-        if(!userSettings.arctangent)
-        {
-            allProblems = allProblems.filter {
-                problem in (problem.typeOfProblem != "arctangent")}
-        }
-        
-        if(!userSettings.arccosecant)
-        {
-            allProblems = allProblems.filter {
-                problem in (problem.typeOfProblem != "arccosecant")}
-        }
-        
-        if(!userSettings.arcsecant)
-        {
-            allProblems = allProblems.filter {
-                problem in (problem.typeOfProblem != "arcsecant")}
-        }
-        
-        if(!userSettings.arccotangent)
-        {
-            allProblems = allProblems.filter {
-                problem in (problem.typeOfProblem != "arccotangent")}
-        }
-    }
-    
+    //reload all Problems from the json file and reset other variables
     func resetLoadedProblems() {
         allProblems = (load("ProblemData.json") as [Problem]).shuffled()
+        index = 0
+        finished = false
+        numberOfCorrectAnswers = 0
+    }
+    
+    //set the current problem, unless the user has answered all of the problems
+    func setCurrentProblem() -> Problem {
+        if(!finished)
+        {
+            currentProblem = allProblems[index]
+        }
+        return currentProblem
+    }
+    
+    //get the next problem in the array or indicate the user is finished
+    func getNextProblem() {
+        index = index + 1
+        if(index < allProblems.count)
+        {
+            currentProblem = allProblems[index]
+        }
+        else
+        {
+            finished = true
+        }
+    }
+    
+    //check the user's answer for correctness
+    func checkAnswer(submittedAnswer: String)->Bool {
+        if(currentProblem.otherCorrectAnswer.lowercased() != "")
+        {
+            if(currentProblem.correctAnswer.lowercased() == submittedAnswer.lowercased() || currentProblem.otherCorrectAnswer.lowercased() == submittedAnswer.lowercased())
+            {
+                numberOfCorrectAnswers += 1
+                return true
+            }
+            else
+            {
+                return false
+            }
+        }
+        else if (currentProblem.correctAnswer.lowercased() == submittedAnswer.lowercased())
+        {
+            numberOfCorrectAnswers += 1
+            return true
+        }
+        else
+        {
+            return false
+        }
     }
 }
 
+//function for loading Problems from a json file
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
     
