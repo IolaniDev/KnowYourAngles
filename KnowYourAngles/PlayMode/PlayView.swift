@@ -46,10 +46,51 @@ struct PlayView: View {
                 //As long as there are questions to answer, show the current problem
                 if(!modelData.finished)
                 {
-                    Image(modelData.setCurrentProblem().id)
-                        .resizable()
-                        .scaledToFit()
-                        .frame(idealWidth: 500, maxHeight: 300, alignment: .center)
+                    VStack {
+                        Image(modelData.setCurrentProblem().id)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(idealWidth: 500, maxHeight: 300, alignment: .center)
+                        
+                        //ZStack to hold the writing space, clear button, and submit button
+                        ZStack (alignment: Alignment(horizontal: .trailing, vertical: .center)) {
+                            
+                            PlayViewController(runClearButton: $clearWritingSpace, submitAnswer: $submitAnswer)
+                                .frame(width: 500, height: 300, alignment: .center)
+                            
+                            VStack(alignment: .trailing)
+                            {
+                                //When the Clear button is pressed...
+                                Button(action: {
+                                    clearWritingSpace = true
+                                })
+                                {
+                                    Text("Clear")
+                                }
+                                
+                                Spacer()
+                                
+                                //When the user hits "Submit"
+                                Button(action: {
+                                    submitAnswer = true
+                                    clearWritingSpace = true
+                                })
+                                {
+                                    Text("Submit")
+                                }
+                            }//end VStack that holds the Clear and Submit buttons
+                            .font(.system(size: 36, weight: .regular, design: .serif))
+                            .foregroundColor(Color(red: 25.0/255, green: 127.0/255, blue: 124.0/255, opacity: 1.0))
+                            .padding()
+                            .onChange(of: clearWritingSpace, perform: { value in
+                                clearWritingSpace = false
+                            })
+                            .onChange(of: submitAnswer, perform: { value in
+                                submitAnswer = false
+                            })
+                        }//end ZStack that holds the PlayViewController
+                        .frame(width: 500, height: 300)
+                    }
                 }
                 //otherwise, display that the user is finished
                 else
@@ -62,47 +103,6 @@ struct PlayView: View {
                     .frame(idealWidth: 500, maxHeight: 300, alignment: .center)
                 }
                 
-                VStack {
-                    
-                    //ZStack to hold the writing space, clear button, and submit button
-                    ZStack (alignment: Alignment(horizontal: .trailing, vertical: .center)) {
-                        
-                        PlayViewController(runClearButton: $clearWritingSpace, submitAnswer: $submitAnswer)
-                            .frame(width: 500, height: 300, alignment: .center)
-                        
-                        VStack(alignment: .trailing)
-                        {
-                            //When the Clear button is pressed...
-                            Button(action: {
-                                clearWritingSpace = true
-                            })
-                            {
-                                Text("Clear")
-                            }
-                            
-                            Spacer()
-                            
-                            //When the user hits "Submit"
-                            Button(action: {
-                                submitAnswer = true
-                                clearWritingSpace = true
-                            })
-                            {
-                                Text("Submit")
-                            }
-                        }//end VStack that holds the Clear and Submit buttons
-                        .font(.system(size: 36, weight: .regular, design: .serif))
-                        .foregroundColor(Color(red: 25.0/255, green: 127.0/255, blue: 124.0/255, opacity: 1.0))
-                        .padding()
-                        .onChange(of: clearWritingSpace, perform: { value in
-                            clearWritingSpace = false
-                        })
-                        .onChange(of: submitAnswer, perform: { value in
-                            submitAnswer = false
-                        })
-                    }
-                    .frame(width: 500, height: 300)
-                }//VStack
                 Spacer()
             })//end VStack
             .frame(width: 500, alignment: .center)
