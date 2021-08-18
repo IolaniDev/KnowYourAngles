@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @ObservedObject var userSettings = UserSettings()
+    @EnvironmentObject var userSettings : UserSettings
     
     init()
     {
@@ -17,8 +17,6 @@ struct SettingsView: View {
     }
     
     var body: some View {
-        //ScrollView {
-        //ZStack {
         Form {
             Group {
                 Section(header: Text("User Preferences:")) {
@@ -44,6 +42,7 @@ struct SettingsView: View {
                             if (!userSettings.degrees && !userSettings.radians)
                             {
                                 userSettings.radians.toggle()
+                                UserDefaults.standard.set(true, forKey: "radians")
                             }
                         })
                         
@@ -54,6 +53,7 @@ struct SettingsView: View {
                             if (!userSettings.degrees && !userSettings.radians)
                             {
                                 userSettings.degrees.toggle()
+                                UserDefaults.standard.set(true, forKey: "degrees")
                             }
                         })
                     }
@@ -75,6 +75,7 @@ struct SettingsView: View {
                             if (areNoQuadrantsSelected())
                             {
                                 userSettings.quadI.toggle()
+                                UserDefaults.standard.set(true, forKey: "quadI")
                             }
                         })
                         
@@ -85,6 +86,7 @@ struct SettingsView: View {
                             if (areNoQuadrantsSelected())
                             {
                                 userSettings.quadII.toggle()
+                                UserDefaults.standard.set(true, forKey: "quadII")
                             }
                         })
                         
@@ -95,6 +97,7 @@ struct SettingsView: View {
                             if (areNoQuadrantsSelected())
                             {
                                 userSettings.quadIII.toggle()
+                                UserDefaults.standard.set(true, forKey: "quadIII")
                             }
                         })
                         
@@ -105,6 +108,7 @@ struct SettingsView: View {
                             if (areNoQuadrantsSelected())
                             {
                                 userSettings.quadIV.toggle()
+                                UserDefaults.standard.set(true, forKey: "quadIV")
                             }
                         })
                         
@@ -115,6 +119,7 @@ struct SettingsView: View {
                             if (areNoQuadrantsSelected())
                             {
                                 userSettings.quadrantals.toggle()
+                                UserDefaults.standard.set(true, forKey: "quadrantals")
                             }
                         })
                     }
@@ -136,6 +141,7 @@ struct SettingsView: View {
                             if (areNoFunctionsSelected())
                             {
                                 userSettings.cosine.toggle()
+                                UserDefaults.standard.set(true, forKey: "cosine")
                             }
                         })
                         
@@ -146,6 +152,7 @@ struct SettingsView: View {
                             if (areNoFunctionsSelected())
                             {
                                 userSettings.tangent.toggle()
+                                UserDefaults.standard.set(true, forKey: "tangent")
                             }
                         })
                         
@@ -157,6 +164,7 @@ struct SettingsView: View {
                             if (areNoFunctionsSelected())
                             {
                                 userSettings.cosecant.toggle()
+                                UserDefaults.standard.set(true, forKey: "cosecant")
                             }
                         })
                         
@@ -167,6 +175,7 @@ struct SettingsView: View {
                             if (areNoFunctionsSelected())
                             {
                                 userSettings.secant.toggle()
+                                UserDefaults.standard.set(true, forKey: "secant")
                             }
                         })
                         
@@ -177,6 +186,7 @@ struct SettingsView: View {
                             if (areNoFunctionsSelected())
                             {
                                 userSettings.cotangent.toggle()
+                                UserDefaults.standard.set(true, forKey: "cotangent")
                             }
                         })
                         
@@ -187,6 +197,7 @@ struct SettingsView: View {
                             if (areNoFunctionsSelected())
                             {
                                 userSettings.arcsine.toggle()
+                                UserDefaults.standard.set(true, forKey: "arcsine")
                             }
                         })
                     }
@@ -207,6 +218,7 @@ struct SettingsView: View {
                             if (areNoFunctionsSelected())
                             {
                                 userSettings.arccosine.toggle()
+                                UserDefaults.standard.set(true, forKey: "arccosine")
                             }
                         })
                         
@@ -217,6 +229,7 @@ struct SettingsView: View {
                             if (areNoFunctionsSelected())
                             {
                                 userSettings.arctangent.toggle()
+                                UserDefaults.standard.set(true, forKey: "arctangent")
                             }
                         })
                         
@@ -227,6 +240,7 @@ struct SettingsView: View {
                             if (areNoFunctionsSelected())
                             {
                                 userSettings.arccosecant.toggle()
+                                UserDefaults.standard.set(true, forKey: "arccosecant")
                             }
                         })
                         
@@ -237,6 +251,7 @@ struct SettingsView: View {
                             if (areNoFunctionsSelected())
                             {
                                 userSettings.arcsecant.toggle()
+                                UserDefaults.standard.set(true, forKey: "arcsecant")
                             }
                         })
                         
@@ -247,6 +262,7 @@ struct SettingsView: View {
                             if (areNoFunctionsSelected())
                             {
                                 userSettings.arccotangent.toggle()
+                                UserDefaults.standard.set(true, forKey: "arccotangent")
                             }
                         })
                         
@@ -257,6 +273,7 @@ struct SettingsView: View {
                             if (areNoFunctionsSelected())
                             {
                                 userSettings.sine.toggle()
+                                UserDefaults.standard.set(true, forKey: "sine")
                             }
                         })
                     }

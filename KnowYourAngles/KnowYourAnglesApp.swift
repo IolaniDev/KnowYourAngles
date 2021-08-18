@@ -14,12 +14,14 @@ import SwiftUI
 struct KnowYourAnglesApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     @StateObject private var modelData = ModelData()
+    @StateObject private var userSettings = UserSettings()
     
     var body: some Scene {
         WindowGroup {
             MenuView()
                 .environmentObject(appDelegate)
                 .environmentObject(modelData)
+                .environmentObject(userSettings)
         }
     }
     

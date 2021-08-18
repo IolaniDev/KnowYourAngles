@@ -11,6 +11,7 @@ import SwiftUI
 struct MenuView: View {
     @EnvironmentObject var menuViewDelegate : AppDelegate
     @EnvironmentObject var modelData : ModelData
+    @EnvironmentObject var userSettings : UserSettings
     
     @State private var showAboutView = false
     @State private var showPlayView = false
@@ -26,11 +27,16 @@ struct MenuView: View {
                         .foregroundColor(Color(red: 127.0/255, green: 255.0/255, blue: 250.0/255, opacity: 1.0))
                     HStack{
                         NavigationLink(destination:
-                                        PlayView().environmentObject(modelData)) {
+                                        PlayView()
+                                        .environmentObject(modelData)
+                                        .onAppear {
+                                           compileProblems()
+                                        })
+                        {
                             Image("KYA_Start_Icon")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
-                        }.navigationBarHidden(true)
+                        }
                         
                         if(!self.showSettingsView) {
                             Button(action: {
@@ -95,6 +101,134 @@ struct MenuView: View {
     func openMenu() {
         self.showSettingsView.toggle()
     }
+    
+    func compileProblems(){
+        modelData.resetLoadedProblems()
+        //if the user doesn't want radians, filter out the radian problems
+        if (!userSettings.radians)
+        {
+            modelData.allProblems = modelData.allProblems.filter {
+                problem in (problem.unitsOfAngle != .radians)
+            }
+        }
+        
+        //if the user doesn't want degrees, filter out the degree problems
+        if (!userSettings.degrees)
+        {
+            modelData.allProblems = modelData.allProblems.filter {
+                problem in (problem.unitsOfAngle != .degrees)
+            }
+        }
+        
+        if(!userSettings.quadrantals)
+        {
+            modelData.allProblems = modelData.allProblems.filter {
+                problem in (problem.problemQuadrant != .quadrantal)
+            }
+        }
+        
+        if(!userSettings.quadI)
+        {
+            modelData.allProblems = modelData.allProblems.filter {
+                problem in (problem.problemQuadrant != .I)
+            }
+        }
+        
+        if(!userSettings.quadII)
+        {
+            modelData.allProblems = modelData.allProblems.filter {
+                problem in (problem.problemQuadrant != .II)
+            }
+        }
+        
+        if(!userSettings.quadIII)
+        {
+            modelData.allProblems = modelData.allProblems.filter {
+                problem in (problem.problemQuadrant != .III)
+            }
+        }
+        
+        if(!userSettings.quadIV)
+        {
+            modelData.allProblems = modelData.allProblems.filter {
+                problem in (problem.problemQuadrant != .IV)
+            }
+        }
+        
+        if(!userSettings.sine)
+        {
+            modelData.allProblems = modelData.allProblems.filter {
+                problem in (problem.typeOfProblem != "sine")}
+        }
+        
+        if(!userSettings.cosine)
+        {
+            modelData.allProblems = modelData.allProblems.filter {
+                problem in (problem.typeOfProblem != "cosine")}
+        }
+        
+        if(!userSettings.tangent)
+        {
+            modelData.allProblems = modelData.allProblems.filter {
+                problem in (problem.typeOfProblem != "tangent")}
+        }
+        
+        if(!userSettings.cosecant)
+        {
+            modelData.allProblems = modelData.allProblems.filter {
+                problem in (problem.typeOfProblem != "cosecant")}
+        }
+        
+        if(!userSettings.secant)
+        {
+            modelData.allProblems = modelData.allProblems.filter {
+                problem in (problem.typeOfProblem != "secant")}
+        }
+        
+        if(!userSettings.cotangent)
+        {
+            modelData.allProblems = modelData.allProblems.filter {
+                problem in (problem.typeOfProblem != "cotangent")}
+        }
+        
+        if(!userSettings.arcsine)
+        {
+            modelData.allProblems = modelData.allProblems.filter {
+                problem in (problem.typeOfProblem != "arcsine")}
+        }
+        
+        if(!userSettings.arccosine)
+        {
+            modelData.allProblems = modelData.allProblems.filter {
+                problem in (problem.typeOfProblem != "arccosine")}
+        }
+        
+        if(!userSettings.arctangent)
+        {
+            modelData.allProblems = modelData.allProblems.filter {
+                problem in (problem.typeOfProblem != "arctangent")}
+        }
+        
+        if(!userSettings.arccosecant)
+        {
+            modelData.allProblems = modelData.allProblems.filter {
+                problem in (problem.typeOfProblem != "arccosecant")}
+        }
+        
+        if(!userSettings.arcsecant)
+        {
+            modelData.allProblems = modelData.allProblems.filter {
+                problem in (problem.typeOfProblem != "arcsecant")}
+        }
+        
+        if(!userSettings.arccotangent)
+        {
+            modelData.allProblems = modelData.allProblems.filter {
+                problem in (problem.typeOfProblem != "arccotangent")}
+        }
+        
+        modelData.currentProblem = modelData.allProblems[0]
+    }
 }
 
 struct SideMenu: View {
@@ -130,5 +264,6 @@ struct MenuView_Previews: PreviewProvider {
         MenuView()
             .environmentObject(AppDelegate())
             .environmentObject(ModelData())
+            .environmentObject(UserSettings())
     }
 }
