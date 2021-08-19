@@ -12,6 +12,8 @@ class UIPlayViewController : UIViewController {
 
     //initialResult is used to store the text version of the user's converted answer
     var initialResult = ""
+    //answerImg is used to store a picture form of the user's converted answer
+    var answerImg : UIImage = UIImage()
     
     /***** START - variables and functions for automatically changing user's writing into text and math symbols *****/
     //create timers
@@ -136,7 +138,7 @@ class UIPlayViewController : UIViewController {
             self.view.drawHierarchy(in: CGRect(x: -picPosition.x, y: -picPosition.y, width: self.view.bounds.size.width, height: self.view.bounds.size.height), afterScreenUpdates: true);
             
             //get the result as an image
-            var answerImg = UIGraphicsGetImageFromCurrentImageContext() ?? UIImage();
+            answerImg = UIGraphicsGetImageFromCurrentImageContext() ?? UIImage();
             UIGraphicsEndImageContext();
             
             //the result string will either have an equals symbol, a simeq (or approx symbol), or will just have a value
@@ -156,20 +158,7 @@ class UIPlayViewController : UIViewController {
             }
             //NSLog("Parsed Answer: %@", initialResult);
             
-            //check if the user's answer is correct
-            /*if(problemSource.isCorrect(initialResult))
-            {
-                correctingMarksView.numCorrect.text = "\(Int(correctingMarksView.numCorrect.text!)!+1)";
-                correctingMarksView.drawRight();
-                markImg = UIImage(named: "Correct")!;
-                updateStatistics(isCorrect: true);
-            }
-            else
-            {
-                correctingMarksView.drawWrong();
-                markImg = UIImage(named: "Wrong")!;
-                updateStatistics(isCorrect: false);
-            }
+            /*
             
             //add images to the summary view on the finish screen
             summariesToSend.append(UIImage(named: problemSource.getCurrProblem().problemImageName)!);

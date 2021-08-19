@@ -39,11 +39,13 @@
 		E314D3F126C2558400661A26 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E314D3F026C2558400661A26 /* SettingsView.swift */; };
 		E31CBDC426AB818600AD6699 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31CBDC326AB818600AD6699 /* PlayViewController.swift */; };
 		E3414B1F26AB8F9400273415 /* UIPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3414B1E26AB8F9400273415 /* UIPlayViewController.swift */; };
+		E344C15526CD820100648017 /* SummaryGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E344C15426CD820100648017 /* SummaryGridView.swift */; };
 		E34B169E26AFD7F800347517 /* ProblemData.json in Resources */ = {isa = PBXBuildFile; fileRef = E34B169D26AFD7F800347517 /* ProblemData.json */; };
 		E3501E4126A76FEF0058BF10 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3501E4026A76FEF0058BF10 /* AboutView.swift */; };
 		E3501E4326A77FAE0058BF10 /* BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3501E4226A77FAE0058BF10 /* BackgroundColor.swift */; };
 		E35BF86926A8AAE000D82817 /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35BF86826A8AAE000D82817 /* PlayView.swift */; };
 		E3A065ABC0C1E325751F83F0 /* libPods-KnowYourAngles.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F60615B28EA6C5D571DD704 /* libPods-KnowYourAngles.a */; };
+		E3B0148326CE4A08005B458F /* SummaryGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B0148226CE4A08005B458F /* SummaryGrid.swift */; };
 		E3BA866A26B12BD30050A4B8 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BA866926B12BD30050A4B8 /* ModelData.swift */; };
 		E3EEA04826A55220002AFFF2 /* KnowYourAnglesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EEA04726A55220002AFFF2 /* KnowYourAnglesApp.swift */; };
 		E3EEA04A26A55498002AFFF2 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EEA04926A55498002AFFF2 /* MenuView.swift */; };
@@ -115,10 +117,12 @@
 		E314D3F026C2558400661A26 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		E31CBDC326AB818600AD6699 /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
 		E3414B1E26AB8F9400273415 /* UIPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIPlayViewController.swift; sourceTree = "<group>"; };
+		E344C15426CD820100648017 /* SummaryGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryGridView.swift; sourceTree = "<group>"; };
 		E34B169D26AFD7F800347517 /* ProblemData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ProblemData.json; sourceTree = "<group>"; };
 		E3501E4026A76FEF0058BF10 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		E3501E4226A77FAE0058BF10 /* BackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColor.swift; sourceTree = "<group>"; };
 		E35BF86826A8AAE000D82817 /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
+		E3B0148226CE4A08005B458F /* SummaryGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryGrid.swift; sourceTree = "<group>"; };
 		E3BA866926B12BD30050A4B8 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		E3EEA04726A55220002AFFF2 /* KnowYourAnglesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnowYourAnglesApp.swift; sourceTree = "<group>"; };
 		E3EEA04926A55498002AFFF2 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -205,6 +209,8 @@
 				36919FBC1E406478000A7647 /* SummaryCollectionViewController.swift */,
 				36919FBE1E406E6E000A7647 /* SummaryCollectionView.swift */,
 				36FE163A1E42C44600566F9E /* SummaryHeaderView.swift */,
+				E344C15426CD820100648017 /* SummaryGridView.swift */,
+				E3B0148226CE4A08005B458F /* SummaryGrid.swift */,
 			);
 			path = Summary;
 			sourceTree = "<group>";
@@ -537,6 +543,7 @@
 				36DFEBEA1DDCDDD200DF333D /* MainView.swift in Sources */,
 				36B51E3D2112BDD600AD4095 /* StudyView.swift in Sources */,
 				E3EEA04A26A55498002AFFF2 /* MenuView.swift in Sources */,
+				E3B0148326CE4A08005B458F /* SummaryGrid.swift in Sources */,
 				E314D3EF26C252F600661A26 /* UserSettings.swift in Sources */,
 				36F5B09720E16C7C003AA258 /* Problem.swift in Sources */,
 				8429E1191D2C481500920987 /* AppDelegate.swift in Sources */,
@@ -545,6 +552,7 @@
 				E314D3F126C2558400661A26 /* SettingsView.swift in Sources */,
 				36C1851724A29BC900DE117E /* AboutViewController.swift in Sources */,
 				36919FBF1E406E6E000A7647 /* SummaryCollectionView.swift in Sources */,
+				E344C15526CD820100648017 /* SummaryGridView.swift in Sources */,
 				36DD592A20F183BD007248B7 /* QuizSetupViewController.swift in Sources */,
 				36C426B620FD43C300061D8F /* StatisticsViewController.swift in Sources */,
 				E3501E4326A77FAE0058BF10 /* BackgroundColor.swift in Sources */,

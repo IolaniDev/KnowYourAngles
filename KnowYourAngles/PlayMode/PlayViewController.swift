@@ -13,6 +13,7 @@ struct PlayViewController: UIViewControllerRepresentable {
     
     @EnvironmentObject var playViewDelegate : AppDelegate
     @EnvironmentObject var modelData : ModelData
+    @EnvironmentObject var summary : SummaryGrid
     typealias UIViewControllerType = UIPlayViewController
     var editorViewController = EditorViewController()
     @Binding var runClearButton : Bool
@@ -75,6 +76,10 @@ struct PlayViewController: UIViewControllerRepresentable {
         print("updateUIViewController: ")
         if(submitAnswer)
         {
+            //add the current problem to the summary
+            summary.summaryElements.append(Image(modelData.currentProblem.id))
+            //add the correct answer to the summary
+            summary.summaryElements.append(Image(modelData.currentProblem.answerImageName))
             let feedbackImageView : UIImageView
             if(modelData.checkAnswer(submittedAnswer: uiViewController.submitButtonPressed()))
             {
@@ -86,6 +91,10 @@ struct PlayViewController: UIViewControllerRepresentable {
                 //imageview to hold the red x (meaning incorrect)
                 feedbackImageView = UIImageView(image: UIImage(named: "Wrong"))
             }
+            //add the user's answer to the summary
+            summary.summaryElements.append(Image(uiImage: uiViewController.answerImg))
+            //add the feedback image to the summary
+            summary.summaryElements.append(Image(uiImage: feedbackImageView.image!))
             
             // sets the position of the feedback image
             feedbackImageView.center.x = uiViewController.view.frame.midX;
