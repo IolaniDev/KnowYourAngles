@@ -14,6 +14,8 @@ struct PlayView: View {
     @State var clearWritingSpace = false
     @State var submitAnswer = false
     @State private var feedbackSymbol = 2
+    @StateObject var summary = SummaryGrid()
+    @State var showSummary = false
     
     @ViewBuilder
     var body: some View {
@@ -57,6 +59,7 @@ struct PlayView: View {
                             
                             PlayViewController(runClearButton: $clearWritingSpace, submitAnswer: $submitAnswer)
                                 .frame(width: 500, height: 300, alignment: .center)
+                                .environmentObject(summary)
                             
                             VStack(alignment: .trailing)
                             {
@@ -101,6 +104,17 @@ struct PlayView: View {
                             .foregroundColor(Color(red: 51.0/255, green: 255.0/255, blue: 247.0/255, opacity: 1.0))
                     }
                     .frame(idealWidth: 500, maxHeight: 300, alignment: .center)
+                    
+                    Button (action: {showSummary = true}) {
+                        Text("Summary")
+                    }.sheet(isPresented: $showSummary, content: {
+                        SummaryGridView()
+                            .animation(.easeInOut)
+                            .environmentObject(summary)
+                            .scaledToFill()
+                    })
+                    .font(.system(size: 36, weight: .regular, design: .serif))
+                    .foregroundColor(Color(red: 127.0/255, green: 255.0/255, blue: 250.0/255, opacity: 1.0))
                 }
                 
                 Spacer()

@@ -5,7 +5,7 @@
 //  Created by Cart 115 Administrator on 7/8/16.
 //  Copyright © 2016 Iolani School. All rights reserved.
 //
-
+/*
 import Foundation
 import CoreData
 
@@ -83,3 +83,4 @@ open class FinishScreenViewController: UIViewController{
         UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil);
     }
 }
+*/
