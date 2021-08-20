@@ -19,7 +19,7 @@ final class ModelData : ObservableObject {
     //index indicates which problem is currently being displayed from the allProblems array
     var index = 0
     //finished indicates whether all of the problems selected have been answered
-    var finished = false
+    @Published var finished = false
     var numberOfCorrectAnswers = 0
     
     //reload all Problems from the json file and reset other variables
