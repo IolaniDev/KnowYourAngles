@@ -5,6 +5,10 @@
 //  Created by Erin Nagoshi on 7/18/21.
 //  Copyright © 2021 Iolani School. All rights reserved.
 //
+/*
+ * SettingsView is presented as a side menu that slides in. Adapted from
+ * https://programmingwithswift.com/create-side-menu-with-swiftui/
+ */
 
 import SwiftUI
 
@@ -60,12 +64,6 @@ struct MenuView: View {
                                     .aspectRatio(contentMode: .fit)
                             }
                         }
-                        /*NavigationLink(destination: SettingsView()
-                         .animation(.easeInOut)) {
-                         Image("KYA_Settings_Icon")
-                         .resizable()
-                         .aspectRatio(contentMode: .fit)
-                         }.navigationBarHidden(true)*/
                     }
                     .frame(width: 800, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     HStack{

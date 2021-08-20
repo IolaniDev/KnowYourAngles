@@ -110,7 +110,7 @@ class UIPlayViewController : UIViewController {
     
     func submitButtonPressed() ->String {
         let editorViewController = self.children[0] as! EditorViewController
-        print("initial result: " + initialResult)
+        //print("initial result: " + initialResult)
         
         //if the result is not empty
         if(!initialResult.isEmpty && !editorViewController.inputView.convertRequired && editorViewController.editor.idle)
