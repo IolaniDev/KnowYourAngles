@@ -327,6 +327,6 @@ struct SwitchStyle: ToggleStyle {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView()
+        SettingsView().environmentObject(UserSettings())
     }
 }

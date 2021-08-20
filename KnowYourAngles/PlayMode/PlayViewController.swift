@@ -73,7 +73,7 @@ struct PlayViewController: UIViewControllerRepresentable {
     }
     
     func updateUIViewController(_ uiViewController: UIPlayViewController, context: Context) {
-        print("updateUIViewController: ")
+        //print("updateUIViewController: ")
         if(submitAnswer)
         {
             //add the current problem to the summary
@@ -84,7 +84,7 @@ struct PlayViewController: UIViewControllerRepresentable {
             if(modelData.checkAnswer(submittedAnswer: uiViewController.submitButtonPressed()))
             {
                 // imageview to hold the green check (meaning correct)
-                feedbackImageView = UIImageView(image: UIImage(named: "Correct")!);
+                feedbackImageView = UIImageView(image: UIImage(named: "Correct")!)
             }
             else
             {
