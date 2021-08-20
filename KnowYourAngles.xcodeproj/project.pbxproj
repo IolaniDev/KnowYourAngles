@@ -38,6 +38,7 @@
 		E3A065ABC0C1E325751F83F0 /* libPods-KnowYourAngles.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F60615B28EA6C5D571DD704 /* libPods-KnowYourAngles.a */; };
 		E3B0148326CE4A08005B458F /* SummaryGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3B0148226CE4A08005B458F /* SummaryGrid.swift */; };
 		E3BA866A26B12BD30050A4B8 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BA866926B12BD30050A4B8 /* ModelData.swift */; };
+		E3C7D52F26CF97C600C41471 /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3C7D52E26CF97C600C41471 /* StatisticsView.swift */; };
 		E3EEA04826A55220002AFFF2 /* KnowYourAnglesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EEA04726A55220002AFFF2 /* KnowYourAnglesApp.swift */; };
 		E3EEA04A26A55498002AFFF2 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EEA04926A55498002AFFF2 /* MenuView.swift */; };
 		E3F7F37226CF757200E9D2E3 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F7F37126CF757200E9D2E3 /* TimerView.swift */; };
@@ -107,6 +108,7 @@
 		E35BF86826A8AAE000D82817 /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
 		E3B0148226CE4A08005B458F /* SummaryGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummaryGrid.swift; sourceTree = "<group>"; };
 		E3BA866926B12BD30050A4B8 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		E3C7D52E26CF97C600C41471 /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		E3EEA04726A55220002AFFF2 /* KnowYourAnglesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnowYourAnglesApp.swift; sourceTree = "<group>"; };
 		E3EEA04926A55498002AFFF2 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		E3F7F37126CF757200E9D2E3 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				8422E9C11D35BF9500F33978 /* FirstViewController.swift */,
 				360FE7B02302A0BB00D998A8 /* QuizMode */,
 				E3EEA04726A55220002AFFF2 /* KnowYourAnglesApp.swift */,
+				E3C7D52E26CF97C600C41471 /* StatisticsView.swift */,
 			);
 			path = KnowYourAngles;
 			sourceTree = "<group>";
@@ -518,6 +521,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				36B51E3B2112B8ED00AD4095 /* StudyMode.swift in Sources */,
+				E3C7D52F26CF97C600C41471 /* StatisticsView.swift in Sources */,
 				8429E11B1D2C481500920987 /* ViewController.swift in Sources */,
 				E31CBDC426AB818600AD6699 /* PlayViewController.swift in Sources */,
 				E3501E4126A76FEF0058BF10 /* AboutView.swift in Sources */,
