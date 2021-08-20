@@ -74,6 +74,7 @@ struct TimerView: View {
                             if(timerLabel != "Timer")
                             {
                                 timerOn.toggle()
+                                modelData.hasStarted = true
                                 if(timerOn)
                                 {
                                     minRemaining = Int(timerLabel.components(separatedBy: ":")[0]) ?? 0
@@ -97,6 +98,9 @@ struct TimerView: View {
             {
                 Text("00:00")
                     .font(.system(size: 80))
+                    .onAppear(perform: {
+                        stopTimer()
+                    })
             }
         }
         .onReceive(timer) { time in
