@@ -5,7 +5,7 @@
 //  Created by Cart 115 Administrator on 7/6/16.
 //  Copyright © 2016 Iolani School. All rights reserved.
 //
-
+/*
 import Foundation
 import UIKit
 
@@ -584,3 +584,4 @@ open class SettingsViewController: UIViewController{
     
     
 }
+*/

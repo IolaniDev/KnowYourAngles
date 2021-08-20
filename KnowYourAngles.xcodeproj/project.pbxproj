@@ -220,6 +220,7 @@
 		366B07ED20DC272D0083B0C1 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				E314D3F026C2558400661A26 /* SettingsView.swift */,
 				84C3E8211D2DC75300750751 /* SettingsViewController.swift */,
 			);
 			path = Settings;
@@ -289,8 +290,6 @@
 				E3EEA04926A55498002AFFF2 /* MenuView.swift */,
 				E3501E4026A76FEF0058BF10 /* AboutView.swift */,
 				E3501E4226A77FAE0058BF10 /* BackgroundColor.swift */,
-				E314D3F026C2558400661A26 /* SettingsView.swift */,
-				E3F7F37126CF757200E9D2E3 /* TimerView.swift */,
 			);
 			path = KnowYourAngles;
 			sourceTree = "<group>";
@@ -341,6 +340,7 @@
 		E31CBDC226AB816400AD6699 /* PlayMode */ = {
 			isa = PBXGroup;
 			children = (
+				E3F7F37126CF757200E9D2E3 /* TimerView.swift */,
 				E31CBDC326AB818600AD6699 /* PlayViewController.swift */,
 				E35BF86826A8AAE000D82817 /* PlayView.swift */,
 				E3414B1E26AB8F9400273415 /* UIPlayViewController.swift */,
