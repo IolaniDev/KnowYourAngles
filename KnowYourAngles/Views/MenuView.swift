@@ -20,6 +20,7 @@ struct MenuView: View {
     @State private var showAboutView = false
     @State private var showPlayView = false
     @State private var showSettingsView = false
+    @State private var showingAlert = false
     
     var body: some View {
         NavigationView {
@@ -67,9 +68,13 @@ struct MenuView: View {
                     }
                     .frame(width: 800, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                     HStack{
-                        Image("KYA_Statistics_Icon")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
+
+                        NavigationLink(destination: StatisticsView()) {
+                        
+                            Image("KYA_Statistics_Icon")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                        }
                         
                         Button(action: {showAboutView = true})
                         {
