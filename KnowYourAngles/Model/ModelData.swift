@@ -21,6 +21,7 @@ final class ModelData : ObservableObject {
     //finished indicates whether all of the problems selected have been answered
     @Published var finished = false
     var numberOfCorrectAnswers = 0
+    //hasStarted indicates whether the user has been presented any problems yet
     @Published var hasStarted = false
     
     //reload all Problems from the json file and reset other variables
