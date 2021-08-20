@@ -49,6 +49,7 @@
 		E3BA866A26B12BD30050A4B8 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3BA866926B12BD30050A4B8 /* ModelData.swift */; };
 		E3EEA04826A55220002AFFF2 /* KnowYourAnglesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EEA04726A55220002AFFF2 /* KnowYourAnglesApp.swift */; };
 		E3EEA04A26A55498002AFFF2 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EEA04926A55498002AFFF2 /* MenuView.swift */; };
+		E3F7F37226CF757200E9D2E3 /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3F7F37126CF757200E9D2E3 /* TimerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +127,7 @@
 		E3BA866926B12BD30050A4B8 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		E3EEA04726A55220002AFFF2 /* KnowYourAnglesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnowYourAnglesApp.swift; sourceTree = "<group>"; };
 		E3EEA04926A55498002AFFF2 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		E3F7F37126CF757200E9D2E3 /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -288,6 +290,7 @@
 				E3501E4026A76FEF0058BF10 /* AboutView.swift */,
 				E3501E4226A77FAE0058BF10 /* BackgroundColor.swift */,
 				E314D3F026C2558400661A26 /* SettingsView.swift */,
+				E3F7F37126CF757200E9D2E3 /* TimerView.swift */,
 			);
 			path = KnowYourAngles;
 			sourceTree = "<group>";
@@ -553,6 +556,7 @@
 				36C1851724A29BC900DE117E /* AboutViewController.swift in Sources */,
 				36919FBF1E406E6E000A7647 /* SummaryCollectionView.swift in Sources */,
 				E344C15526CD820100648017 /* SummaryGridView.swift in Sources */,
+				E3F7F37226CF757200E9D2E3 /* TimerView.swift in Sources */,
 				36DD592A20F183BD007248B7 /* QuizSetupViewController.swift in Sources */,
 				36C426B620FD43C300061D8F /* StatisticsViewController.swift in Sources */,
 				E3501E4326A77FAE0058BF10 /* BackgroundColor.swift in Sources */,
