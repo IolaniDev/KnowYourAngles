@@ -61,12 +61,16 @@ class UIPlayViewController : UIViewController {
                 //get all of the "blocks" written by the user
                 let supportedTargetStates = editorViewController.editor.getSupportedTargetConversionState(nil)
                 //convert the contents of the block to text?
-                try editorViewController.editor.convert(nil, targetState: supportedTargetStates[0].value)
+                if(supportedTargetStates.count > 0) {
+                    try editorViewController.editor.convert(nil, targetState: supportedTargetStates[0].value)
+                }
                 //get all of the supported MIME Types that we can export the result as
                 let supportedMimeTypes = editorViewController.editor.getSupportedExportMimeTypes(nil);
                 
                 //get the result as string
-                initialResult = try editorViewController.editor!.export_(nil, mimeType: supportedMimeTypes[0].value);
+                if(supportedMimeTypes.count > 0) {
+                    initialResult = try editorViewController.editor!.export_(nil, mimeType: supportedMimeTypes[0].value);
+                }
                 
             } catch {
                 print("Error while converting : " + error.localizedDescription)
@@ -155,35 +159,7 @@ class UIPlayViewController : UIViewController {
             else if(initialResult.contains(" "))
             {
                 initialResult = initialResult.trimmingCharacters(in: .whitespacesAndNewlines);
-            }
-            //NSLog("Parsed Answer: %@", initialResult);
-            
-            /*
-            
-            //add images to the summary view on the finish screen
-            summariesToSend.append(UIImage(named: problemSource.getCurrProblem().problemImageName)!);
-            summariesToSend.append(UIImage(named: problemSource.getCurrProblem().answerImageName)!);
-            summariesToSend.append(answerImg);
-            summariesToSend.append(markImg);
-            
-            // if we ran through the requested number of problems...
-            if(Int(correctingMarksView.numRemaining.text!)! <= 0)
-            {
-                // segue to finish screen.
-                performSegue(withIdentifier: "toFinishScreen", sender: self);
-            }
-            else
-            {
-                // set up a new problem
-                correctingMarksView.problemImage.image = UIImage(named: problemSource.getRandomProblem().problemImageName);
-                
-                // clear the field to write your answer
-                //editorViewController.editor.clear();
-                //scratchPaperImageView.image = nil;
-            }
-            
-            initialResult = "";*/
-            
+            }            
         }
         return initialResult
     }

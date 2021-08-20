@@ -10,20 +10,13 @@
 		363BE51722AF29B4002BA369 /* INFO in Resources */ = {isa = PBXBuildFile; fileRef = 363BE51622AF29B4002BA369 /* INFO */; };
 		363BE51922AF29C7002BA369 /* recognition-assets in Resources */ = {isa = PBXBuildFile; fileRef = 363BE51822AF29C7002BA369 /* recognition-assets */; };
 		3661E5B91E0E1BD900601402 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3661E5B81E0E1BD900601402 /* CoreData.framework */; };
-		36919FBB1E405B43000A7647 /* SummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36919FBA1E405B43000A7647 /* SummaryCell.swift */; };
-		36919FBD1E406478000A7647 /* SummaryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36919FBC1E406478000A7647 /* SummaryCollectionViewController.swift */; };
-		36919FBF1E406E6E000A7647 /* SummaryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36919FBE1E406E6E000A7647 /* SummaryCollectionView.swift */; };
-		36969D6A1DFD290F00F95635 /* MainViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36969D691DFD290F00F95635 /* MainViewDataSource.swift */; };
 		36B51E3B2112B8ED00AD4095 /* StudyMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B51E3A2112B8ED00AD4095 /* StudyMode.swift */; };
 		36B51E3D2112BDD600AD4095 /* StudyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36B51E3C2112BDD600AD4095 /* StudyView.swift */; };
-		36C1851724A29BC900DE117E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C1851624A29BC900DE117E /* AboutViewController.swift */; };
 		36C426B620FD43C300061D8F /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36C426B520FD43C300061D8F /* StatisticsViewController.swift */; };
 		36C69ECF1D80A5DE0072CFFA /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8429E1491D2C494300920987 /* SystemConfiguration.framework */; };
-		36D9AC4D22FD559200BE4DAD /* OverallController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36D9AC4C22FD559200BE4DAD /* OverallController.swift */; };
 		36DD592A20F183BD007248B7 /* QuizSetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DD592920F183BD007248B7 /* QuizSetupViewController.swift */; };
 		36DFEBEA1DDCDDD200DF333D /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36DFEBE91DDCDDD200DF333D /* MainView.swift */; };
 		36F5B09720E16C7C003AA258 /* Problem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F5B09620E16C7C003AA258 /* Problem.swift */; };
-		36FE163B1E42C44600566F9E /* SummaryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36FE163A1E42C44600566F9E /* SummaryHeaderView.swift */; };
 		45F91BD81E81C86500E26D3D /* org.iolani.inhouse.KnowYourAngles.c in Sources */ = {isa = PBXBuildFile; fileRef = 45F91BD71E81C86500E26D3D /* org.iolani.inhouse.KnowYourAngles.c */; };
 		8422E9C21D35BF9500F33978 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8422E9C11D35BF9500F33978 /* FirstViewController.swift */; };
 		8429E1191D2C481500920987 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429E1181D2C481500920987 /* AppDelegate.swift */; };
@@ -32,8 +25,6 @@
 		8429E1201D2C481500920987 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8429E11F1D2C481500920987 /* Assets.xcassets */; };
 		8429E1231D2C481500920987 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8429E1211D2C481500920987 /* LaunchScreen.storyboard */; };
 		8429E1391D2C481600920987 /* KnowYourAnglesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429E1381D2C481600920987 /* KnowYourAnglesUITests.swift */; };
-		84461B4B1D308F1000BA997E /* FinishScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84461B4A1D308F1000BA997E /* FinishScreenViewController.swift */; };
-		84C3E8221D2DC75300750751 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C3E8211D2DC75300750751 /* SettingsViewController.swift */; };
 		E31470BD26A8FB7B00CAE97B /* ProgressSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = E31470BC26A8FB7B00CAE97B /* ProgressSymbol.swift */; };
 		E314D3EF26C252F600661A26 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E314D3EE26C252F600661A26 /* UserSettings.swift */; };
 		E314D3F126C2558400661A26 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E314D3F026C2558400661A26 /* SettingsView.swift */; };
@@ -75,15 +66,9 @@
 		363BE51622AF29B4002BA369 /* INFO */ = {isa = PBXFileReference; lastKnownFileType = folder; path = INFO; sourceTree = "<group>"; };
 		363BE51822AF29C7002BA369 /* recognition-assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "recognition-assets"; sourceTree = "<group>"; };
 		3661E5B81E0E1BD900601402 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		36919FBA1E405B43000A7647 /* SummaryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryCell.swift; sourceTree = "<group>"; };
-		36919FBC1E406478000A7647 /* SummaryCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryCollectionViewController.swift; sourceTree = "<group>"; };
-		36919FBE1E406E6E000A7647 /* SummaryCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryCollectionView.swift; sourceTree = "<group>"; };
-		36969D691DFD290F00F95635 /* MainViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewDataSource.swift; sourceTree = "<group>"; };
 		36B51E3A2112B8ED00AD4095 /* StudyMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyMode.swift; sourceTree = "<group>"; };
 		36B51E3C2112BDD600AD4095 /* StudyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyView.swift; sourceTree = "<group>"; };
-		36C1851624A29BC900DE117E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		36C426B520FD43C300061D8F /* StatisticsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
-		36D9AC4C22FD559200BE4DAD /* OverallController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverallController.swift; sourceTree = "<group>"; };
 		36DD592920F183BD007248B7 /* QuizSetupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizSetupViewController.swift; sourceTree = "<group>"; };
 		36DFEBE91DDCDDD200DF333D /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		36E5079D20E1E8CF0045D0CD /* STIXSizThreeSymBol.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = STIXSizThreeSymBol.otf; sourceTree = "<group>"; };
@@ -91,7 +76,6 @@
 		36E5079F20E1E8CF0045D0CD /* STIXGeneralItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = STIXGeneralItalic.ttf; sourceTree = "<group>"; };
 		36E507A020E1E8CF0045D0CD /* STIXSizTwoSymBol.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = STIXSizTwoSymBol.otf; sourceTree = "<group>"; };
 		36F5B09620E16C7C003AA258 /* Problem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Problem.swift; sourceTree = "<group>"; };
-		36FE163A1E42C44600566F9E /* SummaryHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryHeaderView.swift; sourceTree = "<group>"; };
 		45F91BD71E81C86500E26D3D /* org.iolani.inhouse.KnowYourAngles.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = org.iolani.inhouse.KnowYourAngles.c; sourceTree = "<group>"; };
 		840180CA1D2C562400CB794B /* MyCertificate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCertificate.h; sourceTree = "<group>"; };
 		8422E9C11D35BF9500F33978 /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -110,8 +94,6 @@
 		8429E13A1D2C481600920987 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8429E1461D2C484E00920987 /* KnowYourAngles-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KnowYourAngles-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		8429E1491D2C494300920987 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		84461B4A1D308F1000BA997E /* FinishScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinishScreenViewController.swift; sourceTree = "<group>"; };
-		84C3E8211D2DC75300750751 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		BD61C04C9EF0A95C06AA4808 /* Pods-KnowYourAngles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KnowYourAngles.debug.xcconfig"; path = "Target Support Files/Pods-KnowYourAngles/Pods-KnowYourAngles.debug.xcconfig"; sourceTree = "<group>"; };
 		E31470BC26A8FB7B00CAE97B /* ProgressSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressSymbol.swift; sourceTree = "<group>"; };
 		E314D3EE26C252F600661A26 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
@@ -207,10 +189,6 @@
 		366B07EC20DC26A10083B0C1 /* Summary */ = {
 			isa = PBXGroup;
 			children = (
-				36919FBA1E405B43000A7647 /* SummaryCell.swift */,
-				36919FBC1E406478000A7647 /* SummaryCollectionViewController.swift */,
-				36919FBE1E406E6E000A7647 /* SummaryCollectionView.swift */,
-				36FE163A1E42C44600566F9E /* SummaryHeaderView.swift */,
 				E344C15426CD820100648017 /* SummaryGridView.swift */,
 				E3B0148226CE4A08005B458F /* SummaryGrid.swift */,
 			);
@@ -221,7 +199,6 @@
 			isa = PBXGroup;
 			children = (
 				E314D3F026C2558400661A26 /* SettingsView.swift */,
-				84C3E8211D2DC75300750751 /* SettingsViewController.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -264,6 +241,7 @@
 		8429E1171D2C481500920987 /* KnowYourAngles */ = {
 			isa = PBXGroup;
 			children = (
+				E3F7F37326CF908000E9D2E3 /* Views */,
 				E3BA866826B129050050A4B8 /* Model */,
 				E31CBDC226AB816400AD6699 /* PlayMode */,
 				E31470BB26A8FB5600CAE97B /* ProgressSymbols */,
@@ -276,20 +254,13 @@
 				366B07E920DC25210083B0C1 /* MyScriptCertificate */,
 				8429E1461D2C484E00920987 /* KnowYourAngles-Bridging-Header.h */,
 				8429E1181D2C481500920987 /* AppDelegate.swift */,
-				36D9AC4C22FD559200BE4DAD /* OverallController.swift */,
 				8429E11C1D2C481500920987 /* Main.storyboard */,
-				36C1851624A29BC900DE117E /* AboutViewController.swift */,
 				360FE7AF23029FE000D998A8 /* StudyMode */,
 				8429E11F1D2C481500920987 /* Assets.xcassets */,
 				8429E1211D2C481500920987 /* LaunchScreen.storyboard */,
-				84461B4A1D308F1000BA997E /* FinishScreenViewController.swift */,
 				8422E9C11D35BF9500F33978 /* FirstViewController.swift */,
 				360FE7B02302A0BB00D998A8 /* QuizMode */,
-				36969D691DFD290F00F95635 /* MainViewDataSource.swift */,
 				E3EEA04726A55220002AFFF2 /* KnowYourAnglesApp.swift */,
-				E3EEA04926A55498002AFFF2 /* MenuView.swift */,
-				E3501E4026A76FEF0058BF10 /* AboutView.swift */,
-				E3501E4226A77FAE0058BF10 /* BackgroundColor.swift */,
 			);
 			path = KnowYourAngles;
 			sourceTree = "<group>";
@@ -356,6 +327,16 @@
 				E314D3EE26C252F600661A26 /* UserSettings.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E3F7F37326CF908000E9D2E3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E3EEA04926A55498002AFFF2 /* MenuView.swift */,
+				E3501E4026A76FEF0058BF10 /* AboutView.swift */,
+				E3501E4226A77FAE0058BF10 /* BackgroundColor.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -542,7 +523,6 @@
 				E3501E4126A76FEF0058BF10 /* AboutView.swift in Sources */,
 				45F91BD81E81C86500E26D3D /* org.iolani.inhouse.KnowYourAngles.c in Sources */,
 				E3EEA04826A55220002AFFF2 /* KnowYourAnglesApp.swift in Sources */,
-				36919FBB1E405B43000A7647 /* SummaryCell.swift in Sources */,
 				36DFEBEA1DDCDDD200DF333D /* MainView.swift in Sources */,
 				36B51E3D2112BDD600AD4095 /* StudyView.swift in Sources */,
 				E3EEA04A26A55498002AFFF2 /* MenuView.swift in Sources */,
@@ -550,25 +530,17 @@
 				E314D3EF26C252F600661A26 /* UserSettings.swift in Sources */,
 				36F5B09720E16C7C003AA258 /* Problem.swift in Sources */,
 				8429E1191D2C481500920987 /* AppDelegate.swift in Sources */,
-				36919FBD1E406478000A7647 /* SummaryCollectionViewController.swift in Sources */,
 				E3BA866A26B12BD30050A4B8 /* ModelData.swift in Sources */,
 				E314D3F126C2558400661A26 /* SettingsView.swift in Sources */,
-				36C1851724A29BC900DE117E /* AboutViewController.swift in Sources */,
-				36919FBF1E406E6E000A7647 /* SummaryCollectionView.swift in Sources */,
 				E344C15526CD820100648017 /* SummaryGridView.swift in Sources */,
 				E3F7F37226CF757200E9D2E3 /* TimerView.swift in Sources */,
 				36DD592A20F183BD007248B7 /* QuizSetupViewController.swift in Sources */,
 				36C426B620FD43C300061D8F /* StatisticsViewController.swift in Sources */,
 				E3501E4326A77FAE0058BF10 /* BackgroundColor.swift in Sources */,
-				84461B4B1D308F1000BA997E /* FinishScreenViewController.swift in Sources */,
 				E3414B1F26AB8F9400273415 /* UIPlayViewController.swift in Sources */,
 				E35BF86926A8AAE000D82817 /* PlayView.swift in Sources */,
 				E31470BD26A8FB7B00CAE97B /* ProgressSymbol.swift in Sources */,
-				36D9AC4D22FD559200BE4DAD /* OverallController.swift in Sources */,
-				84C3E8221D2DC75300750751 /* SettingsViewController.swift in Sources */,
-				36969D6A1DFD290F00F95635 /* MainViewDataSource.swift in Sources */,
 				8422E9C21D35BF9500F33978 /* FirstViewController.swift in Sources */,
-				36FE163B1E42C44600566F9E /* SummaryHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
