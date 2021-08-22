@@ -31,6 +31,9 @@ struct MenuView: View {
                         .font(.system(size: 80, weight: .heavy, design: .serif))
                         .foregroundColor(Color(red: 127.0/255, green: 255.0/255, blue: 250.0/255, opacity: 1.0))
                     HStack{
+                        NavigationLink(destination: EmptyView()) {
+                            EmptyView()
+                        }
                         NavigationLink(destination:
                                         PlayView()
                                         .environmentObject(modelData)
