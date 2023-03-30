@@ -18,14 +18,24 @@ struct PlayView: View {
     @StateObject var summary = SummaryGrid()
     @State var showSummary = false
     
+    @State public var lines: [Line] = []
+    
     @ViewBuilder
     var body: some View {
         
         ZStack {
             
-            BackgroundColor()
-            
+            if(!modelData.hasStarted)
+            {
+                BackgroundColor()
+            }
+            else
+            {
+                ScratchPaper(lines: self.$lines)
+            }
             VStack (alignment: .center, spacing: 60, content: {
+                
+                Spacer()
                 
                 VStack (alignment: .center, spacing: 30, content: {
                     
@@ -44,7 +54,7 @@ struct PlayView: View {
                     }
                 })
                 
-                Divider()
+                //Divider()
                 
                 //If we haven't started yet, display a Start Button (starting the timer will also "Start")
                 if(!modelData.hasStarted)
@@ -89,6 +99,7 @@ struct PlayView: View {
                                     Button(action: {
                                         submitAnswer = true
                                         clearWritingSpace = true
+                                        lines = []
                                     })
                                     {
                                         Text("Submit")
@@ -121,7 +132,7 @@ struct PlayView: View {
                             Text("Summary")
                         }.sheet(isPresented: $showSummary, content: {
                             SummaryGridView()
-                                .animation(.easeInOut)
+                                .animation(.easeInOut,value: showSummary)
                                 .environmentObject(summary)
                                 .scaledToFill()
                         })
@@ -133,7 +144,7 @@ struct PlayView: View {
                 Spacer()
             })//end VStack
             .frame(width: 500, alignment: .center)
-            .padding()
+            //.padding(EdgeInsets(top: , leading: 0, bottom: 0, trailing: 0))
         }//end Zstack
         .onDisappear(perform: {
             modelData.hasStarted = false

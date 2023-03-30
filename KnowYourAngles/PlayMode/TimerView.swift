@@ -19,7 +19,7 @@ struct TimerView: View {
     
     var body: some View {
         ZStack {
-            BackgroundColor()
+            //BackgroundColor()
             
             if(!modelData.finished)
             {
@@ -66,7 +66,7 @@ struct TimerView: View {
                         }
                     }
                     .foregroundColor(Color.black)
-                    .animation(nil)
+                    .animation(nil, value:timerOn)
                     
                     Image(systemName: timerOn ? "hourglass.tophalf.fill" : "hourglass.bottomhalf.fill")
                         .foregroundColor(Color(red: 40.0/255, green: 204.0/255, blue: 198.0/255, opacity: 1.0))

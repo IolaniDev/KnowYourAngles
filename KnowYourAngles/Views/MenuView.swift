@@ -86,7 +86,8 @@ struct MenuView: View {
                                 .aspectRatio(contentMode: .fit)
                         }.sheet(isPresented: $showAboutView, content: {
                             AboutView()
-                                .animation(.easeInOut)
+                                .animation(.easeInOut, value: showAboutView)
+                                //.animation(_:easeInOut:)
                         })
                     }
                 }
@@ -258,7 +259,7 @@ struct SideMenu: View {
                 SettingsView()
                     .frame(width: self.width)
                     .offset(x: self.isOpen ? geo.size.width-self.width : geo.size.width+self.width)
-                    .animation(.default)
+                    .animation(.default, value: isOpen)
             }
             
         }//.animation(Animation.easeInOut.delay(1))
