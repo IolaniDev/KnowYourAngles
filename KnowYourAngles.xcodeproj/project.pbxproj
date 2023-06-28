@@ -185,6 +185,7 @@
 		366B07EB20DC264E0083B0C1 /* Statistics */ = {
 			isa = PBXGroup;
 			children = (
+				E3C7D52E26CF97C600C41471 /* StatisticsView.swift */,
 				36C426B520FD43C300061D8F /* StatisticsViewController.swift */,
 			);
 			path = Statistics;
@@ -265,7 +266,6 @@
 				8422E9C11D35BF9500F33978 /* FirstViewController.swift */,
 				360FE7B02302A0BB00D998A8 /* QuizMode */,
 				E3EEA04726A55220002AFFF2 /* KnowYourAnglesApp.swift */,
-				E3C7D52E26CF97C600C41471 /* StatisticsView.swift */,
 			);
 			path = KnowYourAngles;
 			sourceTree = "<group>";
