@@ -11,10 +11,7 @@ import Combine
 
 class UserSettings: ObservableObject {
     
-    //TODO:
-    //need settings for number of problems, max number of problems, the timer, and statistics
-    
-    /*** Setting up the keys for User Settings*/
+    /*** Setting up the keys for User Settings */
     @Published var isLeftHandMode: Bool {
         didSet {
             UserDefaults.standard.set(isLeftHandMode, forKey: "isLeftHandMode")
@@ -135,8 +132,176 @@ class UserSettings: ObservableObject {
         }
     }
     
+    /* Keys for Statistics */
+    @Published var degreeStatsNumTotal: Int {
+        didSet {
+            UserDefaults.standard.set(degreeStatsNumTotal, forKey: "degreeStatsNumTotal")
+        }
+    }
+    
+    @Published var degreeStatsNumCorrect: Int {
+        didSet {
+            UserDefaults.standard.set(degreeStatsNumCorrect, forKey: "degreeStatsNumCorrect")
+        }
+    }
+    
+    @Published var radiansStatsNumTotal : Int {
+        didSet {
+            UserDefaults.standard.set(radiansStatsNumTotal, forKey: "radiansStatsNumTotal")
+        }
+    }
+    
+    @Published var radiansStatsNumCorrect : Int {
+        didSet {
+            UserDefaults.standard.set(radiansStatsNumCorrect, forKey: "radiansStatsNumCorrect")
+        }
+    }
+    
+    @Published var sineStatsNumTotal : Int {
+        didSet {
+            UserDefaults.standard.set(sineStatsNumTotal, forKey: "sineStatsNumTotal")
+        }
+    }
+    
+    @Published var sineStatsNumCorrect : Int {
+        didSet {
+            UserDefaults.standard.set(sineStatsNumCorrect, forKey: "sineStatsNumCorrect")
+        }
+    }
+    
+    @Published var cosineStatsNumTotal : Int {
+        didSet {
+            UserDefaults.standard.set(cosineStatsNumTotal, forKey: "cosineStatsNumTotal")
+        }
+    }
+    
+    @Published var cosineStatsNumCorrect : Int {
+        didSet {
+            UserDefaults.standard.set(cosineStatsNumCorrect, forKey: "cosineStatsNumCorrect")
+        }
+    }
+    
+    @Published var tangentStatsNumTotal : Int {
+        didSet {
+            UserDefaults.standard.set(tangentStatsNumTotal, forKey: "tangentStatsNumTotal")
+        }
+    }
+    
+    @Published var tangentStatsNumCorrect : Int {
+        didSet {
+            UserDefaults.standard.set(tangentStatsNumCorrect, forKey: "tangentStatsNumCorrect")
+        }
+    }
+
+    @Published var cosecantStatsNumTotal : Int {
+        didSet {
+            UserDefaults.standard.set(cosecantStatsNumTotal, forKey: "cosecantStatsNumTotal")
+        }
+    }
+    
+    @Published var cosecantStatsNumCorrect : Int {
+        didSet {
+            UserDefaults.standard.set(cosecantStatsNumCorrect, forKey: "cosecantStatsNumCorrect")
+        }
+    }
+    
+    @Published var secantStatsNumTotal : Int {
+        didSet {
+            UserDefaults.standard.set(secantStatsNumTotal, forKey: "secantStatsNumTotal")
+        }
+    }
+    
+    @Published var secantStatsNumCorrect : Int {
+        didSet {
+            UserDefaults.standard.set(secantStatsNumCorrect, forKey: "secantStatsNumCorrect")
+        }
+    }
+    
+    @Published var cotangentStatsNumTotal : Int {
+        didSet {
+            UserDefaults.standard.set(cotangentStatsNumTotal, forKey: "cotangentStatsNumTotal")
+        }
+    }
+    
+    @Published var cotangentStatsNumCorrect : Int {
+        didSet {
+            UserDefaults.standard.set(cotangentStatsNumCorrect, forKey: "cotangentStatsNumCorrect")
+        }
+    }
+    
+    @Published var arcsineStatsNumTotal : Int {
+        didSet {
+            UserDefaults.standard.set(arcsineStatsNumTotal, forKey: "arcsineStatsNumTotal")
+        }
+    }
+    
+    @Published var arcsineStatsNumCorrect : Int {
+        didSet {
+            UserDefaults.standard.set(arcsineStatsNumCorrect, forKey: "arcsineStatsNumCorrect")
+        }
+    }
+    
+    @Published var arccosineStatsNumTotal : Int {
+        didSet {
+            UserDefaults.standard.set(arccosineStatsNumTotal, forKey: "arccosineStatsNumTotal")
+        }
+    }
+    
+    @Published var arccosineStatsNumCorrect : Int {
+        didSet {
+            UserDefaults.standard.set(arccosineStatsNumCorrect, forKey: "arccosineStatsNumCorrect")
+        }
+    }
+    
+    @Published var arctangentStatsNumTotal : Int {
+        didSet {
+            UserDefaults.standard.set(arctangentStatsNumTotal, forKey: "arctangentStatsNumTotal")
+        }
+    }
+    
+    @Published var arctangentStatsNumCorrect : Int {
+        didSet {
+            UserDefaults.standard.set(arctangentStatsNumCorrect, forKey: "arctangentStatsNumCorrect")
+        }
+    }
+    
+    @Published var arccosecantStatsNumTotal : Int {
+        didSet {
+            UserDefaults.standard.set(arccosecantStatsNumTotal, forKey: "arccosecantStatsNumTotal")
+        }
+    }
+    
+    @Published var arccosecantStatsNumCorrect : Int {
+        didSet {
+            UserDefaults.standard.set(arccosecantStatsNumCorrect, forKey: "arccosecantStatsNumCorrect")
+        }
+    }
+    
+    @Published var arcsecantStatsNumTotal : Int {
+        didSet {
+            UserDefaults.standard.set(arcsecantStatsNumTotal, forKey: "arcsecantStatsNumTotal")
+        }
+    }
+    
+    @Published var arcsecantStatsNumCorrect : Int {
+        didSet {
+            UserDefaults.standard.set(arcsecantStatsNumCorrect, forKey: "arcsecantStatsNumCorrect")
+        }
+    }
+    
+    @Published var arccotangentStatsNumTotal : Int {
+        didSet {
+            UserDefaults.standard.set(arccotangentStatsNumTotal, forKey: "arccotangentStatsNumTotal")
+        }
+    }
+    
+    @Published var arccotangentStatsNumCorrect : Int {
+        didSet {
+            UserDefaults.standard.set(arccotangentStatsNumCorrect, forKey: "arccotangentStatsNumCorrect")
+        }
+    }
+    
     init() {
-        
         //Use the previously saved settings for right-hand vs. left-hand. If there aren't any, then by default use Right-Hand Mode.
         self.isLeftHandMode = UserDefaults.standard.object(forKey: "isLeftHandMode") as? Bool ?? false
         
@@ -196,5 +361,89 @@ class UserSettings: ObservableObject {
         
         //Use the previously saved settings for including arccotangent problems. If there aren't any, then by default do not use arccotangent problems.
         self.arccotangent = UserDefaults.standard.object(forKey: "arccotangent") as? Bool ?? false
+        
+        //Use the previously saved settings for total number of problems involving degrees. If there aren't any, then by default use 0.
+        self.degreeStatsNumTotal = UserDefaults.standard.object(forKey: "degreeStatsNumTotal") as? Int ?? 0
+        
+        //Use the previously saved settings for total number of problems involving degrees that are answered correctly. If there aren't any, then by default use 0.
+        self.degreeStatsNumCorrect = UserDefaults.standard.object(forKey: "degreeStatsNumCorrect") as? Int ?? 0
+        
+        //Use the previously saved settings for total number of problems involving radians. If there aren't any, then by default use 0.
+        self.radiansStatsNumTotal = UserDefaults.standard.object(forKey: "radiansStatsNumTotal") as? Int ?? 0
+        
+        //Use the previously saved settings for total number of problems involving radians that are answered correctly. If there aren't any, then by default use 0.
+        self.radiansStatsNumCorrect = UserDefaults.standard.object(forKey: "radiansStatsNumCorrect") as? Int ?? 0
+        
+        //Use the previously saved settings for total number of problems involving sine. If there aren't any, then by default use 0.
+        self.sineStatsNumTotal = UserDefaults.standard.object(forKey: "sineStatsNumTotal") as? Int ?? 0
+        
+        //Use the previously saved settings for total number of problems involving sine that are answered correctly. If there aren't any, then by default use 0.
+        self.sineStatsNumCorrect = UserDefaults.standard.object(forKey: "sineStatsNumCorrect") as? Int ?? 0
+        
+        //Use the previously saved settings for total number of problems involving cosine. If there aren't any, then by default use 0.
+        self.cosineStatsNumTotal = UserDefaults.standard.object(forKey: "cosineStatsNumTotal") as? Int ?? 0
+        
+        //Use the previously saved settings for total number of problems involving cosine that are answered correctly. If there aren't any, then by default use 0.
+        self.cosineStatsNumCorrect = UserDefaults.standard.object(forKey: "cosineStatsNumCorrect") as? Int ?? 0
+        
+        //Use the previously saved settings for total number of problems involving tangent. If there aren't any, then by default use 0.
+        self.tangentStatsNumTotal = UserDefaults.standard.object(forKey: "tangentStatsNumTotal") as? Int ?? 0
+        
+        //Use the previously saved settings for total number of problems involving tangent that are answered correctly. If there aren't any, then by default use 0.
+        self.tangentStatsNumCorrect = UserDefaults.standard.object(forKey: "tangentStatsNumCorrect") as? Int ?? 0
+        
+        //Use the previously saved settings for total number of problems involving cosecant. If there aren't any, then by default use 0.
+        self.cosecantStatsNumTotal = UserDefaults.standard.object(forKey: "cosecantStatsNumTotal") as? Int ?? 0
+        
+        //Use the previously saved settings for total number of problems involving cosecant that are answered correctly. If there aren't any, then by default use 0.
+        self.cosecantStatsNumCorrect = UserDefaults.standard.object(forKey: "cosecantStatsNumCorrect") as? Int ?? 0
+        
+        //Use the previously saved settings for total number of problems involving secant. If there aren't any, then by default use 0.
+        self.secantStatsNumTotal = UserDefaults.standard.object(forKey: "secantStatsNumTotal") as? Int ?? 0
+        
+        //Use the previously saved settings for total number of problems involving secant that are answered correctly. If there aren't any, then by default use 0.
+        self.secantStatsNumCorrect = UserDefaults.standard.object(forKey: "secantStatsNumCorrect") as? Int ?? 0
+        
+        //Use the previously saved settings for total number of problems involving cotangent. If there aren't any, then by default use 0.
+        self.cotangentStatsNumTotal = UserDefaults.standard.object(forKey: "cotangentStatsNumTotal") as? Int ?? 0
+        
+        //Use the previously saved settings for total number of problems involving cotangent that are answered correctly. If there aren't any, then by default use 0.
+        self.cotangentStatsNumCorrect = UserDefaults.standard.object(forKey: "cotangentStatsNumCorrect") as? Int ?? 0
+        
+        //Use the previously saved settings for total number of problems involving arcsine. If there aren't any, then by default use 0.
+        self.arcsineStatsNumTotal = UserDefaults.standard.object(forKey: "arcsineStatsNumTotal") as? Int ?? 0
+        
+        //Use the previously saved settings for total number of problems involving sine that are answered correctly. If there aren't any, then by default use 0.
+        self.arcsineStatsNumCorrect = UserDefaults.standard.object(forKey: "arcsineStatsNumCorrect") as? Int ?? 0
+        
+        //Use the previously saved settings for total number of problems involving arccosine. If there aren't any, then by default use 0.
+        self.arccosineStatsNumTotal = UserDefaults.standard.object(forKey: "arccosineStatsNumTotal") as? Int ?? 0
+        
+        //Use the previously saved settings for total number of problems involving arccosine that are answered correctly. If there aren't any, then by default use 0.
+        self.arccosineStatsNumCorrect = UserDefaults.standard.object(forKey: "arccosineStatsNumCorrect") as? Int ?? 0
+        
+        //Use the previously saved settings for total number of problems involving arctangent. If there aren't any, then by default use 0.
+        self.arctangentStatsNumTotal = UserDefaults.standard.object(forKey: "arctangentStatsNumTotal") as? Int ?? 0
+        
+        //Use the previously saved settings for total number of problems involving arctangent that are answered correctly. If there aren't any, then by default use 0.
+        self.arctangentStatsNumCorrect = UserDefaults.standard.object(forKey: "arctangentStatsNumCorrect") as? Int ?? 0
+        
+        //Use the previously saved settings for total number of problems involving arccosecant. If there aren't any, then by default use 0.
+        self.arccosecantStatsNumTotal = UserDefaults.standard.object(forKey: "arccosecantStatsNumTotal") as? Int ?? 0
+        
+        //Use the previously saved settings for total number of problems involving arccosecant that are answered correctly. If there aren't any, then by default use 0.
+        self.arccosecantStatsNumCorrect = UserDefaults.standard.object(forKey: "arccosecantStatsNumCorrect") as? Int ?? 0
+        
+        //Use the previously saved settings for total number of problems involving arcsecant. If there aren't any, then by default use 0.
+        self.arcsecantStatsNumTotal = UserDefaults.standard.object(forKey: "arcsecantStatsNumTotal") as? Int ?? 0
+        
+        //Use the previously saved settings for total number of problems involving arcsecant that are answered correctly. If there aren't any, then by default use 0.
+        self.arcsecantStatsNumCorrect = UserDefaults.standard.object(forKey: "arcsecantStatsNumCorrect") as? Int ?? 0
+        
+        //Use the previously saved settings for total number of problems involving arccotangent. If there aren't any, then by default use 0.
+        self.arccotangentStatsNumTotal = UserDefaults.standard.object(forKey: "arccotangentStatsNumTotal") as? Int ?? 0
+        
+        //Use the previously saved settings for total number of problems involving arccotangent that are answered correctly. If there aren't any, then by default use 0.
+        self.arccotangentStatsNumCorrect = UserDefaults.standard.object(forKey: "arccotangentStatsNumCorrect") as? Int ?? 0
     }
 }

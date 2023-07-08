@@ -14,10 +14,12 @@ struct PlayViewController: UIViewControllerRepresentable {
     @EnvironmentObject var playViewDelegate : AppDelegate
     @EnvironmentObject var modelData : ModelData
     @EnvironmentObject var summary : SummaryGrid
+    //@EnvironmentObject var userSettings : UserSettings
     typealias UIViewControllerType = UIPlayViewController
     var editorViewController = EditorViewController()
     @Binding var runClearButton : Bool
     @Binding var submitAnswer : Bool
+    @Binding var updateStatistics : Bool
     
     func makeUIViewController(context: Context) -> UIPlayViewController {
         let playViewController = UIPlayViewController()
@@ -78,21 +80,26 @@ struct PlayViewController: UIViewControllerRepresentable {
         {
             //add the current problem to the summary
             summary.summaryElements.append(Image(modelData.currentProblem.id))
+            
             //add the correct answer to the summary
             summary.summaryElements.append(Image(modelData.currentProblem.answerImageName))
+                                        
             let feedbackImageView : UIImageView
             if(modelData.checkAnswer(submittedAnswer: uiViewController.submitButtonPressed()))
             {
                 // imageview to hold the green check (meaning correct)
                 feedbackImageView = UIImageView(image: UIImage(named: "Correct")!)
+                updateStatistics(isCorrect: true)
             }
             else
             {
                 //imageview to hold the red x (meaning incorrect)
                 feedbackImageView = UIImageView(image: UIImage(named: "Wrong"))
+                updateStatistics(isCorrect: false)
             }
             //add the user's answer to the summary
             summary.summaryElements.append(Image(uiImage: uiViewController.answerImg))
+            
             //add the feedback image to the summary
             summary.summaryElements.append(Image(uiImage: feedbackImageView.image!))
             
@@ -116,6 +123,87 @@ struct PlayViewController: UIViewControllerRepresentable {
         if(runClearButton)
         {
             uiViewController.clearButtonPressed()
+        }
+    }
+    
+    func updateStatistics(isCorrect: Bool)
+    {
+        //Based on the units of the angles, update the totals
+        if(modelData.currentProblem.unitsOfAngle == Problem.angleUnits.degrees)
+        {
+            modelData.numberOfCorrectDegreeAnswers += isCorrect ? 1: 0
+            modelData.numberOfDegreeProblemsPresented += 1
+        }
+        else if(modelData.currentProblem.unitsOfAngle == Problem.angleUnits.radians)
+        {
+            modelData.numberOfCorrectRadiansAnswers += isCorrect ? 1: 0
+            modelData.numberOfRadiansProblemsPresented += 1
+        }
+        else if(modelData.currentProblem.unitsOfAngle == Problem.angleUnits.radiansAndDegrees)
+        {
+            //update stats on inverse trig problems
+            if(modelData.currentProblem.typeOfProblem == "arcsine")
+            {
+                modelData.numberOfCorrectArcsineAnswers += isCorrect ? 1: 0
+                modelData.numberOfArcsineProblemsPresented += 1
+            }
+            else if(modelData.currentProblem.typeOfProblem == "arccosine")
+            {
+                modelData.numberOfCorrectArccosineAnswers += isCorrect ? 1: 0
+                modelData.numberOfArccosineProblemsPresented += 1
+            }
+            else if(modelData.currentProblem.typeOfProblem == "arctangent")
+            {
+                modelData.numberOfCorrectArctangentAnswers += isCorrect ? 1: 0
+                modelData.numberOfArctangentProblemsPresented += 1
+            }
+            else if(modelData.currentProblem.typeOfProblem == "arccosecant")
+            {
+                modelData.numberOfCorrectArccosecantAnswers += isCorrect ? 1: 0
+                modelData.numberOfArccosecantProblemsPresented += 1
+            }
+            else if(modelData.currentProblem.typeOfProblem == "arcsecant")
+            {
+                modelData.numberOfCorrectArcsecantAnswers += isCorrect ? 1: 0
+                modelData.numberOfArcsecantProblemsPresented += 1
+            }
+            else if(modelData.currentProblem.typeOfProblem == "arccotangent")
+            {
+                modelData.numberOfCorrectArccotangentAnswers += isCorrect ? 1: 0
+                modelData.numberOfArccotangentProblemsPresented += 1
+            }
+        }
+        
+        //based on trig function, update the totals
+        if(modelData.currentProblem.typeOfProblem == "sine")
+        {
+            modelData.numberOfCorrectSineAnswers += isCorrect ? 1: 0
+            modelData.numberOfSineProblemsPresented += 1
+        }
+        else if(modelData.currentProblem.typeOfProblem == "cosine")
+        {
+            modelData.numberOfCorrectCosineAnswers += isCorrect ? 1: 0
+            modelData.numberOfCosineProblemsPresented += 1
+        }
+        else if(modelData.currentProblem.typeOfProblem == "tangent")
+        {
+            modelData.numberOfCorrectTangentAnswers += isCorrect ? 1: 0
+            modelData.numberOfTangentProblemsPresented += 1
+        }
+        else if(modelData.currentProblem.typeOfProblem == "cosecant")
+        {
+            modelData.numberOfCorrectCosecantAnswers += isCorrect ? 1: 0
+            modelData.numberOfCosecantProblemsPresented += 1
+        }
+        else if(modelData.currentProblem.typeOfProblem == "secant")
+        {
+            modelData.numberOfCorrectSecantAnswers += isCorrect ? 1: 0
+            modelData.numberOfSecantProblemsPresented += 1
+        }
+        else if(modelData.currentProblem.typeOfProblem == "cotangent")
+        {
+            modelData.numberOfCorrectCotangentAnswers += isCorrect ? 1: 0
+            modelData.numberOfCotangentProblemsPresented += 1
         }
     }
 }

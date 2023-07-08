@@ -10,6 +10,6 @@ import Foundation
 import SwiftUI
 
 final class SummaryGrid : ObservableObject {
-    @Published var summaryElements : [Image] = []
+    var summaryElements : [Image] = []
     
 }

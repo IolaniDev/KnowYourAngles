@@ -20,9 +20,40 @@ final class ModelData : ObservableObject {
     var index = 0
     //finished indicates whether all of the problems selected have been answered
     @Published var finished = false
-    var numberOfCorrectAnswers = 0
     //hasStarted indicates whether the user has been presented any problems yet
     @Published var hasStarted = false
+    
+    /* variables for Statistics Collection*/
+    var numberOfCorrectAnswers = 0
+    var numberOfProblemsPresented = 0
+    var numberOfDegreeProblemsPresented = 0
+    var numberOfCorrectDegreeAnswers = 0
+    var numberOfRadiansProblemsPresented = 0
+    var numberOfCorrectRadiansAnswers = 0
+    var numberOfSineProblemsPresented = 0
+    var numberOfCorrectSineAnswers = 0
+    var numberOfCosineProblemsPresented = 0
+    var numberOfCorrectCosineAnswers = 0
+    var numberOfTangentProblemsPresented = 0
+    var numberOfCorrectTangentAnswers = 0
+    var numberOfCosecantProblemsPresented = 0
+    var numberOfCorrectCosecantAnswers = 0
+    var numberOfSecantProblemsPresented = 0
+    var numberOfCorrectSecantAnswers = 0
+    var numberOfCotangentProblemsPresented = 0
+    var numberOfCorrectCotangentAnswers = 0
+    var numberOfArcsineProblemsPresented = 0
+    var numberOfCorrectArcsineAnswers = 0
+    var numberOfArccosineProblemsPresented = 0
+    var numberOfCorrectArccosineAnswers = 0
+    var numberOfArctangentProblemsPresented = 0
+    var numberOfCorrectArctangentAnswers = 0
+    var numberOfArccosecantProblemsPresented = 0
+    var numberOfCorrectArccosecantAnswers = 0
+    var numberOfArcsecantProblemsPresented = 0
+    var numberOfCorrectArcsecantAnswers = 0
+    var numberOfArccotangentProblemsPresented = 0
+    var numberOfCorrectArccotangentAnswers = 0
     
     //reload all Problems from the json file and reset other variables
     func resetLoadedProblems() {
@@ -30,6 +61,35 @@ final class ModelData : ObservableObject {
         index = 0
         finished = false
         numberOfCorrectAnswers = 0
+        numberOfProblemsPresented = 0
+        numberOfDegreeProblemsPresented = 0
+        numberOfCorrectDegreeAnswers = 0
+        numberOfRadiansProblemsPresented = 0
+        numberOfCorrectRadiansAnswers = 0
+        numberOfSineProblemsPresented = 0
+        numberOfCorrectSineAnswers = 0
+        numberOfCosineProblemsPresented = 0
+        numberOfCorrectCosineAnswers = 0
+        numberOfTangentProblemsPresented = 0
+        numberOfCorrectTangentAnswers = 0
+        numberOfCosecantProblemsPresented = 0
+        numberOfCorrectCosecantAnswers = 0
+        numberOfSecantProblemsPresented = 0
+        numberOfCorrectSecantAnswers = 0
+        numberOfCotangentProblemsPresented = 0
+        numberOfCorrectCotangentAnswers = 0
+        numberOfArcsineProblemsPresented = 0
+        numberOfCorrectArcsineAnswers = 0
+        numberOfArccosineProblemsPresented = 0
+        numberOfCorrectArccosineAnswers = 0
+        numberOfArctangentProblemsPresented = 0
+        numberOfCorrectArctangentAnswers = 0
+        numberOfArccosecantProblemsPresented = 0
+        numberOfCorrectArccosecantAnswers = 0
+        numberOfArcsecantProblemsPresented = 0
+        numberOfCorrectArcsecantAnswers = 0
+        numberOfArccotangentProblemsPresented = 0
+        numberOfCorrectArccotangentAnswers = 0
     }
     
     //set the current problem, unless the user has answered all of the problems

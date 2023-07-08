@@ -10,9 +10,12 @@ import SwiftUI
 
 struct PlayView: View {
     @EnvironmentObject var modelData : ModelData
+    @EnvironmentObject var userSettings : UserSettings
+    
     @State var problemImageName = ""
     @State var clearWritingSpace = false
     @State var submitAnswer = false
+    @State var updateStatistics = false
     @State private var feedbackSymbol = 2
     
     @StateObject var summary = SummaryGrid()
@@ -79,7 +82,7 @@ struct PlayView: View {
                             //ZStack to hold the writing space, clear button, and submit button
                             ZStack (alignment: Alignment(horizontal: .trailing, vertical: .center)) {
                                 
-                                PlayViewController(runClearButton: $clearWritingSpace, submitAnswer: $submitAnswer)
+                                PlayViewController(runClearButton: $clearWritingSpace, submitAnswer: $submitAnswer, updateStatistics: $updateStatistics)
                                     .frame(width: 500, height: 300, alignment: .center)
                                     .environmentObject(summary)
                                 
@@ -148,6 +151,35 @@ struct PlayView: View {
         }//end Zstack
         .onDisappear(perform: {
             modelData.hasStarted = false
+            //update statistics
+            userSettings.degreeStatsNumTotal += modelData.numberOfDegreeProblemsPresented
+            userSettings.degreeStatsNumCorrect += modelData.numberOfCorrectDegreeAnswers
+            userSettings.radiansStatsNumTotal += modelData.numberOfRadiansProblemsPresented
+            userSettings.radiansStatsNumCorrect += modelData.numberOfCorrectRadiansAnswers
+            userSettings.sineStatsNumTotal += modelData.numberOfSineProblemsPresented
+            userSettings.sineStatsNumCorrect += modelData.numberOfCorrectSineAnswers
+            userSettings.cosineStatsNumTotal += modelData.numberOfCosineProblemsPresented
+            userSettings.cosineStatsNumCorrect += modelData.numberOfCorrectCosineAnswers
+            userSettings.tangentStatsNumTotal += modelData.numberOfTangentProblemsPresented
+            userSettings.tangentStatsNumCorrect += modelData.numberOfCorrectTangentAnswers
+            userSettings.cosecantStatsNumTotal += modelData.numberOfCosecantProblemsPresented
+            userSettings.cosecantStatsNumCorrect += modelData.numberOfCorrectCosecantAnswers
+            userSettings.secantStatsNumTotal += modelData.numberOfSecantProblemsPresented
+            userSettings.secantStatsNumCorrect += modelData.numberOfCorrectSecantAnswers
+            userSettings.cotangentStatsNumTotal += modelData.numberOfCotangentProblemsPresented
+            userSettings.cotangentStatsNumCorrect += modelData.numberOfCorrectCotangentAnswers
+            userSettings.arcsineStatsNumTotal += modelData.numberOfArcsineProblemsPresented
+            userSettings.arcsineStatsNumCorrect += modelData.numberOfCorrectArcsineAnswers
+            userSettings.arccosineStatsNumTotal += modelData.numberOfArccosineProblemsPresented
+            userSettings.arccosineStatsNumCorrect += modelData.numberOfCorrectArccosineAnswers
+            userSettings.arctangentStatsNumTotal += modelData.numberOfArctangentProblemsPresented
+            userSettings.arctangentStatsNumCorrect += modelData.numberOfCorrectArctangentAnswers
+            userSettings.arccosecantStatsNumTotal += modelData.numberOfArccosecantProblemsPresented
+            userSettings.arccosecantStatsNumCorrect += modelData.numberOfCorrectArccosecantAnswers
+            userSettings.arcsecantStatsNumTotal += modelData.numberOfArcsecantProblemsPresented
+            userSettings.arcsecantStatsNumCorrect += modelData.numberOfCorrectArcsecantAnswers
+            userSettings.arccotangentStatsNumTotal += modelData.numberOfArccotangentProblemsPresented
+            userSettings.arccotangentStatsNumCorrect += modelData.numberOfCorrectArccotangentAnswers
         })
     }//end View
 }//end PlayView struct
@@ -157,5 +189,6 @@ struct PlayView_Previews: PreviewProvider {
         PlayView()
             .environmentObject(AppDelegate())
             .environmentObject(ModelData())
+            .environmentObject(UserSettings())
     }
 }
