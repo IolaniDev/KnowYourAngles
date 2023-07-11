@@ -49,7 +49,6 @@ class UIPlayViewController : UIViewController {
         //check once per second to see if a conversion is needed
         statusCheckTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(checkStatus(timer:)), userInfo: nil, repeats: true);
         beautifyTimer = Timer();
-        print("Timer Started")
     }
     
     //when timer expires, if convertRequired == true, call Editor::convert() and set convertRequired = false

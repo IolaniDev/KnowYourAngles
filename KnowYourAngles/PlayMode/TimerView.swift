@@ -11,7 +11,7 @@ import SwiftUI
 struct TimerView: View {
     @EnvironmentObject var modelData : ModelData
     @State var timerLabel = "Timer"
-    @State var timerOn = false
+    @Binding var timerOn : Bool
     @State private var minRemaining = 0
     @State private var secRemaining = 0
     @State var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -19,10 +19,11 @@ struct TimerView: View {
     
     var body: some View {
         ZStack {
-            //BackgroundColor()
             
+            //If there are questions left to answer
             if(!modelData.finished)
             {
+                
                 HStack(alignment: .center) {
                     Menu (timerLabel) {
                         Button(action: {timerLabel = "00:30"}) {
@@ -71,21 +72,7 @@ struct TimerView: View {
                     Image(systemName: timerOn ? "hourglass.tophalf.fill" : "hourglass.bottomhalf.fill")
                         .foregroundColor(Color(red: 40.0/255, green: 204.0/255, blue: 198.0/255, opacity: 1.0))
                         .onTapGesture {
-                            if(timerLabel != "Timer")
-                            {
-                                timerOn.toggle()
-                                modelData.hasStarted = true
-                                if(timerOn)
-                                {
-                                    minRemaining = Int(timerLabel.components(separatedBy: ":")[0]) ?? 0
-                                    secRemaining = Int(timerLabel.components(separatedBy: ":")[1]) ?? 0
-                                    startTimer()
-                                }
-                                else
-                                {
-                                    stopTimer()
-                                }
-                            }
+                            timerOn.toggle()
                         }
                         .padding()
                 }
@@ -93,10 +80,13 @@ struct TimerView: View {
                 .font(.system(size: 80))
                 .padding(.leading, 0.0)
                 .minimumScaleFactor(0.1)
+                .onChange(of: timerOn, perform: {newValue in
+                    startTimerSequence()
+                })
             }
             else
             {
-                Text("00:00")
+                Text("")
                     .font(.system(size: 80))
                     .onAppear(perform: {
                         stopTimer()
@@ -136,6 +126,7 @@ struct TimerView: View {
         }
         .onAppear(perform: {
             stopTimer()
+            timerOn = false
         })
     }
     
@@ -146,10 +137,27 @@ struct TimerView: View {
     func startTimer() {
         timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     }
-}
-
-struct TimerView_Previews: PreviewProvider {
-    static var previews: some View {
-        TimerView().environmentObject(ModelData())
+    
+    func startTimerSequence () {
+        if(timerLabel != "Timer")
+        {
+            modelData.hasStarted = true
+            if(timerOn)
+            {
+                minRemaining = Int(timerLabel.components(separatedBy: ":")[0]) ?? 0
+                secRemaining = Int(timerLabel.components(separatedBy: ":")[1]) ?? 0
+                startTimer()
+            }
+            else
+            {
+                stopTimer()
+            }
+        }
     }
 }
+
+//struct TimerView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TimerView(timerOn: false).environmentObject(ModelData())
+//    }
+//}

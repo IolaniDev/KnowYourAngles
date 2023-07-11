@@ -22,6 +22,7 @@ final class ModelData : ObservableObject {
     @Published var finished = false
     //hasStarted indicates whether the user has been presented any problems yet
     @Published var hasStarted = false
+    //
     
     /* variables for Statistics Collection*/
     var numberOfCorrectAnswers = 0

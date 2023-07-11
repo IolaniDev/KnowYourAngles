@@ -22,19 +22,31 @@ struct PlayView: View {
     @State var showSummary = false
     
     @State public var lines: [Line] = []
+    @State var timerOn : Bool = false
     
     @ViewBuilder
     var body: some View {
         
-        ZStack {
+        ZStack (alignment: .top){
             
-            if(!modelData.hasStarted)
+            if(!modelData.hasStarted || modelData.finished)
             {
                 BackgroundColor()
             }
             else
             {
-                ScratchPaper(lines: self.$lines)
+                    ScratchPaper(lines: self.$lines)
+                    Button(action: {
+                        modelData.finished = true
+                        
+                    })
+                    {
+                        Text("End")
+                            .font(.system(size: 50))
+                            .foregroundColor(Color(red: 127.0/255, green: 255.0/255, blue: 250.0/255, opacity: 1.0))
+                            .frame(maxWidth: .infinity, alignment: .trailing)
+                            .padding()
+                    }
             }
             VStack (alignment: .center, spacing: 60, content: {
                 
@@ -42,7 +54,7 @@ struct PlayView: View {
                 
                 VStack (alignment: .center, spacing: 30, content: {
                     
-                    TimerView()
+                    TimerView(timerOn: $timerOn)
                         .scaledToFit()
                     
                     ZStack {
@@ -57,8 +69,6 @@ struct PlayView: View {
                     }
                 })
                 
-                //Divider()
-                
                 //If we haven't started yet, display a Start Button (starting the timer will also "Start")
                 if(!modelData.hasStarted)
                 {
@@ -67,6 +77,8 @@ struct PlayView: View {
                         .foregroundColor(Color(red: 127.0/255, green: 255.0/255, blue: 250.0/255, opacity: 1.0))
                         .onTapGesture {
                             modelData.hasStarted = true
+                            modelData.finished = false
+                            timerOn = true
                         }
                 }
                 else {
