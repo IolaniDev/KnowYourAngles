@@ -18,10 +18,14 @@ struct ScratchPaper: View {
     
     @State private var currentLine = Line()
     @Binding public var lines: [Line]
+    @Binding public var isLeftSide : Bool
     @State private var thickness: Double = 1.0
     
+    @State var a :Alignment = .bottom
+    
     var body: some View {
-        ZStack (alignment: .bottomTrailing){
+        
+        ZStack (alignment: a){
             BackgroundColor()
             
             Canvas { context, size in
@@ -51,6 +55,9 @@ struct ScratchPaper: View {
                     lines = []
                 }
         }
+        .onAppear(perform: {
+            a = isLeftSide ? .bottomLeading : .bottomTrailing
+        })
     }
 }
 

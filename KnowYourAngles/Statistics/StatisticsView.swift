@@ -10,6 +10,7 @@ import SwiftUI
 
 struct StatisticsView: View {
     @EnvironmentObject var userSettings : UserSettings
+    @State var resetButtonAlignment : Alignment = .trailing
     
     var body: some View {
         ZStack {
@@ -181,7 +182,6 @@ struct StatisticsView: View {
                 //When the user hits "reset"
                 Button(action: {
                     userSettings.degreeStatsNumTotal = 0
-                    userSettings.degreeStatsNumTotal = 0
                     userSettings.degreeStatsNumCorrect = 0
                     userSettings.radiansStatsNumTotal = 0
                     userSettings.radiansStatsNumCorrect = 0
@@ -214,12 +214,15 @@ struct StatisticsView: View {
                     Text("reset")
                         .font(.largeTitle)
                         .foregroundColor(Color(red: 40.0/255, green: 204.0/255, blue: 198.0/255))
-                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .frame(maxWidth: .infinity, alignment: resetButtonAlignment)
                         .padding()
                 }
             }
             .padding(.top, 100)
         }
+        .onAppear(perform: {
+            resetButtonAlignment = userSettings.isLeftHandMode ? .leading : .trailing
+        })
     }
 }
 

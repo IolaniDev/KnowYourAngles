@@ -94,9 +94,19 @@ struct MenuView: View {
                 .frame(width: 800, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
                 if(self.showSettingsView)
                 {
-                    SideMenu(width: 370,
-                             isOpen: self.showSettingsView,
-                             menuClose: self.openMenu).transition(.move(edge: .trailing))
+                    if(userSettings.isLeftHandMode)
+                    {
+                        SideMenu(width: 370,
+                                 isOpen: self.showSettingsView, isLeftSide: true,
+                                 menuClose: self.openMenu)
+                        .transition(.move(edge: .leading))
+                    }
+                    else
+                    {
+                        SideMenu(width: 370,
+                                 isOpen: self.showSettingsView, isLeftSide: false,
+                                 menuClose: self.openMenu).transition(.move(edge: .trailing))
+                    }
                 }
             }
             .padding()
@@ -241,6 +251,7 @@ struct MenuView: View {
 struct SideMenu: View {
     let width: CGFloat
     let isOpen: Bool
+    let isLeftSide :  Bool
     let menuClose: () -> Void
     
     var body: some View {
@@ -256,10 +267,20 @@ struct SideMenu: View {
             }
             
             GeometryReader { geo in
-                SettingsView()
-                    .frame(width: self.width)
-                    .offset(x: self.isOpen ? geo.size.width-self.width : geo.size.width+self.width)
-                    .animation(.default, value: isOpen)
+                if(!isLeftSide)
+                {
+                    SettingsView()
+                        .frame(width: self.width)
+                        .offset(x: self.isOpen ? geo.size.width-self.width : geo.size.width+self.width)
+                        .animation(.default, value: isOpen)
+                }
+                else
+                {
+                    SettingsView()
+                        .frame(width: self.width)
+                        .offset(x: self.isOpen ? 0 : -self.width)
+                        .animation(.default, value: isOpen)
+                }
             }
             
         }//.animation(Animation.easeInOut.delay(1))

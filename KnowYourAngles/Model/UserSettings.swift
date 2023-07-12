@@ -128,7 +128,7 @@ class UserSettings: ObservableObject {
     
     @Published var arccotangent: Bool {
         didSet {
-            UserDefaults.standard.set(arccotangent, forKey: "arcsecant")
+            UserDefaults.standard.set(arccotangent, forKey: "arccotangent")
         }
     }
     

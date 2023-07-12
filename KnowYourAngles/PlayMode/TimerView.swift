@@ -10,8 +10,11 @@ import SwiftUI
 
 struct TimerView: View {
     @EnvironmentObject var modelData : ModelData
+    @EnvironmentObject var userSettings : UserSettings
+    
     @State var timerLabel = "Timer"
     @Binding var timerOn : Bool
+    @Binding var isTimerHidden : Bool
     @State private var minRemaining = 0
     @State private var secRemaining = 0
     @State var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
@@ -23,66 +26,149 @@ struct TimerView: View {
             //If there are questions left to answer
             if(!modelData.finished)
             {
-                
-                HStack(alignment: .center) {
-                    Menu (timerLabel) {
-                        Button(action: {timerLabel = "00:30"}) {
-                            Text("00:30")
+                //If the user is right-handed, then create the drop down menu before the hourglass
+                if(!userSettings.isLeftHandMode)
+                {
+                    HStack(alignment: .center) {
+                        Menu (timerLabel) {
+                            Group {
+                                Button(action: {timerLabel = "00:00"}) {
+                                    Text("00:00")
+                                }
+                                
+                                Button(action: {timerLabel = "00:30"}) {
+                                    Text("00:30")
+                                }
+                                
+                                Button(action: {timerLabel = "01:00"}) {
+                                    Text("01:00")
+                                }
+                                
+                                Button(action: {timerLabel = "01:30"}) {
+                                    Text("01:30")
+                                }
+                                
+                                Button(action: {timerLabel = "02:00"}) {
+                                    Text("02:00")
+                                }
+                                
+                                Button(action: {timerLabel = "02:30"}) {
+                                    Text("02:30")
+                                }
+                                
+                                Button(action: {timerLabel = "03:00"}) {
+                                    Text("03:00")
+                                }
+                                
+                                Button(action: {timerLabel = "03:30"}) {
+                                    Text("03:30")
+                                }
+                                
+                                Button(action: {timerLabel = "04:00"}) {
+                                    Text("04:00")
+                                }
+                                
+                                Button(action: {timerLabel = "04:30"}) {
+                                    Text("04:30")
+                                }
+                            }
+                            Button(action: {timerLabel = "05:00"}) {
+                                Text("05:00")
+                            }
+                            
                         }
+                        .foregroundColor(Color.black)
+                        .animation(nil, value:timerOn)
                         
-                        Button(action: {timerLabel = "01:00"}) {
-                            Text("01:00")
-                        }
-                        
-                        Button(action: {timerLabel = "01:30"}) {
-                            Text("01:30")
-                        }
-                        
-                        Button(action: {timerLabel = "02:00"}) {
-                            Text("02:00")
-                        }
-                        
-                        Button(action: {timerLabel = "02:30"}) {
-                            Text("02:30")
-                        }
-                        
-                        Button(action: {timerLabel = "03:00"}) {
-                            Text("03:00")
-                        }
-                        
-                        Button(action: {timerLabel = "03:30"}) {
-                            Text("03:30")
-                        }
-                        
-                        Button(action: {timerLabel = "04:00"}) {
-                            Text("04:00")
-                        }
-                        
-                        Button(action: {timerLabel = "04:30"}) {
-                            Text("04:30")
-                        }
-                        
-                        Button(action: {timerLabel = "05:00"}) {
-                            Text("05:00")
+                        if(timerLabel != "Timer" && timerLabel != "00:00")
+                        {
+                            Image(systemName: timerOn ? "hourglass.tophalf.fill" : "hourglass.bottomhalf.fill")
+                                .foregroundColor(Color(red: 40.0/255, green: 204.0/255, blue: 198.0/255, opacity: 1.0))
+                                .onTapGesture {
+                                    timerOn.toggle()
+                                }
+                                .padding()
                         }
                     }
-                    .foregroundColor(Color.black)
-                    .animation(nil, value:timerOn)
-                    
-                    Image(systemName: timerOn ? "hourglass.tophalf.fill" : "hourglass.bottomhalf.fill")
-                        .foregroundColor(Color(red: 40.0/255, green: 204.0/255, blue: 198.0/255, opacity: 1.0))
-                        .onTapGesture {
-                            timerOn.toggle()
-                        }
-                        .padding()
+                    .frame(width: 330, alignment: .center)
+                    .font(.system(size: 80))
+                    .padding(.leading, 0.0)
+                    .minimumScaleFactor(0.1)
+                    .onChange(of: timerOn, perform: {newValue in
+                        startTimerSequence()
+                    })
                 }
-                .frame(width: 330, alignment: .center)
-                .font(.system(size: 80))
-                .padding(.leading, 0.0)
-                .minimumScaleFactor(0.1)
-                .onChange(of: timerOn, perform: {newValue in
-                    startTimerSequence()
-                })
+                //If the user is left-handed, draw the hourglass before the timer
+                else
+                {
+                    HStack(alignment: .center) {
+                        if(timerLabel != "Timer" && timerLabel != "00:00")
+                        {
+                            Image(systemName: timerOn ? "hourglass.tophalf.fill" : "hourglass.bottomhalf.fill")
+                                .foregroundColor(Color(red: 40.0/255, green: 204.0/255, blue: 198.0/255, opacity: 1.0))
+                                .onTapGesture {
+                                    timerOn.toggle()
+                                }
+                                .padding()
+                        }
+                        
+                        Menu (timerLabel) {
+                            Group {
+                                Button(action: {timerLabel = "00:00"}) {
+                                    Text("00:00")
+                                }
+                                
+                                Button(action: {timerLabel = "00:30"}) {
+                                    Text("00:30")
+                                }
+                                
+                                Button(action: {timerLabel = "01:00"}) {
+                                    Text("01:00")
+                                }
+                                
+                                Button(action: {timerLabel = "01:30"}) {
+                                    Text("01:30")
+                                }
+                                
+                                Button(action: {timerLabel = "02:00"}) {
+                                    Text("02:00")
+                                }
+                                
+                                Button(action: {timerLabel = "02:30"}) {
+                                    Text("02:30")
+                                }
+                                
+                                Button(action: {timerLabel = "03:00"}) {
+                                    Text("03:00")
+                                }
+                                
+                                Button(action: {timerLabel = "03:30"}) {
+                                    Text("03:30")
+                                }
+                                
+                                Button(action: {timerLabel = "04:00"}) {
+                                    Text("04:00")
+                                }
+                                
+                                Button(action: {timerLabel = "04:30"}) {
+                                    Text("04:30")
+                                }
+                            }
+                            Button(action: {timerLabel = "05:00"}) {
+                                Text("05:00")
+                            }
+                        }
+                        .foregroundColor(Color.black)
+                        .animation(nil, value:timerOn)
+                    }
+                    .frame(width: 330, alignment: .center)
+                    .font(.system(size: 80))
+                    .padding(.leading, 0.0)
+                    .minimumScaleFactor(0.1)
+                    .onChange(of: timerOn, perform: {newValue in
+                        startTimerSequence()
+                    })
+                }
             }
             else
             {
@@ -127,6 +213,7 @@ struct TimerView: View {
         .onAppear(perform: {
             stopTimer()
             timerOn = false
+            isTimerHidden = false
         })
     }
     
@@ -139,25 +226,27 @@ struct TimerView: View {
     }
     
     func startTimerSequence () {
-        if(timerLabel != "Timer")
+        //timerLabel could be "Timer" before the user starts playing or after the user has hit start if they decided not to use a timer
+        if(timerLabel == "Timer")
+        {
+            //if the user has hit Start and decided not to use a timer, hide the timer
+            if(modelData.hasStarted)
+            {
+                isTimerHidden = true
+            }
+        }
+        else if(timerOn && timerLabel != "00:00")
         {
             modelData.hasStarted = true
-            if(timerOn)
-            {
-                minRemaining = Int(timerLabel.components(separatedBy: ":")[0]) ?? 0
-                secRemaining = Int(timerLabel.components(separatedBy: ":")[1]) ?? 0
-                startTimer()
-            }
-            else
-            {
-                stopTimer()
-            }
+            minRemaining = Int(timerLabel.components(separatedBy: ":")[0]) ?? 0
+            secRemaining = Int(timerLabel.components(separatedBy: ":")[1]) ?? 0
+            startTimer()
+            isTimerHidden = false
+        }
+        else
+        {
+            stopTimer()
+            isTimerHidden = true
         }
     }
 }
-
-//struct TimerView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TimerView(timerOn: false).environmentObject(ModelData())
-//    }
-//}
