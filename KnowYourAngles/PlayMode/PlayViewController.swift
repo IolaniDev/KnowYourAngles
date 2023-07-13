@@ -88,7 +88,7 @@ struct PlayViewController: UIViewControllerRepresentable {
             if(modelData.checkAnswer(submittedAnswer: uiViewController.submitButtonPressed()))
             {
                 // imageview to hold the green check (meaning correct)
-                feedbackImageView = UIImageView(image: UIImage(named: "Correct")!)
+                feedbackImageView = UIImageView(image: UIImage(named: "Correct"))
                 updateStatistics(isCorrect: true)
             }
             else

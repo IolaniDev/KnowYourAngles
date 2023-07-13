@@ -12,7 +12,6 @@ struct PlayView: View {
     @EnvironmentObject var modelData : ModelData
     @EnvironmentObject var userSettings : UserSettings
     
-    @State var problemImageName = ""
     @State var clearWritingSpace = false
     @State var submitAnswer = false
     @State var updateStatistics = false
@@ -25,6 +24,7 @@ struct PlayView: View {
     @State var timerOn : Bool = true
     @State var isTimerHidden : Bool = false
     @State var endButtonAlignment : Alignment = .trailing
+    @State var playButtonsAlignment : HorizontalAlignment = .trailing
     
     @ViewBuilder
     var body: some View {
@@ -98,16 +98,14 @@ struct PlayView: View {
                                 .scaledToFit()
                                 .frame(idealWidth: 500, maxHeight: 300, alignment: .center)
                             
-                            if(!userSettings.isLeftHandMode)
-                            {
                                 //ZStack to hold the writing space, clear button, and submit button
-                                ZStack (alignment: Alignment(horizontal: .trailing, vertical: .center)) {
+                                ZStack (alignment: Alignment(horizontal: playButtonsAlignment, vertical: .center)) {
                                     
                                     PlayViewController(runClearButton: $clearWritingSpace, submitAnswer: $submitAnswer, updateStatistics: $updateStatistics)
                                         .frame(width: 500, height: 300, alignment: .center)
                                         .environmentObject(summary)
                                     
-                                    VStack(alignment: .trailing)
+                                    VStack(alignment: playButtonsAlignment)
                                     {
                                         //When the Clear button is pressed...
                                         Button(action: {
@@ -137,55 +135,13 @@ struct PlayView: View {
                                     })
                                     .onChange(of: submitAnswer, perform: { value in
                                         submitAnswer = false
+                                        if(modelData.currentProblem.id == "")
+                                        {
+                                            modelData.finished = true
+                                        }
                                     })
-                                    
                                 }//end ZStack that holds the PlayViewController
                                 .frame(width: 500, height: 300)
-                            }
-                            else
-                            {
-                                //ZStack to hold the writing space, clear button, and submit button
-                                ZStack (alignment: Alignment(horizontal: .leading, vertical: .center)) {
-                                    
-                                    PlayViewController(runClearButton: $clearWritingSpace, submitAnswer: $submitAnswer, updateStatistics: $updateStatistics)
-                                        .frame(width: 500, height: 300, alignment: .center)
-                                        .environmentObject(summary)
-                                    
-                                    VStack(alignment: .leading)
-                                    {
-                                        //When the Clear button is pressed...
-                                        Button(action: {
-                                            clearWritingSpace = true
-                                        })
-                                        {
-                                            Text("Clear")
-                                        }
-                                        
-                                        Spacer()
-                                        
-                                        //When the user hits "Submit"
-                                        Button(action: {
-                                            submitAnswer = true
-                                            clearWritingSpace = true
-                                            lines = []
-                                        })
-                                        {
-                                            Text("Submit")
-                                        }
-                                    }//end VStack that holds the Clear and Submit buttons
-                                    .font(.system(size: 36, weight: .regular, design: .serif))
-                                    .foregroundColor(Color(red: 25.0/255, green: 127.0/255, blue: 124.0/255, opacity: 1.0))
-                                    .padding()
-                                    .onChange(of: clearWritingSpace, perform: { value in
-                                        clearWritingSpace = false
-                                    })
-                                    .onChange(of: submitAnswer, perform: { value in
-                                        submitAnswer = false
-                                    })
-                                    
-                                }//end ZStack that holds the PlayViewController
-                                .frame(width: 500, height: 300)
-                            }
                         }
                     }
                     //otherwise, display that the user is finished
@@ -218,6 +174,7 @@ struct PlayView: View {
         }//end Zstack
         .onAppear(perform: {
             endButtonAlignment = userSettings.isLeftHandMode ? .leading : .trailing
+            playButtonsAlignment = userSettings.isLeftHandMode ? .leading : .trailing
         })
         .onDisappear(perform: {
             modelData.hasStarted = false

@@ -103,7 +103,7 @@ final class ModelData : ObservableObject {
     }
     
     //get the next problem in the array or indicate the user is finished
-    func getNextProblem() {
+    func getNextProblem(){
         index = index + 1
         if(index < allProblems.count)
         {
@@ -111,7 +111,8 @@ final class ModelData : ObservableObject {
         }
         else
         {
-            finished = true
+            //finished = true
+            currentProblem = Problem()
         }
     }
     
