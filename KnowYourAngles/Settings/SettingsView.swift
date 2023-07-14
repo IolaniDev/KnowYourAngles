@@ -253,7 +253,20 @@ struct SettingsView: View {
                                     .frame(maxWidth: .infinity, alignment: .leading)
                             }
                             .onChange(of: userSettings.arcsine, perform: { _ in
-                                if (areNoFunctionsSelected())
+                                //if the user wants arcsine problems, make sure quadrants I and IV and quadrantals are also turned on.
+                                if (userSettings.arcsine)
+                                {
+                                    userSettings.quadI = true
+                                    UserDefaults.standard.set(true, forKey: "quadI")
+                                    
+                                    userSettings.quadIV = true
+                                    UserDefaults.standard.set(true, forKey: "quadIV")
+                                    
+                                    userSettings.quadrantals = true
+                                    UserDefaults.standard.set(true, forKey: "quadrantals")
+                                }
+                                //if none of the trig functions are selected, enable arccosine
+                                else if (areNoFunctionsSelected())
                                 {
                                     userSettings.arccosine.toggle()
                                     UserDefaults.standard.set(true, forKey: "arccosine")
@@ -265,7 +278,18 @@ struct SettingsView: View {
                                     .frame(maxWidth: .infinity, alignment: .leading)
                             }
                             .onChange(of: userSettings.arccosine, perform: { _ in
-                                if (areNoFunctionsSelected())
+                                if(userSettings.arccosine)
+                                {
+                                    userSettings.quadI = true
+                                    UserDefaults.standard.set(true, forKey: "quadI")
+                                    
+                                    userSettings.quadII = true
+                                    UserDefaults.standard.set(true, forKey: "quadII")
+                                    
+                                    userSettings.quadrantals = true
+                                    UserDefaults.standard.set(true, forKey: "quadrantals")
+                                }
+                                else if (areNoFunctionsSelected())
                                 {
                                     userSettings.arctangent.toggle()
                                     UserDefaults.standard.set(true, forKey: "arctangent")
@@ -277,7 +301,18 @@ struct SettingsView: View {
                                     .frame(maxWidth: .infinity, alignment: .leading)
                             }
                             .onChange(of: userSettings.arctangent, perform: { _ in
-                                if (areNoFunctionsSelected())
+                                if(userSettings.arctangent)
+                                {
+                                    userSettings.quadI = true
+                                    UserDefaults.standard.set(true, forKey: "quadI")
+                                    
+                                    userSettings.quadIV = true
+                                    UserDefaults.standard.set(true, forKey: "quadIV")
+                                    
+                                    userSettings.quadrantals = true
+                                    UserDefaults.standard.set(true, forKey: "quadrantals")
+                                }
+                                else if (areNoFunctionsSelected())
                                 {
                                     userSettings.arccosecant.toggle()
                                     UserDefaults.standard.set(true, forKey: "arccosecant")
@@ -289,7 +324,18 @@ struct SettingsView: View {
                                     .frame(maxWidth: .infinity, alignment: .leading)
                             }
                             .onChange(of: userSettings.arccosecant, perform: { _ in
-                                if (areNoFunctionsSelected())
+                                if (userSettings.arccosecant)
+                                {
+                                    userSettings.quadI = true
+                                    UserDefaults.standard.set(true, forKey: "quadI")
+                                    
+                                    userSettings.quadIV = true
+                                    UserDefaults.standard.set(true, forKey: "quadIV")
+                                    
+                                    userSettings.quadrantals = true
+                                    UserDefaults.standard.set(true, forKey: "quadrantals")
+                                }
+                                else if (areNoFunctionsSelected())
                                 {
                                     userSettings.arcsecant.toggle()
                                     UserDefaults.standard.set(true, forKey: "arcsecant")
@@ -301,7 +347,18 @@ struct SettingsView: View {
                                     .frame(maxWidth: .infinity, alignment: .leading)
                             }
                             .onChange(of: userSettings.arcsecant, perform: { _ in
-                                if (areNoFunctionsSelected())
+                                if(userSettings.arcsecant)
+                                {
+                                    userSettings.quadI = true
+                                    UserDefaults.standard.set(true, forKey: "quadI")
+                                    
+                                    userSettings.quadII = true
+                                    UserDefaults.standard.set(true, forKey: "quadII")
+                                    
+                                    userSettings.quadrantals = true
+                                    UserDefaults.standard.set(true, forKey: "quadrantals")
+                                }
+                                else if (areNoFunctionsSelected())
                                 {
                                     userSettings.arccotangent.toggle()
                                     UserDefaults.standard.set(true, forKey: "arccotangent")
@@ -313,7 +370,18 @@ struct SettingsView: View {
                                     .frame(maxWidth: .infinity, alignment: .leading)
                             }
                             .onChange(of: userSettings.arccotangent, perform: { _ in
-                                if (areNoFunctionsSelected())
+                                if(userSettings.arccotangent)
+                                {
+                                    userSettings.quadI = true
+                                    UserDefaults.standard.set(true, forKey: "quadI")
+                                    
+                                    userSettings.quadIV = true
+                                    UserDefaults.standard.set(true, forKey: "quadIV")
+                                    
+                                    userSettings.quadrantals = true
+                                    UserDefaults.standard.set(true, forKey: "quadrantals")
+                                }
+                                else if (areNoFunctionsSelected())
                                 {
                                     userSettings.sine.toggle()
                                     UserDefaults.standard.set(true, forKey: "sine")
