@@ -14,7 +14,6 @@
 		36F5B09720E16C7C003AA258 /* Problem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36F5B09620E16C7C003AA258 /* Problem.swift */; };
 		45F91BD81E81C86500E26D3D /* org.iolani.inhouse.KnowYourAngles.c in Sources */ = {isa = PBXBuildFile; fileRef = 45F91BD71E81C86500E26D3D /* org.iolani.inhouse.KnowYourAngles.c */; };
 		8429E1191D2C481500920987 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429E1181D2C481500920987 /* AppDelegate.swift */; };
-		8429E11E1D2C481500920987 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8429E11C1D2C481500920987 /* Main.storyboard */; };
 		8429E1201D2C481500920987 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8429E11F1D2C481500920987 /* Assets.xcassets */; };
 		8429E1231D2C481500920987 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8429E1211D2C481500920987 /* LaunchScreen.storyboard */; };
 		8429E1391D2C481600920987 /* KnowYourAnglesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8429E1381D2C481600920987 /* KnowYourAnglesUITests.swift */; };
@@ -70,7 +69,6 @@
 		840180CA1D2C562400CB794B /* MyCertificate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCertificate.h; sourceTree = "<group>"; };
 		8429E1151D2C481500920987 /* KnowYourAngles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KnowYourAngles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8429E1181D2C481500920987 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8429E11D1D2C481500920987 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8429E11F1D2C481500920987 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8429E1221D2C481500920987 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8429E1241D2C481500920987 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -225,7 +223,6 @@
 				366B07E920DC25210083B0C1 /* MyScriptCertificate */,
 				8429E1461D2C484E00920987 /* KnowYourAngles-Bridging-Header.h */,
 				8429E1181D2C481500920987 /* AppDelegate.swift */,
-				8429E11C1D2C481500920987 /* Main.storyboard */,
 				8429E11F1D2C481500920987 /* Assets.xcassets */,
 				8429E1211D2C481500920987 /* LaunchScreen.storyboard */,
 				E3EEA04726A55220002AFFF2 /* KnowYourAnglesApp.swift */,
@@ -423,7 +420,6 @@
 				363BE51922AF29C7002BA369 /* recognition-assets in Resources */,
 				8429E1201D2C481500920987 /* Assets.xcassets in Resources */,
 				363BE51722AF29B4002BA369 /* INFO in Resources */,
-				8429E11E1D2C481500920987 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -540,14 +536,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		8429E11C1D2C481500920987 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8429E11D1D2C481500920987 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8429E1211D2C481500920987 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
