@@ -3,7 +3,8 @@
 //  KnowYourAngles
 //
 //  Created by Erin Nagoshi on 7/21/21.
-//  Copyright © 2021 Iolani School. All rights reserved.
+//  Updated by Erin Nagoshi on 7/15/23.
+//  Copyright © 2023 Iolani School. All rights reserved.
 //
 
 import SwiftUI
@@ -40,18 +41,17 @@ struct PlayView: View {
             else
             {
                 ScratchPaper(lines: self.$lines, isLeftSide: $userSettings.isLeftHandMode)
-                    Button(action: {
-                        modelData.finished = true
-                        
-                    })
-                    {
-                        Text("End")
-                            .font(.system(size: 50))
-                            .foregroundColor(Color(red: 127.0/255, green: 255.0/255, blue: 250.0/255, opacity: 1.0))
-                            .frame(maxWidth: .infinity, alignment: endButtonAlignment)
-                            .padding()
-                    }
+                //The End button can be used by users to finish playing and give the option of showing the summary
+                Button(action: { modelData.finished = true })
+                {
+                    Text("End")
+                        .font(.system(size: 50))
+                        .foregroundColor(Color(red: 127.0/255, green: 255.0/255, blue: 250.0/255, opacity: 1.0))
+                        .frame(maxWidth: .infinity, alignment: endButtonAlignment)
+                        .padding()
+                }
             }
+            
             VStack (alignment: .center, spacing: 60, content: {
                 
                 Spacer()
@@ -64,6 +64,7 @@ struct PlayView: View {
                             .scaledToFit()
                     }
                     
+                    //Create the star with the number of correctly answered questions in the middle
                     ZStack {
                         ProgressSymbol(name: "KYA_Star_Icon")
                             .frame(width: 500, height: 500)
@@ -73,8 +74,8 @@ struct PlayView: View {
                             .font(.system(size: 45, weight: .heavy, design: .serif))
                             .foregroundColor(Color(red: 1, green: 0, blue: 0, opacity: 1.0))
                             .offset(CGSize(width: 0, height: 5))
-                    }
-                })
+                    }//end ZStack
+                })//end VStack
                 
                 //If we haven't started yet, display a Start Button (starting the timer will also "Start")
                 if(!modelData.hasStarted)
@@ -98,50 +99,50 @@ struct PlayView: View {
                                 .scaledToFit()
                                 .frame(idealWidth: 500, maxHeight: 300, alignment: .center)
                             
-                                //ZStack to hold the writing space, clear button, and submit button
-                                ZStack (alignment: Alignment(horizontal: playButtonsAlignment, vertical: .center)) {
-                                    
-                                    PlayViewController(runClearButton: $clearWritingSpace, submitAnswer: $submitAnswer, updateStatistics: $updateStatistics)
-                                        .frame(width: 500, height: 300, alignment: .center)
-                                        .environmentObject(summary)
-                                    
-                                    VStack(alignment: playButtonsAlignment)
+                            //ZStack to hold the writing space, clear button, and submit button
+                            ZStack (alignment: Alignment(horizontal: playButtonsAlignment, vertical: .center)) {
+                                
+                                PlayViewController(runClearButton: $clearWritingSpace, submitAnswer: $submitAnswer, updateStatistics: $updateStatistics)
+                                    .frame(width: 500, height: 300, alignment: .center)
+                                    .environmentObject(summary)
+                                
+                                VStack(alignment: playButtonsAlignment)
+                                {
+                                    //When the Clear button is pressed...
+                                    Button(action: {
+                                        clearWritingSpace = true
+                                    })
                                     {
-                                        //When the Clear button is pressed...
-                                        Button(action: {
-                                            clearWritingSpace = true
-                                        })
-                                        {
-                                            Text("Clear")
-                                        }
-                                        
-                                        Spacer()
-                                        
-                                        //When the user hits "Submit"
-                                        Button(action: {
-                                            submitAnswer = true
-                                            clearWritingSpace = true
-                                            lines = []
-                                        })
-                                        {
-                                            Text("Submit")
-                                        }
-                                    }//end VStack that holds the Clear and Submit buttons
-                                    .font(.system(size: 36, weight: .regular, design: .serif))
-                                    .foregroundColor(Color(red: 25.0/255, green: 127.0/255, blue: 124.0/255, opacity: 1.0))
-                                    .padding()
-                                    .onChange(of: clearWritingSpace, perform: { value in
-                                        clearWritingSpace = false
+                                        Text("Clear")
+                                    }
+                                    
+                                    Spacer()
+                                    
+                                    //When the user hits "Submit"
+                                    Button(action: {
+                                        submitAnswer = true
+                                        clearWritingSpace = true
+                                        lines = []
                                     })
-                                    .onChange(of: submitAnswer, perform: { value in
-                                        submitAnswer = false
-                                        if(modelData.currentProblem.id == "")
-                                        {
-                                            modelData.finished = true
-                                        }
-                                    })
-                                }//end ZStack that holds the PlayViewController
-                                .frame(width: 500, height: 300)
+                                    {
+                                        Text("Submit")
+                                    }
+                                }//end VStack that holds the Clear and Submit buttons
+                                .font(.system(size: 36, weight: .regular, design: .serif))
+                                .foregroundColor(Color(red: 25.0/255, green: 127.0/255, blue: 124.0/255, opacity: 1.0))
+                                .padding()
+                                .onChange(of: clearWritingSpace, perform: { value in
+                                    clearWritingSpace = false
+                                })
+                                .onChange(of: submitAnswer, perform: { value in
+                                    submitAnswer = false
+                                    if(modelData.currentProblem.id == "")
+                                    {
+                                        modelData.finished = true
+                                    }
+                                })
+                            }//end ZStack that holds the PlayViewController
+                            .frame(width: 500, height: 300)
                         }
                     }
                     //otherwise, display that the user is finished
@@ -165,12 +166,10 @@ struct PlayView: View {
                         .font(.system(size: 36, weight: .regular, design: .serif))
                         .foregroundColor(Color(red: 127.0/255, green: 255.0/255, blue: 250.0/255, opacity: 1.0))
                     }
-                    
                 }
                 Spacer()
             })//end VStack
             .frame(width: 500, alignment: .center)
-            //.padding(EdgeInsets(top: , leading: 0, bottom: 0, trailing: 0))
         }//end Zstack
         .onAppear(perform: {
             endButtonAlignment = userSettings.isLeftHandMode ? .leading : .trailing

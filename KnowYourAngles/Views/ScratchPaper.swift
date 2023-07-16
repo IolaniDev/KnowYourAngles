@@ -3,16 +3,19 @@
 //  KnowYourAngles
 //
 //  Created by Erin Nagoshi on 2/22/23.
+//  Updated by Erin Nagoshi on 7/14/23.
 //  Copyright © 2023 Iolani School. All rights reserved.
 //
+//  "Scratch Paper" feature based on https://www.youtube.com/watch?v=P0OdY9MVu_g
 
 import SwiftUI
 
+//struct for drawing lines on the scratch paper
 struct Line {
     var points = [CGPoint]()
     var color: Color = .black
     var lineWidth: Double = 1.5
-}
+}//end Line struct
 
 struct ScratchPaper: View {
     
@@ -21,11 +24,12 @@ struct ScratchPaper: View {
     @Binding public var isLeftSide : Bool
     @State private var thickness: Double = 1.0
     
-    @State var a :Alignment = .bottom
+    @State var clearButtonAlignment :Alignment = .bottom
     
     var body: some View {
         
-        ZStack (alignment: a){
+        ZStack (alignment: clearButtonAlignment){
+           
             BackgroundColor()
             
             Canvas { context, size in
@@ -34,7 +38,8 @@ struct ScratchPaper: View {
                     path.addLines(line.points)
                     context.stroke(path, with: .color(line.color), lineWidth: line.lineWidth)
                 }
-            }.frame(minWidth: 400, minHeight: 400)
+            }//end Canvas
+            .frame(minWidth: 400, minHeight: 400)
                 .gesture(DragGesture(minimumDistance: 0, coordinateSpace: .local)
                     .onChanged({ value in
                         let newPoint = value.location
@@ -54,15 +59,10 @@ struct ScratchPaper: View {
                 .onTapGesture {
                     lines = []
                 }
-        }
+        }//end ZStack
         .onAppear(perform: {
-            a = isLeftSide ? .bottomLeading : .bottomTrailing
+            //set the alignment of the "clear scratch paper button" based on if the user is left-handed or right-handed
+            clearButtonAlignment = isLeftSide ? .bottomLeading : .bottomTrailing
         })
-    }
-}
-
-//struct ScratchPaper_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ScratchPaper(lines: <#Binding<[Line]>#>)
-//    }
-//}
+    }//end body
+}//end ScratchPaper View

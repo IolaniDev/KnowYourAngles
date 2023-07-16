@@ -3,7 +3,9 @@
 //  KnowYourAngles
 //
 //  Created by Erin Nagoshi on 7/23/21.
-//  Copyright © 2021 Iolani School. All rights reserved.
+//  Updated by Erin Nagoshi on 7/15/23.
+//
+//  Copyright © 2023 Iolani School. All rights reserved.
 //
 
 import SwiftUI
@@ -14,9 +16,10 @@ struct PlayViewController: UIViewControllerRepresentable {
     @EnvironmentObject var playViewDelegate : AppDelegate
     @EnvironmentObject var modelData : ModelData
     @EnvironmentObject var summary : SummaryGrid
-    //@EnvironmentObject var userSettings : UserSettings
+
     typealias UIViewControllerType = UIPlayViewController
     var editorViewController = EditorViewController()
+
     @Binding var runClearButton : Bool
     @Binding var submitAnswer : Bool
     @Binding var updateStatistics : Bool
@@ -72,10 +75,10 @@ struct PlayViewController: UIViewControllerRepresentable {
         }
         
         return playViewController
-    }
+    }//end makeUIViewController
     
     func updateUIViewController(_ uiViewController: UIPlayViewController, context: Context) {
-        //print("updateUIViewController: ")
+        //if an answer has been submitted...
         if(submitAnswer)
         {
             //add the current problem to the summary
@@ -85,6 +88,7 @@ struct PlayViewController: UIViewControllerRepresentable {
             summary.summaryElements.append(Image(modelData.currentProblem.answerImageName))
                                         
             let feedbackImageView : UIImageView
+            //check if the user's answer is correct or not
             if(modelData.checkAnswer(submittedAnswer: uiViewController.submitButtonPressed()))
             {
                 // imageview to hold the green check (meaning correct)
@@ -103,15 +107,15 @@ struct PlayViewController: UIViewControllerRepresentable {
             //add the feedback image to the summary
             summary.summaryElements.append(Image(uiImage: feedbackImageView.image!))
             
-            // sets the position of the feedback image
+            //sets the position of the feedback image
             feedbackImageView.center.x = uiViewController.view.frame.midX;
             feedbackImageView.center.y = uiViewController.view.frame.midY;
             
-            // add the feedback image to the screen
+            //add the feedback image to the screen
             uiViewController.view.addSubview(feedbackImageView);
             uiViewController.view.bringSubviewToFront(feedbackImageView);
             
-            // animate the feedback image fading away
+            //animate the feedback image fading away
             feedbackImageView.alpha = 255;
             UIView.animate(withDuration: 0.5, animations: {
                 feedbackImageView.alpha = 0
@@ -120,11 +124,12 @@ struct PlayViewController: UIViewControllerRepresentable {
             //set up the next problem
             modelData.getNextProblem()
         }
+        //if the clear button has been pressed, then erase all of the writing in the PlayView
         if(runClearButton)
         {
             uiViewController.clearButtonPressed()
         }
-    }
+    }//end updateUIViewController
     
     func updateStatistics(isCorrect: Bool)
     {
@@ -205,5 +210,5 @@ struct PlayViewController: UIViewControllerRepresentable {
             modelData.numberOfCorrectCotangentAnswers += isCorrect ? 1: 0
             modelData.numberOfCotangentProblemsPresented += 1
         }
-    }
-}
+    }//end updateStatistics function
+}//end PlayViewController

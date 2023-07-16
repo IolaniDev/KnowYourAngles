@@ -3,11 +3,13 @@
 //  KnowYourAngles
 //
 //  Created by iPad App Dev on 6/25/18.
-//  Copyright © 2018 Iolani School. All rights reserved.
+//  Updated by Erin Nagoshi on 7/14/23.
+//  Copyright © 2023 Iolani School. All rights reserved.
 //
 
 import Foundation
 
+//Definition of a "Problem"
 struct Problem : Hashable, Codable, Identifiable{
     //id is the name of the problem's image
     var id : String;

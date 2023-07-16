@@ -3,7 +3,8 @@
 //  KnowYourAngles
 //
 //  Created by Erin Nagoshi on 8/18/21.
-//  Copyright © 2021 Iolani School. All rights reserved.
+//  Updated by Erin Nagoshi on 7/15/23.
+//  Copyright © 2023 Iolani School. All rights reserved.
 //
 
 import SwiftUI
@@ -51,11 +52,11 @@ struct SummaryGridView: View {
                     125
                 })
                 .padding()
-            }
-        }
+            }//end GeometryReader
+        }//end ZStack
         .frame(width: 700, alignment: .top)
-    }
-}
+    }//end body
+}//end SummaryGridView
 
 struct SummaryGridItem_Previews: PreviewProvider {
     static var previews: some View {

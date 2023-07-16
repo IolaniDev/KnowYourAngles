@@ -3,7 +3,8 @@
 //  KnowYourAngles
 //
 //  Created by Erin Nagoshi on 7/23/21.
-//  Copyright © 2021 Iolani School. All rights reserved.
+//  Updated by Erin Nagoshi on 7/15/23.
+//  Copyright © 2023 Iolani School. All rights reserved.
 //
 
 import UIKit
@@ -21,6 +22,7 @@ class UIPlayViewController : UIViewController {
     var statusCheckTimer = Timer();
     var timerStarted = false;
     
+    //function used to check whether the handwriting timer should start or stop
     @objc func checkStatus(timer: Timer)
     {
         let editorViewController = self.children[0] as! EditorViewController
@@ -32,17 +34,19 @@ class UIPlayViewController : UIViewController {
         {
             endTimer();
         }
-    }
+    }//end checkStatus function
     
+    //function to start the timer to see if any writing needs to be beautified.
     func startTimer(){
         beautifyTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(fireTimer(timer:)), userInfo: nil, repeats: true);
         timerStarted = true;
-    }
+    }//end startTimer function
     
+    //function to end the timer to see if any writing needs to be beautified.
     func endTimer(){
         beautifyTimer.invalidate();
         timerStarted = false;
-    }
+    }//end endTimer function
     
     func startTimers() {
         timerStarted = false;
@@ -77,7 +81,7 @@ class UIPlayViewController : UIViewController {
             editorViewController.inputView.convertRequired = false;
             endTimer();
         }
-    }
+    }//end fireTimer function
     
     /***** END - variables and functions for automatically changing user's writing into text and math symbols *****/
     
@@ -113,7 +117,6 @@ class UIPlayViewController : UIViewController {
     
     func submitButtonPressed() ->String {
         let editorViewController = self.children[0] as! EditorViewController
-        //print("initial result: " + initialResult)
         
         //if the result is not empty
         if(!initialResult.isEmpty && !editorViewController.inputView.convertRequired && editorViewController.editor.idle)
@@ -162,4 +165,4 @@ class UIPlayViewController : UIViewController {
         }
         return initialResult
     }
-}
+}//end UIPlayViewController

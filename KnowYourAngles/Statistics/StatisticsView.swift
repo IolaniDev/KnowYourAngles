@@ -3,7 +3,8 @@
 //  KnowYourAngles
 //
 //  Created by Erin Nagoshi on 8/19/21.
-//  Copyright © 2021 Iolani School. All rights reserved.
+//  Updated by Erin Nagoshi on 7/15/23.
+//  Copyright © 2023 Iolani School. All rights reserved.
 //
 
 import SwiftUI
@@ -15,12 +16,9 @@ struct StatisticsView: View {
     var body: some View {
         ZStack {
             BackgroundColor()
-            
             VStack {
-                
                 //title and description
                 VStack {
-                    
                     Text("User Statistics")
                         .font(.system(size: 80, weight: .heavy, design: .serif))
                         .foregroundColor(Color(red: 127.0/255, green: 255.0/255, blue: 250.0/255, opacity: 1.0))
@@ -33,30 +31,33 @@ struct StatisticsView: View {
                 
                 //first row - includes degrees and radians
                 VStack {
+                    //first row labels
                     HStack {
                         Text("degrees")
                             .frame(maxWidth: .infinity, alignment: .center)
                         
                         Text("radians")
                             .frame(maxWidth: .infinity, alignment: .center)
-                    }
+                    }//end first row labels
                     .font(.system(size: 60, weight: .heavy, design: .serif))
                     .foregroundColor(Color(red: 40.0/255, green: 204.0/255, blue: 198.0/255))
                     
+                    //first row percentage values
                     HStack {
                         Text(userSettings.degreeStatsNumTotal != 0 ? String(format: "%.2f",Float(userSettings.degreeStatsNumCorrect*100)/Float(userSettings.degreeStatsNumTotal)) + "%": "0.0%")
                             .frame(maxWidth: .infinity, alignment: .center)
                         
                         Text(userSettings.radiansStatsNumTotal != 0 ? String(format: "%.2f",Float(userSettings.radiansStatsNumCorrect*100)/Float(userSettings.radiansStatsNumTotal)) + "%": "0.0%")
                             .frame(maxWidth: .infinity, alignment: .center)
-                    }
+                    }//end first row percentage values
                     .font(.system(size: 60, weight: .regular, design: .serif))
                     .foregroundColor(Color(red: 40.0/255, green: 204.0/255, blue: 198.0/255))
-                }
+                }//end first row
                 .padding()
                 
                 //second row - includes sin, cos, tan
                 VStack {
+                    //second row labels
                     HStack {
                         Text("sin")
                             .frame(maxWidth: .infinity, alignment: .center)
@@ -67,10 +68,11 @@ struct StatisticsView: View {
                         Text("tan")
                             .frame(maxWidth: .infinity, alignment: .center)
                         
-                    }
+                    }//end second row labels
                     .font(.system(size: 60, weight: .heavy, design: .serif))
                     .foregroundColor(Color(red: 40.0/255, green: 204.0/255, blue: 198.0/255))
                     
+                    //second row percentage values
                     HStack {
                         Text(userSettings.sineStatsNumTotal != 0 ? String(format: "%.2f",Float(userSettings.sineStatsNumCorrect*100)/Float(userSettings.sineStatsNumTotal)) + "%": "0.0%")
                             .frame(maxWidth: .infinity, alignment: .center)
@@ -80,14 +82,15 @@ struct StatisticsView: View {
                         
                         Text(userSettings.tangentStatsNumTotal != 0 ? String(format: "%.2f",Float(userSettings.tangentStatsNumCorrect*100)/Float(userSettings.tangentStatsNumTotal)) + "%": "0.0%")
                             .frame(maxWidth: .infinity, alignment: .center)
-                    }
+                    }//end second row percentage values
                     .font(.system(size: 60, weight: .regular, design: .serif))
                     .foregroundColor(Color(red: 40.0/255, green: 204.0/255, blue: 198.0/255))
-                }
+                }//end second row
                 .padding()
                 
                 //third row - includes csc, sec, cotan
                 VStack {
+                    //third row labels
                     HStack {
                         Text("csc")
                             .frame(maxWidth: .infinity, alignment: .center)
@@ -98,10 +101,11 @@ struct StatisticsView: View {
                         Text("cotan")
                             .frame(maxWidth: .infinity, alignment: .center)
                         
-                    }
+                    }//end third row labels
                     .font(.system(size: 60, weight: .heavy, design: .serif))
                     .foregroundColor(Color(red: 40.0/255, green: 204.0/255, blue: 198.0/255))
                     
+                    //third row percentage values
                     HStack {
                         Text(userSettings.cosecantStatsNumTotal != 0 ? String(format: "%.2f",Float(userSettings.cosecantStatsNumCorrect*100)/Float(userSettings.cosecantStatsNumTotal)) + "%": "0.0%")
                             .frame(maxWidth: .infinity, alignment: .center)
@@ -111,14 +115,15 @@ struct StatisticsView: View {
                         
                         Text(userSettings.cotangentStatsNumTotal != 0 ? String(format: "%.2f",Float(userSettings.cotangentStatsNumCorrect*100)/Float(userSettings.cotangentStatsNumTotal)) + "%": "0.0%")
                             .frame(maxWidth: .infinity, alignment: .center)
-                    }
+                    }//end third row percentage values
                     .font(.system(size: 60, weight: .regular, design: .serif))
                     .foregroundColor(Color(red: 40.0/255, green: 204.0/255, blue: 198.0/255))
-                }
+                }//end third row
                 .padding()
                 
                 //fourth row - includes arcsin, arccos, arctan
                 VStack {
+                    //fourth row labels
                     HStack {
                         Text("arcsin")
                             .frame(maxWidth: .infinity, alignment: .center)
@@ -129,10 +134,11 @@ struct StatisticsView: View {
                         Text("arctan")
                             .frame(maxWidth: .infinity, alignment: .center)
                         
-                    }
+                    }//end fourth row labels
                     .font(.system(size: 60, weight: .heavy, design: .serif))
                     .foregroundColor(Color(red: 40.0/255, green: 204.0/255, blue: 198.0/255))
                     
+                    //fourth row percentage values
                     HStack {
                         Text(userSettings.arcsineStatsNumTotal != 0 ? String(format: "%.2f",Float(userSettings.arcsineStatsNumCorrect*100)/Float(userSettings.arcsineStatsNumTotal)) + "%": "0.0%")
                             .frame(maxWidth: .infinity, alignment: .center)
@@ -142,14 +148,15 @@ struct StatisticsView: View {
                         
                         Text(userSettings.arctangentStatsNumTotal != 0 ? String(format: "%.2f",Float(userSettings.arctangentStatsNumCorrect*100)/Float(userSettings.arctangentStatsNumTotal)) + "%": "0.0%")
                             .frame(maxWidth: .infinity, alignment: .center)
-                    }
+                    }//end fourth row percentage values
                     .font(.system(size: 60, weight: .regular, design: .serif))
                     .foregroundColor(Color(red: 40.0/255, green: 204.0/255, blue: 198.0/255))
-                }
+                }//end fourth row
                 .padding()
 
                 //fifth row - includes arccosecant, arcsecant, arccotangent
                 VStack {
+                    //fifth row labels
                     HStack {
                         Text("arccsc")
                             .frame(maxWidth: .infinity, alignment: .center)
@@ -160,10 +167,11 @@ struct StatisticsView: View {
                         Text("arccotan")
                             .frame(maxWidth: .infinity, alignment: .center)
                         
-                    }
+                    }//end fifth row labels
                     .font(.system(size: 60, weight: .heavy, design: .serif))
                     .foregroundColor(Color(red: 40.0/255, green: 204.0/255, blue: 198.0/255))
                     
+                    //fifth row percentage values
                     HStack {
                         Text(userSettings.arccosecantStatsNumTotal != 0 ? String(format: "%.2f",Float(userSettings.arccosecantStatsNumCorrect*100)/Float(userSettings.arccosecantStatsNumTotal)) + "%": "0.0%")
                             .frame(maxWidth: .infinity, alignment: .center)
@@ -173,10 +181,10 @@ struct StatisticsView: View {
                         
                         Text(userSettings.arccotangentStatsNumTotal != 0 ? String(format: "%.2f",Float(userSettings.arccotangentStatsNumCorrect*100)/Float(userSettings.arccotangentStatsNumTotal)) + "%": "0.0%")
                             .frame(maxWidth: .infinity, alignment: .center)
-                    }
+                    }//end fifth row percentage values
                     .font(.system(size: 60, weight: .regular, design: .serif))
                     .foregroundColor(Color(red: 40.0/255, green: 204.0/255, blue: 198.0/255))
-                }
+                }//end fifth row
                 Spacer()
                 
                 //When the user hits "reset"
@@ -217,14 +225,14 @@ struct StatisticsView: View {
                         .frame(maxWidth: .infinity, alignment: resetButtonAlignment)
                         .padding()
                 }
-            }
+            }//end overall VStack
             .padding(.top, 100)
-        }
+        }//end ZStack
         .onAppear(perform: {
             resetButtonAlignment = userSettings.isLeftHandMode ? .leading : .trailing
         })
-    }
-}
+    }//end body
+}//end StatisticsView
 
 struct StatisticsView_Previews: PreviewProvider {
     static var previews: some View {

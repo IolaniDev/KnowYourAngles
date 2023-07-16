@@ -3,7 +3,8 @@
 //  KnowYourAngles
 //
 //  Created by Erin Nagoshi on 8/9/21.
-//  Copyright © 2021 Iolani School. All rights reserved.
+//  Updated by Erin Nagoshi on 7/15/23.
+//  Copyright © 2023 Iolani School. All rights reserved.
 //
 
 import SwiftUI
@@ -18,7 +19,7 @@ struct SettingsView: View {
             Form {
                 //Group is needed so that the background on all of the rows in the Form can have the same background color
                 Group {
-                    //VStack groups the Category with its setting options
+                    //Section groups the Category with its setting options
                     Section {
                         Text("User Preferences:")
                             .font(.title)
@@ -50,6 +51,7 @@ struct SettingsView: View {
                                     .frame(maxWidth: .infinity, alignment: .leading)
                             }
                             .onChange(of: userSettings.degrees, perform: { _ in
+                                //if the user tries to deselect Degrees, make sure Radians is at least turned on
                                 if (!userSettings.degrees && !userSettings.radians)
                                 {
                                     userSettings.radians.toggle()
@@ -62,13 +64,14 @@ struct SettingsView: View {
                                     .frame(maxWidth: .infinity, alignment: .leading)
                             }
                             .onChange(of: userSettings.radians, perform: { _ in
+                                //if the user tries to deselect Radians, make sure Degrees is at least turned on
                                 if (!userSettings.degrees && !userSettings.radians)
                                 {
                                     userSettings.degrees.toggle()
                                     UserDefaults.standard.set(true, forKey: "degrees")
                                 }
                             })
-                        }
+                        }//end Group
                         .font(.title2)
                         .foregroundColor(Color(red: 40.0/255, green: 204.0/255, blue: 198.0/255))
                         .toggleStyle(SwitchStyle())
@@ -393,7 +396,7 @@ struct SettingsView: View {
                         .toggleStyle(SwitchStyle())
                         .lineLimit(1)
                     } //end Inverse Trig Functions Section
-                }
+                }//end Group
                 .listRowBackground(Color(red: 25.0/255, green: 127.0/255, blue: 124.0/255))
             }//end Form
             .background(Color(red: 25.0/255, green: 127.0/255, blue: 124.0/255))
@@ -406,18 +409,20 @@ struct SettingsView: View {
             // Fallback on earlier versions
             Text("You need iOS 16.0 or higher")
         }
-        
     } //end View
     
+    //function for determining if none of the quadrants are selected in Settings
     func areNoQuadrantsSelected() -> Bool {
         return !userSettings.quadrantals && !userSettings.quadI && !userSettings.quadII && !userSettings.quadIII && !userSettings.quadIV
     }
     
+    //function for determining if none of the trig functions are selected in Settings
     func areNoFunctionsSelected() -> Bool {
         return !userSettings.sine && !userSettings.cosine && !userSettings.tangent && !userSettings.cosecant && !userSettings.secant && !userSettings.cotangent && !userSettings.arcsine && !userSettings.arccosine && !userSettings.arctangent && !userSettings.arccosecant && !userSettings.arcsecant && !userSettings.arccotangent
     }
-} //end Struct
+} //end SettingsView
 
+//SwitchStyle is used to create the Toggle Boxes & effect
 struct SwitchStyle: ToggleStyle {
     
     func makeBody(configuration: Self.Configuration) -> some View {
@@ -437,9 +442,8 @@ struct SwitchStyle: ToggleStyle {
             
             configuration.label
         }
-        
     }
-}
+}//end SwitchStyle
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {

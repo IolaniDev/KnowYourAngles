@@ -3,7 +3,8 @@
 //  KnowYourAngles
 //
 //  Created by Erin Nagoshi on 8/9/21.
-//  Copyright © 2021 Iolani School. All rights reserved.
+//  Updated by Erin Nagoshi on 7/15/23.
+//  Copyright © 2023 Iolani School. All rights reserved.
 //
 
 import Foundation
@@ -301,6 +302,7 @@ class UserSettings: ObservableObject {
         }
     }
     
+    //Initialize all keys
     init() {
         //Use the previously saved settings for right-hand vs. left-hand. If there aren't any, then by default use Right-Hand Mode.
         self.isLeftHandMode = UserDefaults.standard.object(forKey: "isLeftHandMode") as? Bool ?? false

@@ -3,13 +3,15 @@
 //  KnowYourAngles
 //
 //  Created by Erin Nagoshi on 7/27/21.
-//  Copyright © 2021 Iolani School. All rights reserved.
+//  Updated by Erin Nagoshi on 7/14/23.
+//  Copyright © 2023 Iolani School. All rights reserved.
 //
 
 import Foundation
 import Combine
 import SwiftUI
 
+//ModelData holds information regarding the set of problems
 final class ModelData : ObservableObject {
     //array of Problems loaded from a json file
     @Published var allProblems : [Problem] = (load("ProblemData.json") as [Problem]).shuffled()
@@ -20,13 +22,11 @@ final class ModelData : ObservableObject {
     var index = 0
     //finished indicates whether all of the problems selected have been answered
     @Published var finished = false
-    //hasStarted indicates whether the user has been presented any problems yet
+    //hasStarted indicates whether the user has been presented any problems yet - used in PlayView
     @Published var hasStarted = false
-    //
     
     /* variables for Statistics Collection*/
     var numberOfCorrectAnswers = 0
-    var numberOfProblemsPresented = 0
     var numberOfDegreeProblemsPresented = 0
     var numberOfCorrectDegreeAnswers = 0
     var numberOfRadiansProblemsPresented = 0
@@ -62,7 +62,6 @@ final class ModelData : ObservableObject {
         index = 0
         finished = false
         numberOfCorrectAnswers = 0
-        numberOfProblemsPresented = 0
         numberOfDegreeProblemsPresented = 0
         numberOfCorrectDegreeAnswers = 0
         numberOfRadiansProblemsPresented = 0
@@ -111,7 +110,6 @@ final class ModelData : ObservableObject {
         }
         else
         {
-            //finished = true
             currentProblem = Problem()
         }
     }

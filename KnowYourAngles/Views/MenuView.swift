@@ -3,7 +3,8 @@
 //  KnowYourAngles
 //
 //  Created by Erin Nagoshi on 7/18/21.
-//  Copyright © 2021 Iolani School. All rights reserved.
+//  Updated by Erin Nagoshi on 7/14/23.
+//  Copyright © 2023 Iolani School. All rights reserved.
 //
 /*
  * SettingsView is presented as a side menu that slides in. Adapted from
@@ -17,69 +18,61 @@ struct MenuView: View {
     @EnvironmentObject var modelData : ModelData
     @EnvironmentObject var userSettings : UserSettings
     
+    //Bool variables that represent whether the given view is being shown
     @State private var showAboutView = false
     @State private var showPlayView = false
     @State private var showSettingsView = false
-    @State private var showingAlert = false
+    
+    @State private var sideMenuEdgeAlignment : Edge = .leading
     
     var body: some View {
         NavigationView {
             ZStack {
+                //First, lay down the background color
                 BackgroundColor()
-                VStack{
+                
+                //Over the background color, put the name of the App across the top
+                VStack {
                     Text("Know Your Angles")
                         .font(.system(size: 80, weight: .heavy, design: .serif))
                         .foregroundColor(Color(red: 127.0/255, green: 255.0/255, blue: 250.0/255, opacity: 1.0))
+                    //For the first row of options in the Menu, include a play button and settings button
                     HStack{
-                        NavigationLink(destination: EmptyView()) {
-                            EmptyView()
-                        }
-                        NavigationLink(destination:
-                                        PlayView()
-                                        .environmentObject(modelData)
-                                        .onAppear {
-                                           compileProblems()
-                                        })
+                        //Use the Play Button Image for the button that will take us to the PlayView
+                        NavigationLink(destination: PlayView()
+                            .environmentObject(modelData)
+                            .onAppear {
+                                compileProblems()
+                            })
                         {
                             Image("KYA_Start_Icon")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                         }
                         
-                        if(!self.showSettingsView) {
-                            Button(action: {
-                                //showSettingsView = true
-                                self.openMenu()
-                            })
-                            {
-                                Image("KYA_Settings_Icon")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                            }
-                        }
-                        else
+                        //Clicking on the settings icon will toggle the showSettingsView to either be visible or not.
+                        Button(action: {
+                            self.openMenu()
+                        })
                         {
-                            Button(action: {
-                                
-                            })
-                            {
-                                Image("KYA_Settings_Icon")
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                            }
+                            Image("KYA_Settings_Icon")
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
                         }
-                    }
-                    .frame(width: 800, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-                    HStack{
-
+                    }//end HStack - first row of menu buttons
+                    .frame(width: 800, alignment: .center)
+                    
+                    //Second row of menu buttons include statistics and  app info
+                    HStack {
+                        //Statistics Icon opens the Statistics View
                         NavigationLink(destination: StatisticsView()) {
-                        
                             Image("KYA_Statistics_Icon")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                         }
                         
-                        Button(action: {showAboutView = true})
+                        //The About icon opens the AboutView as a slide over view
+                        Button(action: {showAboutView.toggle()})
                         {
                             Image("KYA_About_Icon")
                                 .resizable()
@@ -87,37 +80,34 @@ struct MenuView: View {
                         }.sheet(isPresented: $showAboutView, content: {
                             AboutView()
                                 .animation(.easeInOut, value: showAboutView)
-                                //.animation(_:easeInOut:)
                         })
-                    }
-                }
-                .frame(width: 800, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+                    } //end HStack - second row of menu buttons
+                }//end VStack
+                .frame(width: 800, alignment: .center)
+                
+                //if the settings view is supposed to be visible...
                 if(self.showSettingsView)
                 {
-                    if(userSettings.isLeftHandMode)
-                    {
-                        SideMenu(width: 370,
-                                 isOpen: self.showSettingsView, isLeftSide: true,
-                                 menuClose: self.openMenu)
-                        .transition(.move(edge: .leading))
-                    }
-                    else
-                    {
-                        SideMenu(width: 370,
-                                 isOpen: self.showSettingsView, isLeftSide: false,
-                                 menuClose: self.openMenu).transition(.move(edge: .trailing))
-                    }
+                    //display the settings in a SideMenu view
+                    SideMenu(width: 370,
+                             isOpen: self.showSettingsView, isLeftSide: userSettings.isLeftHandMode,
+                             menuClose: self.openMenu)
+                    .transition(.move(edge: sideMenuEdgeAlignment))
                 }
-            }
+            }//end ZStack
             .padding()
-            .frame(minWidth: 800, maxWidth: .infinity, minHeight: 1000, maxHeight: .infinity, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-        }
+            .frame(minWidth: 800, maxWidth: .infinity, minHeight: 1000, maxHeight: .infinity, alignment: .center)
+            .onAppear(perform: {
+                //when the view appears, set the alignment based on whether the user is left or right-handed.
+                sideMenuEdgeAlignment = userSettings.isLeftHandMode ? .trailing : .leading
+            })
+        }//end Navigation View
         .navigationViewStyle(StackNavigationViewStyle())
-    }
+    } //end body
     
     func openMenu() {
         self.showSettingsView.toggle()
-    }
+    }//end openMenu function
     
     func compileProblems(){
         modelData.resetLoadedProblems()
@@ -244,10 +234,12 @@ struct MenuView: View {
                 problem in (problem.typeOfProblem != "arccotangent")}
         }
         
+        //set the current Problem to the first problem in the list
         modelData.currentProblem = modelData.allProblems[0]
-    }
-}
+    }//end compileProblems function
+}//end MenuView
 
+//struct for the Settings options that appear in the Side Menu
 struct SideMenu: View {
     let width: CGFloat
     let isOpen: Bool
@@ -261,7 +253,6 @@ struct SideMenu: View {
             }
             .background(Color.gray.opacity(0.3))
             .opacity(self.isOpen ? 1.0 : 0.0)
-            //.animation(Animation.easeOut.delay(0.25))
             .onTapGesture {
                 self.menuClose()
             }
@@ -283,9 +274,9 @@ struct SideMenu: View {
                 }
             }
             
-        }//.animation(Animation.easeInOut.delay(1))
+        }
     }
-}
+}//end SideMenu
 
 struct MenuView_Previews: PreviewProvider {
     static var previews: some View {
