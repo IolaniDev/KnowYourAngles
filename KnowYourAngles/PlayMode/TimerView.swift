@@ -245,22 +245,29 @@ struct TimerView: View {
     //function to control when the timer should start, stop, and/or be hidden
     func startTimerSequence () {
         //timerLabel could be "Timer" before the user starts playing or after the user has hit start if they decided not to use a timer
-        if(timerLabel == "Timer")
+        if(timerLabel == "Timer" || timerLabel == "00:00")
         {
             //if the user has hit Start and decided not to use a timer, hide the timer
             if(modelData.hasStarted)
             {
                 isTimerHidden = true
+                timerOn = false
             }
         }
         //If the user has selected a countdown time and has either pressed start or the hour glass
         else if(timerOn && timerLabel != "00:00")
         {
+            isActive = true
             modelData.hasStarted = true
             minRemaining = Int(timerLabel.components(separatedBy: ":")[0]) ?? 0
             secRemaining = Int(timerLabel.components(separatedBy: ":")[1]) ?? 0
             startTimer()
             isTimerHidden = false
+        }
+        //if the timer has been paused...
+        else if(!timerOn && timerLabel != "00:00")
+        {
+            isActive = false
         }
         else
         {
