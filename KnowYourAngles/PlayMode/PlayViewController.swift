@@ -121,6 +121,7 @@ struct PlayViewController: UIViewControllerRepresentable {
                 feedbackImageView.alpha = 0
             })
             
+            uiViewController.initialResult = ""
             //set up the next problem
             modelData.getNextProblem()
         }

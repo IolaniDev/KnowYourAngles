@@ -375,7 +375,6 @@
 				TargetAttributes = {
 					8429E1141D2C481500920987 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = JP7JGNH77T;
 						LastSwiftMigration = 1020;
 					};
 					8429E1281D2C481500920987 = {
@@ -679,6 +678,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = JP7JGNH77T;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = KnowYourAngles/Info.plist;
@@ -714,6 +714,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = JP7JGNH77T;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = KnowYourAngles/Info.plist;
