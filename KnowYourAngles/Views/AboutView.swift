@@ -26,7 +26,7 @@ struct AboutView: View {
                 //Spacer pushes text downwards for vertical alignment
                 Spacer()
                 
-                Text("About Know Your Angles")
+                Text("Know Your Angles")
                     .underline()
                     .font(.system(size: 80))
                     .padding()
@@ -35,10 +35,11 @@ struct AboutView: View {
                     .padding()
                 Text("Version: \(UIApplication.appVersion ?? "0.0.0"))")
                     .padding()
-                Text("Handwriting Recognition implemented using MyScript's Interactive Ink SDK 1.4")
+                Text("Handwriting Recognition implemented using MyScript's Interactive Ink")
                     .padding()
-                Text("Navigation Icons created using Canva")
-                
+                Text("Navigation Icons created using Canva").padding()
+                Link("Tap for Tutorial", destination: URL(string: "https://youtu.be/p0E-w-X2FjU")!).font(.system(size: 80))
+                    .foregroundColor(Color(red: 127.0/255, green: 255.0/255, blue: 250.0/255, opacity: 1.0))
                 //Spacer pushes text upwards for vertical alignment
                 Spacer()
                 
